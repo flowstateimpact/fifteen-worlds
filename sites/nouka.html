@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nouka · Electric ferries, Buriganga</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--w:#f5f1ea;--g:#0f2a24;--c:#f0c27e;--ink:#1d1f17;--hz:#e8e0cf}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--hz);color:var(--w);font-family:'Supreme',system-ui,sans-serif}
+#gl{position:fixed;inset:0;width:100%;height:100vh;display:block;z-index:0;touch-action:pan-y;cursor:crosshair}
+.drv{height:600vh;position:relative;pointer-events:none}
+.snd{position:fixed;right:18px;bottom:16px;z-index:4;background:rgba(29,31,23,.55);color:var(--w);border:1px solid rgba(245,241,234,.4);border-radius:40px;padding:8px 14px;font:700 11px 'Supreme';letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.ov{position:fixed;inset:0;pointer-events:none;z-index:2;transition:opacity .6s}
+.ov.off{opacity:0}
+.hd{position:absolute;top:20px;left:24px;right:24px;display:flex;justify-content:space-between;font:700 12px 'Supreme';letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:46vh;background:linear-gradient(rgba(20,22,14,0),rgba(20,22,14,.55));transition:opacity .8s}
+.sub{position:absolute;left:2vw;bottom:6vh;max-width:430px;transition:opacity .8s;text-shadow:0 1px 14px rgba(20,22,14,.7)}
+.sub b{font:400 clamp(28px,2.8vw,44px)/1 'Tanker';letter-spacing:.01em;display:block;margin-bottom:10px}
+.sub p{font-size:16px;line-height:1.55;opacity:.92}
+.beat{position:absolute;right:3vw;top:12vh;max-width:330px;padding:18px 20px 20px;background:rgba(29,31,23,.8);opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.beat.on{opacity:1;transform:none}
+.beat b{display:block;font:400 clamp(80px,9vw,150px)/.8 'Tanker';color:var(--c);margin-bottom:12px}
+.beat p{font-size:16px;line-height:1.5}
+.hint{position:absolute;right:3vw;bottom:62px;font:700 12px 'Supreme';letter-spacing:.14em;text-transform:uppercase;color:var(--w);text-shadow:0 1px 10px rgba(20,22,14,.8);transition:opacity .6s}
+.tt{position:relative;z-index:3;padding:12vh 2vw;background:var(--w);color:var(--g)}
+.tt h2{font:400 clamp(60px,9vw,170px)/.84 'Tanker';margin-bottom:6vh}
+.tt table{width:100%;border-collapse:collapse;font-size:clamp(15px,1.4vw,21px)}
+.tt td{padding:2.2vh 0;border-top:1px solid rgba(15,42,36,.25);vertical-align:baseline}
+.tt td:first-child{font:400 clamp(28px,3vw,50px)/1 'Tanker';width:34%}
+.tt td:last-child{text-align:right}
+.tt a{display:inline-block;margin-top:6vh;background:var(--g);color:var(--w);padding:16px 24px;border-radius:40px;text-decoration:none;font-weight:700;font-size:14px}
+@media (max-width:700px){.drv{height:520vh}.hd{font-size:10px;letter-spacing:.1em;flex-direction:column;gap:6px}.sub{right:5vw;bottom:10vh}.sub p{font-size:15px}
+ .beat{left:3vw;right:3vw;top:124px;max-width:none}.beat b{font-size:72px}.beat p{font-size:15px}.hint{bottom:62px;font-size:10px}.tt td:first-child{width:auto}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html button.snd#snd,
+html div.hd > span,
+html div.ov#ov > div.hint#hint,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.sub#sub > p,
+html div.beat > p{font-size:18px}
+}
+@media (max-width:699px){
+html button.snd#snd,
+html div.hd > span,
+html div.ov#ov > div.hint#hint,
+html a.fsi-tag{font-size:14px}
+html div.sub#sub > p,
+html div.beat > p{font-size:16px}
+}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--door-lrail:0px;--ix-bg:#0f2a24;--ix-fg:#f5f1ea;--ix-acc:#f0c27e;--ix-font:400 1em 'Tanker',sans-serif;--door-bg:#0f2a24;--door-fg:#f5f1ea}
+/* the ghat at Sadarghat, in perspective from the launch: the steps run the bank from the left edge into the river's haze (nouka-nav.js) */
+.ghat{position:fixed;inset:0;z-index:5;opacity:0;pointer-events:none;transition:opacity .8s,transform 1.1s cubic-bezier(.3,.6,.2,1)}
+.ghat.up{opacity:1}
+.ghat svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible;pointer-events:none}
+.ghat .hit{fill:transparent;cursor:pointer;transition:fill .3s}.ghat.up .hit{pointer-events:auto}.ghat .hit:hover{fill:rgba(255,236,214,.12)}
+body.on-wall .ghat,body.at-door .ghat{transform:translateY(var(--drop,0px));-webkit-mask:linear-gradient(180deg,#000 calc(100% - var(--drop,0px) - 90px),transparent calc(100% - var(--drop,0px) - 40px));mask:linear-gradient(180deg,#000 calc(100% - var(--drop,0px) - 90px),transparent calc(100% - var(--drop,0px) - 40px))}
+body.on-wall{--fogc:#e8e0cf}body.at-door{--fogc:var(--dbg,#0f2a24)}
+.ghat .keys{list-style:none;margin:0;padding:0}
+.ghat .keys button{all:unset;position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ghat .keys button:focus-visible{position:absolute;left:3vw;top:calc(var(--ly,50vh) - 44px);width:auto;height:auto;clip:auto;display:inline-block;font:700 14px 'Supreme';letter-spacing:.12em;text-transform:uppercase;color:#f5f1ea;background:#0f2a24;padding:6px 10px;outline:2px solid #f0c27e}
+.ghat .lab{position:absolute;left:3vw;top:var(--ly,50vh);white-space:nowrap;font:400 32px 'Tanker';color:#f5f1ea;text-shadow:0 1px 12px rgba(20,22,14,.75);opacity:0;transition:opacity .4s;pointer-events:none}
+.ghat.say .lab{opacity:1}
+/* the index is a fare board: tin painted launch-green, hand-lettered, two nails, rust weeping from one; it leans on the embankment wall */
+.ghat .ixb{all:unset;position:absolute;left:var(--bx,40px);top:var(--by,60vh);cursor:pointer;pointer-events:none;transform:translate(0,-100%) rotate(-3deg);transform-origin:20% 100%;padding:11px 17px 8px 19px;font:400 22px/1 'Tanker';letter-spacing:.08em;color:#efe6cf;background:radial-gradient(circle at 9px 8px,#10201b 0 1.6px,rgba(122,58,26,.8) 2.4px,transparent 4.6px),radial-gradient(1.6px 13px at 9px 17px,rgba(122,58,26,.6),transparent),radial-gradient(circle at calc(100% - 9px) 8px,#10201b 0 1.6px,rgba(122,58,26,.4) 2.3px,transparent 3.6px),linear-gradient(177deg,transparent 58%,rgba(20,40,33,.5) 59% 60%,transparent 61%),linear-gradient(180deg,#31604d,#1c3c31);border:1px solid #142b24;border-radius:2px;box-shadow:inset 0 0 0 2px rgba(239,230,207,.13),-5px 6px 0 rgba(28,16,10,.3);text-shadow:0 0 1px rgba(239,230,207,.45);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.ghat.up .ixb{pointer-events:auto}.ghat .ixb:hover{transform:translate(0,-100%) rotate(-1deg)}
+.ghat .ixb:focus-visible{outline:2px solid #f0c27e;outline-offset:3px}
+.chap.wallp{padding-bottom:max(12vh,170px)}#door .door-a{padding-bottom:max(14vh,190px)}
+/* the timetable painted on the ghat wall, one crossing to a panel */
+.chap.wallp{background:#e8e0cf;color:#0f2a24;padding-left:8vw;position:relative}
+.chap.wallp::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(15,42,36,.04) 0 2px,transparent 2px 28px),repeating-linear-gradient(90deg,rgba(15,42,36,.03) 0 1px,transparent 1px 90px);pointer-events:none}
+.wallp .k{font:700 14px 'Supreme';letter-spacing:.18em;text-transform:uppercase;color:#6b6a3e;margin-bottom:4vh}
+.wallp h2{font:400 clamp(48px,8vw,150px)/.9 'Tanker';letter-spacing:.01em;color:#0f2a24;transform:rotate(-.4deg);transform-origin:left bottom}
+.wallp .row{display:flex;justify-content:space-between;align-items:baseline;gap:4vw;max-width:900px;margin-top:3vh;font-size:22px;border-top:2px solid #0f2a24;padding-top:2.2vh}
+.wallp .row b{font:400 clamp(34px,4vw,64px) 'Tanker';color:#9e2b25}
+.wake{display:block;height:3px;width:min(900px,100%);margin-top:3vh;background:linear-gradient(90deg,#0f2a24,rgba(15,42,36,0))}
+.wallp .dl{display:inline-block;margin-top:5vh;background:#0f2a24;color:#f5f1ea;padding:16px 24px;border-radius:40px;text-decoration:none;font-weight:700;font-size:14px}
+/* the next world opens as a wake: a V from the stern that widens until it fills the frame */
+.door-a{--w:max(0%,calc((var(--rise,0) - .5) * 100%));clip-path:polygon(calc(50% - var(--w)) 100%,calc(50% - var(--rise,0) * 100%) 0,calc(50% + var(--rise,0) * 100%) 0,calc(50% + var(--w)) 100%);transition:clip-path .2s linear}
+@media (max-width:760px){:root{--door-lrail:0px}.ghat .lab{display:none}.ghat .ixb{font-size:17px;padding:9px 13px 6px 15px}.chap.wallp{padding-bottom:150px}#door .door-a{padding-bottom:170px}.wallp h2{font-size:15vw}.wallp .row{flex-direction:column;gap:1vh;font-size:18px}.chap.wallp{padding-left:6vw;padding-right:6vw}}
+@media (prefers-reduced-motion:reduce){.ghat .lvl,.ghat,.ghat .lab{transition:none}.door-a{clip-path:none}}
+</style>
+<style id="p14">
+@media (max-width:699px){html a.fsi-tag{top:76px;bottom:auto;left:20px;right:20px;white-space:normal}}
+</style>
+<style id="tk-css">
+/* the second act: the wall beside the ticket window. A sign-painter's river map and fare chart in enamel, low sun through the ghat railing, one sample ticket taped up. */
+.tkt{position:relative;z-index:3;min-height:100vh;scroll-snap-align:start;overflow:hidden;background:#e8e0cf;color:#0f2a24;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:4vw;align-items:center;padding:10vh 6vw max(14vh,200px) 8vw}
+.tkt::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(15,42,36,.04) 0 2px,transparent 2px 28px),repeating-linear-gradient(90deg,rgba(15,42,36,.03) 0 1px,transparent 1px 90px),radial-gradient(70% 90% at -8% 20%,rgba(255,196,120,.5),rgba(255,206,140,.12) 50%,transparent 70%),radial-gradient(50% 60% at 104% 100%,rgba(15,42,36,.2),transparent 70%)}
+.tkt::after{content:"";position:absolute;left:-10%;right:30%;top:38%;bottom:-10%;pointer-events:none;background:repeating-linear-gradient(112deg,rgba(15,42,36,.13) 0 22px,transparent 22px 132px);filter:blur(7px);-webkit-mask:linear-gradient(100deg,#000,transparent 82%);mask:linear-gradient(100deg,#000,transparent 82%);mix-blend-mode:multiply}
+.tkt > *{position:relative;z-index:1}
+.rmap{margin:0;position:relative}.rmap svg{display:block;width:100%;height:auto;overflow:visible}
+.rmap .pt{filter:url(#nk-paint)}
+.rmap .riv{fill:#2f6f68}.rmap .rivh{fill:none;stroke:#e8e0cf;stroke-width:2;stroke-dasharray:14 22;opacity:.5}
+.rmap .x{fill:none;stroke:#9e2b25;stroke-width:5;stroke-dasharray:3 11;stroke-linecap:round}
+.rmap .g{fill:#9e2b25}.rmap .br{fill:none;stroke:#0f2a24;stroke-width:5}.rmap .brp{stroke:#0f2a24;stroke-width:3}
+.rmap text{font:400 27px 'Tanker',sans-serif;fill:#0f2a24;letter-spacing:.02em}.rmap text.b{font:400 22px 'Tiro Bangla',serif;fill:#9e2b25}.rmap text.big{font-size:44px;fill:#0f2a24;opacity:.9}.rmap text.s{font:700 14px 'Supreme',sans-serif;letter-spacing:.14em;fill:#6b6a3e}
+.tk1{position:absolute;right:-2%;bottom:-9%;width:min(300px,46%);rotate:3.2deg;background:#f3c3c4;color:#3a1220;padding:12px 14px 12px 64px;box-shadow:-9px 10px 12px rgba(15,42,36,.3);font-family:'Tiro Bangla',serif}
+.tk1::before{content:"";position:absolute;left:50px;top:0;bottom:0;border-left:2px dotted rgba(58,18,32,.55)}
+.tk1::after{content:"";position:absolute;left:34%;top:-11px;width:84px;height:24px;rotate:-4deg;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(240,236,220,.34));box-shadow:0 1px 2px rgba(15,42,36,.2)}
+.tk1 .st{position:absolute;left:6px;top:50%;translate:0 -50%;writing-mode:vertical-rl;rotate:180deg;font:700 10px 'JetBrains Mono',monospace;letter-spacing:.08em;color:#b3261a}
+.tk1 b{display:block;font:400 30px/1 'Tiro Bangla',serif}.tk1 span{display:block;font-size:16px;line-height:1.35;margin-top:4px}
+.tk1 .no{font:700 15px 'JetBrains Mono',monospace;color:#b3261a;letter-spacing:.06em;margin-top:6px}
+.tk1 .dt{position:absolute;right:10px;bottom:8px;rotate:-9deg;font:700 11px 'JetBrains Mono',monospace;color:rgba(70,40,150,.8);border:1.5px solid rgba(70,40,150,.6);padding:3px 6px;border-radius:2px;mix-blend-mode:multiply}
+.fare .k{font:700 14px 'Supreme',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6b6a3e;margin:0 0 14px}
+.fare h2{font:400 clamp(44px,5vw,84px)/.9 'Tanker',sans-serif;margin:0;filter:url(#nk-paint)}.fare h2 i{display:block;font:400 .5em/1.3 'Tiro Bangla',serif;font-style:normal;color:#9e2b25}
+.fare ul{list-style:none;margin:22px 0 0;padding:0;border-top:3px solid #0f2a24}
+.fare li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;border-bottom:2px solid rgba(15,42,36,.5);font:700 19px/1.2 'Supreme',sans-serif}
+.fare li b{font:400 30px/1 'Tanker',sans-serif;color:#9e2b25;white-space:nowrap}.fare li small{display:block;font:400 15px/1.3 'Supreme',sans-serif;opacity:.8}
+.fare p{font:400 17px/1.5 'Supreme',sans-serif;margin:20px 0 0;max-width:30em}
+@media (max-width:860px){.tkt{grid-template-columns:1fr;gap:150px;padding:100px 6vw 190px}.tk1{right:0;bottom:-128px;width:230px}.tk1 b{font-size:24px}.tk1 .dt{bottom:auto;top:10px}.rmap text{font-size:30px}.rmap text.b{font-size:26px}.rmap text.s{font-size:17px}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="drv" id="drv"></div>
+<button class="snd" id="snd" type="button">Sound · off</button>
+<div class="ov" id="ov">
+ <div class="hd"><span>Nouka · electric ferries, Buriganga</span><span>No. 4 · Sadarghat to Keraniganj · 0 dB</span></div>
+ <div class="scrim" id="scrim"></div>
+ <div class="sub" id="sub"><b>Every twelve minutes, quietly.</b><p>Electric ferries on the Buriganga. No diesel, no smoke, no engine note over the water. Drag your finger across the river and make your own crossing.</p></div>
+ <div class="beat" data-a=".16" data-b=".36"><b>0</b><p>Litres of diesel. The batteries charge from solar panels on the terminal roof at Sadarghat.</p></div>
+ <div class="beat" data-a=".42" data-b=".62"><b>4</b><p>Minutes to cross. The same as the wooden boats, which is the point. Nobody has to change how they live.</p></div>
+ <div class="beat" data-a=".66" data-b=".84"><b>12</b><p>Minutes between boats, from half past five in the morning until half past eleven at night.</p></div>
+ <div class="hint" id="hint">Drag a line. The boat follows it.</div>
+</div>
+<nav class="ghat" id="ghat" aria-label="Chapters"><svg viewBox="0 0 160 110" aria-hidden="true"></svg><ol class="keys"></ol><button type="button" class="ixb" aria-label="Open the index">Timetable</button></nav>
+<section class="chap wallp" id="x1"><p class="k">Crossings · painted on the ghat wall</p><h2 class="sda">Sadarghat ⇄ Keraniganj</h2><p class="row sda"><span>Every 12 minutes · 05:30 to 23:30</span><b>৳ 20</b></p><i class="wake sda sda-w"></i></section>
+<section class="chap wallp" id="x2"><h2 class="sda">Wiseghat ⇄ Zinzira</h2><p class="row sda"><span>Every 15 minutes · 06:00 to 22:00</span><b>৳ 20</b></p><i class="wake sda sda-w"></i></section>
+<section class="chap wallp last" id="x3"><h2 class="sda">Babubazar ⇄ Kalindi</h2><p class="row sda"><span>Every 20 minutes · 06:00 to 21:00</span><b>৳ 25</b></p><i class="wake sda sda-w"></i><a class="dl sda" href="#">Download the timetable</a></section>
+<section class="tkt" id="tk" aria-label="Fares, tickets and the river map">
+ <figure class="rmap sda"><svg viewBox="0 0 640 430" role="img" aria-label="River map, painted on the wall: three crossings of the Buriganga between Dhaka on the north bank and Keraniganj on the south">
+  <defs><filter id="nk-paint" x="-4%" y="-8%" width="108%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.3" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency=".09 .22" numOctaves="3" seed="9" result="c"/><feColorMatrix in="c" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -16 11.400" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></defs>
+  <g class="pt"><text class="big" x="20" y="64">DHAKA</text><text class="b" x="186" y="60">ঢাকা</text>
+  <path class="riv" d="M-10 196C110 150 210 222 330 196S540 150 650 208V282C540 226 440 286 330 266S110 226-10 272Z"/><path class="rivh" d="M10 232C120 190 216 256 330 232S530 192 630 246"/>
+  
+  <path class="br" d="M58 150L92 300"/><path class="brp" d="M62 186l-12 3M70 220l-12 3M78 254l-12 3"/><text class="s" x="14" y="322">BRIDGE</text>
+  <path class="x" d="M168 176L188 268M352 190L340 276M540 168L556 244"/>
+  <circle class="g" cx="168" cy="170" r="10"/><circle class="g" cx="188" cy="274" r="10"/><circle class="g" cx="352" cy="186" r="10"/><circle class="g" cx="340" cy="282" r="10"/><circle class="g" cx="540" cy="162" r="10"/><circle class="g" cx="556" cy="250" r="10"/>
+  <text x="120" y="132">Babubazar</text><text class="b" x="120" y="156">বাবুবাজার</text><text x="302" y="146">Wiseghat</text><text class="b" x="302" y="170">ওয়াইজঘাট</text><text x="470" y="122">Sadarghat</text><text class="b" x="470" y="146">সদরঘাট</text>
+  <text x="150" y="316">Kalindi</text><text class="b" x="150" y="340">কালিন্দী</text><text x="296" y="324">Zinzira</text><text class="b" x="296" y="348">জিনজিরা</text><text x="486" y="296">Keraniganj</text><text class="b" x="486" y="320">কেরানীগঞ্জ</text>
+  <text class="s" x="196" y="226" style="fill:#f5f1ea">EVERY 20 MIN</text><text class="s" x="362" y="254" style="fill:#f5f1ea">EVERY 15</text><text class="s" x="566" y="216" style="fill:#f5f1ea">12</text>
+  <path d="M600 60V20M600 20l-8 12M600 20l8 12" fill="none" stroke="#0f2a24" stroke-width="4"/><text class="s" x="594" y="78">N</text>
+  <text class="big" x="20" y="410" style="font-size:36px">THE SOUTH BANK</text><text class="s" x="336" y="62">BURIGANGA RIVER · বুড়িগঙ্গা</text></g></svg>
+  <div class="tk1" aria-label="A sample ticket, taped to the wall"><i class="st">No. 048217</i><b>নৌকা</b><span>সদরঘাট ⇄ কেরানীগঞ্জ</span><span>যাত্রী ১ জন · ভাড়া ৳ ২০</span><span class="no">No. 048217</span><i class="dt">01 OCT 2026</i></div></figure>
+ <div class="fare sda"><p class="k">Beside the ticket window</p><h2>Fares<i>ভাড়ার তালিকা</i></h2>
+  <ul><li><span>One crossing<small>৳ 25 from Babubazar</small></span><b>৳ 20</b></li><li><span>Book of ten</span><b>৳ 180</b></li><li><span>Bicycle, or one bundle</span><b>৳ 10</b></li><li><span>A month, any ghat</span><b>৳ 600</b></li><li><span>Children under five</span><b>Free</b></li></ul>
+  <p>Buy at the window, cash or bKash, and show the ticket to the deckhand as you step on. The times on the wall are leaving times. Each boat seats 48, with a lifejacket under every seat, and the ramp sits level with the pontoon for a wheelchair or a loaded cycle.</p></div>
+</section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"t":"The steps","at":0},{"t":"No diesel","at":0.2},{"t":"Four minutes","at":0.48},{"t":"Every twelve","at":0.72},{"t":"Sadarghat to Keraniganj","el":"#x1"},{"t":"Wiseghat to Zinzira","el":"#x2"},{"t":"Babubazar to Kalindi","el":"#x3"},{"t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html" style="z-index:5">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="nouka-scene.js"></script>
+<script type="module" src="nouka-nav.js"></script>
+</body>
+</html>

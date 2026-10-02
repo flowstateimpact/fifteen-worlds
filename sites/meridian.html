@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meridian · Chattogram to Felixstowe</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--pp:#efe8d8;--ink:#1d2a3a;--red:#b8321f;--st:#35424a;--fog:#a9b3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--fog);color:var(--pp);font-family:'JetBrains Mono',monospace}
+#gl{position:fixed;inset:0;width:100%;height:100vh;display:block;z-index:0;touch-action:pan-y;cursor:grab}
+#gl:active{cursor:grabbing}
+.drv{height:900vh;position:relative;pointer-events:none}
+.snd{position:fixed;right:18px;bottom:16px;z-index:4;background:rgba(29,42,58,.6);color:var(--pp);border:1px solid rgba(239,232,216,.4);border-radius:2px;padding:8px 12px;font:400 11px 'JetBrains Mono';letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.ov{position:fixed;inset:0;pointer-events:none;z-index:2}
+.top{position:absolute;top:18px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.top b{font:700 15px 'Bespoke Stencil',sans-serif;letter-spacing:.06em}
+.cnt{position:absolute;right:22px;top:52px;text-align:right;color:var(--ink);background:rgba(239,232,216,.84);padding:10px 12px 9px}
+.cnt b{display:block;font:700 clamp(40px,4.6vw,70px)/.9 'Bespoke Stencil',sans-serif;letter-spacing:-.01em}
+.cnt span{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase}
+.top{transition:color .6s,text-shadow .6s}.ov.lt .top{color:var(--pp);text-shadow:0 1px 12px rgba(20,28,36,.8)}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:44vh;background:linear-gradient(rgba(29,42,58,0),rgba(29,42,58,.62));transition:opacity .8s}
+.intro{position:absolute;left:22px;bottom:7vh;max-width:500px;transition:opacity .7s}
+.intro h1{font:700 clamp(42px,5.4vw,92px)/.88 'Bespoke Stencil',sans-serif;letter-spacing:-.01em;margin-bottom:14px}
+.intro p{font-size:13.5px;line-height:1.7;max-width:430px}
+.card{position:absolute;left:22px;bottom:7vh;max-width:430px;transition:opacity .6s,transform .6s}
+.card.hide{opacity:0;transform:translateY(14px)}
+.card i{display:block;font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.card h2{font:italic 400 clamp(30px,3.4vw,52px)/1 'Gambetta',serif;margin-bottom:10px}
+.card p{font-size:13px;line-height:1.65}
+.hint{position:absolute;right:22px;bottom:58px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;transition:opacity .6s;text-shadow:0 1px 10px rgba(29,42,58,.7)}
+.end{position:fixed;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:rgba(29,42,58,.9);color:var(--pp);opacity:0;transition:opacity .8s;pointer-events:none}
+.end.on{opacity:1;pointer-events:auto}
+.end h2{font:700 clamp(60px,10vw,180px)/.84 'Bespoke Stencil',sans-serif}
+.end p{margin:22px 16px 28px;font-size:13px;letter-spacing:.04em;max-width:520px;line-height:1.7}
+.end a{color:var(--ink);background:var(--pp);padding:15px 22px;text-decoration:none;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+@media (max-width:720px){.drv{height:760vh}.top span{display:none}.cnt{top:74px}.intro,.card{right:18px;left:18px;bottom:11vh}.intro p,.card p{font-size:13px}.hint{bottom:58px;font-size:10px}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html button.snd#snd,
+html div.top > span,
+html div.cnt > span#cl,
+html div.ov > div.hint#hint,
+html div.end#end > a,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.intro#intro > p,
+html div.end#end > p{font-size:18px}
+}
+@media (max-width:699px){
+html button.snd#snd,
+html div.cnt > span#cl,
+html div.ov > div.hint#hint,
+html div.end#end > a,
+html a.fsi-tag{font-size:14px}
+html div.intro#intro > p,
+html div.end#end > p{font-size:16px}
+}
+</style>
+<style id="type">
+html,body{font-family:'Switzer',system-ui,sans-serif}
+html div.intro#intro > p,html div.card#card > p#cp,html div.end#end > p{font:400 18px/28px 'Switzer',system-ui,sans-serif;letter-spacing:0}
+html div.top,html div.card#card > i#ci,html div.cnt > span#cl,html div.ov > div.hint#hint,html button.snd#snd,html div.end#end > a{font-family:'Switzer',system-ui,sans-serif;font-weight:500;font-size:14px;letter-spacing:.12em}
+html div.card#card > h2#ch{font:400 clamp(30px,3.4vw,48px)/56px 'JetBrains Mono',monospace;font-style:normal;letter-spacing:-.02em}
+@media (max-width:699px){html div.intro#intro > p,html div.card#card > p#cp,html div.end#end > p{font-size:16px;line-height:26px}}
+</style>
+<style id="type-display">
+html div.top,html a.fsi-tag{text-shadow:0 0 5px rgba(239,232,216,.95),0 0 12px rgba(239,232,216,.8),0 0 22px rgba(239,232,216,.5)}
+html div.intro#intro > h1{font:700 clamp(42px,5.4vw,84px)/.92 'JetBrains Mono',monospace;letter-spacing:-.03em}
+html div.end#end > h2{font:700 clamp(60px,10vw,160px)/.86 'JetBrains Mono',monospace;letter-spacing:-.04em}
+html div.top > b{font:700 14px/1 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+html div.cnt > b#cn{font:700 clamp(40px,4.6vw,70px)/.9 'JetBrains Mono',monospace;letter-spacing:-.02em}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--door-lrail:clamp(84px,13vw,190px);--ix-bg:#1d2a3a;--ix-fg:#efe8d8;--ix-acc:#b8321f;--ix-font:700 1em 'JetBrains Mono',monospace;--door-bg:#1d2a3a;--door-fg:#efe8d8}
+/* a strip cut from the ship's deck, the voyage lane painted on it, crossing the quay onto the terminal's asphalt at Felixstowe (built in meridian-nav.js) */
+.lane{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:5;width:132px;height:min(600px,74vh);filter:drop-shadow(0 8px 16px rgba(15,20,26,.38))}
+.lane .deck{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lane ol{list-style:none;margin:0;padding:0}
+.lane ol button{all:unset;cursor:pointer;position:absolute;left:0;width:100%}
+.lane ol button em{position:absolute;left:calc(100% + 14px);top:50%;transform:translateY(-50%);font:500 14px 'Switzer',sans-serif;font-style:normal;letter-spacing:.04em;white-space:nowrap;color:#1d2a3a;text-shadow:0 0 5px rgba(239,232,216,.9),0 0 2px rgba(239,232,216,.9);opacity:0;transition:opacity .3s;pointer-events:none}
+body.past .lane ol button em{color:#efe8d8;text-shadow:0 0 5px rgba(20,28,38,.8),0 0 2px rgba(20,28,38,.8)}
+.lane.say button.on em,.lane ol button:hover em,.lane ol button:focus-visible em{opacity:.95}
+.lane ol button:focus-visible{outline:2px solid #b8321f;outline-offset:-2px}
+.lane .box{position:absolute;left:var(--bx,26px);top:var(--y,0px);width:36px;height:12px;margin-left:-18px;transition:top .6s cubic-bezier(.2,.7,.1,1) .2s,transform .22s ease-out,filter .22s;filter:drop-shadow(1.5px 2.5px 1.2px rgba(8,10,12,.6))}
+.lane .box.lift{transform:scale(1.16);filter:drop-shadow(5px 8px 4px rgba(8,10,12,.4))}
+.lane .box svg{display:block;width:100%;height:100%}
+.lane .ixb{all:unset;cursor:pointer;position:absolute;left:8px;right:8px;bottom:10px;height:72px;transform:rotate(-.8deg);transition:transform .3s}
+.lane .ixb:hover{transform:rotate(-2.4deg) translateY(-2px)}
+.lane .ixb svg{display:block;width:100%;height:100%;overflow:visible}
+.lane .ixb:focus-visible{outline:2px solid #b8321f;outline-offset:3px}
+.lane .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (min-width:761px){.intro,.card{left:196px}}
+body.past a.fsi-tag{text-shadow:none!important;color:#efe8d8!important}
+.chap.schedule,.chap.kept{background:#35424a;color:#efe8d8}
+.chap.schedule,.chap.kept{padding-left:max(6vw,196px)}
+.schedule .k{font:500 14px 'Switzer';letter-spacing:.12em;text-transform:uppercase;color:rgba(239,232,216,.7);margin-bottom:4vh}
+.stack{list-style:none;margin:0;padding:0;max-width:980px;display:flex;flex-direction:column-reverse;gap:6px}
+.stack li{display:grid;grid-template-columns:1.1fr 1fr 1.4fr;gap:3vw;align-items:baseline;padding:24px 28px;background:repeating-linear-gradient(90deg,rgba(0,0,0,0) 0 22px,rgba(0,0,0,.07) 22px 26px),#8c3b2a;color:#efe8d8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.35),inset 0 -6px 0 rgba(0,0,0,.18);font-size:18px}
+.stack li:nth-child(2){background:repeating-linear-gradient(90deg,rgba(0,0,0,0) 0 22px,rgba(0,0,0,.07) 22px 26px),#a9b3b8;color:#1d2a3a}.stack li:nth-child(4){background:repeating-linear-gradient(90deg,rgba(0,0,0,0) 0 22px,rgba(0,0,0,.07) 22px 26px),#5a6b74}
+.stack li b{font:700 clamp(22px,2.2vw,32px) 'JetBrains Mono',monospace;letter-spacing:-.02em}
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.stack li{animation:crane linear both;animation-timeline:view();animation-range:entry 0% entry 80%}@keyframes crane{from{opacity:0;transform:translateY(-40vh)}70%{opacity:1;transform:translateY(0)}85%{transform:translateY(-6px)}to{transform:none}}}}
+.schedule p{margin-top:4vh;font-size:18px;max-width:34em}
+.kept h2{font:700 clamp(60px,10vw,160px)/.86 'JetBrains Mono',monospace;letter-spacing:-.04em}.kept p{margin:3vh 0 4vh;font-size:18px;max-width:30em;line-height:1.7}.kept a{display:inline-block;color:#1d2a3a;background:#efe8d8;padding:15px 22px;text-decoration:none;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+.door-a{clip-path:none;transform:translateY(calc((1 - var(--rise,0)) * -100%));transition:transform .25s cubic-bezier(.4,0,.7,.2)}
+@media (max-width:760px){.lane{left:6px;top:118px;transform:none;width:60px;height:clamp(250px,calc(100vh - 460px),400px)}.lane .box{width:22px;height:8px;margin-left:-11px}.lane .ixb{left:4px;right:4px;bottom:5px;height:46px}.lane ol button em{font-size:13px;left:calc(100% + 10px)}.stack li{grid-template-columns:1fr;gap:6px;padding:18px 20px}.chap.schedule,.chap.kept{padding-left:84px}}
+@media (prefers-reduced-motion:reduce){.lane .box{transition:none}.stack li{animation:none}.door-a{transform:none}}
+</style>
+<style id="box-css">
+/* the second act (meridian-box.js): one box. Its door end, its voyage, what it costs. */
+.chap.onebox{background:#2c373e;color:#efe8d8;padding-left:max(6vw,196px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:5vw;align-items:center;position:relative;overflow:hidden}
+.onebox::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 2% 70%,rgba(255,180,110,.2),transparent 62%);pointer-events:none}
+.onebox figure{position:relative;margin:0;justify-self:center;width:min(430px,30vw,60vh)}
+.onebox figure svg{display:block;width:100%;height:auto;filter:drop-shadow(34px 18px 20px rgba(0,0,0,.6))}
+.onebox figcaption{margin-top:20px;font:500 14px 'JetBrains Mono',monospace;letter-spacing:.06em;color:rgba(239,232,216,.65);text-align:center}
+.onebox .tx{position:relative;max-width:40em}
+.onebox .k{font:500 14px 'Switzer';letter-spacing:.12em;text-transform:uppercase;color:rgba(239,232,216,.7)}
+.onebox h2{margin-top:12px;font:700 clamp(38px,4.6vw,76px)/.9 'JetBrains Mono',monospace;letter-spacing:-.04em}
+.onebox form{margin-top:3vh}.onebox label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.onebox form div{display:flex;gap:8px;max-width:420px}
+.onebox input{flex:1;min-width:0;background:#1d2a3a;border:1px solid rgba(239,232,216,.35);color:#efe8d8;font:700 18px 'JetBrains Mono',monospace;letter-spacing:.06em;padding:12px 14px}
+.onebox button{background:#b8321f;color:#efe8d8;border:0;font:500 14px 'Switzer';letter-spacing:.12em;text-transform:uppercase;padding:0 18px;cursor:pointer}
+.onebox #bmsg{margin-top:10px;font-size:16px;min-height:1.5em;color:rgba(239,232,216,.85)}
+.legs{list-style:none;margin:2.4vh 0 0;padding:0;border-top:1px solid rgba(239,232,216,.2);transition:opacity .4s}.legs.off{opacity:.25}
+.legs li{display:grid;grid-template-columns:5.2em 3em 1fr;gap:10px;padding:7px 0;border-bottom:1px solid rgba(239,232,216,.12);font-size:15px;color:rgba(239,232,216,.5)}
+.legs li b{font:700 14px 'JetBrains Mono',monospace}.legs li i{font-style:normal}
+.legs li.done{color:rgba(239,232,216,.85)}.legs li.now{color:#efe8d8;background:#b8321f;padding-left:10px;margin-left:-10px}
+.onebox table{width:100%;max-width:420px;margin-top:3vh;border-collapse:collapse;font-size:16px}
+.onebox th{text-align:left;font:500 14px 'Switzer';letter-spacing:.1em;text-transform:uppercase;color:rgba(239,232,216,.6);padding-bottom:8px}
+.onebox td{padding:8px 0;border-top:1px solid rgba(239,232,216,.18)}.onebox td:last-child,.onebox th:last-child{text-align:right;font-family:'JetBrains Mono',monospace}
+.onebox .cut{margin-top:2.4vh;font-size:15px;color:rgba(239,232,216,.8)}.onebox .cut b{font-weight:500;color:#efe8d8}
+@media (max-width:760px){.chap.onebox{grid-template-columns:minmax(0,1fr);padding-left:84px;padding-right:16px;gap:26px}.onebox input{font-size:15px;padding:10px}.onebox button{padding:0 12px}.onebox figure{width:min(250px,62vw)}.legs li{grid-template-columns:4.6em 1fr;font-size:14px}.legs li i{display:none}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="drv" id="drv"></div>
+<button class="snd" id="snd" type="button">Sound · off</button>
+<div class="ov">
+ <div class="top"><b>Meridian Freight</b><span>Chattogram ⇄ Felixstowe · direct · every other Tuesday</span></div>
+ <div class="cnt"><b id="cn">1,200</b><span id="cl">boxes aboard of 1,240</span></div>
+ <div class="scrim" id="scrim"></div>
+ <div class="intro" id="intro"><h1>Twenty-one days.<br>Same ship.</h1><p>Loaded once at Chattogram, opened once in Britain. 1,240 boxes a sailing, every other Tuesday. Scroll or drag to finish loading and sail it.</p></div>
+ <div class="card hide" id="card"><i id="ci"></i><h2 id="ch"></h2><p id="cp"></p></div>
+ <div class="hint" id="hint">Scroll or drag to sail</div>
+</div>
+<nav class="lane" id="lane" aria-label="Chapters"></nav>
+<section class="chap schedule" id="schedule">
+ <p class="k sda">Sailing schedule · every other Tuesday · 21 days</p>
+ <ol class="stack">
+  <li><b>Tue 06 Oct</b><span>Chattogram</span><span>Felixstowe · Tue 27 Oct</span></li>
+  <li><b>Tue 20 Oct</b><span>Chattogram</span><span>Felixstowe · Tue 10 Nov</span></li>
+  <li><b>Tue 03 Nov</b><span>Chattogram</span><span>Felixstowe · Tue 24 Nov</span></li>
+  <li><b>Tue 17 Nov</b><span>Chattogram</span><span>Felixstowe · Tue 08 Dec</span></li>
+ </ol>
+ <p class="sda">Loaded once at Chattogram, opened once in Britain. 1,240 boxes a sailing.</p>
+</section>
+<section class="chap onebox" id="onebox"></section>
+<section class="chap kept" id="kept"><h2 class="sda">Day 21.<br>Kept.</h2><p class="sda">One ship a fortnight, twenty-one days each. Tell your buyer a date. Nobody has to apologise for it.</p><a class="sda" href="#">Get the sailing schedule</a></section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"CGP","t":"Chattogram · loading","at":0},{"n":"DDH","t":"Dondra Head · day 3","at":0.275},{"n":"BEM","t":"Bab-el-Mandeb · day 8","at":0.51},{"n":"SUZ","t":"Suez · day 12","at":0.63},{"n":"GIB","t":"Gibraltar · day 17","at":0.833},{"n":"FXT","t":"Felixstowe · day 21","at":0.96},{"n":"A03","t":"The schedule","el":"#schedule"},{"n":"BOX","t":"One box","el":"#onebox"},{"n":"GATE","t":"Kept","el":"#kept"},{"n":"OUT","t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html" style="z-index:5;color:#1d2a3a;mix-blend-mode:normal;bottom:auto;top:40px">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="meridian-scene.js"></script>
+<script type="module" src="meridian-box.js"></script>
+<script type="module" src="meridian-nav.js"></script>
+</body>
+</html>

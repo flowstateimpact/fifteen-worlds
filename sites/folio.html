@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Folio · Issue 14, Rivers</title>
+<meta name="description" content="A quarterly of long reading, lying on a linen mat by a north window. Turn the leaf and it bends. Concept site by FlowStãte Impact, fictional brand.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#0e0b09;color:#f3efe6;font-family:'Gambetta',Georgia,serif}
+#gl{position:fixed;inset:0;width:100vw;height:100vh;cursor:grab;touch-action:none}
+#gl.drag{cursor:grabbing}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* the hint is a line of the magazine's own italic, standing above the credit's band; it was a stock pill that touched the credit */
+.hint{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);z-index:50;font:italic 400 19px 'Gambetta',Georgia,serif;color:#f3efe6;text-shadow:0 1px 14px rgba(14,11,9,.95),0 0 3px rgba(14,11,9,.8);white-space:nowrap;transition:opacity .8s;pointer-events:none}
+#snd{position:fixed;right:24px;bottom:16px;z-index:50;font:400 10.5px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,239,230,.8);background:rgba(14,11,9,.6);border:1px solid rgba(243,239,230,.3);border-radius:20px;padding:7px 12px;cursor:pointer}
+@media (max-width:760px){.hint{bottom:66px}#snd{bottom:auto;top:12px;right:12px}}   /* on a phone the sound button sat on the credit line; it goes to the top corner */
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.hint#hint{font-size:19px}
+html button#snd,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+}
+@media (max-width:699px){
+html div.hint#hint{font-size:17px}
+html button#snd,
+html a.fsi-tag{font-size:14px}
+}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--ix-bg:#f3efe6;--ix-fg:#1a1612;--ix-acc:#c8321f;--ix-font:600 1em 'Gambetta',serif;--door-bg:#d8cfbf;--door-fg:#1a1612;--door-rail:200px}
+/* the thumb index: a close crop of the magazine's fore-edge, notches cut into it, built in folio-nav.js */
+.fedge{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:60;width:150px;height:min(600px,74vh)}
+.fedge .full{position:absolute;inset:0}
+.fedge .ed{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
+.fedge .tkg{transition:transform .55s cubic-bezier(.3,.8,.2,1)}
+.fedge ol{list-style:none;margin:0;padding:0}
+.fedge ol button{all:unset;cursor:pointer;position:absolute;right:0;border-radius:24px 0 0 24px}
+.fedge ol button:focus-visible{outline:2px solid #c8321f;outline-offset:-3px}
+.fedge .ixb{all:unset;cursor:pointer;position:absolute;left:4px;top:0;width:112px;height:60px;transition:transform .35s}
+.fedge .ixb:hover{transform:rotate(-2deg) translateY(-2px)}.fedge .ixb svg{display:block;width:100%;height:100%;overflow:visible}
+.fedge .ixb:focus-visible{outline:2px solid #c8321f;outline-offset:2px}
+.fedge .sl,.fedge .grip{display:none}
+.fsay{position:fixed;left:50%;top:5.5vh;transform:translateX(-50%);z-index:55;margin:0;font:italic 400 21px 'Gambetta',Georgia,serif;color:#1a1612;text-shadow:0 0 10px rgba(236,229,214,.95),0 0 3px rgba(236,229,214,.95);white-space:nowrap;opacity:0;transition:opacity .5s;pointer-events:none}
+.fsay.on{opacity:1}html.is-desk.scrolled .fsay{opacity:0}
+.dk{position:relative;z-index:40;display:none}
+html.is-desk,html.is-desk body{height:auto;overflow-x:hidden;overflow-y:auto}
+html.is-desk .dk{display:block;margin-top:100vh}
+html.is-desk #gl{touch-action:pan-y}
+html.is-desk.scrolled #gl{pointer-events:none}
+html.is-desk.scrolled .hint,html.is-desk.scrolled #snd{opacity:0;pointer-events:none}
+.chap.sheet{display:flex;align-items:center;padding:12vh max(6vw,210px) 12vh 6vw;background:repeating-linear-gradient(0deg,rgba(0,0,0,.035) 0 1px,transparent 1px 3px),#b9ad98}
+.paper,.card{max-width:720px;background:#f3efe6;color:#1a1612;padding:clamp(28px,5vw,72px);box-shadow:0 1px 0 #fff inset,0 30px 50px rgba(40,30,15,.35),0 2px 3px rgba(40,30,15,.3);transform:rotate(-1.2deg)}
+.card{max-width:520px;margin-left:auto;transform:rotate(2deg);border-top:6px solid #c8321f}
+.sheet .meta{font:400 14px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#6f685c}
+.sheet h2{font:600 clamp(30px,3.6vw,56px)/1.05 'Gambetta',serif;margin:2vh 0 4vh}.sheet h2 i{color:#c8321f}
+.sheet dl{display:grid;grid-template-columns:auto 1fr;gap:10px 28px;font-size:18px}.sheet dt{font:400 14px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#6f685c;padding-top:4px}
+.card p{font-size:18px;line-height:1.55;margin-bottom:3vh}.card a{display:inline-block;background:#1a1612;color:#f3efe6;padding:15px 24px;text-decoration:none;font:400 14px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.door{perspective:1600px}.door-a{clip-path:none;transform-origin:left center;transform:rotateY(calc((1 - var(--rise,0)) * -88deg));transition:transform .25s linear;backface-visibility:hidden;box-shadow:inset 40px 0 60px -40px rgba(0,0,0,.35)}
+@media (max-width:760px){
+ .fedge{right:0;width:16px;height:min(56vh,440px)}
+ .fedge .sl{display:block;position:absolute;inset:0;width:100%;height:100%}
+ .fedge .grip{display:block;all:unset;position:absolute;right:0;top:0;width:44px;height:100%;cursor:pointer}
+ .fedge .full{left:auto;right:0;width:150px;opacity:0;pointer-events:none;transform:translateX(40px);transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+ .fedge.open .full{opacity:1;pointer-events:auto;transform:none}
+ .fedge .grip:focus-visible{outline:2px solid #c8321f;outline-offset:-2px}
+ .fsay{font-size:18px;top:4vh}
+ .chap.sheet{padding:9vh 22px}.paper,.card{transform:none}}
+@media (prefers-reduced-motion:reduce){.fedge .tkg,.fedge .full{transition:none}.door-a{transform:none}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="Folio, issue 14, lying on a linen mat by a window. Drag a page to turn it, or tap its edge. Arrow keys also turn the pages."></canvas>
+<div id="src" class="sr" aria-label="Folio, issue 14, Rivers: the pages as text">
+ <div class="base colophon"><span class="meta">Folio · A quarterly of long reading</span><h2>Issue fourteen is about water that will not stay where we put it.</h2>
+  <dl><dt>Editor</dt><dd>Nasreen Kabir</dd><dt>Art direction</dt><dd>Theo Marsh</dd><dt>Printed</dt><dd>On uncoated paper in Leith, Scotland</dd><dt>Offices</dt><dd>London and Dhaka</dd><dt>Price</dt><dd>£14 · ৳ 1,800</dd></dl><span class="pn">ii</span></div>
+ <div class="leaf"><div class="face front cover"><span class="meta">Folio · Autumn 2026 · Issue</span><div class="n">14</div><div><div class="mast">Folio</div>
+   <ul><li><i>Essay</i>The river keeps the receipts</li><li><i>Reportage</i>Eleven days on the Barishal launch</li><li><i>Fiction</i>Ferry, 5:40 am</li><li><i>Lexicon</i>Thirteen words for river</li></ul></div></div>
+  <div class="face back contents"><span class="meta">In this issue</span><h2>Rivers</h2><ol>
+   <li><b>04</b><span>The river keeps the receipts<i>Essay · Farhana Ali</i></span></li><li><b>19</b><span>A ledger written in silt<i>Reportage · Barishal to Sadarghat</i></span></li><li><b>36</b><span>Thirteen words for river<i>Lexicon</i></span></li><li><b>41</b><span>Ferry, 5:40 am<i>Fiction</i></span></li><li><b>58</b><span>Next issue: Salt<i>Subscriptions</i></span></li></ol><span class="pn">3</span></div></div>
+ <div class="leaf"><div class="face front essay"><span class="meta">Essay · 04</span><h1>The river keeps the receipts</h1><div class="cols">
+   <p class="first">Every monsoon the Padma moves the way a debt moves: quietly, compounding, until one morning a family on the char finds the river has come to collect. The field they planted in March is water by September. The land that rises somewhere downstream belongs, for now, to nobody.</p>
+   <p>Hydrologists call this erosion and accretion. The farmers on the chars call it the river's accounting. It takes a field here and writes one there, and it never loses track of a single grain.</p>
+   <p>I spent eleven days on a launch between Barishal and Sadarghat trying to learn who reads that ledger. The answer, it turned out, was almost everyone except the people who draw the maps.</p></div><span class="pn">4</span></div>
+  <div class="face back quote"><span class="meta" style="position:absolute;top:5.5vh">Pull quote</span><blockquote>“The government map is a photograph. <em>This is the film.</em>”</blockquote><span class="pn">18</span></div></div>
+ <div class="leaf"><div class="face front essay"><span class="meta">Reportage · 19</span><div class="cols" style="margin-top:4vh">
+   <p class="first">The launch captain has made the same crossing for twenty-six years and keeps no charts. He keeps a notebook. Each page is a date and a list of what has changed: a sandbar off Chandpur grown longer, a ghat washed away, a new channel cut behind an island that did not exist when his son was born.</p>
+   <p>He showed me the government survey sheet folded in the wheelhouse drawer. It was eleven years old. He tapped it twice and said the line that became this issue's pull quote.</p>
+   <p>He is right in a way that should worry anyone who builds near water. A map assumes the ground will wait. The delta has never agreed to that.</p></div>
+   <div class="side"><div class="note">Bangladesh sits on the largest river delta on earth, built by the Ganges, the Brahmaputra and the Meghna.</div>
+   <div class="tbl"><div><span>Padma</span><span>366 km</span></div><div><span>Meghna</span><span>264 km</span></div><div><span>Jamuna</span><span>205 km</span></div><div><span>Launch, one way</span><span>11 h</span></div></div></div><span class="pn">19</span></div>
+  <div class="face back words"><div class="bn">নদী<i>Bangla · nodi</i></div><div>river<i>English</i></div><div>río<i>Spanish</i></div><div>fleuve<i>French</i></div><div>नदी<i>Hindi · nadi</i></div><div>نهر<i>Arabic · nahr</i></div><div>река<i>Russian · reka</i></div><div>川<i>Japanese · kawa</i></div><div>joki<i>Finnish</i></div><div>mto<i>Swahili</i></div><div>awa<i>Māori</i></div><div>afon<i>Welsh</i></div>
+   <p class="foot">Thirteen, counting the one hiding in England: Avon comes from the old Brittonic word for river, so the River Avon is, word for word, River River.</p><span class="pn">36</span></div></div>
+ <div class="leaf"><div class="face front fic"><span class="meta">Fiction · 41</span><h1>Ferry, 5:40 am</h1>
+   <p>The horn goes twice before anyone is ready. My mother is still tying the last knot on the tiffin carrier, and my brother is asleep on the sacks of rice as if he paid extra for them. On the upper deck a man sells tea from a kettle that has been hot, I think, since before I was born.</p>
+   <p>We are going to Dhaka because my father is there. Nobody has said it any other way.</p>
+   <p>The river is the colour of milk tea. When the engine starts the whole boat shivers, and so do I, and my mother puts her hand on the back of my neck without looking, the way she does when she is counting us.</p><span class="pn">41</span></div>
+  <div class="face back sub"><span class="meta">Subscriptions</span><h2>Four issues.<br><i>£48.</i><br>Posted anywhere.</h2><div><p style="font-size:17px;line-height:1.5;max-width:26em;margin-bottom:3vh">Folio arrives four times a year and asks for an evening each time. Subscribers read every issue a month before the shops.</p><a href="#">Subscribe</a></div><span class="pn">58</span></div></div>
+ <div class="leaf"><div class="face front bcover"><span class="meta">Folio 15 · Winter 2026</span><h2>Next:<br>Salt.</h2><div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="meta">folio-quarterly · London · Dhaka</span><div class="bar" id="bar"></div></div></div><div class="face back" style="background:#0f0d0b"></div></div>
+</div>
+<div class="hint" id="hint">Drag the page; hold it half-turned</div>
+<button id="snd">Sound · off</button>
+<nav class="fedge" id="fedge" aria-label="Chapters"></nav>
+<div class="dk" id="desk">
+ <section class="chap sheet" id="colophon"><div class="paper sda"><span class="meta">Folio · A quarterly of long reading</span><h2>Issue fourteen is about water that will not stay where we put it.</h2>
+  <dl><dt>Editor</dt><dd>Nasreen Kabir</dd><dt>Art direction</dt><dd>Theo Marsh</dd><dt>Printed</dt><dd>On uncoated paper in Leith, Scotland</dd><dt>Offices</dt><dd>London and Dhaka</dd><dt>Price</dt><dd>£14 · ৳ 1,800</dd></dl></div></section>
+ <section class="chap sheet" id="subs"><div class="card sda"><span class="meta">Subscriptions</span><h2>Four issues.<br><i>£48.</i><br>Posted anywhere.</h2><p>Folio arrives four times a year and asks for an evening each time. Subscribers read every issue a month before the shops.</p><a href="#">Subscribe</a></div></section>
+ <section class="door chap" id="door"></section>
+</div>
+<script type="application/json" id="chapters">[{"n":"i","t":"Cover · Rivers","k":0},{"n":"3","t":"Contents and the essay","k":1},{"n":"19","t":"Reportage · the launch","k":2},{"n":"36","t":"Lexicon and the fiction","k":3},{"n":"58","t":"Subscriptions","k":4},{"n":"ii","t":"Colophon","el":"#colophon"},{"n":"","t":"Four issues","el":"#subs"},{"n":"","t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="folio-scene.js"></script>
+<script type="module" src="folio-nav.js"></script>
+</body>
+</html>

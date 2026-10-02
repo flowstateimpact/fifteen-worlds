@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dark Room · What the Casts Remember</title>
+<meta name="description" content="Plaster casts from a closed art school, 1881 to 1962, lit only by your torch. Concept site by FlowStãte Impact, fictional brand.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#050505;color-scheme:dark}
+body{background:#050505;color:#ece7de;font-family:'Switzer',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;cursor:crosshair;touch-action:pan-y}
+.walk{height:620vh;position:relative;pointer-events:none}
+.bar{position:fixed;left:0;right:0;height:7vh;background:#000;z-index:3;pointer-events:none}
+.bar.t{top:0}.bar.b{bottom:0;height:var(--bb)}
+.head{position:fixed;left:32px;right:32px;top:calc(7vh + 18px);display:flex;justify-content:space-between;z-index:4;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,231,222,.72);pointer-events:none}
+.card{position:fixed;left:8vw;top:50%;transform:translateY(-50%);z-index:4;pointer-events:none;max-width:900px}
+.card .k{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:#c9a26a;margin-bottom:22px}
+.card h1{font:300 clamp(56px,8.6vw,150px)/.9 'Sentient',serif;letter-spacing:-.035em}
+.card h1 i{font-style:italic;font-weight:400}
+.card p{margin-top:26px;font-size:18px;line-height:1.6;color:rgba(236,231,222,.8);max-width:520px}
+.sub{position:fixed;left:50%;bottom:calc(var(--bb) + 34px);transform:translateX(-50%);z-index:4;width:min(760px,86vw);text-align:center;font:400 italic clamp(20px,1.7vw,26px)/1.45 'Sentient',serif;color:#f1ebe0;text-shadow:0 2px 18px #000;opacity:0;transition:opacity .9s;pointer-events:none}
+.sub.on{opacity:1}
+.hint{position:fixed;left:50%;bottom:calc(var(--bb) + 10px);transform:translateX(-50%);z-index:4;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,231,222,.55);pointer-events:none;transition:opacity .6s;white-space:nowrap}
+.label{position:fixed;z-index:4;width:270px;pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity .7s,transform .7s;padding:12px 16px 14px;border-left:1px solid rgba(201,162,106,.9);background:linear-gradient(90deg,rgba(3,3,3,.82),rgba(3,3,3,.55) 70%,rgba(3,3,3,0))}
+.label b{display:block;font:400 italic 22px/1.2 'Sentient',serif;color:#f5ede0;margin-bottom:6px}
+.label span{display:block;font-size:15px;line-height:1.55;color:rgba(236,231,222,.86);text-shadow:0 1px 10px #000}
+.label.on{opacity:1;transform:none}
+.info{position:relative;z-index:5;background:#050505;padding:18vh 8vw 16vh;display:grid;grid-template-columns:1.25fr 1fr;gap:7vw;align-items:end;border-top:1px solid rgba(236,231,222,.08)}
+.info h2{font:300 clamp(40px,5.4vw,92px)/.98 'Sentient',serif;letter-spacing:-.025em}
+.info h2 i{font-style:italic;font-weight:400;color:#c9a26a}
+.info dl{display:grid;grid-template-columns:auto 1fr;gap:16px 26px;font-size:18px;line-height:1.55}
+.info dt{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,231,222,.55);padding-top:5px}
+.info a.book{display:inline-block;margin-top:34px;color:#050505;background:#ece7de;padding:16px 26px;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.fsi-tag{position:fixed;left:32px;bottom:calc(var(--bb) + 12px);z-index:6;font-size:12px;letter-spacing:.06em;color:rgba(236,231,222,.6);text-decoration:none;background:rgba(3,3,3,.86);padding:5px 9px 5px 0;box-shadow:-12px 0 0 rgba(3,3,3,.86)}
+.fsi-tag b{font-weight:500;color:#ece7de}
+@media (max-width:760px){
+ .head{left:20px;right:20px;font-size:11px}.card{left:20px;right:20px}.card p{font-size:16px}
+ .label{left:20px;right:20px;top:calc(7vh + 58px);width:auto;background:rgba(3,3,3,.72)}.label b{font-size:19px}.label span{font-size:15px}
+ .info{grid-template-columns:1fr;padding:14vh 20px 20vh}.info dl{font-size:16px}
+ .hint{font-size:11px}.fsi-tag{left:20px;bottom:calc(var(--bb) + 10px)}.sub{bottom:calc(var(--bb) + 44px);font-size:19px}
+}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.head > span,
+html div.hint#hint,
+html dl > dt,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.label > span{font-size:18px}
+}
+@media (max-width:699px){
+html div.head > span,
+html div.hint#hint,
+html dl > dt,
+html a.fsi-tag{font-size:14px}
+html div.label > span{font-size:16px}
+}
+html .info dt{font-size:14px}
+</style>
+<style id="p14">
+@media (min-width:700px){.hint{left:auto;right:28px;transform:none;text-align:right}}
+@media (max-width:699px){.hint{top:calc(env(safe-area-inset-top,0px) + 116px);bottom:auto;left:20px;right:20px;transform:none;white-space:normal;line-height:1.6}
+ .fsi-tag{right:20px;white-space:normal;line-height:1.5}}
+.sub{text-wrap:balance}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+/* Dark Room's chapter control: the accession tags. Acid-free card, the number in 2B pencil as year.number, each tied loosely with cotton tape
+   to a line strung along the letterbox bar. The room is dark: a tag is only readable where the torch's own spot finds it. */
+@property --r{syntax:'<length>';inherits:false;initial-value:520px}
+:root{--ix-bg:#050505;--ix-fg:#ece7de;--ix-acc:#c9a26a;--ix-font:300 1em 'Sentient',serif;--door-bg:#050505;--door-fg:#ece7de}
+.bar.b{z-index:6;pointer-events:auto;transition:opacity .5s}
+body.at-door .bar.b{opacity:0;pointer-events:none}
+body.past .label{opacity:0!important}
+body.at-door a.fsi-tag{bottom:14px!important;background:none!important;box-shadow:none!important;mix-blend-mode:normal!important;opacity:.8!important;color:var(--door-fg)!important}body.at-door a.fsi-tag b{color:var(--door-fg)!important}
+.tags{position:absolute;inset:0;display:flex;align-items:stretch;padding:0 32px}
+.tags .line{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1}
+.tags ol{list-style:none;margin:0;padding:0;display:flex;gap:20px;position:relative;z-index:3;height:100%}
+.tags li{position:relative;width:56px;height:100%}
+.tg{all:unset;cursor:pointer;position:absolute;left:0;top:13px;width:56px;height:42px;transform-origin:28px 7px;transform:rotate(var(--rot,0deg))}
+.tg svg{display:block;width:56px;height:42px;overflow:visible}
+.tg:focus-visible{outline:1px solid #c9a26a;outline-offset:4px}
+.dark,.warm{position:absolute;inset:0;pointer-events:none;z-index:2}
+.dark{background:radial-gradient(var(--sw,64px) var(--sh,46px) at var(--sx,-200px) var(--sy,36px),rgba(0,0,0,0) 0,rgba(0,0,0,.06) 30%,rgba(0,0,0,0) 40%,rgba(0,0,0,.2) 48%,rgba(0,0,0,.8) 78%,rgba(0,0,0,.955) 100%)}
+.warm{mix-blend-mode:multiply;background:radial-gradient(var(--sw,64px) var(--sh,46px) at var(--sx,-200px) var(--sy,36px),#ffe2bd 0,#f5c894 60%,#fff 100%)}
+.say{position:relative;z-index:3;align-self:center;margin-left:34px;font:400 italic 18px/1.2 'Sentient',serif;color:#ead9bd;opacity:0;transition:opacity .7s;white-space:nowrap}
+.say.on{opacity:1}
+.ixb{all:unset;position:relative;z-index:3;cursor:pointer;margin-left:auto;align-self:center;width:150px;height:88px;flex:none;filter:drop-shadow(0 3px 5px rgba(0,0,0,.8));transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .45s}
+.ixb svg{display:block;width:100%;height:100%}
+.ixb:hover{transform:translateY(-3px) scale(1.035);filter:drop-shadow(0 8px 9px rgba(0,0,0,.85)) brightness(1.18)}
+.ixb:focus-visible{outline:1px solid #c9a26a;outline-offset:3px}
+/* the visit is read by torch: the beam follows your hand; hold still for two seconds and it is put down, and the whole wall is lit */
+#visit{padding-bottom:22vh}
+#visit::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle var(--r) at var(--vx,34%) var(--vy,42%),rgba(255,206,150,.09),rgba(255,206,150,.03) 45%,transparent 70%);transition:--r 1.2s}
+#visit > *{position:relative;-webkit-mask:radial-gradient(circle var(--r) at var(--mx,30%) var(--my,40%),#000 26%,rgba(0,0,0,.8) 38%,#000 42%,rgba(0,0,0,.3) 62%,rgba(0,0,0,.07) 80%);mask:radial-gradient(circle var(--r) at var(--mx,30%) var(--my,40%),#000 26%,rgba(0,0,0,.8) 38%,#000 42%,rgba(0,0,0,.3) 62%,rgba(0,0,0,.07) 80%);transition:--r 1.2s}
+#visit.wide > *,#visit.wide::before{--r:2600px}
+#door .door-a{clip-path:circle(calc(var(--rise,0) * 96%) at 50% 62%)}
+/* the rail: on a desktop the bottom bar deepens so each card is drawn big enough for its pencil to be read (Anwar, rule 10) */
+:root{--bb:7vh}
+@media (min-width:761px){:root{--bb:max(7vh,140px)}.tags{--sy:66px;--sh:112px}.tags ol{gap:22px}.tags li{width:134px}
+ .tg{top:16px;width:134px;height:100.5px;transform-origin:67px 16.8px}.tg svg{width:134px;height:100.5px}
+ .tg .pn{stroke-width:.9}.tg .pn path[stroke-dasharray]{stroke-width:1.2}}
+/* the door: the torch is down, and the next world's card hangs on the page from a pin */
+.dtag{position:absolute;z-index:4;right:max(7vw,48px);top:15vh;width:clamp(150px,14vw,210px);transform:rotate(-5deg);transform-origin:50% 0;opacity:clamp(0,calc(var(--rise,0) * 2.2 - .6),1);filter:drop-shadow(-6px 10px 7px rgba(40,28,10,.32));transition:transform .8s cubic-bezier(.3,1.6,.5,1)}
+.dtag svg{display:block;width:100%;height:auto;overflow:visible}.dtag:hover{transform:rotate(3deg)}
+.dtag .pn{stroke-width:1.05}
+@media (max-width:760px){
+ .dtag{width:104px;top:10vh;right:20px}
+ .tags{padding:0 14px}.tags ol{gap:5px;margin-right:8px}.tags li{width:44px}
+ .tg{top:calc(50% - 19px);width:44px;height:33px;transform-origin:22px 6px}.tg svg{width:44px;height:33px}
+ .say{display:none}.ixb{width:62px;height:37px}
+ .sub{bottom:calc(var(--bb) + 72px)}#visit{padding-top:9vh;padding-bottom:calc(var(--bb) + 96px)}#visit a.book{margin-top:22px}
+ #visit > *{-webkit-mask:none;mask:none}#visit::before{display:none}}
+@media (prefers-reduced-motion:reduce){#visit > *{-webkit-mask:none;mask:none}#visit::before{display:none}#door .door-a{clip-path:none}.say{transition:none}}
+</style>
+<style id="reg-css">
+/* the second act (dark-room-register.js): the accession register, read by torch; hours and tonight's timed entries */
+.reg{position:relative;z-index:5;background:#050505;min-height:100vh;padding:14vh 6vw 22vh;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:5vw;align-items:center;border-top:1px solid rgba(236,231,222,.08)}
+.reg .pg{position:relative;--mx:34%;--my:30%;transform:rotate(-1.4deg);filter:drop-shadow(0 24px 30px #000)}
+.reg .pg svg{display:block;width:100%;height:auto}
+.reg .pg .dim{filter:brightness(.13) saturate(.6)}
+.reg .pg .lit{position:absolute;inset:0;filter:sepia(.25) saturate(1.15) brightness(1.04);-webkit-mask:radial-gradient(circle 190px at var(--mx) var(--my),#000 0,rgba(0,0,0,.92) 34%,rgba(0,0,0,.35) 62%,transparent 100%);mask:radial-gradient(circle 190px at var(--mx) var(--my),#000 0,rgba(0,0,0,.92) 34%,rgba(0,0,0,.35) 62%,transparent 100%)}
+.reg .rg-c{margin-bottom:26px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,231,222,.5)}
+.reg h2{font:300 clamp(38px,4.6vw,78px)/.98 'Sentient',serif;letter-spacing:-.025em}.reg h2 i{font-style:italic;font-weight:400;color:#c9a26a}
+.reg .rg-r > p{margin-top:22px;font-size:18px;line-height:1.55;color:rgba(236,231,222,.82);max-width:30em}
+.reg table{width:100%;max-width:460px;margin-top:26px;border-collapse:collapse;font-size:17px}
+.reg td{padding:10px 0;border-top:1px solid rgba(236,231,222,.14)}.reg td:last-child{text-align:right;font-variant-numeric:tabular-nums}.reg tr.late td{color:#c9a26a}
+.reg .k{font-size:14px!important;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,231,222,.55)!important;margin-top:30px!important}
+.slots{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:460px}
+.slots a{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:baseline;padding:10px 12px;border:1px solid rgba(236,231,222,.2);color:#ece7de;text-decoration:none;transition:border-color .3s,background .3s}
+.slots a:hover{border-color:#c9a26a;background:rgba(201,162,106,.08)}
+.slots b{font:400 19px 'Sentient',serif}.slots span{font-size:14px;color:rgba(236,231,222,.6);text-align:right}
+.slots i{grid-column:1/-1;display:flex;gap:3px;margin-top:6px}.slots u,.slots s{flex:1;height:3px;background:#c9a26a;border-radius:2px}.slots s{background:rgba(236,231,222,.14)}
+.slots .full a{opacity:.38;pointer-events:none}
+@media (max-width:760px){.reg{grid-template-columns:minmax(0,1fr);padding:12vh 20px 26vh;gap:34px}.reg .pg{width:150%;transform:rotate(-1.4deg)}.reg .rg-l{overflow:hidden;margin-right:-20px}.reg .pg .lit{-webkit-mask-size:auto;}.reg table{font-size:16px}.slots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A dark cast room lit only by a torch"></canvas>
+<div class="bar t" data-hud></div><div class="bar b"><nav class="tags" id="tags" aria-label="Chapters"><svg class="line" aria-hidden="true"></svg><ol></ol><span class="say" id="say" aria-live="polite"></span><i class="warm" aria-hidden="true"></i><i class="dark" aria-hidden="true"></i><button type="button" class="ixb" aria-label="Open the index"></button></nav></div>
+<div class="head" data-hud><span>Dark Room · Shoreditch</span><span>Late: Thursdays to 23:00</span></div>
+<div class="card" id="card" data-hud><div class="k">An exhibition in one torch</div><h1>What the casts<br><i>remember</i></h1><p>Plaster copies from a closed art school, 1881 to 1962. There is no other light in the room.</p></div>
+<div class="sub" id="sub" data-hud></div>
+<div class="hint" id="hint" data-hud>Move to aim the torch · scroll to walk</div>
+<div class="walk" aria-hidden="true"></div>
+<section class="reg chap" id="register"></section>
+<section class="info chap" id="visit">
+ <h2>Sixty years of students drew these faces. Then the school closed and <i>nobody switched the light back on.</i></h2>
+ <div><dl><dt>Where</dt><dd>Dark Room, Redchurch Street, London E2</dd><dt>When</dt><dd>12 October 2026 to 31 January 2027</dd><dt>How</dt><dd>You are given a torch at the door. There is no other light in the room.</dd><dt>Tickets</dt><dd>£12, free for anyone who studied at an art school that no longer exists</dd></dl><a class="book" href="#">Book a time</a></div>
+</section>
+<section class="door chap" id="door"></section>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+
+<script type="application/json" id="chapters">[{"n":"Entry","t":"You are given a torch","at":0},{"n":"No. 7","t":"Acanthus capital","at":0.1,"a":"1881.7"},{"n":"No. 22","t":"Memnon","at":0.3,"a":"1881.22"},{"n":"No. 31","t":"A raised hand","at":0.51,"a":"1881.31"},{"n":"No. 40","t":"A right foot","at":0.72,"a":"1881.40"},{"n":"No. 14","t":"The horse","at":0.97,"a":"1881.14"},{"n":"Page 47","t":"The register","el":"#register","a":"1881"},{"n":"Visit","t":"Not yet numbered · book a time","el":"#visit","a":""},{"n":"Out","t":"Next world","el":"#door"}]</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {lux} from './lib/lux.js';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+const phone=innerWidth<760, DPR=Math.min(phone?1.5:2,devicePixelRatio);
+const cv=document.getElementById('gl');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'});
+R.setPixelRatio(DPR);R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
+R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.0;
+const S=new THREE.Scene();S.background=new THREE.Color(0x020202);S.fog=new THREE.FogExp2(0x020202,.045);
+const cam=new THREE.PerspectiveCamera(46,1,.05,80);
+S.add(new THREE.AmbientLight(0xffffff,.012));
+
+// a seeded random so the room is the same room every visit
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const noise3=(x,y,z)=>Math.sin(x*3.1+y*1.7)*Math.cos(y*2.3-z*1.9)*Math.sin(z*2.9+x*.7);
+
+// parquet, drawn: herringbone of old oak, darker where feet went
+function parquet(){const c=document.createElement('canvas');c.width=c.height=1024;const g=c.getContext('2d');g.fillStyle='#2b2118';g.fillRect(0,0,1024,1024);
+ const w=32,l=128;for(let y=-l;y<1024+l;y+=w)for(let x=-l;x<1024+l;x+=l){const k=(Math.floor(y/w)+Math.floor(x/l))%2;
+  const v=28+rnd()*22;g.fillStyle=`rgb(${v+18},${v+8},${v-2})`;g.save();g.translate(x+(k?0:w),y);g.rotate(k?Math.PI/4:-Math.PI/4);g.fillRect(0,0,l,w-2);
+  g.globalAlpha=.08;for(let i=0;i<6;i++){g.fillStyle=rnd()<.5?'#000':'#fff';g.fillRect(0,rnd()*w,l,1)}g.restore();g.globalAlpha=1}
+ const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(3,12);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t}
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(9,40),new THREE.MeshStandardMaterial({map:parquet(),roughness:.62,metalness:0}));
+floor.rotation.x=-Math.PI/2;floor.position.z=-12;floor.receiveShadow=true;S.add(floor);
+const wallM=new THREE.MeshStandardMaterial({color:0x2b2723,roughness:1});
+for(const x of[-4.5,4.5]){const w=new THREE.Mesh(new THREE.BoxGeometry(.2,6,40),wallM);w.position.set(x,3,-12);w.receiveShadow=true;S.add(w)}
+const back=new THREE.Mesh(new THREE.BoxGeometry(9,6,.2),wallM);back.position.set(0,3,-32);back.receiveShadow=true;S.add(back);
+
+// cast-iron shelving down the left wall, with plaster fragments nobody catalogued
+const iron=new THREE.MeshStandardMaterial({color:0x1a1b1c,roughness:.55,metalness:.6});
+const plaster=new THREE.MeshStandardMaterial({color:0xcfc5b4,roughness:.93});
+const add=(g,m,x,y,z,sh=true)=>{const o=new THREE.Mesh(g,m);o.position.set(x,y,z);o.castShadow=sh;o.receiveShadow=true;S.add(o);return o};
+for(let z=2;z>-28;z-=3.2){add(new THREE.BoxGeometry(.06,3.2,.06),iron,-4.0,1.6,z);add(new THREE.BoxGeometry(.06,3.2,.06),iron,-3.3,1.6,z)}
+const board=new THREE.MeshStandardMaterial({color:0x6b5a47,roughness:.9});for(const y of[.7,1.5,2.3,3.1])add(new THREE.BoxGeometry(.8,.035,30),board,-3.65,y,-13);
+// the shelves hold what a closed cast school keeps: small busts, hands, capitals, relief tablets, things under dust sheets;
+// some slots wait for reduced copies of the scanned casts, placed as the scans arrive
+const dusty=new THREE.MeshStandardMaterial({color:0xbdb3a2,roughness:.96}),sheet=new THREE.MeshStandardMaterial({color:0x9e978a,roughness:1}),slots=[];
+const rackPiece=(i,x,y,z)=>{const g=new THREE.Group(),k=i%6,s=.75+rnd()*.5;g.position.set(x,y,z);g.rotation.y=(rnd()-.5)*1.4;
+ if(k===0){const n=new THREE.Mesh(new THREE.CylinderGeometry(.045,.06,.12,20),dusty);n.position.y=.06;g.add(n);const h=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.09,40,30),.008,6),dusty);h.scale.set(.86,1.12,1);h.position.y=.2;g.add(h);
+  const b=new THREE.Mesh(sculpt(new THREE.BoxGeometry(.2,.05,.12,6,2,4),.006,9),dusty);b.position.y=.02;g.add(b)}
+ else if(k===1){const d=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.16,40,28),.035,7),sheet);d.scale.set(1.25,.95,1.05);d.position.y=.13;g.add(d)}
+ else if(k===2){const w=new THREE.Mesh(new THREE.CylinderGeometry(.03,.035,.12,16),dusty);w.rotation.z=1.3;w.position.set(-.06,.03,0);g.add(w);const pm=new THREE.Mesh(sculpt(new THREE.BoxGeometry(.1,.035,.13,5,2,6),.005,14),dusty);pm.position.set(.04,.022,0);g.add(pm);
+  for(let f=0;f<4;f++){const fg=new THREE.Mesh(new THREE.CapsuleGeometry(.011,.06,4,8),dusty);fg.rotation.z=Math.PI/2;fg.position.set(.12,.025,-.045+f*.03);g.add(fg)}}
+ else if(k===3){const c=new THREE.Mesh(sculpt(new THREE.CylinderGeometry(.1,.075,.11,32,3),.007,9),dusty);c.position.y=.055;g.add(c);const a=new THREE.Mesh(new THREE.BoxGeometry(.24,.035,.24),dusty);a.position.y=.13;g.add(a)}
+ else if(k===4){const t=new THREE.Mesh(sculpt(new THREE.BoxGeometry(.34,.25,.035,16,12,2),.006,16),dusty);t.position.set(0,.13,-.08);t.rotation.set(-.2,0,0);g.rotation.y=Math.PI/2+(rnd()-.5)*.2;g.add(t)}
+ else slots.push([x,y,z]);
+ g.scale.setScalar(s);g.traverse(o=>{o.castShadow=o.receiveShadow=true});S.add(g)};
+for(let i=0;i<34;i++){const y=[.7,1.5,2.3][i%3]+.02,z=1.5-i*.85-rnd()*.3;rackPiece(i,-3.65+(rnd()-.5)*.3,y,z)}
+const rackScan=(geo,m)=>{geo.computeBoundingBox();const b=geo.boundingBox,sz=new THREE.Vector3();b.getSize(sz);for(let k=0;k<3&&slots.length;k++){const[x,y,z]=slots.shift(),o=new THREE.Mesh(geo,dusty),sc=(.2+rnd()*.1)/Math.max(sz.x,sz.y,sz.z);
+ o.scale.setScalar(sc);o.position.set(x,y-b.min.y*sc,z);o.rotation.y=rnd()*6.3;o.castShadow=o.receiveShadow=true;S.add(o)}};
+
+// the casts, modelled soft and slightly irregular, as plaster is
+function sculpt(geo,amt,f=2.2){const p=geo.attributes.position,v=new THREE.Vector3();for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);const n=noise3(v.x*f,v.y*f,v.z*f);v.addScaledVector(v.clone().normalize(),n*amt);p.setXYZ(i,v.x,v.y,v.z)}geo.computeVertexNormals();return geo}
+const plinth=(x,z,h,w=.7)=>{add(new THREE.BoxGeometry(w,h,w),new THREE.MeshStandardMaterial({color:0x3a342d,roughness:.95}),x,h/2,z);return h};
+const casts=[];
+// No. 7, acanthus capital
+{const h=plinth(1.9,-3,1.05,.9);const g=new THREE.Group();g.position.set(1.9,h,-3);
+ const bell=new THREE.Mesh(sculpt(new THREE.CylinderGeometry(.42,.3,.62,48,8),.02,4),plaster);bell.position.y=.31;g.add(bell);
+ for(let i=0;i<12;i++){const a=i/12*Math.PI*2,leaf=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.13,16,12),.02,6),plaster);leaf.scale.set(.7,1.4,.45);leaf.position.set(Math.cos(a)*.36,.2+(i%2)*.18,Math.sin(a)*.36);leaf.rotation.y=-a;g.add(leaf)}
+ const ab=new THREE.Mesh(new THREE.BoxGeometry(1,.12,1),plaster);ab.position.y=.68;g.add(ab);g.traverse(o=>{o.castShadow=o.receiveShadow=true});S.add(g);
+ casts.push({p:new THREE.Vector3(1.9,h+.8,-3),r:.5,t:'No. 7 · Acanthus capital',d:'The school bought it in 1881. It was the first thing in the room.'})}
+// No. 22, Memnon: a real scan of a real plaster cast (SMK Royal Cast Collection KAS969, public domain), stood on its own turned stand.
+// The modelled head only appears if the scan cannot load.
+{const h=plinth(-2.2,-8,.98,.55);const g=new THREE.Group();g.position.set(-2.2,h,-8);g.rotation.y=.6;S.add(g);
+ const coded=()=>{const neck=new THREE.Mesh(new THREE.CylinderGeometry(.11,.14,.3,32),plaster);neck.position.y=.15;g.add(neck);
+  const head=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.21,64,48),.012,5),plaster);head.scale.set(.86,1.12,1);head.position.set(0,.47,.02);g.add(head);
+  const hair=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.22,48,32,0,Math.PI*2,0,Math.PI*.55),.03,9),plaster);hair.position.set(0,.5,-.01);hair.scale.set(.92,1.1,1.05);g.add(hair);
+  g.traverse(o=>{o.castShadow=o.receiveShadow=true})};
+ new GLTFLoader().load(`../assets/scans/memnon-${phone?'50k':'150k'}.glb`,gl=>{const geo=gl.scene.getObjectByProperty('isMesh',true).geometry;
+  geo.rotateX(-Math.PI/2);geo.computeBoundingBox();const b=geo.boundingBox,c=b.getCenter(new THREE.Vector3());geo.translate(-c.x,-b.min.y,-c.z);
+  const m=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0xb4ab9b,roughness:.86}));m.scale.setScalar(.8/(b.max.y-b.min.y));m.castShadow=m.receiveShadow=true;g.add(m);rackScan(geo)},undefined,coded);
+ casts.push({p:new THREE.Vector3(-2.2,h+.62,-8),r:.2,t:'No. 22 · Memnon',d:'Memnon, foster son of Herodes Atticus. The school drew him for eighty-one years and closed. The polish on the nose is the students’.'})}
+// No. 31, a raised hand
+{const h=plinth(2.1,-13,1.1,.5);const g=new THREE.Group();g.position.set(2.1,h,-13);
+ const arm=new THREE.Mesh(new THREE.CylinderGeometry(.07,.09,.55,24),plaster);arm.position.y=.27;g.add(arm);
+ const palm=new THREE.Mesh(sculpt(new THREE.BoxGeometry(.2,.24,.07,6,6,3),.008,8),plaster);palm.position.y=.66;g.add(palm);
+ [[-.075,.2,.02],[-.025,.23,0],[.025,.22,0],[.075,.19,.01]].forEach(([x,l,r],i)=>{const f=new THREE.Mesh(new THREE.CapsuleGeometry(.022,l,6,12),plaster);f.position.set(x,.78+l/2,0);f.rotation.z=r-(i-1.5)*.05;g.add(f)});
+ const th=new THREE.Mesh(new THREE.CapsuleGeometry(.025,.12,6,12),plaster);th.position.set(-.13,.64,.02);th.rotation.z=.8;g.add(th);
+ g.rotation.y=-.5;g.traverse(o=>{o.castShadow=o.receiveShadow=true});S.add(g);
+ casts.push({p:new THREE.Vector3(2.1,h+.75,-13),r:.16,t:'No. 31 · A raised hand',d:'Nobody wrote down whose. It has been drawn more than any face here.'})}
+// No. 40, a right foot: a real scan of a real plaster cast (SMK Royal Cast Collection KAS27, public domain), on the thin slab it was cast with.
+// Its plaster is a shade darker than Memnon's because the walk passes it close under the torch.
+// The museum's own title ends in a question mark ("Right foot of an athlete?"), so the label claims no more than a right foot. The modelled pair only appears if the scan cannot load.
+{const h=plinth(-2,-18,.62,.7);const g=new THREE.Group();g.position.set(-2,h,-18);g.rotation.y=-.6;S.add(g);
+ const coded=()=>{for(const x of[-.16,.16]){const f=new THREE.Mesh(sculpt(new THREE.CapsuleGeometry(.09,.3,8,16),.01,7),plaster);f.rotation.x=Math.PI/2;f.scale.set(1,1,.62);f.position.set(x,.06,0);g.add(f);
+  const ank=new THREE.Mesh(new THREE.CylinderGeometry(.07,.08,.26,24),plaster);ank.position.set(x,.2,-.1);g.add(ank)}
+  g.traverse(o=>{o.castShadow=o.receiveShadow=true})};
+ new GLTFLoader().load(`../assets/scans/foot-${phone?'50k':'150k'}.glb`,gl=>{const geo=gl.scene.getObjectByProperty('isMesh',true).geometry;
+  geo.rotateX(-Math.PI/2);geo.computeBoundingBox();const b=geo.boundingBox,c=b.getCenter(new THREE.Vector3());geo.translate(-c.x,-b.min.y,-c.z);
+  const m=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0x9d9585,roughness:.88}));m.scale.setScalar(.5/(b.max.x-b.min.x));m.castShadow=m.receiveShadow=true;g.add(m);rackScan(geo)},undefined,coded);
+ casts.push({p:new THREE.Vector3(-2,h+.16,-18),r:.28,t:'No. 40 · A right foot',d:'The rest of the statue went in the skip in 1962. Someone kept the foot.'})}
+// No. 14, the horse of Marcus Aurelius: a real scan of the head only (SMK Royal Cast Collection KAS1133/2, public domain), at its true size, 1.12 m tall.
+// A low plinth puts the horse's eye near the visitor's eye; turned so the walk meets it three-quarter on.
+// The modelled head below only appears if the scan cannot load.
+{const h=plinth(0,-26.5,1.05,1.6);const g=new THREE.Group();g.position.set(0,h,-26.5);S.add(g);
+ const coded=()=>{const neck=new THREE.Mesh(sculpt(new THREE.CylinderGeometry(.34,.52,1.1,48,12),.03,3),plaster);neck.rotation.x=-.9;neck.position.set(0,.35,-.1);g.add(neck);
+ const head=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.42,64,48),.035,3.5),plaster);head.scale.set(.62,.78,1.75);head.rotation.x=.62;head.position.set(0,.52,.66);g.add(head);
+ const muz=new THREE.Mesh(sculpt(new THREE.SphereGeometry(.24,48,32),.02,5),plaster);muz.scale.set(.7,.62,.95);muz.position.set(0,.1,1.2);g.add(muz);
+ for(const x of[-.16,.16]){const e=new THREE.Mesh(new THREE.ConeGeometry(.08,.34,16),plaster);e.position.set(x,1.02,.28);e.rotation.x=-.4;g.add(e);
+  const eye=new THREE.Mesh(new THREE.SphereGeometry(.05,16,12),new THREE.MeshStandardMaterial({color:0xcfc6b6,roughness:.7}));eye.position.set(x*1.7,.66,.8);g.add(eye)}
+ const mane=new THREE.Mesh(sculpt(new THREE.BoxGeometry(.1,.25,1.1,2,4,16),.05,6),plaster);mane.rotation.x=-.9;mane.position.set(0,.62,-.2);g.add(mane);
+ g.traverse(o=>{o.castShadow=o.receiveShadow=true})};
+ new GLTFLoader().load(`../assets/scans/horse-${phone?'50k':'150k'}.glb`,gl=>{const geo=gl.scene.getObjectByProperty('isMesh',true).geometry;
+  geo.rotateX(-Math.PI/2);geo.computeBoundingBox();const b=geo.boundingBox,c=b.getCenter(new THREE.Vector3());geo.translate(-c.x,-b.min.y,-c.z);
+  const m=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:0xa39a8a,roughness:.88}));m.scale.setScalar(1.12/(b.max.y-b.min.y));m.rotation.y=.55;m.castShadow=m.receiveShadow=true;g.add(m);rackScan(geo)},undefined,coded);
+ casts.push({p:new THREE.Vector3(0,h+.7,-26.2),r:.7,t:'No. 14 · The horse of Marcus Aurelius',d:'Head only. In Rome the horse still carries Marcus Aurelius, who spent the Middle Ages being mistaken for Constantine, which is why he is still there.'})}
+
+// the torch: one spotlight, warm, faintly unsteady
+const torch=new THREE.SpotLight(0xffd3a0,150,26,.34,.5,1.7);torch.castShadow=true;torch.shadow.mapSize.set(phone?1024:2048,phone?1024:2048);torch.shadow.bias=-.0004;torch.shadow.normalBias=.03;torch.shadow.camera.near=.1;
+{const c=document.createElement('canvas');c.width=c.height=256;const g=c.getContext('2d'),gr=g.createRadialGradient(128,128,0,128,128,128);
+ gr.addColorStop(0,'#fff');gr.addColorStop(.18,'#fff6ea');gr.addColorStop(.3,'#b8ab98');gr.addColorStop(.42,'#d9ccb8');gr.addColorStop(.5,'#8a8070');gr.addColorStop(.85,'#3a342c');gr.addColorStop(1,'#000');g.fillStyle=gr;g.fillRect(0,0,256,256);
+ g.globalAlpha=.06;for(let i=0;i<40;i++){g.strokeStyle=i%2?'#000':'#fff';g.beginPath();g.arc(128+Math.sin(i)*3,128+Math.cos(i*1.3)*3,20+i*2.6,0,7);g.stroke()}
+ const ck=new THREE.CanvasTexture(c);ck.colorSpace=THREE.SRGBColorSpace;torch.map=ck}
+S.add(torch);S.add(torch.target);
+// bounce: white plaster throws a little of the torch back into the room, warm, soft, no shadow
+const bnL=new THREE.PointLight(0xffd6ae,0,5.5,2);S.add(bnL);const bnRC=new THREE.Raycaster(),bnSmall=[],bnBig=[],bnTo=new THREE.Vector3(0,-9,0),bnV=new THREE.Vector3();let bnF=0,bnK=0;
+// the beam in the air: a soft additive cone, brightest near the lens, gone by the wall
+const beamM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide,uniforms:{uA:{value:.05}},
+ vertexShader:`varying float vY;varying vec3 vN;varying vec3 vV;void main(){vY=uv.y;vec4 w=modelViewMatrix*vec4(position,1.);vN=normalize(normalMatrix*normal);vV=normalize(-w.xyz);gl_Position=projectionMatrix*w;}`,
+ fragmentShader:`uniform float uA;varying float vY;varying vec3 vN;varying vec3 vV;void main(){float edge=pow(abs(dot(vN,vV)),2.2);float a=uA*edge*pow(vY,1.6);gl_FragColor=vec4(vec3(1.,.83,.62)*a,1.);}`});
+const beamG=new THREE.ConeGeometry(Math.tan(.36)*7,7,48,1,true);beamG.translate(0,-3.5,0);beamG.rotateX(-Math.PI/2);
+const beam=new THREE.Mesh(beamG,beamM);beam.visible=false;S.add(beam);
+// dust, visible only where the beam passes
+const N=phone?900:2400,dp=new Float32Array(N*3),ds=new Float32Array(N);for(let i=0;i<N;i++){dp[i*3]=(rnd()-.5)*8;dp[i*3+1]=rnd()*3.4;dp[i*3+2]=4-rnd()*32;ds[i]=rnd()}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dp,3));dG.setAttribute('s',new THREE.BufferAttribute(ds,1));
+const dM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0},uP:{value:new THREE.Vector3()},uD:{value:new THREE.Vector3(0,0,-1)},uPx:{value:DPR}},
+ vertexShader:`attribute float s;uniform float uT,uPx;uniform vec3 uP,uD;varying float vB;void main(){vec3 p=position+vec3(sin(uT*.13+s*40.)*.25,sin(uT*.07+s*17.)*.18,cos(uT*.11+s*23.)*.25);
+  vec3 d=p-uP;float L=length(d);float c=dot(d/L,uD);vB=smoothstep(.94,.98,c)*smoothstep(8.,.8,L)*(.3+.7*s)*.8;vec4 w=modelViewMatrix*vec4(p,1.);gl_PointSize=uPx*(1.2+s*1.6)*(4./-w.z);gl_Position=projectionMatrix*w;}`,
+ fragmentShader:`varying float vB;void main(){float r=length(gl_PointCoord-.5);gl_FragColor=vec4(vec3(1.,.86,.66)*vB*smoothstep(.5,.0,r)*.9,1.);}`});
+S.add(new THREE.Points(dG,dM));
+
+// film layer: grain, a slow breathing vignette, highlight bloom kept honest
+const comp=new EffectComposer(R);comp.addPass(new RenderPass(S,cam));
+const film=new ShaderPass({uniforms:{tDiffuse:{value:null},uT:{value:0},uR:{value:new THREE.Vector2()}},
+ vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`uniform sampler2D tDiffuse;uniform float uT;uniform vec2 uR;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
+ void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec2 px=1./uR;vec3 b=vec3(0.);for(int i=0;i<8;i++){float a=float(i)*.785;b+=texture2D(tDiffuse,vUv+vec2(cos(a),sin(a))*px*6.).rgb;}b/=8.;
+ c+=max(b-.7,0.)*vec3(1.,.93,.84)*.22;vec2 q=vUv-.5;c*=1.-dot(q,q)*1.1;float l=dot(c,vec3(.3,.59,.11));
+ float g=h(floor(vUv*uR/1.2)+fract(uT)*91.)-.5;c+=g*.028*smoothstep(.0,.25,l)*(1.2-l);gl_FragColor=vec4(c,1.);}`});
+comp.addPass(film);comp.addPass(new OutputPass());
+// the render: contact shading where surfaces meet, glow only on true light sources, tuned to this world's scale and light
+lux(R,S,cam,comp,{ao:{radius:.35,thickness:.8,protect:[.03,.14]},bloom:{strength:.35,radius:.5,threshold:1.2}});
+
+// the walk: a path down the room, stopping at each cast
+const path=new THREE.CatmullRomCurve3([[0,1.5,4],[.6,1.5,.2],[-.95,1.5,-6.3],[.6,1.45,-10.6],[-.3,1.35,-15.8],[.2,1.4,-20.6],[.9,1.4,-23.6]].map(a=>new THREE.Vector3(...a)),false,'catmullrom',.4);
+const look=new THREE.CatmullRomCurve3([[0,1.5,-2],[1.9,1.6,-3],[-2.2,1.56,-8],[2.1,1.8,-13],[-2,.75,-18],[0,1.7,-24],[0,1.72,-26.2]].map(a=>new THREE.Vector3(...a)));
+const subs=[[.02,'You are given a torch at the door. There is no other light in the room.'],[.3,'Sixty years of students drew these faces.'],[.62,'Put the torch down. See the room without you.'],[.9,'Then the school closed, and nobody switched the light back on.']];
+const sub=document.getElementById('sub'),card=document.getElementById('card'),hint=document.getElementById('hint');
+const labels=casts.map(c=>{const d=document.createElement('div');d.className='label';d.innerHTML=`<b>${c.t}</b><span>${c.d}</span>`;document.body.appendChild(d);return d});
+
+let W=innerWidth,H=innerHeight;function size(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);comp.setSize(W,H);cam.aspect=W/H;cam.fov=W<H?62:46;cam.updateProjectionMatrix();film.uniforms.uR.value.set(W*DPR,H*DPR)}
+addEventListener('resize',size);size();
+const ptr=new THREE.Vector2(0,-.05),ptrS=ptr.clone();let moved=0;
+addEventListener('pointermove',e=>{ptr.set(e.clientX/W*2-1,-(e.clientY/H*2-1));moved=performance.now()});
+// put the torch down, pick it up again
+let placed=false;const heldAt=new THREE.Vector3(),heldTo=new THREE.Vector3();
+cv.addEventListener('click',()=>{placed=!placed;if(placed){heldAt.copy(torch.position);heldTo.copy(torch.target.position)}});
+addEventListener('keydown',e=>{if(e.key===' '&&document.activeElement===document.body){e.preventDefault();cv.click()}});
+
+let p=0,t0=performance.now(),lastSub=-1;const tmp=new THREE.Vector3(),dir=new THREE.Vector3(),aim=new THREE.Vector3(),side=new THREE.Vector3();
+function frame(now){requestAnimationFrame(frame);if(document.body.classList.contains('past'))return;const t=(now-t0)/1000;
+ const walkH=document.querySelector('.walk').offsetHeight-H;const tg=Math.min(1,Math.max(0,scrollY/walkH));p+=(tg-p)*.06;
+ path.getPointAt(p,cam.position);cam.position.y+=Math.sin(p*90)*.012;look.getPointAt(Math.min(1,p+.02),tmp);
+ // with no pointer for a while, the hand drifts the way a hand does
+ if(now-moved>2600){ptr.x=Math.sin(t*.35)*.35;ptr.y=Math.sin(t*.23)*.18-.05}
+ ptrS.lerp(ptr,.07);
+ cam.lookAt(tmp);cam.rotateY(-ptrS.x*.22);cam.rotateX(ptrS.y*.12);
+ if(!placed){torch.position.copy(cam.position).add(new THREE.Vector3(.22,-.28,0).applyQuaternion(cam.quaternion));
+  aim.set(ptrS.x*.55,ptrS.y*.55,.5).unproject(cam).sub(cam.position).normalize();torch.target.position.copy(cam.position).addScaledVector(aim,6)}
+ else{torch.position.copy(heldAt);torch.target.position.copy(heldTo)}
+ torch.intensity=(placed?130:150)*(.94+.04*Math.sin(t*31)+.02*Math.sin(t*7.3));
+ dir.copy(torch.target.position).sub(torch.position).normalize();
+ beam.position.copy(torch.position);beam.lookAt(torch.target.position);
+ if(!(bnF%240)){bnSmall.length=bnBig.length=0;S.traverse(o=>{if(!o.isMesh||o===beam)return;if(o.geometry.attributes.position.count<6000)bnSmall.push(o);else{const bx=new THREE.Box3().setFromObject(o);bx.expandByScalar(-.03);bnBig.push(bx)}})}
+ if(!(bnF++%4)){bnRC.set(torch.position,dir);bnRC.far=24;const hit=bnRC.intersectObjects(bnSmall,false)[0];let d=hit?hit.distance:99;
+  for(const bx of bnBig)if(bnRC.ray.intersectBox(bx,bnV)){const e=bnV.distanceTo(torch.position);if(e<d)d=e}
+  if(d<24){bnTo.copy(torch.position).addScaledVector(dir,d-.35);bnK=Math.max(0,1-d/16)}else bnK=0}
+ bnL.position.lerp(bnTo,.25);bnL.intensity+=(bnK*6*torch.intensity/150-bnL.intensity)*.2;
+ dM.uniforms.uT.value=t;dM.uniforms.uP.value.copy(torch.position);dM.uniforms.uD.value.copy(dir);film.uniforms.uT.value=t;
+ // titles and subtitles, like a film
+ card.style.opacity=Math.max(0,1-p*9);hint.style.opacity=p>.04?0:1;
+ let si=-1;subs.forEach((s,i)=>{if(p>=s[0])si=i});if(p<.06||(si===0&&p<.12))si=p<.06?-1:0;
+ if(si!==lastSub){lastSub=si;sub.classList.remove('on');setTimeout(()=>{if(si>=0){sub.textContent=subs[si][1]+(si===2&&!placed?'  (click)':'');sub.classList.add('on')}},450)}
+ // labels only in the beam
+ casts.forEach((c,i)=>{tmp.copy(c.p).sub(torch.position);const L=tmp.length();const inBeam=tmp.normalize().dot(dir)>Math.cos(.3)&&L<9;
+  side.set(1,0,0).applyQuaternion(cam.quaternion);tmp.copy(c.p).addScaledVector(side,c.r).project(cam);const on=p>.07&&inBeam&&tmp.z<1&&Math.abs(tmp.x)<.9&&Math.abs(tmp.y)<.8;const el=labels[i];
+  if(on&&!phone){el.style.left=Math.min(W-270,(tmp.x*.5+.5)*W+28)+'px';el.style.top=((-tmp.y*.5+.5)*H-20)+'px'}el.classList.toggle('on',on)});
+ comp.render()}
+window.__dr={path,look,casts,get p(){return p}};
+requestAnimationFrame(frame);
+</script>
+<script type="module" src="dark-room-register.js"></script>
+<script type="module" src="dark-room-nav.js"></script>
+</body>
+</html>

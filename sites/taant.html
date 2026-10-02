@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Taant · Jamdani from Rupganj</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="lib/nav.css">
+<style>
+:root{--cot:#efe7d6;--gr:#1b1714;--ind:#22305e;--mad:#9e2b25;--zar:#c9a24b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--gr);color:var(--cot);font-family:'Erode',Georgia,serif}
+.loom{height:700vh;position:relative}
+#gl{position:fixed;inset:0;width:100%;height:100vh;display:block;z-index:0}
+.snd{position:fixed;right:18px;bottom:16px;z-index:4;background:rgba(13,11,9,.6);color:var(--cot);border:1px solid rgba(239,231,214,.35);border-radius:40px;padding:8px 14px;font:600 11px Erode;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.ov{position:fixed;inset:0;pointer-events:none;z-index:2;transition:opacity .6s}
+.ov.off{opacity:0}
+.scrim{position:absolute;inset:0;background:radial-gradient(38% 52% at 16% 34%,rgba(13,11,9,.78),rgba(13,11,9,0));transition:opacity .8s}
+@media (max-width:760px){.scrim{inset:0 0 auto 0;height:48vh;background:linear-gradient(rgba(13,11,9,.88),rgba(13,11,9,.78) 72%,rgba(13,11,9,0))}.lead{text-shadow:0 1px 12px rgba(13,11,9,.95)}}
+.lead{text-shadow:0 1px 14px rgba(13,11,9,.9)}
+.hd{position:absolute;top:20px;left:24px;right:24px;display:flex;justify-content:space-between;font:600 12px 'Erode';letter-spacing:.2em;text-transform:uppercase}
+.bn{position:absolute;left:3vw;top:calc(6vh + 7vw);font:400 clamp(110px,22vw,380px)/.95 'Tiro Bangla',serif;color:var(--cot);transition:opacity .8s,transform .8s}
+.lead{position:absolute;left:3vw;top:calc(6vh + 7vw + clamp(110px,22vw,380px));max-width:420px;font:400 italic clamp(18px,1.6vw,24px)/1.4 'Erode';transition:opacity .8s}
+.beat{position:absolute;right:3vw;top:12vh;max-width:430px;text-align:right;padding:18px 20px;background:rgba(27,23,20,.86);opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.beat.on{opacity:1;transform:none}
+.beat b{display:block;font:600 11px 'Erode';letter-spacing:.2em;text-transform:uppercase;color:var(--zar);margin-bottom:8px}
+.beat p{font:400 clamp(20px,1.9vw,30px)/1.25 'Erode'}
+.cnt{position:absolute;left:16px;bottom:40px;font:600 12px 'Erode';letter-spacing:.14em;text-transform:uppercase;background:rgba(27,23,20,.8);padding:8px 10px}
+.hands{position:relative;z-index:3;min-height:100vh;display:grid;grid-template-columns:1.2fr 1fr;background:var(--cot);color:var(--gr)}
+.hands .ph{background:url(../img/taant-hands.webp) 30% center/cover;min-height:70vh}
+.hands .tx{padding:10vh 4vw;display:flex;flex-direction:column;justify-content:space-between}
+.hands h2{font:400 clamp(44px,5vw,88px)/.95 'Erode';letter-spacing:-.02em}
+.hands h2 i{color:var(--mad)}
+.hands p{font-size:19px;line-height:1.55;margin-top:24px;max-width:28em}
+.names{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:5vh;font:600 13px 'Erode';letter-spacing:.1em;text-transform:uppercase}
+.names span{border-top:1px solid var(--gr);padding-top:8px}
+.hands a{align-self:flex-start;margin-top:5vh;background:var(--gr);color:var(--cot);padding:16px 24px;text-decoration:none;font:600 13px 'Erode';letter-spacing:.14em;text-transform:uppercase}
+@media (max-width:760px){.hd{font-size:10px;letter-spacing:.12em}.bn{top:calc(9vh + 7vw)}.lead{top:calc(9vh + 7vw + 110px);right:5vw}.hands{grid-template-columns:1fr}.beat{left:3vw;text-align:left;top:auto;bottom:70px}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html button.snd#snd,
+html div.hd > span,
+html div.beat > b,
+html div.ov#ov > div.cnt#cnt,
+html div.names > span,
+html div.tx > a,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+}
+@media (max-width:699px){
+html button.snd#snd,
+html div.hd > span,
+html div.beat > b,
+html div.ov#ov > div.cnt#cnt,
+html div.names > span,
+html div.tx > a,
+html a.fsi-tag{font-size:14px}
+}
+</style>
+<style id="nav">
+:root{--ix-bg:#1b1714;--ix-fg:#efe7d6;--ix-acc:#c9a24b;--ix-font:400 1em 'Erode',serif;--door-bg:#efe7d6;--door-fg:#efe7d6}
+/* the loom keeps its own scroll; the hands and the door below it are chapters (the tally-mark control waits on a photograph of a real beam) */
+.hands{scroll-snap-align:start}
+body.at-door .snd{opacity:0;pointer-events:none}
+</style>
+<style id="smp-css">
+/* the second act (taant-sampler.js): the sampler cloth pinned to the dark cutting board, sun from the left */
+.smp{position:relative;z-index:3;min-height:100vh;scroll-snap-align:start;overflow:hidden;color:var(--cot);padding:11vh 5vw 10vh;
+ background:repeating-linear-gradient(90deg,rgba(0,0,0,.22) 0 2px,transparent 2px 230px),radial-gradient(60% 80% at -6% 30%,rgba(255,176,96,.22),transparent 68%),linear-gradient(90deg,#2a211a,#1b1714 60%,#130f0d)}
+.sm-h .k{font:500 14px 'Supreme',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--zar);margin:0 0 14px}
+.sm-h h2{font:400 clamp(36px,4.2vw,72px)/.98 'Erode',serif;letter-spacing:-.02em;margin:0 0 4vh;max-width:16em}
+.sm-f{margin:0 -1vw}.sm-f svg{display:block;width:100%;height:auto;overflow:visible}
+.sm-f .tb{font:400 25px 'Tiro Bangla',serif;fill:#1b1714;text-anchor:middle}.sm-f .te{font:400 italic 13px 'Erode',serif;fill:#3d3223;text-anchor:middle}
+.sm-f .tw{font:500 14px 'Supreme',sans-serif;fill:#1b1714;text-anchor:middle;letter-spacing:.04em}.sm-f .tp{font:600 22px 'Erode',serif;fill:#9e2b25;text-anchor:middle}
+.sm-b{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:5vw;margin-top:4vh;align-items:start}
+.sm-b ol{margin:0;padding:0;list-style:none;counter-reset:s}.sm-b li{counter-increment:s;position:relative;padding:10px 0 10px 2.6em;border-top:1px solid rgba(239,231,214,.25);font:400 18px/1.45 'Supreme',sans-serif}
+.sm-b li::before{content:counter(s);position:absolute;left:0;top:7px;font:400 26px 'Erode',serif;color:var(--zar)}.sm-b li b{font-weight:700}
+.sm-b dl{margin:0;border-top:1px solid rgba(239,231,214,.25)}.sm-b dl div{display:grid;grid-template-columns:7em 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(239,231,214,.25)}
+.sm-b dt{font:500 13px/1.9 'Supreme',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--zar)}.sm-b dd{margin:0;font:400 17px/1.45 'Supreme',sans-serif}.sm-b a{color:var(--cot);text-underline-offset:4px}
+@media (max-width:860px){.smp{padding:96px 16px 9vh}.sm-f{margin:0 -16px;overflow-x:auto;scroll-snap-type:x proximity}.sm-f svg{width:300vw;max-width:none}.sm-b{grid-template-columns:1fr;gap:26px}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="loom" id="loom"></div>
+<button class="snd" id="snd" type="button">Sound · off</button>
+<div class="ov" id="ov">
+ <div class="hd"><span>Taant · Jamdani house</span><span>Rupganj, Narayanganj</span></div>
+ <div class="scrim" id="scrim"></div>
+ <div class="bn" id="bn">তাঁত</div>
+ <div class="lead" id="lead">Scroll, and you are the shuttle. Every row you pass is one throw of thread across the loom.</div>
+ <div class="beat" data-a=".16" data-b=".34"><b>The border first</b><p>The paar is woven first, in gold zari, because everything above it has to line up with it.</p></div>
+ <div class="beat" data-a=".4" data-b=".6"><b>No paper pattern</b><p>A jamdani motif is not drawn anywhere. The weaver carries it in her head, one thread at a time, row after row.</p></div>
+ <div class="beat" data-a=".66" data-b=".86"><b>Since 2013</b><p>UNESCO lists the traditional art of jamdani weaving as intangible cultural heritage of humanity.</p></div>
+ <div class="cnt" id="cnt">Rahima · 31 years at the loom</div>
+</div>
+<section class="hands" id="hands"><div class="ph"></div><div class="tx"><div><h2>Paid by the motif,<br><i>not by the metre.</i></h2><p>A plain sari is quick. A dense jamdani can take months. We pay our weavers for the pattern they carry, so the hardest work is the best paid, and every label carries the weaver's name.</p>
+ <div class="names"><span>Rahima · 31 years at the loom</span><span>Sufia · 19 years</span><span>Momena · 24 years</span><span>Jahanara · 12 years</span></div></div><a href="#">Commission a sari · from ৳ 28,000</a></div></section>
+<section class="smp" id="sampler"></section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"Row 1","t":"The shuttle","at":0},{"n":"Paar","t":"The border first","at":0.16},{"n":"Buti","t":"No paper pattern","at":0.4},{"n":"2013","t":"Since 2013","at":0.66},{"n":"৳","t":"Paid by the motif","el":"#hands"},{"n":"","t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html" style="z-index:5">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="taant-scene.js"></script>
+<script type="module" src="taant-sampler.js"></script>
+<script type="module" src="taant-nav.js"></script>
+</body>
+</html>

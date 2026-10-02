@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Low Frequency · Rooms, Peckham</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--bg:#cfccc4;--off:#d9d6cf;--ink:#121212;--sig:#ff9338;--ult:#2b36ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#0b0908;color:var(--ink);font-family:'JetBrains Mono',ui-monospace,monospace;-webkit-user-select:none;user-select:none;touch-action:none}
+0%{filter:brightness(1.9) saturate(1.4);transform:scale(.94)}
+100%{filter:none;transform:none}
+.bar{position:fixed;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;pointer-events:none;color:#fff;mix-blend-mode:difference;z-index:3}
+.bar .ctl{pointer-events:auto;display:flex;gap:10px;align-items:center}
+.bar button{font:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:1px solid currentColor;color:inherit;padding:7px 11px;border-radius:30px;cursor:pointer}
+.bar input{accent-color:#fff;width:110px}
+#gate{position:fixed;inset:0;z-index:10;background:var(--sig);color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;padding:22px 20px;cursor:pointer;transition:transform .9s cubic-bezier(.7,0,.2,1)}
+#gate.up{transform:translateY(-101%)}
+#gate h1{font:700 clamp(48px,17vw,300px)/.8 'Clash Grotesk',sans-serif;letter-spacing:-.05em}
+@media (max-width:560px){#gate h1{font-size:14.5vw;margin-top:44px}}
+#gate .row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-size:12px;letter-spacing:.1em;text-transform:uppercase;line-height:1.7}
+#gate .go{font:500 clamp(18px,2vw,26px)/1.1 'Clash Grotesk',sans-serif;letter-spacing:-.01em;text-transform:none;border-bottom:2px solid;padding-bottom:4px}
+#info{position:fixed;right:16px;bottom:16px;z-index:4;max-width:300px;font-size:11px;line-height:1.7;letter-spacing:.04em;background:var(--ink);color:var(--bg);padding:14px 16px;border-radius:2px}
+#info a{color:var(--sig)}
+.fsi-tag{left:auto;right:20px;top:26px;bottom:auto;color:var(--ink);mix-blend-mode:normal;text-align:right;justify-content:flex-end}
+body.live .fsi-tag{left:16px;right:auto;top:52px;color:#fff;mix-blend-mode:difference;text-align:left;justify-content:flex-start}
+@media (max-width:720px){#info{left:16px;max-width:none}.bar input{width:70px}.t b{left:5px;top:6px;font-size:8px}}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+#info{transition:transform .8s ease,box-shadow .8s}
+body.idle #info{transform:translateY(-8px);box-shadow:0 0 0 1px var(--sig)}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.bar > span,
+html span.ctl > label,
+html span.ctl > button#shuf,
+html span.ctl > button#clr,
+html div#info > a,
+html div.row > span,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div#info{font-size:18px}
+}
+@media (max-width:699px){
+html div.bar > span,
+html span.ctl > label,
+html span.ctl > button#shuf,
+html span.ctl > button#clr,
+html div#info > a,
+html div.row > span,
+html a.fsi-tag{font-size:14px}
+html div#info{font-size:16px}
+}
+@media (min-width:700px){html div#info{max-width:640px;line-height:1.5}}
+@media (max-width:699px){html div.bar > span{letter-spacing:.02em;line-height:1.3}}
+@media (max-width:699px){html div.bar{flex-wrap:wrap;row-gap:8px}html div.bar > span{flex:1 0 100%;white-space:nowrap}}
+@media (max-width:699px){html body.live a.fsi-tag{top:98px}}
+</style>
+<style id="p14">
+/* the gate is a veil over the dark room now, never an orange poster (Anwar): the room shows through, every panel unlit */
+html #gate{background:linear-gradient(to top,rgba(9,8,7,.82),rgba(9,8,7,.25) 45%,rgba(9,8,7,0) 70%);color:#ece4d6;justify-content:flex-end;gap:28px;padding:26px 28px 9vh}
+html #gate h1{font:500 clamp(30px,4vw,60px)/.95 'Clash Grotesk',sans-serif;letter-spacing:-.015em;margin:0}
+html #gate .row{color:rgba(236,228,214,.72)}
+html #gate .go{color:#ece4d6;border-bottom-color:var(--sig)}
+@media (max-width:699px){html #gate{padding:22px 20px 12vh}html #gate h1{font-size:34px}}
+body:not(.live) #info,body:not(.live) .bar .ctl,body:not(.live) .fsi-tag{opacity:0;pointer-events:none}
+#info,.bar .ctl{transition:opacity .8s .7s}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--ix-bg:#0b0908;--ix-fg:#ece4d6;--ix-acc:#ff9338;--ix-font:500 1em 'Clash Grotesk',sans-serif;--door-bg:#0b0908;--door-fg:#ece4d6}
+/* the page scrolls once the room is on: the 3D pans from the wall to the tape machine, then the session's leavings below */
+html{height:auto;overflow:visible}body{height:auto;overflow:visible;touch-action:auto}
+html:has(body:not(.live)){overflow:hidden}
+#gl{touch-action:pan-y}
+.drv{height:300vh;position:relative;pointer-events:none}
+/* the autolocator: grey-painted metal lit from the room's overhead pools, so its shadow falls straight down */
+.loc{position:fixed;left:16px;bottom:16px;z-index:5;width:324px;padding:10px 14px 14px;border-radius:3px;opacity:0;transition:opacity .8s .7s;font-family:'General Sans',system-ui,sans-serif;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"),linear-gradient(180deg,#c4c1b9,#aeaba3 45%,#9d9a92);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(0,0,0,.28),0 16px 26px rgba(0,0,0,.6),0 2px 3px rgba(0,0,0,.5)}
+body.live .loc{opacity:1}
+body.at-door .loc{opacity:0;pointer-events:none}
+.scr{position:absolute;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d8d5ce,#8a877f 70%);box-shadow:0 1px 0 rgba(255,255,255,.35),inset 0 -1px 1px rgba(0,0,0,.35)}
+.scr::after{content:'';position:absolute;left:1px;right:1px;top:3px;height:1px;background:#4a4843;transform:rotate(var(--r))}
+.scr:nth-child(1){left:5px;top:5px}.scr:nth-child(2){right:5px;top:5px}.scr:nth-child(3){left:5px;bottom:5px}.scr:nth-child(4){right:5px;bottom:5px}
+.loc .top{display:flex;justify-content:space-between;align-items:center;margin:2px 4px 6px}
+.tape{width:150px;height:22px;display:block;rotate:-1.4deg;filter:drop-shadow(0 1px 0 rgba(0,0,0,.18))}
+.tape .tp{fill:#e7dfc6}
+.mk path{fill:none;stroke:#141210;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.mk.write path{stroke-dasharray:1;stroke-dashoffset:1;animation:lf-write .16s linear forwards;animation-delay:calc(var(--n) * .08s)}
+@keyframes lf-write{to{stroke-dashoffset:0}}
+.led{display:flex;align-items:center;gap:6px;font:500 8px/1 'General Sans';letter-spacing:.14em;color:#2f2d2a}
+.led i{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#6b2520,#3a1210);box-shadow:inset 0 0 0 1px rgba(0,0,0,.4);transition:background .15s,box-shadow .15s}
+.loc.act .led i{background:radial-gradient(circle at 40% 35%,#ffd2b8,#ff3b22 45%,#b3160c);box-shadow:0 0 8px 2px rgba(255,59,34,.55)}
+.dsp{all:unset;cursor:pointer;display:flex;gap:10px;width:100%}
+.dsp:focus-visible{outline:2px solid #ff9338;outline-offset:3px}
+.disp{flex:1;display:flex;flex-direction:column;gap:4px}
+.disp .lg{font:500 8px/1 'General Sans';letter-spacing:.16em;color:#2f2d2a;padding-left:2px}
+.disp svg{display:block;width:100%;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.4)}
+.disp .win{fill:#140807}
+.disp rect[data-s],.disp .dp{fill:rgba(255,120,50,.07)}
+.disp rect.on,.disp .cell:nth-child(4) .dp,.disp .cell:nth-child(6) .dp{fill:#ff9446;filter:drop-shadow(0 0 1.6px rgba(255,120,40,.95))}
+.disp .glare{fill:rgba(255,255,255,.045)}
+.keys{display:flex;gap:6px;margin-top:12px}
+.key{all:unset;cursor:pointer;position:relative;width:30px;height:28px;border-radius:2px;background:#1c1b19;box-shadow:0 2px 2px rgba(0,0,0,.45)}
+.key b{position:absolute;inset:0 0 3px;display:grid;place-items:center;border-radius:2px;font:500 12px/1 'General Sans';color:#ece8de;background:linear-gradient(180deg,#4a4945,#35342f);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 3px 0 #22211e;transition:transform .09s,box-shadow .09s,inset .09s}
+.key.rcl{width:40px}.key.rcl b{font-size:9px;letter-spacing:.1em}
+.key[data-i="0"] b{color:rgba(236,232,222,.72)}
+.key.on b,.key:active b{inset:3px 0 0;box-shadow:inset 0 1px 2px rgba(0,0,0,.45),0 0 0 #22211e;background:linear-gradient(180deg,#3d3c38,#302f2b)}
+.key:focus-visible{outline:2px solid #ff9338;outline-offset:2px}
+.chap.rooms,.chap.kit,.chap.book{background:#0b0908;color:#ece4d6;font-family:'Clash Grotesk',sans-serif;-webkit-user-select:text;user-select:text}
+.k{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,228,214,.6);margin-bottom:3vh}
+.rooms h2{font:500 clamp(30px,3.6vw,60px)/1.12 'JetBrains Mono',monospace;letter-spacing:-.03em;max-width:20em}
+/* the tape box: its lid, and the printed label glued a little off square */
+.chap.kit{justify-items:center}.tbox{margin:0;width:min(720px,88vw);max-width:720px;padding:34px;background:#1f1c19;border-radius:3px;rotate:-1.2deg;box-shadow:0 30px 50px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.05)}
+.tbox .label{display:block;width:100%;rotate:.7deg;box-shadow:0 1px 2px rgba(0,0,0,.5)}
+.label .pr{fill:#a3301f;font-family:'General Sans',sans-serif;font-weight:500;letter-spacing:.08em}
+.label .rule{stroke:#a3301f;stroke-width:1.2;fill:none}.label .rule.thin{stroke-width:.6;opacity:.7}
+.label .fill{fill:#a3301f}.label .rev{fill:#ebe4d3;letter-spacing:.2em}.label .box{fill:none;stroke:#a3301f;stroke-width:1.2}
+.label .pen path{fill:none;stroke:#1f2a5c;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.label .pen path.strike{stroke-width:2}
+.tbox:not(.still) .pen path{stroke-dasharray:1;stroke-dashoffset:1}
+.tbox.written:not(.still) .pen path{animation:lf-write .14s linear forwards;animation-delay:calc(var(--n) * .022s + .3s)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.book h2{font:500 clamp(56px,9vw,160px)/.9 'Clash Grotesk';letter-spacing:-.03em}.book h2 a{color:inherit;text-decoration:none}.book h2 a:hover{color:#ffb347}.book p{margin-top:4vh;font-size:20px;max-width:32em}
+.door-a{clip-path:none;transform:translateY(calc((1 - var(--rise,0)) * 100%));transition:transform .2s linear}
+#door{--door-rail:clamp(110px,15vw,240px)}
+.fdr{position:absolute;right:max(3vw,20px);top:9vh;height:78vh;z-index:2;pointer-events:none}
+.fdr svg{height:100%;width:auto;display:block;overflow:visible}
+.fdr .strip{fill:#14161a;stroke:rgba(255,255,255,.06)}.fdr .slot{fill:#000}
+.fdr .tk{stroke:var(--dfg);stroke-width:3;opacity:.8}.fdr text{fill:var(--dfg);font:500 34px 'General Sans';opacity:.85}.fdr .sm{font-size:26px;letter-spacing:.2em;opacity:.6}
+.fdr .sh{fill:rgba(0,0,0,.55);filter:blur(18px);transform:translateY(46px)}
+.fdr .cap{fill:url(#lf-cap)}.fdr .dish{fill:url(#lf-dish)}
+.fdr .knob{transition:transform .2s linear}.fdr .line{fill:#f4f2ec}
+html body.past a.fsi-tag{mix-blend-mode:normal;color:#ece4d6}
+body.at-door a.fsi-tag{color:var(--dfg)}
+/* the rooms chapter: the chain's line beside the track sheet taped to the meter bridge; the floating price card is retired (the wall's own paper carries the rates) */
+#info{display:none!important}
+.rooms{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,600px);gap:4vw;align-items:center}
+.rooms h2{font-size:clamp(24px,2.45vw,40px)}
+.tsheet{margin:88px 0 0;position:relative;rotate:1.4deg;filter:drop-shadow(0 22px 26px rgba(0,0,0,.6))}
+/* the sheet is taped to the console's meter bridge, which sits square while the sheet hangs a little crooked */
+.tsheet .bridge{position:absolute;z-index:-1;left:-6%;width:112%;top:-96px;rotate:-1.4deg;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))}.tsheet .bridge svg{display:block;width:100%;height:auto}
+.bridge .bz{fill:#0b0b0d;stroke:#3a383d;stroke-width:1}.bridge .sc{fill:none;stroke:#1d1a15;stroke-width:1.1}.bridge .sc.rd,.bridge .tk .rd{stroke:#b3321c}.bridge .tk path{stroke:#1d1a15;stroke-width:1}
+.bridge .vt{font:600 8px 'Switzer',sans-serif;fill:#2a241a;letter-spacing:.1em}.bridge .ch{font:600 10px 'Switzer',sans-serif;fill:rgba(236,228,214,.72);letter-spacing:.08em}
+.bridge .nd{stroke:#111;stroke-width:1.3;transform:rotate(var(--a0));animation:lf-vu var(--d) cubic-bezier(.3,.1,.3,1) infinite alternate}.bridge .mk{fill:#0b0b0d}.bridge .gl{fill:rgba(255,255,255,.16)}.bridge .sw{fill:#8a8790;stroke:#2a282c}
+@keyframes lf-vu{to{transform:rotate(var(--a1))}}
+@media (prefers-reduced-motion:reduce){.bridge .nd{animation:none}}
+.tsheet .label{display:block;width:100%}
+.tsheet::before{content:'';position:absolute;z-index:2;left:42%;top:-12px;width:96px;height:26px;background:rgba(226,214,182,.86);rotate:-3.5deg;box-shadow:0 1px 2px rgba(0,0,0,.3);clip-path:polygon(2% 8%,98% 0,100% 30%,97% 60%,100% 100%,3% 96%,0 64%,3% 34%)}
+.tsheet .pen path{stroke:#19181c;stroke-width:2.1}.tsheet .pen path.strike{stroke-width:2.4}
+.tsheet:not(.still) .pen path{stroke-dasharray:1;stroke-dashoffset:1}
+.tsheet.written:not(.still) .pen path{animation:lf-write .14s linear forwards;animation-delay:calc(var(--n) * .02s + .3s)}
+@media (max-width:760px){.rooms{grid-template-columns:1fr;gap:4vh;padding-top:210px;align-content:start}.rooms h2{font-size:21px}.tsheet{rotate:.8deg;margin-top:60px}.tsheet .bridge{left:-2%;width:104%;top:-58px;rotate:-.8deg}.loc{left:auto;right:10px;bottom:auto;top:132px;transform:scale(.62);transform-origin:top right}
+ .tbox{padding:14px}.book p{font-size:16px}.fdr{height:34vh;top:11vh;right:12px}#door{--door-rail:118px}}
+@media (prefers-reduced-motion:reduce){.door-a{transform:none}.fdr .knob{transition:none}}
+</style>
+<style id="lk-css">
+/* the second act (low-frequency-locker.js): the microphone drawer. The chapter control sits bottom left, so the words stay above it. */
+.locker{position:relative;z-index:3;min-height:100vh;scroll-snap-align:start;overflow:hidden;background:radial-gradient(60% 70% at 70% 30%,rgba(255,147,56,.09),transparent 70%),#0b0908;color:#ece4d6;font-family:'General Sans',system-ui,sans-serif;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:5vw;align-items:start;padding:13vh 5vw 8vh 5vw;-webkit-user-select:text;user-select:text}
+.lk-t{padding-bottom:250px}.lk-t .k{font:500 14px 'General Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ff9338;margin:0 0 18px}
+.lk-t h2{font:500 clamp(34px,3.6vw,60px)/.98 'Clash Grotesk',sans-serif;letter-spacing:-.02em;margin:0 0 26px}
+.lk-t dl{margin:0;border-top:1px solid rgba(236,228,214,.6)}.lk-t dl div{display:grid;grid-template-columns:7em 1fr;gap:12px;padding:11px 0;border-bottom:1px solid rgba(236,228,214,.2)}
+.lk-t dt{font:500 13px/1.8 'General Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ff9338}.lk-t dd{margin:0;font:400 17px/1.45 'General Sans',sans-serif}
+.locker{grid-template-columns:minmax(0,1fr)!important;gap:3vh!important;align-content:center}
+.lk-h .k{font:500 14px 'General Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ff9338;margin:0 0 12px}.lk-h h2{font:500 clamp(30px,3.2vw,52px)/.98 'Clash Grotesk',sans-serif;letter-spacing:-.02em;margin:0}
+@media (min-width:861px){.locker .lk-d{justify-self:end;width:min(1000px,calc(100% - 300px),132vh)}}
+.lk-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.lk-d .rh{font:700 17px 'JetBrains Mono',monospace;letter-spacing:.16em;fill:#1c1a17}.lk-d .rs{font:400 10px 'JetBrains Mono',monospace;letter-spacing:.14em;fill:#6a6457}.lk-d .rk{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.16em;fill:#b3261a}.lk-d .rc{font:400 15px 'JetBrains Mono',monospace;fill:#1c1a17}.lk-d .rn{font:400 10px 'JetBrains Mono',monospace;fill:#6a6457;text-anchor:end}.lk-d .rp{font:italic 400 14px Georgia,serif;fill:#3a3a8c}
+.lk-d{margin:0;justify-self:center;width:min(1080px,100%,138vh);rotate:1.1deg;filter:drop-shadow(18px 26px 26px rgba(0,0,0,.8))}.lk-d svg{display:block;width:100%;height:auto}
+.lk-d .dy{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.14em;fill:#ece8de}.lk-d .sg{font:700 8px 'JetBrains Mono',monospace;letter-spacing:.1em;fill:#3b3a36;text-anchor:middle}
+@media (max-width:860px){.locker{grid-template-columns:1fr;gap:26px;padding:104px 16px 60px}.lk-d{rotate:0deg;width:auto;justify-self:stretch;margin:0 -16px;padding:0 16px 30px;overflow-x:auto}.lk-d svg{width:270vw;max-width:none}.lk-t{padding-bottom:40px}.lk-t dl div{grid-template-columns:6em 1fr}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="Room A: the far wall panels are a sixteen-step sequencer"></canvas>
+<div class="bar" data-hud><span>Low Frequency · Peckham SE15</span><span class="ctl"><label>BPM <input id="bpm" type="range" min="84" max="150" value="118"></label><button id="shuf">Shuffle</button><button id="clr">Clear</button></span></div>
+<div id="info" data-hud>Room A · 42 m² · tape machine, upright piano, a drum kit that has been on four records you know · £38 an hour.<br>Room B · vocal booth, dead quiet · £22 an hour.<br><a href="#">Book a room →</a></div>
+<div id="gate"><h1>LOW<br>FREQUENCY</h1><div class="row"><span>Recording rooms<br>Rye Lane, Peckham<br>Open until 3am</span><span class="go">Tap anywhere to switch the room on ↑</span><span>Sound on.<br>The page is the instrument.</span></div></div>
+<div class="drv" id="drv"></div>
+<nav class="loc" id="loc" aria-label="Chapters"></nav>
+<section class="chap rooms" id="rooms">
+ <div class="rt"><p class="k">Room A · 42 m²</p>
+ <h2 class="reveal sda"><span class="ln"><span>Tape machine, upright piano,</span></span><span class="ln"><span>a drum kit that has been</span></span><span class="ln"><span>on four records you know.</span></span></h2></div>
+ <figure class="tsheet sda" id="trksheet"><figcaption class="sr">Track sheet, Room A: kick, snare, hat, tom, floor, overheads, room, piano left and right, bass, two guitars, vocal in Room B; ten tracks free</figcaption></figure>
+</section>
+<section class="chap kit" id="kit">
+ <figure class="tbox sda-s sda" id="tapebox"><figcaption class="sr">Tape box, Room A, reel 4</figcaption><ul class="sr"><li>Studer A80, half inch, 15 inches per second</li><li>Upright piano, 1962, tuned Tuesdays</li><li>The kit: four records, ask which</li><li>Engineer in the chair, every hour</li></ul></figure>
+</section>
+<section class="locker" id="locker"></section>
+<section class="chap book" id="book"><h2 class="sda"><a href="#">Book a room →</a></h2><p class="sda">Rye Lane, Peckham SE15. Open until 3 am. The engineer stays.</p></section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"-00.04.0","t":"The gate","at":0,"v":-40,"s":"GATE"},{"n":"00.00.0","t":"The wall","at":0.45,"v":0,"s":"WALL"},{"n":"01.12.0","t":"The tape machine","at":0.95,"v":720,"s":"A80"},{"n":"02.40.0","t":"The rooms","el":"#rooms","v":1600,"s":"ROOMS"},{"n":"03.15.0","t":"The kit","el":"#kit","v":1950,"s":"KIT"},{"n":"04.02.0","t":"Book","el":"#book","v":2420,"s":"BOOK"},{"n":"04.30.0","t":"Next world","el":"#door","v":2700,"s":"OUT"}]</script>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="low-frequency-scene.js"></script>
+<script type="module" src="low-frequency-locker.js"></script>
+<script type="module" src="low-frequency-nav.js"></script>
+</body>
+</html>

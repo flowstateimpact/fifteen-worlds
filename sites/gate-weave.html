@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gate Weave Pictures · Dhaka and London</title>
+<meta name="description" content="A private screening room: six films from Gate Weave Pictures, one frame at a time. Concept site by FlowStãte Impact, fictional brand.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="lib/nav.css">
+<style>
+:root{--ink:#ece5d8;--mute:rgba(236,229,216,.56)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y mandatory;background:#040404}
+body{background:#040404;color:var(--ink);font-family:'Satoshi',system-ui,sans-serif}
+#gl{position:fixed;inset:0;width:100vw;height:100vh;display:block}
+.s{height:100vh;scroll-snap-align:start;position:relative}
+.top{position:fixed;top:20px;left:24px;right:24px;display:flex;justify-content:space-between;font:500 12px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);z-index:3;pointer-events:none;opacity:0;transition:opacity 1.6s}
+.cap{position:fixed;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;z-index:3;pointer-events:none;opacity:0;transition:opacity .6s}
+.cap b{display:block;font:500 clamp(20px,1.9vw,30px)/1.12 'Satoshi',sans-serif;letter-spacing:-.01em;text-shadow:0 2px 18px #000}
+.cap span{display:block;margin-top:8px;font:400 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-shadow:0 1px 10px #000}
+.cap .r{text-align:right}.cap .r b{white-space:nowrap}
+.hint{position:fixed;left:0;right:0;bottom:calc(5vh + 34px);text-align:center;font:400 12px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);z-index:3;pointer-events:none;opacity:0;transition:opacity .9s;text-shadow:0 1px 10px #000}
+.end{display:flex;flex-direction:column;justify-content:center;padding:0 8vw;z-index:2}
+.end p{position:relative;z-index:4;max-width:22em;font:400 clamp(24px,2.7vw,42px)/1.24 'Satoshi',sans-serif;letter-spacing:-.015em;text-shadow:0 2px 24px #000}
+.end a{position:relative;z-index:4;align-self:flex-start;margin-top:5vh;color:var(--ink);font:400 13px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--mute);padding-bottom:6px;text-decoration:none}
+#snd{position:fixed;right:24px;bottom:16px;z-index:4;font:400 11px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);background:rgba(4,4,4,.6);border:1px solid rgba(236,229,216,.25);border-radius:20px;padding:7px 12px;cursor:pointer}
+@media (max-width:760px){.top{left:20px;right:20px;font-size:11px}.cap{gap:12px}.cap b{font-size:20px}.cap span{font-size:11px;letter-spacing:.1em}.cap #tc{display:none}.hint{padding:0 20px}#snd{bottom:auto;top:44px;right:20px}.end{padding:0 20px}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.top#top > span,
+html div > span#me,
+html div.r > span#tc,
+html p.hint#hint,
+html section.s.end#end > a,
+html button#snd,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+}
+@media (max-width:699px){
+html div.top#top > span,
+html div > span#me,
+html p.hint#hint,
+html section.s.end#end > a,
+html button#snd,
+html a.fsi-tag{font-size:14px}
+}
+</style>
+<style id="nav">
+:root{--ix-bg:#040404;--ix-fg:#ece5d8;--ix-acc:#ff9a3d;--ix-font:600 1em 'Clash Display',sans-serif;--door-bg:#040404;--door-fg:#ece5d8}
+html{scroll-snap-type:y mandatory}
+body.at-door .top,body.at-door .cap,body.at-door .hint{opacity:0!important}
+body.at-papers .cap,body.at-papers .hint{opacity:0!important}
+/* the print (gate-weave-nav.js): a length of 35mm pulled from its can across the seats; at the door it lifts above the next world */
+.reel{position:fixed;left:0;right:0;z-index:3;overflow:hidden;transition:top .8s cubic-bezier(.2,.7,.1,1);-webkit-mask:linear-gradient(90deg,#000 0 78%,transparent 99%);mask:linear-gradient(90deg,#000 0 78%,transparent 99%)}
+.reel .track{position:absolute;left:0;top:14px;will-change:transform}
+.reel .film{display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
+.reel .fr{all:unset;position:absolute;top:0;height:100%;cursor:pointer}
+.reel .fr:focus-visible{outline:2px solid #ff9a3d;outline-offset:-3px}
+.reel .lamp{position:absolute;left:50%;top:-40%;width:min(520px,60vw);height:180%;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(255,236,205,.2),rgba(255,214,160,.07) 45%,transparent 70%);mix-blend-mode:screen;pointer-events:none;z-index:2}
+.reel .can{all:unset;position:absolute;left:10px;top:50%;width:calc(100% * 0 + var(--canw,140px));height:var(--canw,140px);transform:translateY(-50%) rotate(-6deg);cursor:pointer;z-index:3;border-radius:50%}
+.reel .can svg{width:100%;height:100%;overflow:visible}
+.reel .can:focus-visible{outline:2px solid #ff9a3d;outline-offset:3px}
+@media (max-width:760px){.reel .can{left:-18px}}
+</style>
+<style id="pp-css">
+/* the second act (gate-weave-papers.js): each film in the place it was shot, thrown out of focus, one paper from its production in a low side light */
+.pp{z-index:2;height:auto;min-height:100vh;overflow:hidden;background:#060504;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);align-items:center;gap:5vw;padding:236px 7vw 84px}
+.pp .bg{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(26px) brightness(.4) saturate(.7) sepia(.3);transform:scale(1.1)}
+.pp .sun{position:absolute;inset:0;background:radial-gradient(90% 80% at -8% 78%,rgba(255,168,88,.26),rgba(255,150,70,.06) 42%,transparent 62%),radial-gradient(120% 100% at 50% 50%,transparent 45%,rgba(4,3,2,.82) 100%),linear-gradient(90deg,transparent 30%,rgba(6,5,4,.6) 62%,rgba(6,5,4,.78))}
+.pp .sun::after{content:"";position:absolute;inset:0;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.pp .obj{position:relative;justify-self:center;width:min(430px,34vw,58vh);transform:rotate(calc(var(--r) * 1.9)) translateY(26px);opacity:.0;transition:transform 1.3s cubic-bezier(.2,.7,.1,1),opacity .9s}
+.pp.in .obj{transform:rotate(var(--r));opacity:1}
+.pp .obj.tall{width:min(340px,27vw,44vh)}
+.pp .obj svg{display:block;width:100%;height:auto;filter:drop-shadow(30px 16px 16px rgba(0,0,0,.72)) drop-shadow(4px 3px 2px rgba(0,0,0,.5))}
+.pp figcaption{margin-top:26px;transform:rotate(calc(var(--r) * -1));font:400 14px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:center}
+.pp .tx{position:relative;max-width:36em}
+.pp .k{font:400 14px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pp h2{margin-top:14px;font:500 clamp(30px,3.5vw,56px)/1.02 'Satoshi',sans-serif;letter-spacing:-.02em}
+.pp .sy{margin-top:20px;font:400 clamp(17px,1.35vw,21px)/1.5 'Satoshi',sans-serif;max-width:31em;color:rgba(236,229,216,.9)}
+.pp dl{display:grid;grid-template-columns:max-content 1fr;gap:9px 26px;margin-top:26px;padding-top:20px;border-top:1px solid rgba(236,229,216,.2)}
+.pp dt{font:400 14px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.pp dd{font:400 16px/1.4 'Satoshi',sans-serif}
+.pp.house{grid-template-columns:minmax(0,1fr);background:#070605}.pp.house .tx{max-width:60em}.pp.house h2{max-width:17em}
+.pp table{width:100%;margin-top:34px;border-collapse:collapse;font:400 16px/1.4 'Satoshi',sans-serif}
+.pp th{text-align:left;font:400 14px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:0 18px 12px 0}
+.pp td{padding:13px 18px 13px 0;border-top:1px solid rgba(236,229,216,.18)}.pp td:last-child,.pp th:last-child{text-align:right;padding-right:0}
+.pp .units{display:grid;grid-template-columns:1fr 1fr;gap:5vw;margin-top:40px}.pp .units p + p{margin-top:10px;font:400 16px/1.5 'Satoshi',sans-serif}
+@media (max-width:760px){.pp{grid-template-columns:minmax(0,1fr);gap:26px;padding:232px 20px 120px;align-items:start}.pp .obj{width:min(270px,70vw)}.pp .obj.tall{width:min(220px,58vw)}.pp figcaption{margin-top:16px}.pp h2{font-size:30px}.pp dl{gap:6px 16px}.pp dd{font-size:15px}.pp .units{grid-template-columns:1fr;gap:22px}.pp td{font-size:15px;padding:10px 10px 10px 0}body.at-papers a.fsi-tag{left:0;right:0;bottom:0;padding:10px 20px;background:#060504}}
+@media (prefers-reduced-motion:reduce){.pp .obj{transition:none;transform:rotate(var(--r));opacity:1}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A small screening room: one frame on the screen, the projector beam overhead, empty velvet seats"></canvas>
+<div class="top" id="top"><span>Gate Weave Pictures</span><span>Dhaka · London</span></div>
+<div class="cap" id="cap"><div><b id="ti">Rooftop Pigeons</b><span id="me">Short documentary · 2025 · 14 min</span></div><div class="r"><b id="no">01 / 06</b><span id="tc">00:00:00:00</span></div></div>
+<p class="hint" id="hint">Scroll to run the reel. Stop on a frame and it burns.</p>
+<main>
+ <section class="s" id="f1"></section><section class="s" id="f2"></section><section class="s" id="f3"></section><section class="s" id="f4"></section><section class="s" id="f5"></section><section class="s" id="f6"></section>
+ <div id="papers"></div>
+ <section class="s end" id="end"><p>Commercials, documentaries and one feature film, made between Dhaka and London since 2014. The next reel could be yours.</p><a href="#">Start a film with us →</a></section>
+</main>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"01","t":"Rooftop Pigeons","el":"#f1"},{"n":"02","t":"The Last Jamdani Loom","el":"#f2"},{"n":"03","t":"Monsoon Kitchen","el":"#f3"},{"n":"04","t":"Night Bus to Sylhet","el":"#f4"},{"n":"05","t":"Launch","el":"#f5"},{"n":"06","t":"Eleven Days on the River","el":"#f6"},{"n":"07","t":"The papers","el":"#papers"},{"n":"","t":"Next world","el":"#door"}]</script>
+<button id="snd">Projector sound · off</button>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+// A private screening room. The camera is a seat and never moves; the strip travels through the gate.
+// The frame is drawn into its own texture first (weave, flicker, burn, grain on the print), then thrown onto the screen,
+// and the screen's light is what lights the room.
+import * as THREE from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+
+const films=[['Rooftop Pigeons','Short documentary · 2025 · 14 min','gateweave-roofs'],['The Last Jamdani Loom','Brand film · 2024 · 3 min','gw-loom'],
+ ['Monsoon Kitchen','Series · six episodes · 2023','gw-kitchen'],['Night Bus to Sylhet','Feature · 2022 · 94 min','gw-bus'],
+ ['Launch','Commercial · 2021 · 60 sec','gw-launch'],['Eleven Days on the River','Documentary · 2019 · 52 min','gw-char']];
+const phone=innerWidth<760, DPR=Math.min(phone?1.5:2,devicePixelRatio), A=1.85;
+RectAreaLightUniformsLib.init();
+const cv=document.getElementById('gl');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'});R.setPixelRatio(DPR);R.toneMapping=THREE.NoToneMapping;
+const S=new THREE.Scene();S.background=new THREE.Color(0x030303);
+
+// ---- the print: six stills, drawn through the gate into their own texture
+const avg=films.map(()=>new THREE.Color(.5,.45,.4));let ready=0;
+const tl=new THREE.TextureLoader(),stills=films.map((f,i)=>tl.load('../img/'+f[2]+'.webp',t=>{
+ const c=document.createElement('canvas');c.width=c.height=8;const x=c.getContext('2d');x.drawImage(t.image,0,0,8,8);const d=x.getImageData(0,0,8,8).data;let r=0,g=0,b=0;
+ for(let k=0;k<d.length;k+=4){r+=d[k];g+=d[k+1];b+=d[k+2]}avg[i].setRGB(r/64/255,g/64/255,b/64/255,THREE.SRGBColorSpace);ready++}));
+stills.forEach(t=>{t.colorSpace=THREE.SRGBColorSpace;t.flipY=false;t.minFilter=THREE.LinearFilter;t.generateMipmaps=false});
+const RW=phone?1024:1800,rt=new THREE.WebGLRenderTarget(RW,Math.round(RW/A),{type:THREE.HalfFloatType,depthBuffer:false});
+const printU={t0:{value:stills[0]},t1:{value:stills[1]},t2:{value:stills[2]},t3:{value:stills[3]},t4:{value:stills[4]},t5:{value:stills[5]},
+ uT:{value:0},uS:{value:0},uV:{value:0},uBurn:{value:0},uBP:{value:new THREE.Vector2(.5,.5)},uLamp:{value:0},uReady:{value:0},uCue:{value:0},uRes:{value:new THREE.Vector2(RW,RW/A)}};
+const print=new THREE.Mesh(new THREE.PlaneGeometry(2,2),new THREE.ShaderMaterial({uniforms:printU,depthTest:false,depthWrite:false,
+ vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}`,
+ fragmentShader:`precision highp float;uniform sampler2D t0,t1,t2,t3,t4,t5;uniform float uT,uS,uV,uBurn,uLamp,uReady,uCue;uniform vec2 uBP,uRes;varying vec2 vUv;
+ float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
+ float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+1.),f.x),f.y);}
+ float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<5;i++){s+=a*vn(p);p*=2.03;a*=.5;}return s;}
+ vec3 st(float k,vec2 uv){if(k<.5)return texture2D(t0,uv).rgb;if(k<1.5)return texture2D(t1,uv).rgb;if(k<2.5)return texture2D(t2,uv).rgb;if(k<3.5)return texture2D(t3,uv).rgb;if(k<4.5)return texture2D(t4,uv).rgb;return texture2D(t5,uv).rgb;}
+ void main(){
+  const float uA=${A.toFixed(2)};float fr=floor(uT*24.);
+  // the weave: a slow drift under a fast tremor, about half a pixel, and now and then a hop
+  vec2 weave=vec2(sin(uT*1.1)+.5*sin(uT*2.7+1.3)+.25*sin(uT*17.),.7*sin(uT*.9+2.)+.3*sin(uT*3.1)+.2*sin(uT*21.))*.0009+(h(vec2(fr,3.))>.988?vec2(0.,.0022):vec2(0.));
+  vec2 q=(vUv-.5)*1.035+.5-weave;
+  // the gate: its edge shows as the frame breathes, and a hair has lived in it for years
+  if(q.x<0.||q.x>1.||q.y<0.||q.y>1.||uReady<.5){gl_FragColor=vec4(vec3(.004),1.);return;}
+  const float gap=.05;float y=(1.-q.y)+uS*(1.+gap),k=floor(y/(1.+gap)),ly=y-k*(1.+gap);
+  vec3 col;
+  if(ly>1.||k<0.||k>5.)col=vec3(.03,.026,.022);
+  else{
+   float e=-9.,n=0.;bool live=abs(k-uS)<.5&&uBurn>0.;
+   if(live){vec2 bp=q-uBP;bp.x*=uA;n=fbm(q*vec2(uA,1.)*4.5+3.)-.5;e=uBurn*1.15-length(bp)+n*.42;}
+   vec2 wq=vec2(q.x,ly);if(live)wq+=vec2(n,fbm(q*9.)-.5)*.035*smoothstep(-.25,0.,e);
+   float hh=(16./9.)/uA;vec2 uv=vec2(wq.x,.5-hh*.5+wq.y*hh);
+   float bl=clamp(abs(uV)*.03,0.,.08);col=vec3(0.);
+   for(int i=0;i<5;i++){float d=(float(i)/4.-.5)*bl;col+=st(k,vec2(uv.x,clamp(uv.y+d,0.,1.)));}col/=5.;
+   if(live){col=mix(col,col*vec3(.62,.42,.24),smoothstep(-.22,-.02,e)*.85);
+    float bub=smoothstep(.56,.8,vn(q*vec2(uA,1.)*38.+n*4.))*smoothstep(-.12,-.02,e)*(1.-smoothstep(-.02,0.,e));col=mix(col,vec3(.16,.08,.03),bub*.8);
+    col=mix(col,vec3(1.,.6,.2)*1.6,smoothstep(-.016,-.005,e)*(1.-smoothstep(-.004,.004,e)));
+    col=mix(col,vec3(1.,.97,.9)*1.25,smoothstep(-.002,.02,e));}
+  }
+  // the changeover cue, printed on the reel's last frames: a lab ring, top right of the picture, on for four frames, weaving with the print
+  if(uCue>0.){vec2 cq=(q-vec2(.918,.868))*vec2(uA,1.);float cr=abs(length(cq)-.034);col=mix(col,vec3(1.,.975,.92)*1.15,uCue*smoothstep(.011,.004,cr)*(.85+.15*h(q*400.+fr)));}
+  float hair=smoothstep(.0022,.0008,abs(q.x-(.03+.012*sin(q.y*11.+1.)+.004*sin(uT*.7))))*step(q.y,.34)*step(.06,q.y);col*=1.-hair*.85;
+  col*=1.+(h(vec2(fr,1.))-.5)*.06;
+  vec2 v=q-.5;col*=1.-.7*dot(v*v,v*v)*4.;
+  col=pow(max(col,0.),vec3(1.03,1.,.96))*vec3(1.03,1.,.9);
+  col+=(h(gl_FragCoord.xy*.73+fr*7.13)-.5)*.075*(.35+col.g);
+  gl_FragColor=vec4(col*uLamp,1.);}`}));
+const printScene=new THREE.Scene(),printCam=new THREE.Camera();printScene.add(print);
+
+// ---- the room, in metres. The screen is on the wall at z=0; rows rise toward the back.
+const FW=6.2,FH=FW/A,FY=3.05;
+const screen=new THREE.Mesh(new THREE.PlaneGeometry(FW,FH),new THREE.MeshBasicMaterial({map:rt.texture}));screen.position.set(0,FY,0);S.add(screen);
+const velvetBlack=new THREE.MeshStandardMaterial({color:0x070606,roughness:1});
+const wallM=new THREE.MeshStandardMaterial({color:0x100d0b,roughness:.95});
+const add=(g,m,x,y,z)=>{const o=new THREE.Mesh(g,m);o.position.set(x,y,z);S.add(o);return o};
+add(new THREE.PlaneGeometry(10,7),wallM,0,3.5,-.02);
+for(const [w,h,x,y] of[[FW+.9,.45,0,FY+FH/2+.22],[FW+.9,.35,0,FY-FH/2-.17],[.45,FH,-FW/2-.22,FY],[.45,FH,FW/2+.22,FY]])add(new THREE.BoxGeometry(w,h,.08),velvetBlack,x,y,.02);
+const floor=add(new THREE.PlaneGeometry(10,16),new THREE.MeshStandardMaterial({color:0x140f0e,roughness:1}),0,0,8);floor.rotation.x=-Math.PI/2;
+const ceil=add(new THREE.PlaneGeometry(10,16),new THREE.MeshStandardMaterial({color:0x0a0908,roughness:1}),0,6.4,8);ceil.rotation.x=Math.PI/2;
+add(new THREE.PlaneGeometry(10,7),wallM,0,3.5,15).rotation.y=Math.PI;
+// curtains down both walls: pleats that take the screen's light on their crests
+const drape=new THREE.MeshPhysicalMaterial({color:0x2c0d10,roughness:.9,sheen:1,sheenColor:new THREE.Color(0x8a3a3f),sheenRoughness:.45});
+for(const sx of[-1,1]){const g=new THREE.PlaneGeometry(15,6.4,phone?160:320,1),p=g.attributes.position;
+ for(let i=0;i<p.count;i++){const u=p.getX(i);p.setZ(i,Math.sin(u*9.)*.07+Math.sin(u*23.+1.)*.015)}g.computeVertexNormals();
+ const m=add(g,drape,sx*4.9,3.2,7.6);m.rotation.y=-sx*Math.PI/2}
+// the seats: raked rows of red velvet, empty
+const ROWS=10,PER=13,SW=.56,rowZ=i=>2.7+i*1.1,rowY=i=>i*.15;
+const seatM=new THREE.MeshPhysicalMaterial({color:0x2e0c12,roughness:.86,sheen:.8,sheenColor:new THREE.Color(0x7a3442),sheenRoughness:.42});
+const backG=new RoundedBoxGeometry(.5,.66,.11,3,.045),cushG=new RoundedBoxGeometry(.5,.14,.46,2,.04);
+const backs=new THREE.InstancedMesh(backG,seatM,ROWS*PER),cush=new THREE.InstancedMesh(cushG,seatM,ROWS*PER);
+const armG=new THREE.BoxGeometry(.06,.07,.5),arms=new THREE.InstancedMesh(armG,new THREE.MeshStandardMaterial({color:0x2a1c14,roughness:.45}),ROWS*(PER+1));
+const stepG=new THREE.BoxGeometry(9.8,.15,1.1),stepM=new THREE.MeshStandardMaterial({color:0x120e0d,roughness:1});
+const M=new THREE.Matrix4(),Q=new THREE.Quaternion(),E=new THREE.Euler(),V=new THREE.Vector3(),one=new THREE.Vector3(1,1,1);let n=0,na=0;
+for(let r=0;r<ROWS;r++){const z=rowZ(r),y0=rowY(r);if(r>0)add(stepG,stepM,0,y0-.075,z);
+ for(let s=0;s<PER;s++){const x=(s-(PER-1)/2)*SW;
+  M.compose(V.set(x,y0+.78,z+.2),Q.setFromEuler(E.set(-.17,0,0)),one);backs.setMatrixAt(n,M);
+  M.compose(V.set(x,y0+.45,z-.04),Q.identity(),one);cush.setMatrixAt(n++,M)}
+ for(let s=0;s<=PER;s++){M.compose(V.set((s-PER/2)*SW,y0+.62,z),Q.identity(),one);arms.setMatrixAt(na++,M)}}
+for(const o of[backs,cush,arms])S.add(o);
+
+// ---- the lamp: one projector behind the back wall, throwing the frame over your head
+const LENS=new THREE.Vector3(0,4.35,14.9);
+const rect=new THREE.RectAreaLight(0xffffff,0,FW,FH);rect.position.set(0,FY,.06);rect.lookAt(0,FY,10);S.add(rect);
+const spill=new THREE.SpotLight(0xffc98f,0,24,.62,.9,1.2);spill.position.copy(LENS);spill.target.position.set(0,1.2,6);S.add(spill,spill.target);
+// the beam: a pyramid from the lens to the frame's corners, haze moving through it
+const corners=[[-1,-1],[1,-1],[1,1],[-1,1]].map(([a,b])=>new THREE.Vector3(a*FW/2,FY+b*FH/2,.05));
+const bp=[],bt=[],bu=[];for(let i=0;i<4;i++){const a=corners[i],b=corners[(i+1)%4];bp.push(...LENS.toArray(),...a.toArray(),...b.toArray());bt.push(0,1,1);bu.push(1,0,0,0,1,0,0,0,1)}
+const beamG=new THREE.BufferGeometry();beamG.setAttribute('position',new THREE.Float32BufferAttribute(bp,3));beamG.setAttribute('t',new THREE.Float32BufferAttribute(bt,1));beamG.setAttribute('bc',new THREE.Float32BufferAttribute(bu,3));beamG.computeVertexNormals();
+const beamU={uT:{value:0},uC:{value:new THREE.Color()},uI:{value:0}};
+const beam=new THREE.Mesh(beamG,new THREE.ShaderMaterial({uniforms:beamU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide,
+ vertexShader:`attribute float t;attribute vec3 bc;varying float vT;varying vec3 vW,vN,vV,vB;void main(){vT=t;vB=bc;vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;vN=normalize(mat3(modelMatrix)*normal);vV=normalize(cameraPosition-w.xyz);gl_Position=projectionMatrix*viewMatrix*w;}`,
+ fragmentShader:`uniform float uT,uI;uniform vec3 uC;varying float vT;varying vec3 vW,vN,vV,vB;
+ float h(vec3 p){return fract(sin(dot(p,vec3(12.9898,78.233,37.719)))*43758.5453);}
+ float vn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+1.),f.x),f.y),f.z);}
+ void main(){vec3 p=vW*.55+vec3(uT*.05,uT*.018,-uT*.03);float hz=vn(p)*.6+vn(p*2.3)*.4;
+  float edge=pow(1.-abs(dot(normalize(vN),normalize(vV))),1.3);
+  float a=uI*(.08+.92*edge*edge)*(.08+1.7*hz*hz)*smoothstep(0.,.06,vT)*mix(1.,.35,vT)*smoothstep(1.,.9,vT);
+  float u=vB.y/max(1e-4,vB.y+vB.z);a*=smoothstep(0.,.3,u)*smoothstep(1.,.7,u);
+  gl_FragColor=vec4(uC*a,1.);}`}));
+S.add(beam);
+// dust at two depths, only where the beam is
+const DN=phone?260:900,dp=new Float32Array(DN*3),ds=new Float32Array(DN);let sd=11;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
+for(let i=0;i<DN;i++){const t=.18+.8*Math.pow(rnd(),.7),u=(rnd()-.5)*.92,v=(rnd()-.5)*.92,c=new THREE.Vector3(u*FW,FY+v*FH,.05);
+ const p=LENS.clone().lerp(c,t);dp[i*3]=p.x;dp[i*3+1]=p.y;dp[i*3+2]=p.z;ds[i]=rnd()}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dp,3));dG.setAttribute('s',new THREE.BufferAttribute(ds,1));
+const dU={uT:{value:0},uI:{value:0},uC:{value:new THREE.Color()},uPx:{value:DPR}};
+S.add(new THREE.Points(dG,new THREE.ShaderMaterial({uniforms:dU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+ vertexShader:`attribute float s;uniform float uT,uPx;varying float vS;void main(){vS=s;vec3 p=position+vec3(sin(uT*.11+s*40.)*.12,sin(uT*.07+s*17.)*.1-mod(uT*.012+s,1.)*.2,cos(uT*.09+s*23.)*.12);
+  vec4 w=modelViewMatrix*vec4(p,1.);gl_PointSize=uPx*(s>.93?3.:1.2)*(6./-w.z);gl_Position=projectionMatrix*w;}`,
+ fragmentShader:`uniform float uI,uT;uniform vec3 uC;varying float vS;void main(){float r=length(gl_PointCoord-.5);float tw=.55+.45*sin(uT*(1.+vS*3.)+vS*50.);gl_FragColor=vec4(uC*uI*tw*smoothstep(.5,.0,r)*(vS>.93?.3:.75),1.);}`})));
+// the seat in front of you, worn pale along its crown by forty years of hands
+const crown=new THREE.Mesh(new RoundedBoxGeometry(.46,.05,.12,2,.022),new THREE.MeshPhysicalMaterial({color:0x5a3632,roughness:.9,sheen:.6,sheenColor:new THREE.Color(0xa87a72),sheenRoughness:.6}));S.add(crown);
+
+// ---- halation: the whites bleed red into the dark, as film does; a vignette the eye expects
+const comp=new EffectComposer(R);comp.addPass(new RenderPass(S,null));
+const hal=new ShaderPass({uniforms:{tDiffuse:{value:null},uR:{value:new THREE.Vector2()}},
+ vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`uniform sampler2D tDiffuse;uniform vec2 uR;varying vec2 vUv;void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec2 px=1./uR;vec3 b=vec3(0.);
+  for(int i=0;i<12;i++){float a=float(i)*.5236;b+=texture2D(tDiffuse,vUv+vec2(cos(a),sin(a))*px*9.).rgb+texture2D(tDiffuse,vUv+vec2(cos(a+.26),sin(a+.26))*px*20.).rgb;}b/=24.;
+  c+=max(b-.62,0.)*vec3(1.,.42,.22)*.55;vec2 q=vUv-.5;c*=1.-dot(q,q)*.9;gl_FragColor=vec4(c,1.);}`});
+comp.addPass(hal);comp.addPass(new OutputPass());
+
+// ---- your seat
+const cam=new THREE.PerspectiveCamera(38,1,.05,60);comp.passes[0].camera=cam;
+const cap=document.getElementById('cap'),ti=document.getElementById('ti'),me=document.getElementById('me'),no=document.getElementById('no'),tc=document.getElementById('tc'),hint=document.getElementById('hint'),top=document.getElementById('top');
+let W,H;const fb=new THREE.Vector3();
+function seat(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);comp.setSize(W,H);hal.uniforms.uR.value.set(W*DPR,H*DPR);
+ const asp=W/H;cam.aspect=asp;cam.fov=asp<1?56:42;
+ // sit in the row whose distance lets the frame fill the wall: on a phone that is the back row
+ const want=asp<1?FW*1.02:FW/.6,d=want/(2*Math.tan(THREE.MathUtils.degToRad(cam.fov/2))*asp);
+ let r=0;for(let i=0;i<ROWS;i++)if(rowZ(i)<=d+.3)r=i;const z=rowZ(r)+.12;
+ cam.position.set(0,rowY(r)+(asp<1?1.34:1.2),z);cam.lookAt(0,asp<1?FY-.1:FY-.95,0);cam.updateProjectionMatrix();
+ crown.visible=r>0;crown.position.set(0,rowY(r-1)+1.12,rowZ(r-1)+.26);crown.rotation.x=-.17;
+ cam.updateMatrixWorld();fb.set(0,FY-FH/2,0).project(cam);const yb=(-fb.y*.5+.5)*H;fb.set(-FW/2,FY,0).project(cam);const xl=Math.max(20,(fb.x*.5+.5)*W);
+ cap.style.top=Math.min(H-(asp<1?150:118),yb+18)+'px';cap.style.padding=`0 ${xl}px`}
+addEventListener('resize',seat);seat();
+
+// ---- the reel
+let cueT=0,moved=false,s=0,ps=0,v=0,burn=0,lastMove=performance.now(),lt=0,cur=-1,t0=performance.now();const bpv=new THREE.Vector2(.5,.5);
+addEventListener('scroll',()=>{moved=true;lastMove=performance.now();hint.style.opacity=0},{passive:true});
+let ac=null,on=false,acc=0,cr=0;
+document.getElementById('snd').onclick=e=>{if(!ac)ac=new AudioContext();on=!on;e.target.textContent='Projector sound · '+(on?'on':'off')};
+function tick(f0,f1,len,gain){const t=ac.currentTime,b=ac.createBuffer(1,ac.sampleRate*len,ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,6);
+ const s=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();s.buffer=b;f.type='bandpass';f.frequency.value=f0+Math.random()*f1;g.gain.value=gain;s.connect(f);f.connect(g);g.connect(ac.destination);s.start(t)}
+const pad=n=>String(n).padStart(2,'0'),col=new THREE.Color(),lampC=new THREE.Color(1,.88,.72);
+function frame(now){requestAnimationFrame(frame);if(scrollY>document.querySelector('main').offsetHeight+8)return;if(scrollY>innerHeight*7.05&&scrollY<document.getElementById('end').offsetTop-innerHeight*1.05)return;const dt=Math.min(.05,lt?(now-lt)/1000:.016);lt=now;const t=(now-t0)/1000;
+ const tg=Math.max(0,Math.min(6,scrollY/H));ps=s;s+=(tg-s)*Math.min(1,dt*9);v=(s-ps)/dt;
+ const settled=Math.abs(s-Math.round(s))<.01&&s<5.5,idle=performance.now()-lastMove>2200,go=ready===6;
+ // settle on a film and its cues come round: 4 frames on, then 172 frames later the second, as on a real reel (SMPTE 301)
+ if(settled&&go){if(!cueT)cueT=now}else cueT=0;const ct=cueT?(now-cueT)/1000:-1;printU.uCue.value=window.__cue?1:((ct>1.4&&ct<1.4+4/24)||(ct>1.4+176/24&&ct<1.4+180/24)?1:0);
+ const pb=burn;if(moved&&settled&&idle&&go)burn=Math.min(.42,burn+dt*.12);else if(burn>0&&!idle){burn=0;bpv.set(.3+Math.random()*.4,.3+Math.random()*.4)}
+ // the lamp ticks on: black, a stutter, then steady
+ const lamp=t<.7?0:t<1.6?(Math.sin(t*90)>.2?.55:.12)*(t-.7)/.9:Math.min(1,.6+(t-1.6)*.8);const fl=.97+.03*Math.sin(t*151.)+.02*(Math.random()-.5);
+ printU.uT.value=t;printU.uS.value=s;printU.uV.value=v;printU.uBurn.value=burn;printU.uBP.value.copy(bpv);printU.uLamp.value=lamp*fl;printU.uReady.value=go?1:0;
+ R.setRenderTarget(rt);R.render(printScene,printCam);R.setRenderTarget(null);
+ // the room is lit by what is on the screen
+ const k=Math.min(5,Math.floor(s)),f=s-Math.floor(s),out=s>5.5?Math.min(1,(s-5.5)*4):0;col.copy(avg[k]).lerp(avg[Math.min(5,k+1)],f);
+ const lit=lamp*fl*(go?1:.15)*(1+burn*2.4)*(1-out*.8),lumi=.3+col.r*.3+col.g*.5+col.b*.2;
+ rect.color.copy(col).lerp(lampC,.35);rect.intensity=lit*(phone?3.2:2.6)*lumi;
+ spill.intensity=lit*(phone?2.4:6.5);
+ beamU.uT.value=t;beamU.uC.value.copy(lampC).lerp(col,.35);beamU.uI.value=lit*.03*(phone?1.2:1);
+ dU.uT.value=t;dU.uC.value.copy(beamU.uC.value);dU.uI.value=lit*.45;
+ // titles appear once the first frame has held a moment
+ const intro=Math.min(1,Math.max(0,(t-3.4)/.8));top.style.opacity=Math.min(1,t/2.4);
+ const i=Math.min(5,Math.round(s));if(i!==cur){cur=i;ti.textContent=films[i][0];me.textContent=films[i][1];no.textContent=pad(i+1)+' / 06'}
+ cap.style.opacity=(s>5.5?0:1)*intro;if(!moved)hint.style.opacity=intro;const fr=Math.floor(s*480);tc.textContent=`00:${pad(Math.floor(fr/1440))}:${pad(Math.floor(fr/24)%60)}:${pad(fr%24)}`;
+ if(on&&ac){acc+=Math.min(24,Math.abs(v)*60)*dt;while(acc>=1){tick(2200,600,.02,.35);acc-=1}
+  if(burn>pb){cr+=dt*(6+burn*20);while(cr>=1){tick(900,2600,.012,.22);cr-=Math.random()*1.4}}}
+ comp.render()}
+requestAnimationFrame(frame);
+</script>
+<script type="module" src="gate-weave-papers.js"></script>
+<script type="module" src="gate-weave-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oud Theory · Parfumerie</title>
+<meta name="description" content="Agarwood from Sujanagar, Moulvibazar, distilled once and bottled in London. Concept site by FlowStãte Impact, fictional brand.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--ink:#f3e8d4;--mute:rgba(243,232,212,.7)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0d0906;color:var(--ink);font-family:'Author',system-ui,sans-serif}
+canvas#gl{position:fixed;inset:0;width:100vw;height:100vh;display:block;z-index:0}
+.bar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:22px 28px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity 1.4s}
+.bar a{color:var(--ink);text-decoration:none}
+.bar .mark{font:italic 400 24px/1 'Boska',serif;letter-spacing:0;text-transform:none}
+main{position:relative;z-index:2}
+section{height:100vh;position:relative}
+.cap{position:absolute;max-width:340px;font-size:16px;line-height:1.62;color:var(--mute);text-shadow:0 1px 16px rgba(0,0,0,.85)}
+.cap h3{font:400 12px/1.2 'Author',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+.cap p+p{margin-top:.6em}
+.bl{left:28px;bottom:64px}.br{right:28px;bottom:64px;text-align:right}.tl{left:28px;top:110px}.tr{right:28px;top:110px;text-align:right}
+.notes{list-style:none;margin-top:14px;font:italic 400 28px/1.25 'Boska',serif;color:var(--ink)}
+.cta{display:inline-block;margin-top:22px;padding:15px 26px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;letter-spacing:.16em;text-transform:uppercase;font-size:12px;border-radius:40px;transition:background .3s,color .3s;text-shadow:none}
+.cta:hover{background:var(--ink);color:#120d0a}
+.meter{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;gap:10px}
+.meter i{display:block;width:6px;height:6px;border-radius:50%;border:1px solid var(--ink);opacity:.5;transition:all .4s}
+.meter i.on{background:var(--ink);opacity:1}
+#snd{position:fixed;right:28px;bottom:18px;z-index:6;font:400 11px 'Author',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);background:rgba(13,9,6,.55);border:1px solid rgba(243,232,212,.28);border-radius:20px;padding:7px 12px;cursor:pointer}
+#s0 .cap{opacity:0;transition:opacity 1.2s}
+@media (max-width:720px){.bar{padding:20px}.bar>span:nth-child(2){display:none}.cap{max-width:none;left:20px!important;right:20px!important;text-align:left!important}.tr,.br{display:none}.meter{display:none}.notes{font-size:24px}.tl{top:84px}#snd{right:20px;bottom:auto;top:62px}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.bar#bar > span,
+html div.bar#bar > a,
+html div.cap.bl > h3,
+html div.cap.tl > h3,
+html div.cap.tr > h3,
+html div.cap.bl > a.cta,
+html button#snd,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.cap.bl > p,
+html div.cap.br > p{font-size:18px}
+}
+@media (max-width:699px){
+html div.bar#bar > a,
+html div.cap.bl > h3,
+html div.cap.tl > h3,
+html div.cap.tr > h3,
+html div.cap.bl > a.cta,
+html button#snd,
+html a.fsi-tag{font-size:14px}
+}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--ix-bg:#0d0906;--ix-fg:#f3e8d4;--ix-acc:#c77a1e;--ix-font:italic 400 1em 'Boska',serif;--door-bg:#0d0906;--door-fg:#f3e8d4}
+.meter{display:none!important}
+/* blotter strips standing fanned in a walnut block, dipped in scent order (built in oud-theory-nav.js) */
+.blot{position:fixed;right:30px;top:50%;transform:translateY(-44%);z-index:5;width:250px;height:400px}
+.blot .st{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.blot .sp .lift{transform-box:fill-box;transform-origin:50% 100%;transform:translateY(var(--ly,0px));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.blot .sp.on{--ly:-14px}
+.blot .sp.wave .lift{animation:ot-wave .9s ease-out}
+@keyframes ot-wave{0%{transform:translateY(var(--ly,0px)) rotate(0)}25%{transform:translateY(var(--ly,0px)) rotate(3deg)}55%{transform:translateY(var(--ly,0px)) rotate(-2deg)}80%{transform:translateY(var(--ly,0px)) rotate(.8deg)}100%{transform:translateY(var(--ly,0px)) rotate(0)}}
+.blot ol{list-style:none;margin:0;padding:0}
+.blot ol button{all:unset;cursor:pointer;position:absolute}
+.blot ol button:focus-visible{outline:2px solid #c77a1e;outline-offset:2px}
+.blot .ixb{all:unset;cursor:pointer;position:absolute;left:-28px;bottom:8px;width:78px;height:54px;transform:rotate(-7deg);transition:transform .35s}
+.blot .ixb:hover{transform:rotate(-3deg) translateY(-3px)}.blot .ixb svg{display:block;width:100%;height:100%;overflow:visible}
+.blot .ixb:focus-visible{outline:2px solid #c77a1e;outline-offset:2px}
+.blot .tip{position:absolute;right:calc(100% + 18px);top:30%;margin:0;white-space:nowrap;text-align:right;font:italic 400 24px/1.2 'Boska',serif;color:#f3e8d4;text-shadow:0 1px 16px rgba(0,0,0,.9);opacity:0;transition:opacity .4s;pointer-events:none}
+.blot.say .tip{opacity:1}
+.blot .tip small{display:block;font:400 14px 'Author',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,232,212,.72);margin-bottom:6px}
+body.past .blot{--dim:1}
+.chap.fam{background:#0d0906;color:#f3e8d4;padding:14vh max(6vw,270px) 12vh 6vw;display:flex;flex-direction:column;justify-content:center}
+.fam .k{font:400 14px 'Author',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#c77a1e;margin-bottom:4vh}
+.fam h2{font:italic 400 clamp(38px,5.2vw,92px)/1.02 'Boska',serif}.fam h2 i{color:#c77a1e}
+.collar{list-style:none;margin:6vh 0 4vh;padding:18px 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #8a6a3e;border-bottom:1px solid #8a6a3e;max-width:1000px}
+.collar li{font:400 22px 'Boska',serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:#d9a35f;border-left:1px solid rgba(138,106,62,.5);padding:8px 0}.collar li:first-child{border-left:0}
+.fam p:not(.k){font-size:18px;line-height:1.62;max-width:34em;color:rgba(243,232,212,.8)}
+.door-a{clip-path:none;opacity:var(--rise,0);filter:blur(calc((1 - var(--rise,0)) * 26px));-webkit-mask:linear-gradient(0deg,#000 calc(var(--rise,0) * 110%),transparent calc(var(--rise,0) * 110% + 30%));mask:linear-gradient(0deg,#000 calc(var(--rise,0) * 110%),transparent calc(var(--rise,0) * 110% + 30%))}
+:root{--door-rail:270px}
+@media (max-width:720px){.blot{right:4px;width:104px;height:236px;transform:translateY(-40%)}.blot .tip{display:none}.blot .ixb{width:46px;height:32px;left:-2px;bottom:2px}.chap.fam{padding:12vh 22px 14vh}.collar{grid-template-columns:1fr 1fr}.collar li:nth-child(3){border-left:0}:root{--door-rail:0px}}
+@media (prefers-reduced-motion:reduce){.blot .sp .lift{transition:none;animation:none}.door-a{opacity:1;filter:none;-webkit-mask:none;mask:none}}
+</style>
+<style id="sz-css">
+/* the second act: the three sizes on the stone bench, to one scale, in the high window's light (upper left). Right side kept clear for the blotter block. */
+.sizes{position:relative;z-index:3;height:auto;min-height:100vh;box-sizing:border-box;scroll-snap-align:start;background:#0d0906;color:#f3e8d4;padding:120px max(6vw,290px) 11vh 6vw;display:grid;align-content:center}
+.sizes .k{font:400 14px 'Author',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#c77a1e;margin:0 0 14px}
+.sizes h2{font:italic 400 clamp(36px,4.4vw,76px)/1.02 'Boska',serif;margin:0 0 3vh}
+.sz-f{margin:0;max-width:min(980px,104vh)}.sz-f svg{display:block;width:100%;height:auto;-webkit-mask:linear-gradient(90deg,transparent,#000 9%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 9%,#000 88%,transparent)}.sz-f .pn{font:italic 400 12px 'Boska',serif;fill:#efe2c6;opacity:.75;text-anchor:middle}
+.sz-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:.9fr 1fr 1.3fr;max-width:min(980px,104vh)}
+.sz-l li{padding:16px 16px 0 0;border-top:1px solid rgba(243,232,212,.4);font:400 17px/1.45 'Author',sans-serif;color:rgba(243,232,212,.86)}
+.sz-l b{display:block;font:italic 400 30px/1 'Boska',serif;color:#f3e8d4;margin-bottom:6px}.sz-l b i{color:#c77a1e;font-style:normal;font-size:.62em;margin-left:8px}
+.sz-n{margin:3.4vh 0 0;max-width:46em;font:400 17px/1.6 'Author',sans-serif;color:rgba(243,232,212,.8)}
+@media (max-width:860px){.sizes{padding:150px 120px 9vh 18px}.sz-l{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A still room: one bottle of oud on a stone bench, lit from a high window, a copper still behind"></canvas>
+<div class="bar" id="bar"><span class="mark">Oud Theory</span><span>London · Moulvibazar</span><a href="#order">Reserve ↘</a></div>
+<div class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+<main>
+  <section id="s0">
+    <div class="cap bl"><h3>Eau de parfum, No. 1</h3><p>Agarwood grown in the hills of Moulvibazar, distilled once, bottled by hand in London.</p></div>
+    <div class="cap br"><p>Move the cursor to turn the bottle.<br>Scroll to read the scent in order.</p></div>
+  </section>
+  <section id="s1">
+    <div class="cap tl"><h3>01 · Top notes · the first ten minutes</h3><ul class="notes"><li>Sylhet lime peel</li><li>Bergamot</li><li>Green cardamom husk</li></ul></div>
+    <div class="cap br"><p>The lime is pressed the morning it is picked. By the time it reaches you it has become the brightest thing in the room for exactly ten minutes.</p></div>
+  </section>
+  <section id="s2">
+    <div class="cap tr"><h3>02 · Heart · hours one to four</h3><ul class="notes"><li>Damask rose</li><li>Night jasmine</li><li>Rain on unfired clay</li></ul></div>
+    <div class="cap bl"><p>The heart is the part people ask you about. We kept it warm and a little wet, like a courtyard after the first monsoon shower.</p></div>
+  </section>
+  <section id="s3">
+    <div class="cap tl"><h3>03 · Base · until morning</h3><ul class="notes"><li>Agarwood, cured twelve years</li><li>Smoked vetiver</li><li>Beeswax</li></ul></div>
+    <div class="cap br"><p>Agar trees wound themselves to heal, and the wound becomes resin. The village of Sujanagar has been reading that resin for generations. We buy from four families, by the kilo, at their price.</p></div>
+  </section>
+  <section id="order">
+    <div class="cap bl"><h3>Edition of 400</h3><p>50 ml, heavy flint glass, brass cap turned in Birmingham.</p><p style="font:italic 400 46px/1 'Boska',serif;color:var(--ink);margin-top:18px">£240</p><a class="cta" href="#order">Reserve a bottle</a></div>
+    <div class="cap br"><p>Studio visits by appointment.<br>Clerkenwell, London EC1.</p></div>
+  </section>
+</main>
+<nav class="blot" id="blot" aria-label="Chapters"></nav>
+<section class="chap fam" id="families">
+ <p class="k sda">Sujanagar, Moulvibazar · agarwood, cured twelve years</p>
+ <h2 class="sda">We buy from four families,<br>by the kilo,<br><i>at their price.</i></h2>
+ <ol class="collar"><li class="sda">Bari</li><li class="sda">Chowdhury</li><li class="sda">Miah</li><li class="sda">Uddin</li></ol>
+ <p class="sda">Agar trees wound themselves to heal, and the wound becomes resin. The village of Sujanagar has been reading that resin for generations.</p>
+</section>
+<section class="sizes" id="sizes" aria-label="Sizes and prices">
+ <p class="k sda">On the bench · three sizes, one scale</p><h2 class="sda">Wear it for a week<br>before you decide.</h2>
+ <figure class="sz-f sda"><svg viewBox="0 0 720 440" role="img" aria-label="Three sizes on the stone bench in the window light, drawn to the same scale: a 2 ml trial vial, a 10 ml travel flask and the 50 ml edition bottle with its brass cap"><defs>
+ <linearGradient id="ot-oud" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9a548"/><stop offset=".2" stop-color="#f7c877"/><stop offset=".36" stop-color="#b9660f"/><stop offset=".7" stop-color="#6e3604"/><stop offset="1" stop-color="#a55a0e"/></linearGradient>
+ <linearGradient id="ot-brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5c4416"/><stop offset=".24" stop-color="#f1d58a"/><stop offset=".4" stop-color="#c79a3c"/><stop offset=".8" stop-color="#6e5119"/><stop offset="1" stop-color="#3c2b0c"/></linearGradient>
+ <linearGradient id="ot-blk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a0a0a"/><stop offset=".3" stop-color="#55504a"/><stop offset=".5" stop-color="#1a1917"/><stop offset="1" stop-color="#050505"/></linearGradient>
+ <linearGradient id="ot-win" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(255,214,150,.34)"/><stop offset=".6" stop-color="rgba(255,190,110,.08)"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></linearGradient>
+ <filter id="ot-b" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="6"/></filter><filter id="ot-b3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="26"/></filter><filter id="ot-b2" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="3"/></filter>
+ <filter id="ot-st" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" seed="8"/><feColorMatrix values="0 0 0 0 .9 0 0 0 0 .82 0 0 0 0 .7 0 0 0 .7 -.3"/></filter></defs>
+ <rect width="720" height="440" fill="#0d0906"/><path d="M-40 -40H300L760 300V360H-40Z" fill="url(#ot-win)" filter="url(#ot-b3)"/>
+ <rect y="338" width="720" height="102" fill="#3b342b"/><rect y="338" width="720" height="102" filter="url(#ot-st)" opacity=".35"/><rect y="338" width="720" height="3" fill="rgba(255,226,176,.4)"/><path d="M0 338H330L720 400V440H0Z" fill="rgba(255,206,140,.1)"/>
+ <path d="M135.2 344L230.5 354.56L238.5 368.56L148 352Z" fill="rgba(0,0,0,.62)" filter="url(#ot-b)"/><path d="M141.6 346L210.7 354.58" stroke="rgba(240,160,60,.5)" stroke-width="3" stroke-linecap="round" filter="url(#ot-b2)"/>
+ <rect x="132" y="274" width="16" height="66" rx="3.5" fill="rgba(255,238,210,.07)" stroke="rgba(255,238,210,.5)" stroke-width="1.200"/>
+ <rect x="135" y="287" width="10" height="48" rx="2.6" fill="url(#ot-oud)"/><rect x="135" y="287" width="10" height="2" fill="#ffe2a8" opacity=".8"/>
+ <rect x="134.2" y="280" width="1.6" height="50" rx="1" fill="#fff" opacity=".7"/><rect x="144.8" y="284" width="1.0" height="42" fill="#fff" opacity=".22"/>
+ <rect x="132.0" y="261" width="16" height="13" rx="2" fill="url(#ot-blk)"/><rect x="132.0" y="261" width="16" height="2.500" fill="rgba(255,255,255,.4)"/><path d="M309.2 344L481.0 361.28L504.0 375.28L346 352Z" fill="rgba(0,0,0,.62)" filter="url(#ot-b)"/><path d="M327.6 346L448.6 360.04" stroke="rgba(240,160,60,.5)" stroke-width="7" stroke-linecap="round" filter="url(#ot-b2)"/>
+ <rect x="300" y="232" width="46" height="108" rx="8.0" fill="rgba(255,238,210,.07)" stroke="rgba(255,238,210,.5)" stroke-width="1.200"/>
+ <rect x="303" y="254" width="40" height="78" rx="5.0" fill="url(#ot-oud)"/><rect x="303" y="254" width="40" height="2" fill="#ffe2a8" opacity=".8"/>
+ <rect x="306.4" y="238" width="2.3" height="89" rx="1" fill="#fff" opacity=".7"/><rect x="336.8" y="242" width="1.2" height="81" fill="#fff" opacity=".22"/>
+ <rect x="312.0" y="210" width="22" height="22" rx="2" fill="url(#ot-brass)"/><rect x="312.0" y="210" width="22" height="2.500" fill="rgba(255,255,255,.4)"/><path d="M508.4 344L785.5 368.0L841.5 382.0L598 352Z" fill="rgba(0,0,0,.62)" filter="url(#ot-b)"/><path d="M553.2 346L740.5 365.5" stroke="rgba(240,160,60,.5)" stroke-width="18" stroke-linecap="round" filter="url(#ot-b2)"/>
+ <rect x="486" y="190" width="112" height="150" rx="8.0" fill="rgba(255,238,210,.07)" stroke="rgba(255,238,210,.5)" stroke-width="1.200"/>
+ <rect x="489" y="220" width="106" height="95" rx="5.0" fill="url(#ot-oud)"/><rect x="489" y="220" width="106" height="2" fill="#ffe2a8" opacity=".8"/>
+ <rect x="501.7" y="196" width="5.6" height="114" rx="1" fill="#fff" opacity=".7"/><rect x="575.6" y="200" width="2.8" height="106" fill="#fff" opacity=".22"/>
+ <rect x="518.0" y="150" width="48" height="40" rx="2" fill="url(#ot-brass)"/><rect x="518.0" y="150" width="48" height="2.500" fill="rgba(255,255,255,.4)"/>
+ <rect x="489" y="468" width="0" height="0"/><rect x="489" y="316" width="106" height="21" rx="4" fill="rgba(255,238,210,.14)"/>
+ <path d="M520 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M524 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M528 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M532 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M536 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M540 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M544 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M548 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M552 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M556 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M560 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/><path d="M564 150V188" stroke="rgba(40,26,6,.4)" stroke-width="1.200"/>
+ <text x="542" y="331" class="pn">No. 137 / 400</text></svg></figure>
+ <ol class="sz-l sda"><li><b>2 ml <i>£18</i></b>The trial vial. About a week of evenings. Its price comes off your bottle.</li><li><b>10 ml <i>£68</i></b>The travel flask, brass cap, fits a jacket pocket.</li><li><b>50 ml <i>£240</i></b>The edition bottle, one of 400, numbered in pencil on the base. Refilled at the studio for £160.</li></ol>
+ <p class="sz-n sda">Composed by Nasrin Chowdhury, who distils in Sujanagar each winter and blends in Clerkenwell. Twenty-two per cent perfume in alcohol, rested eight weeks in the dark before it is bottled. Sent within the United Kingdom in two days. Abroad by arrangement, because perfume flies under its own rules.</p>
+</section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"No. 1","t":"The still room","el":"#s0"},{"n":"Top","t":"The first ten minutes","el":"#s1"},{"n":"Heart","t":"Hours one to four","el":"#s2"},{"n":"Base","t":"Until morning","el":"#s3"},{"n":"400","t":"The edition","el":"#order"},{"n":"IV","t":"Four families","el":"#families"},{"n":"","t":"Next world","el":"#door"}]</script>
+<button id="snd">Still room sound · off</button>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+// The still room. One high window, one bottle on a stone bench, the copper still behind it.
+// Scrolling lets each tier of the scent into the air; the last stage steps back to where it was made.
+import * as THREE from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
+import {BokehPass} from 'three/addons/postprocessing/BokehPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {lux} from './lib/lux.js';
+
+const phone=innerWidth<760,DPR=Math.min(phone?1.5:2,devicePixelRatio);
+const cv=document.getElementById('gl');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'});
+R.setPixelRatio(DPR);R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=0;
+const S=new THREE.Scene();S.background=new THREE.Color(0x070504);S.fog=new THREE.Fog(0x0b0806,5,14);
+let seed=5;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const canvasTex=(w,h,draw,srgb=true)=>{const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);if(srgb)t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;t.userData.redraw=()=>{draw(c.getContext('2d'),w,h);t.needsUpdate=true};return t};
+const speckle=(base,n,spread,a)=>(g,w,h)=>{g.fillStyle=base;g.fillRect(0,0,w,h);for(let i=0;i<n;i++){const v=(rnd()-.5)*spread;g.fillStyle=`rgba(${v>0?255:0},${v>0?240:0},${v>0?220:0},${Math.abs(v)*a})`;g.fillRect(rnd()*w,rnd()*h,1+rnd()*3,1+rnd()*3)}};
+
+// ---- reflections: a small room with the window in it, for the glass and the metals to see
+const pm=new THREE.PMREMGenerator(R),envS=new THREE.Scene();
+envS.add(new THREE.Mesh(new THREE.BoxGeometry(10,6,10),new THREE.MeshBasicMaterial({color:0x1c140e,side:THREE.BackSide})));
+const ew=new THREE.Mesh(new THREE.PlaneGeometry(1.2,1),new THREE.MeshBasicMaterial({color:new THREE.Color(9,8.4,7.6)}));ew.position.set(-4.9,2.2,-1.6);ew.rotation.y=Math.PI/2;envS.add(ew);
+const ef=new THREE.Mesh(new THREE.PlaneGeometry(2,1.2),new THREE.MeshBasicMaterial({color:new THREE.Color(1.4,1.1,.8)}));ef.position.set(.3,-2.9,-.8);ef.rotation.x=-Math.PI/2;envS.add(ef);
+const ec=new THREE.Mesh(new THREE.PlaneGeometry(3,3),new THREE.MeshBasicMaterial({color:new THREE.Color(.55,.3,.16)}));ec.position.set(1,0,-4.9);envS.add(ec);
+const eb=new THREE.Mesh(new THREE.PlaneGeometry(7,4),new THREE.MeshBasicMaterial({color:new THREE.Color(.62,.44,.27)}));eb.position.set(-.5,.4,4.9);eb.rotation.y=Math.PI;envS.add(eb);
+S.environment=pm.fromScene(envS,.03).texture;
+
+// ---- the room
+const clay=new THREE.MeshStandardMaterial({map:canvasTex(512,512,speckle('#5a3a26',9000,1,.22)),roughness:1,envMapIntensity:.25});clay.map.wrapS=clay.map.wrapT=THREE.RepeatWrapping;clay.map.repeat.set(6,6);
+const plaster=new THREE.MeshStandardMaterial({map:canvasTex(512,512,speckle('#6b5a48',7000,1,.16)),roughness:1,envMapIntensity:.2});plaster.map.wrapS=plaster.map.wrapT=THREE.RepeatWrapping;plaster.map.repeat.set(4,3);
+const add=(g,m,x,y,z,sh=true)=>{const o=new THREE.Mesh(g,m);o.position.set(x,y,z);o.castShadow=sh;o.receiveShadow=true;S.add(o);return o};
+const fl=add(new THREE.PlaneGeometry(9,9),clay,0,0,-1,false);fl.rotation.x=-Math.PI/2;
+add(new THREE.BoxGeometry(9,4.2,.2),plaster,0,2.1,-3.5,false);
+const lw=add(new THREE.BoxGeometry(.2,4.2,9),plaster,-2.7,2.1,-1,false);
+add(new THREE.BoxGeometry(.2,4.2,9),plaster,2.7,2.1,-1,false);
+add(new THREE.BoxGeometry(9,.2,9),new THREE.MeshStandardMaterial({color:0x1a130d,roughness:1}),0,4.2,-1,false);
+// the window, high in the left wall: too bright to look at
+const win=add(new THREE.PlaneGeometry(.95,.85),new THREE.MeshBasicMaterial({color:new THREE.Color(7,6.6,6)}),-2.59,3.05,-1.85,false);win.rotation.y=Math.PI/2;
+for(const [w,h,y,z] of[[.06,.95,3.05,-2.35],[.06,.95,3.05,-1.35],[.06,.06,3.5,-1.85],[.06,.06,2.6,-1.85],[.04,.9,3.05,-1.85]])add(new THREE.BoxGeometry(.08,h,w===.04?.03:w===.06&&h===.06?1.04:.06),new THREE.MeshStandardMaterial({color:0x1d140c,roughness:.9}),-2.58,y,z,false);
+// the stone bench, cold and a little uneven
+const stone=new THREE.MeshStandardMaterial({map:canvasTex(512,512,speckle('#5e5850',14000,1,.22)),roughness:.88,envMapIntensity:.35});
+add(new THREE.BoxGeometry(1.5,.09,.6),stone,0,.855,-.12);add(new THREE.BoxGeometry(1.3,.81,.46),stone,0,.405,-.14);
+
+// ---- the bottle: heavy flint glass, amber held inside, a brass cap turned by hand
+const B=new THREE.Group();B.position.set(0,.9,0);S.add(B);
+const glass=new THREE.MeshPhysicalMaterial({color:0xffffff,transmission:1,thickness:.025,ior:1.52,roughness:.025,specularIntensity:1,envMapIntensity:1.3,attenuationColor:new THREE.Color(0xf6f1e6),attenuationDistance:.6});
+const shell=new THREE.Mesh(new RoundedBoxGeometry(.058,.086,.034,5,.007),glass);shell.position.y=.043;B.add(shell);
+const neck=new THREE.Mesh(new THREE.CylinderGeometry(.0095,.011,.012,40),glass);neck.position.y=.092;B.add(neck);
+const liquidM=new THREE.MeshPhysicalMaterial({color:0x5a2a06,roughness:.12,emissive:new THREE.Color(0xc77a1e),emissiveIntensity:.2,envMapIntensity:.5});
+const liquid=new THREE.Mesh(new RoundedBoxGeometry(.046,.058,.022,4,.004),liquidM);liquid.position.y=.013+.029;B.add(liquid);
+const men=new THREE.Mesh(new RoundedBoxGeometry(.047,.0016,.023,2,.0007),new THREE.MeshStandardMaterial({color:0xe8b060,emissive:new THREE.Color(0xf0b060),emissiveIntensity:.5,roughness:.2}));men.position.y=.0715;B.add(men);
+// machining rings on the brass, and the name cut into the top of the cap
+const ringTex=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#808080';g.fillRect(0,0,w,h);for(let r=4;r<w/2;r+=3){g.strokeStyle=`rgb(${120+rnd()*30},${120+rnd()*30},${120+rnd()*30})`;g.lineWidth=1.4;g.beginPath();g.arc(w/2,h/2,r,0,7);g.stroke()}
+ g.fillStyle='#303030';g.font=`500 ${w*.052}px Author, sans-serif`;g.textAlign='center';g.textBaseline='middle';const word='OUD THEORY · No. 1 · LONDON · ';
+ for(let i=0;i<word.length;i++){const a=i/word.length*Math.PI*2-Math.PI/2;g.save();g.translate(w/2+Math.cos(a)*w*.34,h/2+Math.sin(a)*h*.34);g.rotate(a+Math.PI/2);g.fillText(word[i],0,0);g.restore()}},false);
+const brass=new THREE.MeshPhysicalMaterial({color:0xc39653,metalness:1,roughness:.28,bumpMap:ringTex,bumpScale:.6,envMapIntensity:1.2});
+const brassSide=new THREE.MeshPhysicalMaterial({color:0xc39653,metalness:1,roughness:.4,envMapIntensity:1.5});
+const cap=new THREE.Mesh(new THREE.CylinderGeometry(.0175,.0175,.03,64,1),[brassSide,brass,brass]);cap.position.y=.113;cap.castShadow=true;B.add(cap);
+const bevel=new THREE.Mesh(new THREE.TorusGeometry(.0172,.0012,12,64),brassSide);bevel.rotation.x=Math.PI/2;bevel.position.y=.128;B.add(bevel);
+// the paper label, numbered by hand
+const label=canvasTex(512,352,(g,w,h)=>{g.fillStyle='#e9e0cc';g.fillRect(0,0,w,h);for(let i=0;i<2600;i++){g.fillStyle=`rgba(90,70,40,${rnd()*.08})`;g.fillRect(rnd()*w,rnd()*h,1,1)}
+ g.strokeStyle='rgba(60,40,20,.55)';g.lineWidth=2;g.strokeRect(14,14,w-28,h-28);g.fillStyle='#2b1e14';g.textAlign='center';
+ g.font=`italic 400 64px Boska, Georgia, serif`;g.fillText('Oud Theory',w/2,112);g.font=`500 19px Author, sans-serif`;g.letterSpacing='4px';g.fillText('EAU DE PARFUM · No. 1',w/2,160);
+ g.font=`400 21px Author, sans-serif`;g.fillText('Agarwood, Sujanagar · 50 ml',w/2,206);g.font=`italic 400 40px Boska, Georgia, serif`;g.fillStyle='#4a2d18';g.fillText('187 / 400',w/2,282)});
+const lab=new THREE.Mesh(new THREE.PlaneGeometry(.04,.0275),new THREE.MeshStandardMaterial({map:label,emissiveMap:label,emissive:new THREE.Color(.42,.38,.32),roughness:.9,envMapIntensity:.3}));lab.position.set(0,.04,.0172);B.add(lab);
+B.traverse(o=>{if(o.isMesh&&o!==cap)o.castShadow=false});liquid.castShadow=true;
+
+// ---- the still, larger than you, where the resin became this
+// hammered by hand: a field of shallow dimples that breaks every highlight into many
+const hammer=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#808080';g.fillRect(0,0,w,h);for(let i=0;i<5200;i++){const x=rnd()*w,y=rnd()*h,r=6+rnd()*14,gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba(40,40,40,.55)');gr.addColorStop(.7,'rgba(128,128,128,.1)');gr.addColorStop(1,'rgba(200,200,200,0)');g.fillStyle=gr;g.beginPath();g.arc(x,y,r,0,7);g.fill()}},false);hammer.wrapS=hammer.wrapT=THREE.RepeatWrapping;hammer.repeat.set(3,2);
+const copper=new THREE.MeshPhysicalMaterial({color:0xc0754a,metalness:1,roughness:.4,bumpMap:hammer,bumpScale:1.2,envMapIntensity:1.5});
+const ST=new THREE.Group();ST.position.set(1.35,0,-2.75);ST.rotation.y=-.35;S.add(ST);
+const brick=new THREE.MeshStandardMaterial({map:canvasTex(512,256,(g,w,h)=>{g.fillStyle='#2a1810';g.fillRect(0,0,w,h);for(let y=0;y<h;y+=32)for(let x=(y/32%2)*32;x<w;x+=64){const v=70+rnd()*40;g.fillStyle=`rgb(${v+40},${v},${v-25})`;g.fillRect(x+2,y+2,60,28)}}),roughness:.95,envMapIntensity:.2});
+const furn=new THREE.Mesh(new THREE.CylinderGeometry(.86,.92,.55,48),brick);furn.position.y=.275;ST.add(furn);
+const potP=[[.2,.55],[.55,.6],[.7,.8],[.74,1.05],[.7,1.35],[.58,1.6],[.42,1.74],[.3,1.8]].map(([r,y])=>new THREE.Vector2(r,y));
+const pot=new THREE.Mesh(new THREE.LatheGeometry(potP,80),copper);ST.add(pot);
+const helP=[[.3,1.8],[.36,1.9],[.38,2.05],[.32,2.2],[.18,2.32],[.06,2.36]].map(([r,y])=>new THREE.Vector2(r,y));
+const helm=new THREE.Mesh(new THREE.LatheGeometry(helP,64),copper);ST.add(helm);
+// the seam where the helmet sits: tarnished blue-green, the one place nobody polishes
+const tarnish=new THREE.Mesh(new THREE.TorusGeometry(.305,.022,16,80),new THREE.MeshStandardMaterial({color:0x4d8a7c,roughness:.85,metalness:.2}));tarnish.rotation.x=Math.PI/2;tarnish.position.y=1.8;ST.add(tarnish);
+// the collar: the four families it buys from, cut into the copper
+const collarTex=canvasTex(2048,128,(g,w,h)=>{g.fillStyle='#9a5a30';g.fillRect(0,0,w,h);g.fillStyle='#3a1c0c';g.font=`500 58px Author, sans-serif`;g.textBaseline='middle';
+ const t='BARI   ·   CHOWDHURY   ·   MIAH   ·   UDDIN   ·   SUJANAGAR   ·   ';g.letterSpacing='10px';let x=40;while(x<w){g.fillText(t,x,h/2+3);x+=g.measureText(t).width+10}});
+const collar=new THREE.Mesh(new THREE.CylinderGeometry(.745,.745,.13,96,1,true),new THREE.MeshPhysicalMaterial({map:collarTex,metalness:.85,roughness:.38,envMapIntensity:1}));collar.position.y=1.05;collar.rotation.y=-.9;ST.add(collar);
+const neckC=new THREE.CatmullRomCurve3([[0,2.34,0],[.25,2.55,.05],[.75,2.45,.1],[1.2,1.95,.2],[1.35,1.55,.28]].map(a=>new THREE.Vector3(...a)));
+ST.add(new THREE.Mesh(new THREE.TubeGeometry(neckC,80,.05,20),copper));
+const cond=new THREE.Mesh(new THREE.CylinderGeometry(.34,.36,1.25,48),copper);cond.position.set(1.4,.9,.3);ST.add(cond);
+ST.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});
+
+// ---- light: the window is the only lamp, the still throws back a little copper
+const sun=new THREE.SpotLight(0xfff1dc,0,12,.17,.5,1.1);sun.position.set(-3.7,3.75,-2.05);sun.target.position.set(.08,.9,-.3);sun.castShadow=true;sun.shadow.mapSize.set(phone?1024:2048,phone?1024:2048);sun.shadow.bias=-.0003;sun.shadow.normalBias=.02;S.add(sun,sun.target);
+const hemi=new THREE.HemisphereLight(0xd8b088,0x140c07,0);S.add(hemi);
+const sun2=new THREE.SpotLight(0xffe8cc,0,14,.34,.8,1.1);sun2.position.set(-3.7,3.75,-2.05);sun2.target.position.set(1.35,1.4,-2.75);S.add(sun2,sun2.target);
+const bounce=new THREE.PointLight(0xd07a3c,0,4.5,1.6);bounce.position.set(.6,.25,-1.2);S.add(bounce);
+const rim=new THREE.PointLight(0xffd9a0,0,1.2,2);rim.position.set(.05,.98,-.22);S.add(rim);
+// the shaft: a slab of lit dust from the window to the bench
+const sd=new THREE.Vector3().subVectors(sun.target.position,new THREE.Vector3(-2.6,3.05,-1.85)).normalize();
+const w0=new THREE.Vector3(-2.6,3.05,-1.85),L=4.2,ex=new THREE.Vector3(0,0,1).multiplyScalar(.47),ey=new THREE.Vector3(0,1,0).multiplyScalar(.42);
+const sp=[],su=[],stt=[];const cs=[[-1,-1],[1,-1],[1,1],[-1,1]];
+for(let i=0;i<4;i++){const [a1,b1]=cs[i],[a2,b2]=cs[(i+1)%4];const P=(a,b,t)=>w0.clone().addScaledVector(ex,a*(1+t*.3)).addScaledVector(ey,b*(1+t*.3)).addScaledVector(sd,t*L);
+ const q=[P(a1,b1,0),P(a2,b2,0),P(a1,b1,1),P(a2,b2,1)],qu=[0,1,0,1],qt=[0,0,1,1];for(const k of[0,2,1,1,2,3]){sp.push(...q[k].toArray());su.push(qu[k]);stt.push(qt[k])}}
+const shG=new THREE.BufferGeometry();shG.setAttribute('position',new THREE.Float32BufferAttribute(sp,3));shG.setAttribute('u',new THREE.Float32BufferAttribute(su,1));shG.setAttribute('t',new THREE.Float32BufferAttribute(stt,1));shG.computeVertexNormals();
+const shU={uT:{value:0},uI:{value:0}};
+S.add(new THREE.Mesh(shG,new THREE.ShaderMaterial({uniforms:shU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide,fog:false,
+ vertexShader:`attribute float u,t;varying float vU,vT;varying vec3 vW;void main(){vU=u;vT=t;vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`,
+ fragmentShader:`uniform float uT,uI;varying float vU,vT;varying vec3 vW;float h(vec3 p){return fract(sin(dot(p,vec3(12.9898,78.233,37.719)))*43758.5453);}
+ float vn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+1.),f.x),f.y),f.z);}
+ void main(){float hz=vn(vW*1.6+vec3(uT*.04,-uT*.02,uT*.03))*.65+vn(vW*4.1)*.35;float a=uI*smoothstep(0.,.35,vU)*smoothstep(1.,.65,vU)*smoothstep(0.,.08,vT)*smoothstep(1.,.75,vT)*(.35+hz*hz*1.3);
+  gl_FragColor=vec4(vec3(1.,.93,.8)*a,1.);}`})));
+// motes: clay dust turning in the shaft
+const MN=phone?350:1100,mp=new Float32Array(MN*3),ms=new Float32Array(MN);
+for(let i=0;i<MN;i++){const t=rnd(),a=(rnd()*2-1)*(1+t*.3),b=(rnd()*2-1)*(1+t*.3);const p=w0.clone().addScaledVector(ex,a*.9).addScaledVector(ey,b*.9).addScaledVector(sd,t*L);mp.set(p.toArray(),i*3);ms[i]=rnd()}
+const mG=new THREE.BufferGeometry();mG.setAttribute('position',new THREE.BufferAttribute(mp,3));mG.setAttribute('s',new THREE.BufferAttribute(ms,1));
+const mU={uT:{value:0},uI:{value:0},uPx:{value:DPR*innerHeight}};
+S.add(new THREE.Points(mG,new THREE.ShaderMaterial({uniforms:mU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,fog:false,
+ vertexShader:`attribute float s;uniform float uT,uPx;varying float vS;void main(){vS=s;vec3 p=position+vec3(sin(uT*.1+s*40.)*.09,sin(uT*.06+s*17.)*.07,cos(uT*.08+s*23.)*.09);
+  vec4 w=modelViewMatrix*vec4(p,1.);gl_PointSize=uPx*.0016*(.6+s*1.1)/-w.z*(s>.94?2.2:1.);gl_Position=projectionMatrix*w;}`,
+ fragmentShader:`uniform float uI,uT;varying float vS;void main(){float r=length(gl_PointCoord-.5);float tw=.5+.5*sin(uT*(.7+vS*2.)+vS*60.);gl_FragColor=vec4(vec3(1.,.9,.74)*uI*tw*smoothstep(.5,0.,r)*(vS>.94?.35:.9),1.);}`})));
+
+// ---- the scent, let into the air one tier at a time
+// lime: bright and quick. rose and clay: slow, drifting. agar: a low haze that settles on the bench and stays.
+const TIERS=[{n:phone?70:160,life:2.6,burst:2.2,col:[.86,.93,.45]},{n:phone?90:220,life:7.5,burst:4,col:[.93,.62,.6]},{n:phone?110:260,life:40,burst:6,col:[.72,.55,.38]}];
+const VN=TIERS.reduce((a,t)=>a+t.n,0),vp=new Float32Array(VN*3),va=new Float32Array(VN*4);let vi=0;
+TIERS.forEach((T,k)=>{for(let i=0;i<T.n;i++){vp.set([0,.9+.13,0],vi*3);va.set([k,rnd(),i/T.n,rnd()],vi*4);vi++}});
+const vG=new THREE.BufferGeometry();vG.setAttribute('position',new THREE.BufferAttribute(vp,3));vG.setAttribute('a',new THREE.BufferAttribute(va,4));
+const vU={uT:{value:0},uStart:{value:[-999,-999,-999]},uPx:{value:DPR*innerHeight},uSun:{value:0}};
+const vapour=new THREE.Points(vG,new THREE.ShaderMaterial({uniforms:vU,transparent:true,depthWrite:false,fog:false,
+ vertexShader:`attribute vec4 a;uniform float uT,uPx,uSun;uniform float uStart[3];varying float vA,vK;varying vec3 vC;
+ void main(){int k=int(a.x+.5);float life=k==0?2.6:k==1?7.5:40.,burst=k==0?2.2:k==1?4.:6.,st=k==0?uStart[0]:k==1?uStart[1]:uStart[2];
+  float age=uT-(st+a.z*burst),x=age/life;vK=a.x;
+  if(age<0.||x>1.){gl_PointSize=0.;gl_Position=vec4(2.,2.,2.,1.);return;}
+  float s=a.y*6.283,r=a.w;vec3 p=position;
+  if(k==0){float y=age*.15;p+=vec3(cos(s),0.,sin(s))*(.01+y*.35*r)+vec3(sin(y*22.+s*3.)*y*.25,y,cos(y*17.+s*2.)*y*.2);}
+  else if(k==1){float y=age*.05;p+=vec3(cos(s),0.,sin(s))*(.012+y*.5*r)+vec3(sin(y*9.+s*2.+uT*.3)*y*.55,y,cos(y*7.+s)*y*.4);}
+  else{float d=min(age,8.);p+=vec3(cos(s)*(.02+d*.06*r),.03*d*exp(-d*.6)-.012*d,sin(s)*(.02+d*.05*r)-.02);p.y=max(p.y,.9+.004+r*.02);}
+  float fade=k==2?smoothstep(0.,.08,x)*mix(.75,.45,x):smoothstep(0.,.12,x)*(1.-smoothstep(.5,1.,x));
+  vA=fade*(k==0?.2:k==1?.075:.055);
+  vec4 w=modelViewMatrix*vec4(p,1.);float size=k==0?.012+age*.03:k==1?.02+age*.03:.045+min(age,12.)*.018;
+  gl_PointSize=uPx*size/-w.z*2.2;gl_Position=projectionMatrix*w;
+  vec3 c=k==0?vec3(.86,.94,.46):k==1?(a.w>.5?vec3(.9,.66,.64):vec3(.8,.6,.48)):vec3(.66,.54,.42);vC=c*(.55+.9*uSun);}`,
+ fragmentShader:`varying float vA,vK;varying vec3 vC;void main(){vec2 q=gl_PointCoord-.5;float r=length(q);float wisp=.75+.25*sin(atan(q.y,q.x)*3.+r*18.);
+  float f=smoothstep(.5,0.,r);gl_FragColor=vec4(vC,vA*f*f*wisp);}`}));
+vapour.frustumCulled=false;S.add(vapour);
+
+// ---- the lens: 85 mm on the bottle, 35 mm on the step back; shallow focus; grain, halation on the amber
+const cam=new THREE.PerspectiveCamera(16,1,.02,40);
+const comp=new EffectComposer(R);comp.addPass(new RenderPass(S,cam));
+const bokeh=phone?null:new BokehPass(S,cam,{focus:1,aperture:.005,maxblur:.016});if(bokeh)comp.addPass(bokeh);
+const film=new ShaderPass({uniforms:{tDiffuse:{value:null},uT:{value:0},uR:{value:new THREE.Vector2()}},
+ vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`uniform sampler2D tDiffuse;uniform float uT;uniform vec2 uR;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
+ void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec2 px=1./uR;vec3 b=vec3(0.);for(int i=0;i<10;i++){float a=float(i)*.6283;b+=texture2D(tDiffuse,vUv+vec2(cos(a),sin(a))*px*7.).rgb;}b/=10.;
+  c+=max(b-.95,0.)*vec3(1.,.72,.48)*.22;vec2 q=vUv-.5;c*=1.-dot(q,q)*.75;c+=(h(floor(vUv*uR/1.3)+fract(uT)*91.)-.5)*.022*(1.-c.g*.6);gl_FragColor=vec4(c,1.);}`});
+comp.addPass(film);comp.addPass(new OutputPass());
+// the render: contact shading where surfaces meet, glow only on true light sources, tuned to this world's scale and light
+lux(R,S,cam,comp,{ao:{radius:.03,thickness:.05,protect:[.05,.2]},bloom:{strength:.3,radius:.5,threshold:1.4}});
+let W,H;function size(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);comp.setSize(W,H);cam.aspect=W/H;cam.updateProjectionMatrix();film.uniforms.uR.value.set(W*DPR,H*DPR);vU.uPx.value=mU.uPx.value=H*DPR}
+addEventListener('resize',size);size();
+
+// ---- the hand, the scroll, the room's small sounds
+let mx=0,my=0,sm=new THREE.Vector2(),ss=0,moved=0;
+addEventListener('pointermove',e=>{mx=e.clientX/W*2-1;my=e.clientY/H*2-1;moved=performance.now()});
+const dots=[...document.querySelectorAll('.meter i')],bar=document.getElementById('bar'),s0=document.querySelectorAll('#s0 .cap');
+let ac=null,on=false,nextDrip=0;
+document.getElementById('snd').onclick=e=>{if(!ac)ac=new AudioContext();on=!on;e.target.textContent='Still room sound · '+(on?'on':'off')};
+function drip(){const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain(),d=ac.createDelay(),fb=ac.createGain();o.type='sine';o.frequency.setValueAtTime(1500+Math.random()*300,t);o.frequency.exponentialRampToValueAtTime(520,t+.09);
+ g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.16,t+.004);g.gain.exponentialRampToValueAtTime(.0001,t+.22);d.delayTime.value=.13;fb.gain.value=.28;o.connect(g);g.connect(ac.destination);g.connect(d);d.connect(fb);fb.connect(d);d.connect(ac.destination);o.start(t);o.stop(t+.3)}
+const starts=[-999,-999,-999],armed=[true,true,true],sm3=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+const bottleC=new THREE.Vector3(0,.955,0),stillC=new THREE.Vector3(1.35,1.35,-2.75),look=new THREE.Vector3(),camP=new THREE.Vector3(),camDir=new THREE.Vector3(),sunDir=sd.clone().negate();
+const t0=performance.now(),introP=new THREE.Vector3(.35,1.05,1.5),shaftMid=w0.clone().addScaledVector(sd,L*.5);
+function frame(now){requestAnimationFrame(frame);const t=(now-t0)/1000;
+ const max=document.querySelector('main').offsetHeight-H,sc=max>0?scrollY/max*4:0;ss+=(sc-ss)*.07;
+ if(now-moved>3000){mx=Math.sin(t*.21)*.25;my=Math.sin(t*.17)*.1}
+ sm.x+=(mx-sm.x)*.05;sm.y+=(my-sm.y)*.05;
+ // pacing: the shaft first, then the room, then the bottle wakes
+ const aShaft=sm3(.2,2,t),aRoom=sm3(1.2,3.6,t),aBottle=sm3(3,6,t);
+ R.toneMappingExposure=.08+.92*aRoom;sun.intensity=48*aShaft;sun2.intensity=26*aRoom;hemi.intensity=.09*aRoom;bounce.intensity=0;
+ shU.uT.value=mU.uT.value=vU.uT.value=film.uniforms.uT.value=t;shU.uI.value=.05*aShaft;mU.uI.value=.9*aShaft;
+ bar.style.opacity=aRoom;s0.forEach(c=>c.style.opacity=sm3(4.5,6,t));
+ // scent tiers: crossing into a stage lets its tier out
+ [.55,1.55,2.55].forEach((th,k)=>{if(ss>th&&armed[k]){armed[k]=false;starts[k]=t}if(ss<th-.5&&t-starts[k]>TIERS[k].life*.5)armed[k]=true});vU.uStart.value=starts;
+ // the orbit at hand height, then the step back to the still
+ const pb=sm3(3,4,ss),az=Math.sin(ss*1.7)*.35+sm.x*.75,el=.1-sm.y*.18;
+ const rad=THREE.MathUtils.lerp(phone?.78:.98,4.2,pb);
+ camP.set(Math.sin(az)*rad,0,Math.cos(az)*rad);
+ camP.add(bottleC);camP.y=THREE.MathUtils.lerp(bottleC.y-.02+el*.12,1.55,pb);camP.x+=pb*1.15;
+ look.copy(bottleC).lerp(stillC,pb*.75);
+ // the opening: looking up into the shaft, then down to the bottle
+ const iB=sm3(2.4,6.4,t);cam.position.lerpVectors(introP,camP,iB);look.lerpVectors(shaftMid,look,iB);cam.lookAt(look);
+ cam.fov=THREE.MathUtils.lerp(30,THREE.MathUtils.lerp(phone?24:16,phone?48:34,pb),iB);cam.updateProjectionMatrix();
+ if(bokeh){bokeh.uniforms.focus.value=cam.position.distanceTo(iB<.5?shaftMid:pb>.5?stillC:bottleC);bokeh.uniforms.aperture.value=THREE.MathUtils.lerp(.005,.0006,pb)*iB+.0008*(1-iB)}
+ // the amber glows when the window is behind it
+ cam.getWorldDirection(camDir);const back=Math.max(0,camDir.dot(sunDir)*-1+.35);liquidM.emissiveIntensity=(.35+1.7*back)*aBottle;men.material.emissiveIntensity=(.3+1.4*back)*aBottle;rim.intensity=.25*aBottle;
+ vU.uSun.value=back;
+ const st=Math.min(4,Math.round(ss));dots.forEach((d,j)=>d.classList.toggle('on',j===st));
+ if(on&&ac&&t>nextDrip){drip();nextDrip=t+3.2+Math.random()*1.2}
+ if(scrollY<document.querySelector('main').offsetHeight)comp.render()}
+(document.fonts?Promise.all([document.fonts.load('italic 400 64px Boska'),document.fonts.load('500 20px Author')]):Promise.resolve()).finally(()=>{[label,ringTex,collarTex].forEach(t=>t.userData.redraw());requestAnimationFrame(frame)});
+</script>
+<script type="module" src="oud-theory-nav.js"></script>
+</body>
+</html>

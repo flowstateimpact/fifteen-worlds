@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eleven · Gulshan Lake</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="lib/nav.css">
+<style>
+:root{--cr:#f2ede4;--ink:#141414;--gold:#f4c77a;--night:#0a0d14}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--night);color:var(--cr);font-family:'General Sans',system-ui,sans-serif}
+#gl{position:fixed;inset:0;width:100%;height:100vh;display:block;z-index:0;touch-action:pan-y;cursor:pointer}
+.drv{height:700vh;position:relative;pointer-events:none}
+.snd{position:fixed;left:3vw;bottom:18px;z-index:4;background:rgba(10,13,20,.5);color:var(--cr);border:1px solid rgba(242,237,228,.3);border-radius:40px;padding:8px 14px;font:500 11px 'General Sans';letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.hud{position:fixed;inset:0;pointer-events:none;z-index:2;transition:opacity .6s}
+.hud.off{opacity:0}
+.top{position:absolute;top:22px;left:3vw;right:3vw;display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.clock{position:absolute;right:3vw;bottom:4vh;font:300 clamp(84px,11vw,190px)/.8 'Bespoke Serif',serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(10,13,20,.6)}
+.beat{position:absolute;right:3vw;bottom:calc(4vh + clamp(84px,11vw,190px)*.8 + 22px);max-width:360px;text-align:right;font:300 clamp(19px,1.6vw,25px)/1.3 'Bespoke Serif',serif;text-shadow:0 1px 18px rgba(10,13,20,.8);opacity:0;transform:translateY(12px);transition:opacity .9s,transform .9s}
+.beat.on{opacity:1;transform:none}
+.hint{position:absolute;left:3vw;bottom:62px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.8;transition:opacity .6s;text-shadow:0 1px 10px rgba(10,13,20,.8)}
+.plan{position:relative;z-index:3;background:var(--cr);color:var(--ink);min-height:100vh;display:grid;grid-template-columns:1.2fr 1fr;gap:4vw;padding:12vh 3vw;align-items:center}
+.plan svg{width:100%;height:auto}
+.plan h2{font:300 clamp(48px,6vw,110px)/.9 'Bespoke Serif';letter-spacing:-.03em}
+.plan h2 i{font-style:italic}
+.plan dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:5vh 0;font-size:16px}
+.plan dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.55;padding-top:4px}
+.plan a{display:inline-block;padding:16px 26px;background:var(--ink);color:var(--cr);text-decoration:none;border-radius:40px;font-size:14px}
+@media (max-width:760px){.drv{height:620vh}.plan{grid-template-columns:1fr}.top span:last-child{display:none}.beat{left:5vw;right:5vw;max-width:none}.hint{bottom:auto;top:64px;left:5vw;right:5vw;font-size:10px}.snd{bottom:16px}.clock{bottom:calc(4vh + 36px)}.beat{bottom:calc(4vh + clamp(84px,11vw,190px)*.8 + 58px)}}
+</style>
+
+<style id="nav">
+/* Eleven's chapters: a lift panel, brass and night glass; the index and the door in the tower's own blue hour */
+:root{--ix-bg:#0a0d14;--ix-fg:#f2ede4;--ix-acc:#f4c77a;--ix-font:300 1em 'Bespoke Serif',serif;--door-bg:#0a0d14;--door-fg:#f2ede4}
+.lift{position:fixed;right:3vw;top:84px;z-index:5;display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px 10px 14px;border-radius:30px;
+ background:rgba(10,13,20,.42);border:1px solid rgba(201,160,90,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ld{all:unset;cursor:pointer;display:flex;align-items:center;gap:4px;padding:8px 10px;border-radius:10px;background:#07080b;box-shadow:inset 0 0 0 1px rgba(201,160,90,.35)}
+.ld b{font:300 30px/1 'Bespoke Serif',serif;color:#ffb347;text-shadow:0 0 12px rgba(255,160,60,.55);font-variant-numeric:tabular-nums;min-width:1.2em;text-align:center}
+.ld i{font-style:normal;font-size:14px;color:#ffb347;opacity:.25;transition:opacity .3s}.ld i.mv{opacity:1}
+.ld:focus-visible{outline:2px solid #f4c77a;outline-offset:3px}
+.lb{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.lb button{all:unset;cursor:pointer;position:relative;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:500 14px 'General Sans',sans-serif;color:#e8d3a6;
+ background:radial-gradient(circle at 40% 35%,#3a3326,#15130f);box-shadow:inset 0 0 0 1.5px #b08a48,0 1px 0 rgba(255,255,255,.08);transition:color .3s,box-shadow .3s}
+.lb button.on{color:#1a1206;background:radial-gradient(circle at 45% 40%,#ffe0a3,#f0a347);box-shadow:inset 0 0 0 1.5px #ffd08a,0 0 16px rgba(255,170,70,.7)}
+.lb button em{position:absolute;right:46px;top:50%;transform:translate(8px,-50%);white-space:nowrap;font:400 14px 'General Sans',sans-serif;font-style:normal;letter-spacing:.04em;color:#f2ede4;
+ background:rgba(10,13,20,.78);padding:6px 12px;border-radius:20px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.lb button:hover em,.lb button:focus-visible em{opacity:1;transform:translate(0,-50%)}
+.lb button:focus-visible{outline:2px solid #f4c77a;outline-offset:3px}
+.plan{scroll-snap-align:start}
+#snd{bottom:34px}.hint{bottom:88px}body.past #snd{opacity:0;pointer-events:none}#snd{transition:opacity .4s}
+.homes{position:relative;z-index:3;background:#0a0d14;color:#f2ede4;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:4vw;align-items:center;padding:12vh calc(3vw + 92px) 10vh 5vw}
+.homes h2{font:300 clamp(44px,5.4vw,96px)/.95 'Bespoke Serif',serif;letter-spacing:-.03em}
+.homes h2 i{font-style:italic;color:#f4c77a}
+.homes p{font-size:18px;line-height:1.6;opacity:.85;margin-top:4vh;min-height:3.2em}
+.homes .cnt{font-size:14px;letter-spacing:.16em;text-transform:uppercase;opacity:.6;margin-top:2vh}
+#elev{width:100%;height:auto;overflow:visible}
+#elev .slab{fill:none;stroke:rgba(242,237,228,.5);stroke-width:1.2}#elev .fin{stroke:rgba(242,237,228,.3);stroke-width:1}#elev .wl{stroke:rgba(242,237,228,.25);stroke-width:1;stroke-dasharray:3 5}
+#elev .home polygon{fill:rgba(20,26,40,.9);stroke:rgba(242,237,228,.35);stroke-width:.8;transition:fill .5s}
+#elev .house .home{cursor:pointer;outline:none}
+#elev .house .home:hover polygon,#elev .house .home:focus-visible polygon{stroke:#f4c77a}
+#elev .home.lit polygon{fill:#f7c77f}
+#elev .home.yours polygon{stroke:#f4c77a;stroke-width:1.4}
+#elev .water{opacity:.55;pointer-events:none}
+#elev .water .slab,#elev .water .fin{stroke:rgba(242,237,228,.2)}
+.homes .draw .slab,.homes .draw .fin{fill:none;stroke-dasharray:760;stroke-dashoffset:760;transition:stroke-dashoffset 2.2s cubic-bezier(.3,.6,.2,1)}
+.homes.in .draw .slab,.homes.in .draw .fin{stroke-dashoffset:0}
+@media (max-width:760px){.lift{top:122px;right:4vw;padding:6px;gap:0}.lift .lb{display:none}.ld b{font-size:24px}
+ .homes{grid-template-columns:1fr;padding:12vh 6vw 8vh}}
+@media (prefers-reduced-motion:reduce){.homes .draw .slab,.homes .draw .fin{stroke-dashoffset:0;transition:none}}
+</style>
+<style id="floor">
+@media (min-width:700px){
+html button.snd#snd,
+html div.top > span,
+html div.hud#hud > div.hint#hint,
+html dl > dt,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+}
+@media (max-width:699px){
+html button.snd#snd,
+html div.top > span,
+html div.hud#hud > div.hint#hint,
+html dl > dt,
+html a.fsi-tag{font-size:14px}
+}
+html .plan dt{font-size:14px}
+</style>
+<style id="keys-css">
+/* the second act (eleven-nav.js): the concierge's key board. Twenty-two hooks; a key hangs only where a home is still unsold. */
+.keys{position:relative;z-index:3;background:#0a0d14;color:#f2ede4;min-height:100vh;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:5vw;align-items:center;padding:11vh calc(3vw + 132px) 11vh 6vw;overflow:hidden;scroll-snap-align:start}
+.keys::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at -6% 62%,rgba(255,176,96,.2),rgba(255,160,80,.05) 45%,transparent 66%);pointer-events:none}
+.keys figure{position:relative;justify-self:center}@media (min-width:761px){.keys{grid-template-columns:minmax(0,.72fr) minmax(0,1fr)}.keys figure{width:min(560px,42vw);order:2}.keys .tx{order:1}}
+.keys .ksr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.keys figure svg{display:block;width:100%;height:auto;filter:drop-shadow(34px 18px 22px rgba(0,0,0,.75))}
+.keys .kt{cursor:pointer;outline:none}.keys .kt .sw{transform-box:fill-box;transform-origin:50% 0;transition:transform .7s cubic-bezier(.3,1.6,.5,1)}
+.keys .kt:hover .sw,.keys .kt:focus-visible .sw{transform:rotate(9deg)}.keys .kt.pick .tag{fill:#ffd08a}
+.keys figcaption{margin-top:22px;font-size:14px;letter-spacing:.16em;text-transform:uppercase;opacity:.6;text-align:center}
+.keys .tx{position:relative}
+.keys h2{font:300 clamp(40px,4.8vw,84px)/.95 'Bespoke Serif',serif;letter-spacing:-.03em}.keys h2 i{font-style:italic;color:#f4c77a}
+.keys #kread{font-size:18px;line-height:1.6;opacity:.9;margin-top:3vh;min-height:3.3em}
+.keys table{width:100%;border-collapse:collapse;margin-top:3vh;font-size:16px}
+.keys th{text-align:left;font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;padding:0 14px 10px 0}
+.keys td{padding:11px 14px 11px 0;border-top:1px solid rgba(242,237,228,.18);font-variant-numeric:tabular-nums}.keys td:last-child,.keys th:last-child{text-align:right;padding-right:0}
+.keys dl{display:grid;grid-template-columns:max-content 1fr;gap:9px 24px;margin-top:3.4vh;font-size:16px;line-height:1.45}
+.keys dt{font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;padding-top:2px}
+.keys a.go{display:inline-block;margin-top:4vh;padding:15px 26px;border-radius:40px;background:#f4c77a;color:#1a1206;text-decoration:none;font-size:15px}
+#elev .home.sold polygon{fill:rgba(8,10,16,.95);stroke:rgba(242,237,228,.14)}#elev .home.held polygon{stroke:rgba(244,199,122,.6);stroke-dasharray:3 3}
+@media (max-width:760px){.keys{grid-template-columns:1fr;padding:190px 6vw 13vh}.keys figure{width:min(440px,100%);order:0}.keys .tx{order:0}.keys .ksr{position:static;width:auto;height:auto;clip-path:none;overflow:visible}.keys td,.keys dl{font-size:15px}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="drv" id="drv"></div>
+<button class="snd" id="snd" type="button">Sound · off</button>
+<div class="hud" id="hud">
+ <div class="top"><span>Eleven · Gulshan Lake, Dhaka</span><span>Twenty-two homes · two a floor</span></div>
+ <div class="beat" data-a=".05" data-b=".2">Twenty-two homes. Not one of them faces the road.</div>
+ <div class="beat" data-a=".3" data-b=".48">3.2 metres deep. A table, and the chairs pulled out.</div>
+ <div class="beat" data-a=".58" data-b=".78">The lake keeps a copy of every window.</div>
+ <div class="beat" data-a=".9" data-b="1.1">The last light on the lake is yours. Sit down.</div>
+ <div class="hint" id="hint">Tap a window. The lake will copy it.</div>
+ <div class="clock" id="clk">18:50</div>
+</div>
+<section class="plan snap" id="plan">
+ <svg viewBox="0 0 600 420" fill="none" stroke="#141414" stroke-width="2">
+  <rect x="20" y="20" width="560" height="300"/><rect x="20" y="320" width="560" height="80" stroke-dasharray="6 5"/>
+  <line x1="220" y1="20" x2="220" y2="200"/><line x1="380" y1="20" x2="380" y2="320"/><line x1="20" y1="200" x2="300" y2="200"/><line x1="480" y1="20" x2="480" y2="150"/><line x1="380" y1="150" x2="580" y2="150"/>
+  <path d="M220 200 A40 40 0 0 1 260 160" stroke-width="1"/><path d="M380 260 A40 40 0 0 0 340 300" stroke-width="1"/>
+  <g font-family="General Sans" font-size="12" fill="#141414" stroke="none" letter-spacing="1.5"><text x="40" y="50">BEDROOM</text><text x="240" y="50">BEDROOM</text><text x="400" y="50">BATH</text><text x="500" y="50">STUDY</text><text x="40" y="230">LIVING AND DINING, 9.4 M</text><text x="400" y="180">KITCHEN</text><text x="40" y="365">BALCONY · 3.2 M DEEP · FACES THE LAKE</text></g>
+ </svg>
+ <div><h2 class="reveal"><span class="ln"><span>Two homes</span></span><span class="ln"><span>a floor. <i>Both</i></span></span><span class="ln"><span>face the lake.</span></span></h2>
+  <dl><dt>Homes</dt><dd>22, each 2,450 sq ft</dd><dt>Floors</dt><dd>11, plus a shared roof garden</dd><dt>Handover</dt><dd>December 2027</dd><dt>From</dt><dd>৳ 4.2 crore</dd></dl><a href="#">Visit the show flat</a></div>
+</section>
+<section class="homes snap reveal" id="homes">
+ <div><h2><span class="ln"><span>Twenty-two homes.</span></span><span class="ln"><span><i>Not one</i> of them</span></span><span class="ln"><span>faces the road.</span></span></h2>
+  <p id="hread">Tap a home. The lake will copy it.</p><div class="cnt" id="hlit">0 of 22 lit</div></div>
+ <svg id="elev" class="draw" viewBox="0 0 640 780" aria-label="Elevation of the crescent: eleven floors, two homes a floor, drawn above its reflection in the lake">
+  <defs><filter id="rip" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.06" numOctaves="2" seed="4"><animate attributeName="baseFrequency" dur="9s" values="0.004 0.06;0.005 0.07;0.004 0.06" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="9"/></filter></defs>
+ </svg>
+</section>
+<section class="keys" id="keys">
+ <figure><svg id="kboard" viewBox="0 0 420 694" role="img" aria-label="The key board in the lobby: twenty-two hooks, a key on each home still for sale"></svg><figcaption>The board in the lobby, this morning</figcaption></figure>
+ <div class="tx"><h2><i id="kleft">Nine</i> keys are<br>still on the board.</h2>
+  <p id="kread">Each red tag is stamped with its home and its price in crore taka. Tap a key to see the home. A bare hook is a home already sold; a paper slip is one held.</p>
+   <dl class="ksr"><dt>Handover</dt><dd>December 2027</dd><dt>Payment</dt><dd>20% to reserve, 60% across the build, 20% at the keys</dd><dt>Show flat</dt><dd>Floor 2, east. Road 71, Gulshan 2. Every day, ten to seven.</dd></dl>
+  <a class="go" href="#">Book an hour at the show flat</a></div>
+</section>
+<section class="door snap" id="door"></section>
+<nav class="lift" id="lift" aria-label="Chapters"><button type="button" class="ld" aria-label="Open the index"><b>01</b><i>▼</i></button><ol class="lb"></ol></nav>
+<script type="application/json" id="chapters">[{"t":"The lake","at":0},{"t":"Next door","at":0.3},{"t":"The reflection","at":0.8},{"t":"Your door","at":0.99},{"t":"The plan","el":"#plan"},{"t":"The homes","el":"#homes"},{"t":"The keys","el":"#keys"},{"t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html" style="z-index:4">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="eleven-scene.js"></script>
+<script type="module" src="eleven-nav.js"></script>
+</body>
+</html>

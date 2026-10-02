@@ -1,0 +1,72 @@
+/* nav.css · the shared bones of chapters, the index and the door. Every world sets these variables to its own palette and type:
+   --ix-bg --ix-fg --ix-acc (index sheet), --ix-font (its display face). Nothing here is a look; each world brings one. */
+html{scroll-snap-type:y proximity}
+.snap{scroll-snap-align:start;min-height:100vh;min-height:100svh}
+.snap-at{position:absolute;left:0;width:1px;height:1px;scroll-snap-align:start;pointer-events:none}
+
+.ix{position:fixed;inset:0;z-index:40;background:var(--ix-bg,#0b0d12);color:var(--ix-fg,#f2ede4);opacity:0;transition:opacity .45s;overflow:auto;overscroll-behavior:contain}
+.ix.on{opacity:1}
+.ix-in{min-height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:6vw;padding:12vh 6vw 8vh}
+.ix-k{font-size:14px;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin:0 0 3vh}
+.ix ol{list-style:none;margin:0;padding:0}
+.ix-ch button{all:unset;cursor:pointer;display:flex;gap:18px;align-items:baseline;padding:10px 0;font:var(--ix-font,400 1em serif);font-size:clamp(26px,3.2vw,48px);line-height:1.05;transition:color .3s,transform .3s}
+.ix-ch button b{font:500 14px/1 'General Sans',system-ui,sans-serif;letter-spacing:.14em;opacity:.6;min-width:3.2em}
+.ix-ch button:hover,.ix-ch button:focus-visible{color:var(--ix-acc,#f4c77a);transform:translateX(6px)}
+.ix-w ol{columns:2;column-gap:3vw}
+.ix-w li{break-inside:avoid}
+.ix-w a{display:grid;grid-template-columns:3em 1fr;column-gap:10px;padding:10px 0;color:inherit;text-decoration:none;border-top:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+.ix-w a b{font:500 14px/1.6 'General Sans',system-ui,sans-serif;opacity:.55}
+.ix-w a span{font-size:18px;line-height:1.3}
+.ix-w a small{grid-column:2;font-size:14px;opacity:.6}
+.ix-w a:hover span,.ix-w a:focus-visible span{color:var(--ix-acc,#f4c77a)}
+.ix-w li.here a span::after{content:' · you are here';font-size:14px;opacity:.6}
+.ix-x{position:fixed;top:22px;right:3vw;font:500 14px 'General Sans',system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;background:none;color:inherit;border:1px solid currentColor;border-radius:40px;padding:9px 16px;cursor:pointer}
+@media (max-width:760px){.ix-in{grid-template-columns:1fr;padding:14vh 6vw 8vh}.ix-w ol{columns:1}}
+
+.door{position:relative;z-index:3;display:grid;overflow:hidden;background:var(--door-bg,#0b0d12)}
+.door-a{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding:10vh 6vw 14vh;color:var(--nf);text-decoration:none;
+ background:var(--nb);clip-path:inset(calc((1 - var(--rise,0)) * 62%) 0 0 0);transition:clip-path .2s linear}
+.door-k{font:500 14px 'General Sans',system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+.door-n{font:var(--nfont);font-size:clamp(64px,12vw,220px);line-height:.86;letter-spacing:-.02em}
+.door-l{font-size:clamp(18px,1.7vw,24px);max-width:30ch;line-height:1.4}
+.door-s{font-size:14px;opacity:.7}
+.door-p{position:absolute;right:6vw;bottom:5vh;font:500 14px 'General Sans',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--door-fg,#f2ede4);opacity:.7;text-decoration:none}
+.door-a:hover .door-n{letter-spacing:0;transition:letter-spacing .6s}
+
+.reveal .ln{display:block;overflow:hidden}
+.reveal .ln > span{display:block;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.7,.1,1)}
+.reveal.in .ln > span{transform:none}
+.reveal .ln:nth-child(2) > span{transition-delay:.08s}.reveal .ln:nth-child(3) > span{transition-delay:.16s}.reveal .ln:nth-child(4) > span{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){html{scroll-snap-type:none}.reveal .ln > span{transform:none;transition:none}.ix,.door-a{transition:none}}
+
+/* a 2D chapter below the journey: full height, snaps, never skipped by a fling */
+.chap{position:relative;z-index:3;min-height:100vh;min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always}
+:where(.chap:not(.door)){display:grid;align-content:center;padding:12vh 6vw}
+/* scroll-driven staging with no JavaScript: the entrance settles and holds; where unsupported the content is simply present */
+@supports (animation-timeline: view()){
+ @media (prefers-reduced-motion: no-preference){
+  .sda{animation:sda-settle linear both;animation-timeline:view();animation-range:entry 10% entry 70%}
+  .sda-l{animation-name:sda-left}.sda-w{animation-name:sda-wipe}.sda-s{animation-name:sda-scale}
+  @keyframes sda-settle{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
+  @keyframes sda-left{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+  @keyframes sda-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes sda-scale{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+  .sda .ln > span{transform:none;transition:none}
+ }
+}
+.door-v{font:var(--nfont);font-weight:500;letter-spacing:.04em;font-size:clamp(28px,2.8vw,44px);line-height:1;margin-top:22px;display:inline-flex;align-items:baseline;gap:.4em}
+.door-v::after{content:'→';font:400 .8em 'General Sans',system-ui,sans-serif}
+body.past [data-hud]{opacity:0!important;pointer-events:none;transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){.sda{animation:none}.chap{scroll-snap-stop:normal}}
+
+/* a world with an instrument on its right edge keeps the door's name clear of it */
+.door-a{padding-right:max(6vw,var(--door-rail,0px));padding-left:max(6vw,var(--door-lrail,0px))}
+/* at the door the world's own sound button steps aside, so it never prints over the way back */
+body.at-door .snd,body.at-door #snd{opacity:0;pointer-events:none;transition:opacity .4s}
+
+/* the credit's reserved band over reading sections (nav.js sets .cred-band and the two colours) */
+html body.cred-band a.fsi-tag{left:0!important;right:0!important;bottom:0!important;top:auto!important;height:auto;z-index:4!important;padding:9px 16px 10px;background:var(--cb-bg,#0b0b0b);color:var(--cb-fg,#fff);mix-blend-mode:normal;opacity:1;border-top:1px solid color-mix(in srgb,var(--cb-fg,#fff) 16%,transparent)}
+/* Anwar rule 14: on a phone a chapter object never crosses a list, table or sentence, so it steps out while a reading section is under it */
+@media (max-width:860px){html body.cred-band [aria-label="Chapters"]{opacity:0!important;pointer-events:none!important;transition:opacity .35s}
+ html body.cred-band a.fsi-tag{max-width:none!important;white-space:nowrap!important;font-size:12px!important;padding:8px 12px 9px}}
+html body.cred-band #snd{translate:0 -30px;transition:translate .3s}

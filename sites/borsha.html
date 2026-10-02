@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Borsha · Cha since 1987</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--am:#f0a347;--tl:#0c1a1c;--cr:#f3e7cf}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--tl);color:var(--cr);font-family:'Supreme',system-ui,sans-serif}
+.hero{height:100vh;position:relative;overflow:hidden;touch-action:pan-y}
+#gl{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;display:block;touch-action:none}
+.bn{position:absolute;left:2.4vw;bottom:-3vw;font:400 clamp(120px,27vw,460px)/1 'Tiro Bangla',serif;color:var(--cr);pointer-events:none;mix-blend-mode:screen;opacity:.92}
+.top{position:absolute;top:22px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;pointer-events:none}
+.top button{pointer-events:auto;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--cr);background:rgba(12,26,28,.35);border:1px solid rgba(243,231,207,.5);border-radius:30px;padding:8px 14px;cursor:pointer;backdrop-filter:blur(6px)}
+.wipe{position:absolute;right:26px;bottom:32px;text-align:right;font-size:13px;line-height:1.5;max-width:230px;pointer-events:none;opacity:.85}
+.wipe b{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--am);margin-bottom:4px}
+.menu{padding:8vh 2.4vw max(10vh,200px);background:var(--tl)}
+.menu h2{font:700 12px/1 'Supreme';letter-spacing:.22em;text-transform:uppercase;color:var(--am);margin-bottom:5vh}
+.row{display:grid;grid-template-columns:1fr auto auto;align-items:baseline;gap:2vw;padding:1.8vh 0;border-top:1px solid rgba(243,231,207,.18);transition:background .3s,padding .3s}
+.row:hover{background:rgba(240,163,71,.07);padding-left:1vw}
+.row b{font:700 clamp(28px,4.2vw,68px)/.95 'Supreme';letter-spacing:-.035em}
+.row b small{font:400 .38em 'Supreme';letter-spacing:0;opacity:.55;margin-left:.6em;vertical-align:middle}
+.row i{font:400 clamp(24px,3.4vw,56px)/1 'Tiro Bangla',serif;font-style:normal;color:var(--am)}
+.row span{font:400 clamp(24px,3.4vw,56px)/1 'Tiro Bangla',serif;min-width:3.4em;text-align:right}
+.rule{min-height:100vh;background:var(--am);color:var(--tl);display:flex;flex-direction:column;justify-content:space-between;padding:6vh 2.4vw}
+.rule h2{font:700 clamp(56px,10.5vw,200px)/.84 'Supreme';letter-spacing:-.055em}
+.rule p{font:400 clamp(17px,1.5vw,22px)/1.45 'Supreme';max-width:520px}
+.rule .meta{display:flex;justify-content:space-between;align-items:flex-end;gap:4vw;flex-wrap:wrap}
+.rule .addr{font:400 13px/1.7 'Supreme';letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:700px){.row{grid-template-columns:1fr auto}.row i{display:none}.wipe{right:18px;bottom:22px;max-width:190px;font-size:12px}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.top > span,
+html div.top > button#snd,
+html div.wipe > b,
+html section.menu > h2,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html section.hero > div.wipe,
+html div.meta > div.addr{font-size:18px}
+}
+@media (max-width:699px){
+html div.top > span,
+html div.top > button#snd,
+html div.wipe > b,
+html section.menu > h2,
+html b > small,
+html a.fsi-tag{font-size:14px}
+html section.hero > div.wipe,
+html div.meta > div.addr{font-size:16px}
+}
+@media (max-width:699px){html .row b small{font-size:14px}}
+@media (max-width:699px){html div.top > span,html div.top > button#snd{letter-spacing:.04em;white-space:nowrap}}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--ix-bg:#0c1a1c;--ix-fg:#f3e7cf;--ix-acc:#f0a347;--ix-font:700 1em 'Supreme',sans-serif;--door-bg:#0c1a1c;--door-fg:#f3e7cf}
+/* a patch of the same fogged pane at the lower left: the chapter words are wiped out of it with a finger, so the street shows through each stroke */
+.fogn{position:fixed;left:2.4vw;bottom:62px;z-index:5;width:420px;height:130px}
+.fogn canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fogn ol{list-style:none;margin:0;padding:0}
+.fogn ol button{all:unset;cursor:pointer;position:absolute;border-radius:10px}
+.fogn ol button:focus-visible{outline:2px solid #f0a347;outline-offset:2px}
+.fogn .lab{position:absolute;left:16px;top:100%;margin-top:2px;font:400 16px/1.2 'Supreme',sans-serif;color:#f3e7cf;opacity:0;transition:opacity .4s;white-space:nowrap;text-shadow:0 1px 8px rgba(0,0,0,.7);pointer-events:none}
+.fogn.say .lab{opacity:1}
+/* the index: a paper note on the inside of the glass, marker on cheap paper, a strip of clear tape across its top edge */
+.fogn .ixb{all:unset;cursor:pointer;position:absolute;left:100%;bottom:16px;margin-left:10px;width:124px;padding:12px 10px 9px;background:linear-gradient(176deg,#f4ecd8,#e9dfc6);box-shadow:0 1px 0 rgba(0,0,0,.08),2px 4px 6px rgba(0,0,0,.28);rotate:2.4deg;transition:rotate .4s}
+.fogn .ixb::before{content:'';position:absolute;left:30%;top:-7px;width:52px;height:15px;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(235,240,238,.28));box-shadow:inset 0 0 0 .5px rgba(255,255,255,.4);rotate:-3deg}
+.fogn .ixb:hover{rotate:.6deg}.fogn .ixb svg{display:block;width:100%;height:auto;overflow:visible}
+.fogn .ixb .mk path{stroke:#1b2224;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fogn .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fogn .ixb:focus-visible{outline:2px solid #f0a347;outline-offset:2px}
+body.amber .fogn .lab{color:#0c1a1c;text-shadow:none}
+body.at-door .fogn{bottom:auto;top:14vh}
+
+@supports (animation-timeline:view()){/* on the two reading chapters the index pill steps aside and the rule's last lines sit above the fogged patch */
+.fogn .ixb{transition:opacity .4s}body.mid .fogn .ixb{opacity:0;pointer-events:none}
+#rule{padding-bottom:max(180px,20vh)}
+@media (prefers-reduced-motion:no-preference){
+ .menu .row{animation:demist linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+ @keyframes demist{from{filter:blur(9px);opacity:.25}to{filter:none;opacity:1}}
+ .menu .row span{position:relative}
+ .menu .row span::after{content:'';position:absolute;right:.3em;top:100%;width:2px;height:0;background:linear-gradient(#f3e7cf,rgba(243,231,207,0));animation:drip linear both;animation-timeline:view();animation-range:entry 60% cover 60%}
+ @keyframes drip{to{height:5vh}}
+}}
+.door-a{clip-path:none;-webkit-mask:linear-gradient(100deg,#000 calc(var(--rise,0) * 130% - 12%),transparent calc(var(--rise,0) * 130%));mask:linear-gradient(100deg,#000 calc(var(--rise,0) * 130% - 12%),transparent calc(var(--rise,0) * 130%))}
+@media (max-width:700px){section.hero > div.wipe{top:104px;bottom:auto}.fogn{left:10px;bottom:74px;width:280px;height:92px}.fogn .ixb{left:auto;right:-4px;bottom:100%;margin:0 0 10px;width:100px}.fogn .lab{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.fogn .lab{transition:none}.menu .row{animation:none}.door-a{-webkit-mask:none;mask:none}}
+</style>
+<style id="cal-css">
+/* the second act (borsha-calendar.js): the wall by the stove, one bare bulb up and to the left, the calendar on its nail */
+.cal{position:relative;z-index:3;min-height:100vh;scroll-snap-align:start;overflow:hidden;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:5vw;align-items:start;padding:11vh 5vw max(230px,24vh) 2.4vw;color:var(--cr);
+ background:radial-gradient(60% 70% at 8% -6%,rgba(255,178,92,.34),rgba(240,150,60,.1) 46%,transparent 68%),radial-gradient(34% 26% at 78% 96%,rgba(0,0,0,.34),transparent 70%),radial-gradient(22% 30% at 96% 30%,rgba(60,96,92,.26),transparent 70%),linear-gradient(180deg,#14292b,#0b1719)}
+.ct h2{font:700 clamp(40px,4.6vw,78px)/.92 'Supreme',sans-serif;letter-spacing:-.045em;margin:0 0 22px}
+.ct p{font:400 18px/1.5 'Supreme',sans-serif;max-width:30em;opacity:.86;margin:0 0 26px}
+.ct dl{margin:0;border-top:1px solid rgba(243,231,207,.5);max-width:34em}.ct dl div{display:grid;grid-template-columns:6.2em 1fr;gap:12px;padding:11px 0;border-bottom:1px solid rgba(243,231,207,.18)}
+.ct dt{font:700 12px/1.9 'Supreme',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--am)}.ct dd{margin:0;font:400 17px/1.45 'Supreme',sans-serif}
+.ct .key{margin:20px 0 0;font-size:15px;opacity:.8}.ct .key span{font:400 18px 'Tiro Bangla',serif;color:#9fb6ff;margin:0 5px 0 12px}.ct .key span:first-child{margin-left:0}
+.cw{position:relative;margin:26px 0 0;justify-self:center;width:min(600px,100%)}
+.cw .nail{position:absolute;left:50%;top:-22px;width:9px;height:9px;margin-left:-4.500px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c9c2b4,#5b564c 60%,#24211c);box-shadow:5px 6px 5px rgba(0,0,0,.6);z-index:2}
+.cw .nail::after{content:"";position:absolute;left:-9px;top:3px;width:25px;height:24px;border:1.5px solid #8c8676;border-bottom:0;border-radius:50% 50% 0 0}
+.cp{position:relative;background:#f4eedd;color:#16201f;rotate:.9deg;transform-origin:50% 0;padding:0 0 16px;box-shadow:16px 22px 26px rgba(0,0,0,.55),3px 4px 3px rgba(0,0,0,.4)}
+.cp::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;background:linear-gradient(118deg,rgba(255,196,120,.28),rgba(255,214,160,.06) 40%,rgba(40,60,66,.3)),linear-gradient(180deg,transparent 86%,rgba(60,50,30,.26)),radial-gradient(30% 16% at 88% 3%,rgba(150,84,30,.3),transparent 70%)}
+.tin{height:15px;background:linear-gradient(180deg,#d9d6cc,#8d897c 45%,#c4c0b3 55%,#5e5b52);box-shadow:0 2px 2px rgba(0,0,0,.3)}
+.band{background:#b3261a;color:#fbf2dc;padding:10px 18px 9px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.band b{font:400 26px/1 'Tiro Bangla',serif}.band span{font:400 14px/1.2 'Tiro Bangla',serif;opacity:.92}
+.mo{display:flex;justify-content:space-between;align-items:flex-end;padding:12px 18px 8px}.mo b{font:400 58px/.9 'Tiro Bangla',serif;color:#0f5a3c}.mo span{font:700 14px/1.45 'Supreme',sans-serif;text-align:right;letter-spacing:.04em}
+.hd,.gr{list-style:none;margin:0;padding:0 12px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.hd li{font:400 15px/1 'Tiro Bangla',serif;text-align:center;padding:7px 0;background:#0f5a3c;color:#f4eedd}.hd li.f{background:#b3261a}
+.gr li{position:relative;height:74px;border-right:1px solid rgba(22,32,31,.3);border-bottom:1px solid rgba(22,32,31,.3)}.gr li:nth-child(7n+1){border-left:1px solid rgba(22,32,31,.3)}
+.gr li b{position:absolute;left:6px;top:2px;font:400 27px/1 'Tiro Bangla',serif;color:#16201f}.gr li.f b{color:#b3261a}
+.gr li small{position:absolute;right:5px;top:4px;font:700 11px/1 'Supreme',sans-serif;opacity:.7}.gr li i{position:absolute;right:5px;top:17px;font:400 11px/1 'Tiro Bangla',serif;font-style:normal;color:#0f5a3c;white-space:nowrap}
+.gr li em{position:absolute;left:8px;bottom:6px;font:400 19px/1 'Tiro Bangla',serif;font-style:normal;color:#1c3aa8;transform:skewX(-9deg);opacity:.88;mix-blend-mode:multiply;white-space:nowrap}
+.gr li.dw em{text-decoration:underline;text-underline-offset:3px}
+.gr li u{position:absolute;left:7px;top:26px;font:400 16px/1 'Tiro Bangla',serif;text-decoration:none;color:#1c3aa8;white-space:nowrap;opacity:.82;mix-blend-mode:multiply}
+@media (max-width:900px){.cal{grid-template-columns:1fr;gap:34px;padding:96px 16px 220px}.cw{order:-1;margin-top:20px}.gr li{height:58px}.gr li b{font-size:20px;left:3px}.gr li small{display:none}.gr li i{font-size:11px;right:3px;top:5px}.gr li em{font-size:14px!important;left:3px;bottom:4px}.hd,.gr{padding:0 6px}.hd li{font-size:12px}.mo b{font-size:44px}.band b{font-size:21px}.gr li u{font-size:11px;left:3px;right:3px;top:10px;white-space:normal;line-height:1.25;rotate:-4deg!important}.gr li i span{display:none}}
+</style>
+</head>
+<body>
+<section class="hero" id="hero">
+ <canvas id="gl"></canvas>
+ <div class="top"><span>Borsha · Lalbagh, Dhaka</span><button id="snd">Rain and kettle · off</button></div>
+ <div class="wipe"><b>Wipe the glass</b>The kettle has been on since four. So has the fog.</div>
+</section>
+<nav class="fogn" id="fogn" aria-label="Chapters"><canvas aria-hidden="true"></canvas><ol></ol><button type="button" class="ixb" aria-label="Open the index">All fifteen</button></nav>
+<section class="menu chap" id="menu">
+ <h2>Tonight, until the rain stops</h2>
+ <div class="row sda"><b>Doodh cha<small>milk, sugar, patience</small></b><i>দুধ চা</i><span>৳ ১৫</span></div>
+ <div class="row sda"><b>Malai cha<small>with a lid of cream</small></b><i>মালাই চা</i><span>৳ ৪০</span></div>
+ <div class="row sda"><b>Ada cha<small>ginger, for the throat</small></b><i>আদা চা</i><span>৳ ২০</span></div>
+ <div class="row sda"><b>Tetul cha<small>tamarind, sour, correct</small></b><i>তেঁতুল চা</i><span>৳ ২৫</span></div>
+ <div class="row sda"><b>Rong cha<small>black, no argument</small></b><i>রং চা</i><span>৳ ১০</span></div>
+ <div class="row sda"><b>Singara, two<small>from the stall next door</small></b><i>সিঙ্গারা</i><span>৳ ২০</span></div>
+</section>
+<section class="rule chap" id="rule">
+ <h2>We open at four.<br>We close when<br>the rain stops.</h2>
+ <div class="meta"><p>Most nights that means two in the morning. Some nights in July it means never. Bring an umbrella or do not, the bench is under a roof.</p><div class="addr">Borsha Cha<br>Lalbagh Road, by the Fort's east wall<br>Dhaka 1211 · since 1987</div></div>
+</section>
+<section class="cal" id="cal"></section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"৪টা","t":"The glass","el":"#hero"},{"n":"চা","t":"Tonight, until the rain stops","el":"#menu"},{"n":"বৃষ্টি","t":"We close when the rain stops","el":"#rule"},{"n":"","t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="borsha-scene.js"></script>
+<script type="module" src="borsha-calendar.js"></script>
+<script type="module" src="borsha-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fifteen Worlds · FlowStãte Impact</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{--ink:#0d0c0b;--cr:#f1ebe0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ink);color:var(--cr);font-family:'Switzer',system-ui,sans-serif}
+header{height:30vh;min-height:220px;display:grid;grid-template-columns:1fr auto;align-items:end;padding:0 2vw 3vh;gap:4vw}
+header h1{font:500 clamp(64px,10.5vw,200px)/.8 'Clash Display',sans-serif;letter-spacing:-.05em}
+header h1 i{font:400 italic .92em 'Gambetta',serif;letter-spacing:-.03em}
+header p{max-width:400px;font-size:15px;line-height:1.55;opacity:.78;padding-bottom:6px}
+.top{position:absolute;top:18px;left:2vw;right:2vw;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.strips{height:70vh;min-height:480px;display:flex;gap:0}
+.s{position:relative;flex:1 1 0;min-width:0;overflow:hidden;color:var(--fg,#f1ebe0);background:var(--bg);text-decoration:none;transition:flex-grow .75s cubic-bezier(.7,0,.2,1);border-left:1px solid rgba(0,0,0,.25)}
+.s::before{content:'';position:absolute;inset:0;background:var(--img,none) center/cover;filter:grayscale(1) contrast(1.1) brightness(.7);opacity:.55;transition:filter .8s,opacity .8s,transform 1.2s}
+.s:hover,.s:focus-visible{flex-grow:7;outline:none}
+.s:hover::before,.s:focus-visible::before{filter:none;opacity:1;transform:scale(1.04)}
+.s .n{position:absolute;left:50%;bottom:18px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;white-space:nowrap;font:var(--f);font-size:clamp(26px,2.6vw,44px);line-height:1;transition:opacity .3s}
+.s .i{position:absolute;left:50%;top:14px;transform:translateX(-50%);font:500 11px 'JetBrains Mono',monospace;opacity:.8}
+.s .x{position:absolute;left:0;right:0;bottom:0;padding:3vh 2vw;opacity:0;transform:translateY(20px);transition:opacity .4s .15s,transform .6s .15s;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);min-width:420px}
+.s .x b{display:block;font:var(--f);font-size:clamp(54px,6vw,110px);line-height:.88;letter-spacing:-.02em}
+.s .x span{display:block;margin-top:12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.s .x em{display:block;margin-top:8px;font:400 italic 20px/1.3 'Gambetta',serif;max-width:360px}
+.s .x u{display:inline-block;margin-top:14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.s:hover .n,.s:focus-visible .n{opacity:0}
+.s:hover .x,.s:focus-visible .x{opacity:1;transform:none}
+footer{padding:9vh 2vw 10vh;display:grid;grid-template-columns:1.3fr 1fr;gap:5vw;align-items:end;border-top:1px solid rgba(241,235,224,.15)}
+footer h2{font:500 clamp(40px,5vw,90px)/.9 'Clash Display';letter-spacing:-.04em}
+footer h2 i{font:400 italic .95em 'Gambetta'}
+footer p{font-size:15px;line-height:1.6;opacity:.8}
+footer a{display:inline-block;margin-top:22px;background:var(--cr);color:var(--ink);padding:15px 24px;border-radius:40px;text-decoration:none;font-size:14px;font-weight:500}
+@media (max-width:760px){header{grid-template-columns:1fr;height:auto;padding-top:70px}.strips{flex-direction:column;height:auto}.s{flex:none;height:22vh;border-left:0;border-top:1px solid rgba(0,0,0,.25)}.s:hover{flex-grow:0}.s .n{writing-mode:horizontal-tb;transform:none;left:16px;bottom:14px}.s .i{left:auto;right:16px;transform:none}.s .x{display:none}.s::before{filter:none;opacity:.8}footer{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><span>FlowStãte Impact · Websites</span><span>Dhaka · London</span></div>
+<header><h1>Fifteen <i>worlds.</i></h1><p>Fifteen websites for brands that do not exist yet. Each one is built around a single thing you can touch: rain on a window, a torch in a dark room, a page that turns, a loom that weaves while you scroll.</p></header>
+<nav class="strips" id="strips"></nav>
+<footer><h2>We build websites people remember <i>touching.</i></h2><div><p>Every world here was designed, art directed and coded by FlowStãte Impact. The brands are fictional. The craft is exactly what we would bring to yours.</p><a href="#" style="display:none">Start a project</a></div></footer>
+<script>
+const S=[
+['borsha','Borsha','Tea house · Dhaka','Wipe the rain off the glass.','#0c1a1c','#f3e7cf',"400 1em 'Supreme'",'img/borsha-stall.webp'],
+['meridian','Meridian','Freight line · Chattogram to Felixstowe','Sail thirty days across a hand-drawn sea chart.','#efe8d8','#1d2a3a',"700 1em 'Bespoke Stencil'",''],
+['oud-theory','Oud Theory','Perfumer · London','A glass bottle made entirely of maths.','#2a0b13','#f1e6d2',"italic 400 1em 'Boska'",''],
+['nouka','Nouka','Electric ferries · Buriganga','The boat is silent. You only see its wake.','#0f2a24','#f5f1ea',"400 1em 'Tanker'",'img/nouka-river.webp'],
+['folio','Folio','Literary quarterly','Pages you actually turn.','#d93a26','#f1ece2',"600 1em 'Gambetta'",''],
+['dark-room','Dark Room','Gallery · Shoreditch','You hold the only light in the room.','#050505','#ece7de',"300 1em 'Sentient'",'img/darkroom-casts.webp'],
+['poysha','Poysha','Savings app · Dhaka','Coins with real weight. Throw one.','#f3ede1','#e2401c',"800 1em 'Cabinet Grotesk'",''],
+['badabon','Badabon','Forest lodge · Sundarbans','Something in the roots is watching you.','#070b10','#ece6d6',"400 1em 'Stardom'",'img/badabon-channel.webp'],
+['low-frequency','Low Frequency','Recording rooms · Peckham','The whole page is an instrument.','#ff4a1c','#121212',"700 1em 'Clash Grotesk'",''],
+['eleven','Eleven','Residences · Gulshan Lake','Twenty-four hours in one scroll.','#0b1220','#f2ede4',"300 1em 'Bespoke Serif'",'img/eleven-tower.webp'],
+['taant','Taant','Jamdani weaving · Rupganj','Scroll is the shuttle. The cloth weaves itself.','#efe7d6','#22305e',"400 1em 'Erode'",'img/taant-hands.webp'],
+['sonar','Sonar','Goldsmith · Hatton Garden','Sixteen thousand grains of gold, and your hand.','#0b0908','#e6c066',"400 1em 'Zodiak'",'img/sonar-gold.webp'],
+['eet-o-alo','Eet o Alo','Architects · Dhaka','Walk through a brick wall while the sun crosses a day.','#b5553a','#f3e4d6',"800 1em 'Panchang'",''],
+['haldi','Haldi','Skincare · London','A serum you can touch and pour.','#e8900c','#2a1608',"600 1em 'Chillax'",'img/haldi-root.webp'],
+['gate-weave','Gate Weave','Film house · Dhaka and London','The page is a projector. Scroll to crank it.','#060505','#efe6d6',"600 1em 'Clash Display'",'img/gateweave-roofs.webp']];
+document.getElementById('strips').innerHTML=S.map((s,i)=>`<a class="s" href="sites/${s[0]}.html" style="--bg:${s[4]};--fg:${s[5]};--f:${s[6]};${s[7]?`--img:url(${s[7]})`:''}"><span class="i">${String(i+1).padStart(2,'0')}</span><span class="n">${s[1]}</span><span class="x"><b>${s[1]}</b><span>${s[2]}</span><em>${s[3]}</em><u>Enter the world →</u></span></a>`).join('');
+</script>
+</body>
+</html>

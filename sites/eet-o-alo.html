@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eet o Alo · Architects, Dhaka</title>
+<meta name="description" content="Brick and light. A Dhaka practice that draws the shadow on the floor, hour by hour, before it draws the plan. Concept site by FlowStãte Impact, fictional brand.">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="lib/nav.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0e0907;color:#f1e6d8;font-family:'Switzer',system-ui,sans-serif}
+#c{position:fixed;inset:0;width:100vw;height:100vh;display:block;touch-action:pan-y}
+.spacer{height:700vh}
+.ui{position:fixed;inset:0;pointer-events:none;z-index:2}
+.fade{opacity:0;transition:opacity 1.4s}
+.ui{--ink:#f4eadc;text-shadow:0 1px 16px rgba(10,6,4,.55)}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:56vh;background:radial-gradient(ellipse 58% 78% at 0% 100%,rgba(10,6,4,.84),rgba(10,6,4,.5) 55%,rgba(10,6,4,0)),linear-gradient(to top,rgba(10,6,4,.5),rgba(10,6,4,0) 45%)}
+.top{position:absolute;top:22px;left:28px;right:28px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.bn{position:absolute;left:24px;top:clamp(78px,9vw,132px);font:400 clamp(64px,11vw,180px)/.9 'Tiro Bangla',serif;color:#fff;mix-blend-mode:difference;text-shadow:none;transition:opacity 1s,transform 1s}
+.clock{position:absolute;right:28px;bottom:30px;text-align:right;color:var(--ink)}
+.clock b{display:block;font:800 clamp(44px,8vw,120px)/.9 'Panchang',sans-serif;letter-spacing:-.02em}
+.clock span{font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.temp{position:absolute;right:28px;bottom:calc(30px + clamp(44px,8vw,120px) + 34px);text-align:right;color:var(--ink);font-size:13px;letter-spacing:.14em;text-transform:uppercase;line-height:1.7}
+.temp b{font:500 22px/1 'Panchang',sans-serif;letter-spacing:0;margin-left:10px}
+.beat{position:absolute;left:28px;bottom:84px;max-width:520px;color:var(--ink);opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}
+.beat.on{opacity:1;transform:none}
+.beat h2{font:500 clamp(24px,2.6vw,40px)/1.1 'Panchang',sans-serif;letter-spacing:-.01em;margin-bottom:12px}
+.beat p{font-size:16px;line-height:1.6;max-width:420px;color:rgba(244,234,220,.88)}
+.works{position:absolute;inset:auto 28px 190px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;color:var(--ink);opacity:0;transition:opacity 1s}
+.works.on{opacity:1}
+.works{padding:18px 20px 16px;background:rgba(10,6,4,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.works div{border-top:1px solid rgba(244,234,220,.5);padding-top:12px;font-size:14px;line-height:1.55}
+.works b{display:block;font:500 18px/1.2 'Panchang',sans-serif;margin-bottom:4px}
+.hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);transition:opacity .6s}
+#fan{position:fixed;left:28px;bottom:14px;z-index:4;pointer-events:auto;font:400 11px 'Switzer',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,230,216,.75);background:rgba(14,9,7,.55);border:1px solid rgba(241,230,216,.3);border-radius:20px;padding:7px 12px;cursor:pointer}
+.fsi-tag{bottom:48px!important;left:28px!important;mix-blend-mode:normal!important;color:rgba(244,234,220,.8)!important}
+@media (max-width:720px){.works{grid-template-columns:1fr;gap:12px;bottom:200px;left:20px;right:20px}.clock{right:20px;bottom:18px}.clock b{font-size:40px}.clock span{font-size:10px}.temp{right:20px;bottom:84px;font-size:11px}.temp b{font-size:18px}.beat{bottom:150px;right:20px;left:20px}.beat p{font-size:15px}.top{left:20px;right:20px}.bn{left:18px}#fan{left:20px;bottom:16px}.hint{left:20px;bottom:150px;transform:none;font-size:11px}.scrim{height:62vh;background:linear-gradient(to top,rgba(10,6,4,.82),rgba(10,6,4,.55) 45%,rgba(10,6,4,0))}.fsi-tag{left:20px!important;bottom:54px!important;max-width:calc(100% - 190px);white-space:normal!important}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.top.fade#top > span,
+html div.ui > div.temp.fade#temp,
+html div.clock > span#sunl,
+html div.ui > div.hint.fade#hint,
+html button#fan,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.beat > p,
+html div.works#works > div{font-size:18px}
+}
+@media (max-width:699px){
+html div.top.fade#top > span,
+html div.ui > div.temp.fade#temp,
+html div.clock > span#sunl,
+html div.ui > div.hint.fade#hint,
+html button#fan,
+html a.fsi-tag{font-size:14px}
+html div.beat > p,
+html div.works#works > div{font-size:16px}
+}
+</style>
+<style id="p14">
+/* the floor is the clock (Anwar): the readout drops to caption scale; the project captions sit on a solid band, off the moving pattern */
+html .clock b{font:500 26px/1.1 'Panchang',sans-serif;letter-spacing:.01em;margin-bottom:4px}
+html div.works#works{background:#120c08;-webkit-backdrop-filter:none;backdrop-filter:none;border-top:1px solid rgba(244,234,220,.14)}
+html div.ui > div.temp.fade#temp{bottom:108px}
+@media (max-width:699px){html .clock b{font-size:22px}
+ html div.clock > span#sunl{display:block;max-width:150px;margin-left:auto;white-space:normal;line-height:1.45}
+ html div.ui > div.temp.fade#temp{bottom:112px}
+ html .top.fade#top{flex-direction:column;gap:4px}
+ html div.ui > div.hint.fade#hint{bottom:186px;right:20px;left:20px;text-align:right}}
+html div.bn#bn{font:400 clamp(56px,7vw,116px)/1 'Tiro Bangla',serif;letter-spacing:.01em;-webkit-text-stroke:.018em currentColor;color:var(--ink);mix-blend-mode:normal;text-shadow:0 1px 14px rgba(10,6,4,.5)}
+</style>
+<style id="works">
+:root{--ix-bg:#0e0907;--ix-fg:#f1e6d8;--ix-acc:#c9a46a;--ix-font:500 1em 'Panchang',sans-serif;--door-bg:#0e0907;--door-fg:#f1e6d8;--brass:#c9a46a}
+/* past the room, the room's own captions and the fan step aside; the buildings below carry their own light */
+body.past .ui,body.past #fan{opacity:0;pointer-events:none;transition:opacity .4s}
+html body.past a.fsi-tag{bottom:10px!important;background:#0e0907;padding:5px 9px;border-radius:2px;opacity:1!important}
+/* on a phone the credit is a solid bar across the foot, so the reading column never shows through it */
+@media (max-width:720px){html body.past a.fsi-tag{left:0!important;right:0;bottom:0!important;max-width:none;border-radius:0;padding:9px 20px calc(9px + env(safe-area-inset-bottom));font-size:12px;line-height:1.45;border-top:1px solid rgba(241,230,216,.12)}html body.past a.fsi-tag > b{font-size:12px}html body.past{padding-bottom:64px}}
+.wsec{position:relative;z-index:3;background:#0e0907;color:#f1e6d8}
+.k{font:500 14px 'Switzer',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin:0 0 3vh}
+.wk-h{padding:18vh 6vw 5vh;max-width:1180px}
+.wk-h h2{font:500 clamp(32px,4vw,64px)/1.04 'Panchang',sans-serif;letter-spacing:-.015em;max-width:16em}
+.wk-h p{font-size:18px;line-height:1.6;max-width:34em;margin-top:3vh;color:rgba(241,230,216,.78)}
+/* the register reads like the studio's drawing register: one spine, every column on it */
+.register{list-style:none;margin:0 6vw 14vh;padding:0;border-top:1px solid rgba(241,230,216,.3);max-width:1180px}
+.register a{display:grid;grid-template-columns:3.2em minmax(0,2.3fr) minmax(0,1.1fr) 4.2em minmax(0,1fr) 6.4em;gap:0 18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(241,230,216,.14);color:inherit;text-decoration:none;font-size:16px;transition:background .3s,padding .3s}
+.register a:hover,.register a:focus-visible{background:rgba(201,164,106,.08);padding-left:10px;outline:none}
+.register b{font:500 14px 'Switzer',sans-serif;letter-spacing:.14em;color:var(--brass)}
+.register .nm{font:500 19px/1.2 'Panchang',sans-serif}
+.st{font-size:13px;letter-spacing:.14em;text-transform:uppercase;justify-self:end}
+.st-built{color:#bcd3a3}.st-onsite{color:#e3b561}.st-drawing{color:#aebbd8}
+.wk{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#wkc{width:100%;height:100%;display:block;transition:opacity .22s}
+#wkc.cut{opacity:0}
+.wcap{position:absolute;left:28px;right:28px;bottom:58px;margin:0;font-size:14px;letter-spacing:.05em;color:rgba(241,230,216,.84);text-shadow:0 1px 12px rgba(0,0,0,.85);pointer-events:none}
+.wcap b{display:block;font:500 18px 'Panchang',sans-serif;letter-spacing:0;margin-bottom:4px;color:#f1e6d8}
+.steps{list-style:none;margin:0;padding:0 5vw 10vh 4vw}
+.step{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:12vh 0;opacity:.32;transition:opacity .5s}
+.step.on{opacity:1}
+.step .no{font:500 14px 'Switzer',sans-serif;letter-spacing:.2em;color:var(--brass);display:flex;gap:14px;margin:0}
+.step .no span{color:rgba(241,230,216,.62);text-transform:uppercase}
+.step h3{font:500 clamp(28px,2.7vw,44px)/1.04 'Panchang',sans-serif;margin:10px 0 8px}
+.step .meta{font-size:15px;letter-spacing:.05em;color:rgba(241,230,216,.72);margin:0}
+.step .meta a{color:#e2b56a;text-underline-offset:3px}
+.step .note{font-size:18px;line-height:1.6;margin:18px 0 20px;max-width:30em}
+.facts{margin:0 0 28px;border-top:1px solid rgba(241,230,216,.24)}
+.facts div{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:14px;padding:9px 0;border-bottom:1px solid rgba(241,230,216,.12);font-size:15px;line-height:1.5}
+.facts dt{letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--brass);padding-top:2px}
+.facts dd{margin:0}
+/* the plan is a sheet of paper on the studio table: the four o'clock sun from the west throws its shadow to the right and down */
+.sheet{margin:0;background:#efe6d6;padding:10px 10px 6px;box-shadow:16px 20px 36px rgba(0,0,0,.55),1px 1px 0 rgba(0,0,0,.2);transform:rotate(-.5deg);max-width:620px}
+.sheet svg{display:block;width:100%;height:auto}
+.sheet figcaption{font-size:13px;line-height:1.5;color:#5a4a3c;padding:6px 4px 4px}
+.prac{padding:16vh 6vw}
+.prac ol{list-style:none;margin:0;padding:0;max-width:1180px;border-top:1px solid rgba(241,230,216,.3)}
+.prac li{display:grid;grid-template-columns:5em minmax(0,1fr);gap:18px;align-items:baseline;padding:3.2vh 0;border-bottom:1px solid rgba(241,230,216,.14)}
+.prac li b{font:500 14px 'Switzer',sans-serif;letter-spacing:.2em;color:var(--brass)}
+.prac li p{margin:0;font:500 clamp(22px,2.4vw,38px)/1.18 'Panchang',sans-serif;letter-spacing:-.01em}
+.prac li small{display:block;font:400 17px/1.55 'Switzer',sans-serif;color:rgba(241,230,216,.72);margin-top:10px;max-width:36em;letter-spacing:0}
+.studio{padding:16vh 6vw;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:6vw;align-items:end}
+.studio h2{font:500 clamp(34px,4vw,64px)/1.04 'Panchang',sans-serif;letter-spacing:-.015em}
+.studio p{font-size:18px;line-height:1.6;max-width:30em;margin:3vh 0 0;color:rgba(241,230,216,.8)}
+.studio .ask{display:inline-block;margin-top:5vh;color:#f1e6d8;font:500 18px 'Panchang',sans-serif;text-decoration:none;border-bottom:2px solid var(--brass);padding-bottom:6px}
+.ppl{list-style:none;margin:0;padding:0;border-top:1px solid rgba(241,230,216,.3)}
+.ppl li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid rgba(241,230,216,.14);font-size:15px;color:rgba(241,230,216,.72)}
+.ppl b{font:500 17px 'Panchang',sans-serif;color:#f1e6d8}
+@media (max-width:760px){
+ .wk-h{padding:14vh 20px 4vh}.register{margin:0 20px 10vh}
+ .register a{grid-template-columns:2.4em minmax(0,1fr) auto;row-gap:4px}.register a>span:nth-of-type(2),.register a>span:nth-of-type(3),.register a>span:nth-of-type(4){display:none}
+ .wk{grid-template-columns:1fr}.stage{height:46vh;height:46svh;z-index:2}.wcap{left:20px;right:20px;bottom:14px;font-size:13px}.wcap b{font-size:16px}
+ .steps{padding:0 20px 8vh}.step{min-height:auto;padding:5vh 0 8vh;opacity:1}.step .note{font-size:17px}.sheet{transform:none;padding:6px}
+ .prac{padding:12vh 20px}.prac li{grid-template-columns:3em minmax(0,1fr)}
+ .studio{grid-template-columns:1fr;padding:12vh 20px 14vh}}
+</style>
+<style id="mer">
+/* the brass meridian line in its strip of marble (eet-o-alo-nav.js): room = bottom right, stage = on the building's floor, page = the corner on dark ground */
+:root{--mw:262px}
+.clock{bottom:calc(30px + var(--mw))}
+html body div.ui > div.temp.fade#temp{bottom:calc(108px + var(--mw))}
+.mer{position:fixed;z-index:6;right:28px;bottom:24px;width:300px;height:250px;transition:right .9s cubic-bezier(.2,.7,.1,1),top .9s cubic-bezier(.2,.7,.1,1)}
+.mer svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mer[data-mode=stage]{right:var(--sr,650px)}
+.mer .cem{transition:opacity .6s}.mer[data-mode=door] .cem{opacity:0}.mer[data-mode=door]{bottom:86px}
+.mer[data-mode=page]::before{content:'';position:absolute;inset:14px;background:#0e0907;box-shadow:0 0 30px 24px #0e0907}
+.mer .eng{fill:rgba(44,30,20,.8);font-family:'Panchang',sans-serif;font-weight:500;letter-spacing:.02em}
+.mer .eng.pl{fill:#d9bd83;letter-spacing:.14em;opacity:.9}
+.mer .tk{fill:#a8843f;transition:fill .3s}
+.mer .tk.on{fill:#e8c77e}
+.mer .tk.hov{fill:#f4dfa8}
+.mer .mk{all:unset;position:absolute;width:44px;height:20px;transform:translate(-50%,-50%);cursor:pointer;border-radius:2px}
+.mer .ixp{all:unset;position:absolute;width:86px;height:26px;transform:translate(-50%,-50%);cursor:pointer;border-radius:2px}
+.mer .mk:focus-visible,.mer .ixp:focus-visible{outline:2px solid #f1e6d8;outline-offset:2px}
+.mer .say{position:absolute;right:6px;bottom:calc(100% + 4px);margin:0;white-space:nowrap;font:400 14px 'Switzer',sans-serif;letter-spacing:.04em;color:#f1e6d8;text-shadow:0 1px 12px rgba(10,6,4,.95);opacity:0;transition:opacity .45s;pointer-events:none}
+.mer .say b{font:500 14px 'Panchang',sans-serif;color:#c4a15a;margin-right:9px}
+.mer .say.on{opacity:1}
+.mer[data-mode=room] .say,.mer[data-mode=stage] .say{right:calc(100% - 20px);bottom:auto;top:44%}
+@media (min-width:721px){.wk-h,.prac,.studio{padding-right:360px}.register{max-width:min(1180px,calc(100vw - 6vw - 360px))}}
+@media (max-width:720px){:root{--mw:0px}html body div.ui > div.temp.fade#temp{bottom:112px}.mer{width:168px;height:140px;right:6px;bottom:auto;top:34vh}.mer[data-mode=stage],.mer[data-mode=page],.mer[data-mode=door]{right:8px;top:10px}.mer .mk{width:26px;height:14px}.mer .ixp{width:40px;height:14px}.mer .say{bottom:auto;top:calc(100% + 2px);font-size:12px}.mer .say b{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.mer{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="A brick jaali wall and a cement floor; the sun draws the wall's pattern across the floor as the hour moves"></canvas>
+<div class="spacer"></div>
+<div class="ui">
+  <div class="scrim"></div>
+  <div class="top fade" id="top"><span>Eet o Alo · Architects</span><span>Dhaka · 23.81° N</span></div>
+  <div class="bn fade" id="bn">ইট ও আলো</div>
+  <div class="beat" data-at="0.08"><h2>Brick and light.</h2><p>Two materials every Bangladeshi already owns. We build almost everything from them.</p></div>
+  <div class="beat" data-at="0.3"><h2>The wall is one brick thick.<br>Half of it is holes.</h2><p>A jaali lets the breeze through and keeps the sun in pieces. It costs less than glass and never needs an air conditioner to forgive it.</p></div>
+  <div class="beat" data-at="0.52"><h2>Inside, the wall becomes a clock.</h2><p>Every hour the floor is redrawn. We design that drawing as carefully as the plan.</p></div>
+  <div class="beat" data-at="0.74"><h2>The same room at four in the afternoon.</h2><p>Nobody turned on a light. The building did the work.</p></div>
+  <div class="temp fade" id="temp">In this room<b id="tin">29.4°</b><br>Outside<b id="tout">33.0°</b></div>
+  <div class="clock"><b id="clk">10:30</b><span id="sunl">Sun, high</span></div>
+  <div class="hint fade" id="hint">Scroll or drag to move the hour</div>
+</div>
+<section class="wsec" id="work">
+ <header class="wk-h"><p class="k">Work · nine buildings</p><h2>Each building is shown at the hour its light was drawn for.</h2>
+  <p>Stand in the room first. Then read the plan: the light on the floor is Dhaka's sun at that hour, thrown through that building's own wall, and a wall one brick deep swallows a high sun. The numbers are modelled.</p></header>
+ <ol class="register" id="register" aria-label="All nine buildings"></ol>
+ <div class="wk"><div class="stage"><canvas id="wkc" aria-label="The room of the building you are reading, at eye level, lit by the sun at its hour"></canvas><p class="wcap" id="wkcap"></p></div><ol class="steps" id="steps"></ol></div>
+</section>
+<section class="wsec chap prac" id="practice"><p class="k">How we work</p><ol>
+ <li><b>01</b><p>We stand in the room at four before we draw it.<small>Every site is visited at the hour its people will use it most. The first drawing is the light on the floor, the plan comes second.</small></p></li>
+ <li><b>02</b><p>Brick from within ten kilometres.<small>Fired in the nearest kiln and laid by masons from the district, so the building is repaired by the people who built it.</small></p></li>
+ <li><b>03</b><p>No glass where a hole will do.<small>A screen one brick deep lets the breeze through and cuts the sun into pieces. A fan is the last resort, an air conditioner is not in our drawings.</small></p></li>
+ <li><b>04</b><p>Seven buildings a year.<small>Few enough that every one gets a drawing for every hour of its day.</small></p></li>
+</ol></section>
+<section class="wsec chap studio" id="studio"><div><p class="k">The studio</p><h2>Road 4, Lalmatia, Dhaka.</h2>
+ <p>Visitors are welcome on Thursdays at four, when our own west wall draws on the studio floor.</p><a class="ask" href="#">Ask for the four o'clock drawing of your room →</a></div>
+ <ul class="ppl" aria-label="The people"><li><b>Farhana Rahman</b><span>Principal</span></li><li><b>Tanvir Hossain</b><span>Associate, sites</span></li><li><b>Mitu Das</b><span>Associate, drawings</span></li><li><b>Abdul Karim</b><span>Master mason, since 1998</span></li></ul></section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"10:30","t":"The floor","at":0},{"n":"12","t":"One brick thick","at":0.3},{"n":"2","t":"The wall becomes a clock","at":0.52},{"n":"4","t":"Four in the afternoon","at":0.86},{"n":"09","t":"Nine buildings","el":"#work"},{"n":"","t":"How we work","el":"#practice"},{"n":"","t":"The studio","el":"#studio"},{"n":"","t":"Next world","el":"#door"}]</script>
+<button id="fan">Ceiling fan · off</button>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+// One room, two things: a jaali wall and a cement floor. The sun is the only lamp, and the hour is yours to move.
+// The wall's pattern is kept as a mask, so the shadows, the dust in the shafts and the hour marks all agree with it.
+import * as THREE from 'three';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {lux} from './lib/lux.js';
+
+const mob=innerWidth<720,DPR=Math.min(devicePixelRatio,mob?1.5:2);
+const cv=document.getElementById('c');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'});
+R.setPixelRatio(DPR);R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFShadowMap;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
+const S=new THREE.Scene();S.background=new THREE.Color(0x0e0907);
+let seed=3;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+
+// ---- the wall, in metres: 7.3 wide, 4.2 high, one brick thick
+const WX=3.65,WH=4.2,bw=.115,bh=.072,bd=.24,gap=.115,rows=Math.floor(WH/bh);
+const LX=1.6,LY0=3.28,LY1=3.8;           // the lintel: one row of holes cut as letters
+const motif=(x,y)=>{const px=((x+3.6)%1.84+1.84)%1.84-.92,py=((y-.72)%1.3+1.3)%1.3-.65;return Math.abs(Math.abs(px)*.72+Math.abs(py)-.5)<.06};
+const inLintel=(x,y)=>Math.abs(x)<LX+.06&&y>LY0-.02&&y<LY1+.02;
+const MW=1460,MH=Math.round(MW*WH/(2*WX));const mc=document.createElement('canvas');mc.width=MW;mc.height=MH;const mg=mc.getContext('2d');mg.fillStyle='#000';mg.fillRect(0,0,MW,MH);
+const toM=(x,y)=>[(x+WX)/(2*WX)*MW,(WH-y)/WH*MH];
+const bricks=[];
+for(let r=0;r<rows;r++){const y=r*bh+bh/2,off=(r%2)*(bw+gap)/2;
+ for(let x=-WX+off-(bw+gap);x<WX;x+=bw+gap){
+  const cx=x+bw/2;if(cx>-WX&&cx<WX&&!inLintel(cx,y))bricks.push([cx,y,bw]);
+  const gx=x+bw/2+bw/2+gap/2;if(gx<=-WX||gx>=WX||inLintel(gx,y))continue;
+  const solid=r<8||r>rows-4||motif(gx,y)||gx<-WX+.3||gx>WX-.3||(y>LY0-.12&&y<LY1+.12);
+  if(solid)bricks.push([gx,y,gap]);else{const [a,b]=toM(gx-gap/2,y+bh/2),[c,d]=toM(gx+gap/2,y-bh/2);mg.fillStyle='#fff';mg.fillRect(a,b,c-a,d-b)}}}
+// the letters, cut mirrored top to bottom in the concrete, so the sun lays them on the floor the right way up
+const LW=1024,LH=Math.round(LW*(LY1-LY0)/(2*LX)),word='EET O ALO';let letterX=[];
+function letters(g,fg,bg){g.save();g.fillStyle=bg;g.fillRect(0,0,LW,LH);g.translate(0,LH);g.scale(1,-1);
+ g.textBaseline='middle';let fs=LH*.78,sp,tw;const meas=()=>{g.font=`800 ${fs}px Panchang, sans-serif`;sp=fs*.26;tw=-sp;for(const ch of word)tw+=g.measureText(ch).width+sp};meas();if(tw>LW*.94){fs*=LW*.94/tw;meas()}let x=(LW-tw)/2;letterX=[];
+ for(const ch of word){const w=g.measureText(ch).width;g.fillStyle=fg;g.fillText(ch,x,LH*.53);
+  if(ch==='O'||ch==='A'){g.fillStyle=bg;const bx=x+w/2-LH*.035;if(ch==='O'){g.fillRect(bx,0,LH*.07,LH*.5-fs*.3);g.fillRect(bx,LH*.53+fs*.28,LH*.07,LH)}else g.fillRect(bx,LH*.53-fs*.3,LH*.07,fs*.28)}
+  letterX.push([ch,x+w/2]);x+=w+sp}g.restore()}
+const lc=document.createElement('canvas');lc.width=LW;lc.height=LH;const lg=lc.getContext('2d');
+const lmask=document.createElement('canvas');lmask.width=LW;lmask.height=LH;
+// the same mask inverted, solid where the wall is solid: it becomes the stencil the sun shines through
+const ic=document.createElement('canvas');ic.width=MW;ic.height=MH;const ig=ic.getContext('2d');
+function drawLetters(){letters(lg,'#000','#fff');letters(lmask.getContext('2d'),'#fff','#000');const [a,b]=toM(-LX,LY1),[c,d]=toM(LX,LY0);mg.clearRect(a,b,c-a,d-b);mg.fillStyle='#000';mg.fillRect(a,b,c-a,d-b);mg.drawImage(lmask,a,b,c-a,d-b);
+ ig.globalCompositeOperation='copy';ig.drawImage(mc,0,0);ig.globalCompositeOperation='difference';ig.fillStyle='#fff';ig.fillRect(0,0,MW,MH);ig.globalCompositeOperation='source-over';
+ lTex.needsUpdate=true;mTex.needsUpdate=true;iTex.needsUpdate=true}
+const lTex=new THREE.CanvasTexture(lc),mTex=new THREE.CanvasTexture(mc),iTex=new THREE.CanvasTexture(ic);mTex.minFilter=THREE.LinearMipmapLinearFilter;
+// bricks: hand-made, each its own red; a few bloom white with lime
+const brickM=new THREE.MeshStandardMaterial({roughness:.9});
+const im=new THREE.InstancedMesh(new THREE.BoxGeometry(1,bh*.97,bd),brickM,bricks.length);im.castShadow=false;im.receiveShadow=true;
+const m4=new THREE.Matrix4(),q=new THREE.Quaternion(),col=new THREE.Color(),e=new THREE.Euler();
+bricks.forEach((b,i)=>{e.set(0,(rnd()-.5)*.02,(rnd()-.5)*.012);q.setFromEuler(e);m4.compose(new THREE.Vector3(b[0],b[1],(rnd()-.5)*.012),q,new THREE.Vector3(b[2]*.975,1,1));im.setMatrixAt(i,m4);
+ const bloom=rnd()<.035;col.setHSL(bloom?.07:.025+rnd()*.022,bloom?.2:.5+rnd()*.2,bloom?.62:.3+rnd()*.12-(rnd()<.07?.1:0));im.setColorAt(i,col)});
+S.add(im);
+const lintelM=new THREE.MeshStandardMaterial({color:0x8a8278,roughness:.95,alphaMap:lTex,alphaTest:.5,side:THREE.DoubleSide});
+const lintel=new THREE.Mesh(new THREE.PlaneGeometry(2*LX,LY1-LY0),lintelM);lintel.position.set(0,(LY0+LY1)/2,.0);lintel.receiveShadow=true;S.add(lintel);
+const lintel2=lintel.clone();lintel2.position.z=-.12;S.add(lintel2);
+// the stencil: an unseen sheet in the wall's plane that only the sun sees. A real jaali this deep would swallow a high sun,
+// so the light is drawn as if the wall were paper-thin; every hole and every letter lands exactly where the mask says.
+// (three r160 copies alphaMap and alphaTest from the object's own material into the shadow pass, so the stencil carries them itself)
+const stencil=new THREE.Mesh(new THREE.PlaneGeometry(2*WX,WH),new THREE.MeshBasicMaterial({alphaMap:iTex,alphaTest:.5,colorWrite:false,depthWrite:false,side:THREE.DoubleSide}));
+stencil.position.set(0,WH/2,0);stencil.castShadow=true;S.add(stencil);
+// the room closes around the light: a concrete slab above, lime-washed brick at the sides, so the jaali is the only way in
+const shell=new THREE.MeshStandardMaterial({color:0x5b463a,roughness:.95});
+const slab=new THREE.Mesh(new THREE.BoxGeometry(2*WX+.5,.22,11.32),new THREE.MeshStandardMaterial({color:0x4a4038,roughness:.95}));slab.position.set(0,WH+.11,5.64);slab.castShadow=slab.receiveShadow=true;S.add(slab);
+for(const sx of[-1,1]){const w=new THREE.Mesh(new THREE.BoxGeometry(.24,WH+.2,11.6),shell);w.position.set(sx*(WX+.12),(WH+.2)/2,5.5);w.castShadow=w.receiveShadow=true;S.add(w)}
+// outside: bright afternoon, seen only through the holes
+const outside=new THREE.Mesh(new THREE.PlaneGeometry(40,20),new THREE.MeshBasicMaterial({color:new THREE.Color(3.2,2.9,2.4)}));outside.position.set(0,4,-4);S.add(outside);
+// the floor: polished cement, trowel arcs under the light
+const floorTex=(()=>{const c=document.createElement('canvas');c.width=c.height=1024;const g=c.getContext('2d');g.fillStyle='#a79c8e';g.fillRect(0,0,1024,1024);
+ for(let i=0;i<60;i++){const x=rnd()*1024,y=rnd()*1024,r=80+rnd()*260,gr=g.createRadialGradient(x,y,0,x,y,r);const v=rnd()<.5;gr.addColorStop(0,v?'rgba(255,245,230,.07)':'rgba(40,30,20,.06)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,1024,1024)}
+ for(let i=0;i<220;i++){const x=rnd()*1024,y=rnd()*1024,r=60+rnd()*140,a=rnd()*6.28;g.strokeStyle=`rgba(${rnd()<.5?'255,250,240':'50,40,30'},${.03+rnd()*.05})`;g.lineWidth=1+rnd()*3;g.beginPath();g.arc(x,y,r,a,a+.6+rnd()*.8);g.stroke()}
+ const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(2,3);t.anisotropy=8;return t})();
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(2*WX,11),new THREE.MeshStandardMaterial({map:floorTex,roughness:.42,metalness:0,envMapIntensity:.4}));floor.rotation.x=-Math.PI/2;floor.position.set(0,0,5.5);floor.receiveShadow=true;S.add(floor);
+// the pale strip where the wall meets the floor, and a plinth under the jaali
+const plinth=new THREE.Mesh(new THREE.BoxGeometry(2*WX,.06,.36),new THREE.MeshStandardMaterial({color:0x6a4a3c,roughness:.9}));plinth.position.set(0,.03,0);plinth.receiveShadow=true;S.add(plinth);
+
+// ---- the sun: its path through the Dhaka afternoon
+const sun=new THREE.DirectionalLight(0xffffff,0);sun.castShadow=true;const sm=mob?2048:4096;sun.shadow.mapSize.set(sm,sm);
+Object.assign(sun.shadow.camera,{left:-6,right:6,top:7,bottom:-7,near:1,far:40});sun.shadow.bias=-.0002;sun.shadow.normalBias=.012;sun.target.position.set(0,0,3.5);S.add(sun,sun.target);
+const hemi=new THREE.HemisphereLight(0xe8d6c0,0x3a2418,0);S.add(hemi);
+const Ldir=new THREE.Vector3();
+function sunAt(h){const f=Math.min(1,Math.max(0,(h-10.5)/5.5)),el=THREE.MathUtils.degToRad(64-40*f),az=THREE.MathUtils.degToRad(-24+52*f);
+ return Ldir.set(Math.sin(az)*Math.cos(el),Math.sin(el),-Math.cos(az)*Math.cos(el)).normalize()}
+const onFloor=(x,y,L)=>{const k=y/L.y;return new THREE.Vector3(x-L.x*k,0,0-L.z*k)};
+// brass hour marks set into the cement where the light of the letter O lands
+const brass=new THREE.MeshStandardMaterial({color:0xc4a15a,metalness:1,roughness:.32,envMapIntensity:1});
+function hourMarks(){const o=letterX.find(l=>l[0]==='O'&&true);if(!o)return;const ox=-LX+o[1]/LW*2*LX,oy=(LY0+LY1)/2;
+ [[11,'11'],[12,'12'],[13,'1'],[14,'2'],[15,'3'],[16,'4']].forEach(([h,n])=>{const p=onFloor(ox,oy,sunAt(h).clone());
+  const c=document.createElement('canvas');c.width=256;c.height=160;const g=c.getContext('2d');g.fillStyle='#fff';g.font='600 120px Panchang, sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(n,128,84);
+  const t=new THREE.CanvasTexture(c);const m=new THREE.Mesh(new THREE.PlaneGeometry(.22,.1375),brass.clone());m.material.alphaMap=t;m.material.alphaTest=.5;m.rotation.x=-Math.PI/2;m.rotation.z=0;m.position.set(p.x+.32,.002,p.z);m.receiveShadow=true;S.add(m);
+  const tick=new THREE.Mesh(new THREE.PlaneGeometry(.2,.012),brass);tick.rotation.x=-Math.PI/2;tick.position.set(p.x+.08,.002,p.z);tick.receiveShadow=true;S.add(tick)})}
+const envS=new THREE.Scene();envS.add(new THREE.Mesh(new THREE.BoxGeometry(12,8,12),new THREE.MeshBasicMaterial({color:0x3a2a20,side:THREE.BackSide})));const ep=new THREE.Mesh(new THREE.PlaneGeometry(8,4),new THREE.MeshBasicMaterial({color:new THREE.Color(2.4,2.1,1.7)}));ep.position.set(0,2,-5.9);envS.add(ep);
+S.environment=new THREE.PMREMGenerator(R).fromScene(envS,.04).texture;
+
+// ---- dust in the shafts: march through the room, and ask the wall's mask whether the sun reaches each point
+const volU={uMask:{value:mTex},uL:{value:new THREE.Vector3()},uCol:{value:new THREE.Color()},uI:{value:0},uT:{value:0}};
+const vol=new THREE.Mesh(new THREE.BoxGeometry(2*WX,WH,10),new THREE.ShaderMaterial({uniforms:volU,side:THREE.BackSide,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+ vertexShader:`varying vec3 vW;void main(){vec4 w=modelMatrix*vec4(position,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`,
+ fragmentShader:`uniform sampler2D uMask;uniform vec3 uL,uCol;uniform float uI,uT;varying vec3 vW;
+ float h(vec3 p){return fract(sin(dot(p,vec3(12.9898,78.233,37.719)))*43758.5453);}
+ float vn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+1.),f.x),f.y),f.z);}
+ void main(){vec3 ro=cameraPosition,rd=normalize(vW-ro);vec3 bmin=vec3(-${WX.toFixed(2)},0.,.01),bmax=vec3(${WX.toFixed(2)},${WH.toFixed(2)},10.);
+  vec3 t1=(bmin-ro)/rd,t2=(bmax-ro)/rd;vec3 tn=min(t1,t2),tf=max(t1,t2);float a=max(max(tn.x,tn.y),max(tn.z,0.)),b=min(min(tf.x,tf.y),tf.z);if(b<=a)discard;
+  const int N=${mob?22:40};float dt=(b-a)/float(N),acc=0.,j=h(vec3(gl_FragCoord.xy,uT))*dt;
+  for(int i=0;i<N;i++){vec3 p=ro+rd*(a+j+dt*float(i));float k=-p.z/uL.z;vec3 q=p+uL*k;
+   if(q.y>0.&&q.y<${WH.toFixed(2)}&&abs(q.x)<${WX.toFixed(2)}){float m=texture2D(uMask,vec2((q.x+${WX.toFixed(2)})/${(2*WX).toFixed(2)},q.y/${WH.toFixed(2)}),2.5).r;
+    acc+=m*(.35+.9*vn(p*3.+vec3(0.,uT*.05,uT*.03)))*smoothstep(0.,.6,p.y);}}
+  gl_FragColor=vec4(uCol*acc*dt*uI,1.);}`}));
+vol.position.set(0,WH/2,5.01);vol.frustumCulled=false;S.add(vol);
+
+// ---- lens and grade: four o'clock brick, a soft bloom on the holes, minimal grain
+const cam=new THREE.PerspectiveCamera(53,1,.05,80);
+const comp=new EffectComposer(R);comp.addPass(new RenderPass(S,cam));
+const film=new ShaderPass({uniforms:{tDiffuse:{value:null},uT:{value:0},uR:{value:new THREE.Vector2()},uWarm:{value:0}},
+ vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`uniform sampler2D tDiffuse;uniform float uT,uWarm;uniform vec2 uR;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
+ void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec2 px=1./uR;vec3 b=vec3(0.);for(int i=0;i<12;i++){float a=float(i)*.5236;b+=texture2D(tDiffuse,vUv+vec2(cos(a),sin(a))*px*10.).rgb;}b/=12.;
+  c+=max(b-.62,0.)*vec3(1.,.55,.3)*.6;c*=mix(vec3(1.),vec3(1.05,.98,.9),uWarm);c=c/(1.+max(c-.82,0.)*.9);c=c*.965+vec3(.03,.021,.014);vec2 q=vUv-.5;c*=1.-dot(q,q)*.95;c+=(h(floor(vUv*uR/1.7)+fract(uT)*91.)-.5)*.05*(.4+c.g);gl_FragColor=vec4(c,1.);}`});
+comp.addPass(film);comp.addPass(new OutputPass());
+// the render: contact shading where surfaces meet, glow only on true light sources, tuned to this world's scale and light
+lux(R,S,cam,comp,{hemi:.28,ao:{radius:.6,thickness:1,protect:[.3,1.2]},bloom:{strength:.2,radius:.5,threshold:2}});
+function size(){const w=innerWidth,hh=innerHeight;R.setSize(w,hh,false);comp.setSize(w,hh);cam.aspect=w/hh;cam.updateProjectionMatrix();film.uniforms.uR.value.set(w*DPR,hh*DPR)}
+addEventListener('resize',size);size();
+
+// ---- the hand: scroll, or drag across the floor, moves the hour
+let dragX=null;cv.addEventListener('pointerdown',ev=>{dragX=ev.clientX});addEventListener('pointerup',()=>dragX=null);
+addEventListener('pointermove',ev=>{if(dragX===null)return;scrollBy(0,(ev.clientX-dragX)*4);dragX=ev.clientX});
+const beats=[...document.querySelectorAll('.beat')],clk=document.getElementById('clk'),sunl=document.getElementById('sunl'),bn=document.getElementById('bn'),hint=document.getElementById('hint'),top=document.getElementById('top'),temp=document.getElementById('temp'),tin=document.getElementById('tin'),tout=document.getElementById('tout');
+let ac=null,fanOn=false,fanG=null;
+document.getElementById('fan').onclick=ev=>{if(!ac){ac=new AudioContext();const n=ac.createBufferSource(),b=ac.createBuffer(1,ac.sampleRate*2,ac.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<d.length;i++){l=l*.97+(Math.random()*2-1)*.03;d[i]=l*3}
+ n.buffer=b;n.loop=true;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=520;const am=ac.createGain(),lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=2.6;lg.gain.value=.25;lfo.connect(lg);lg.connect(am.gain);am.gain.value=.6;
+ fanG=ac.createGain();fanG.gain.value=0;n.connect(f);f.connect(am);am.connect(fanG);fanG.connect(ac.destination);n.start();lfo.start()}
+ fanOn=!fanOn;fanG.gain.setTargetAtTime(fanOn?.5:0,ac.currentTime,fanOn?1.2:.3);ev.target.textContent='Ceiling fan · '+(fanOn?'on':'off')};
+const sm3=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+const sunCool=new THREE.Color(0xfff0dc),sunWarm=new THREE.Color(0xffb877),P0=new THREE.Vector3(),P1=new THREE.Vector3(),T0=new THREE.Vector3(),T1=new THREE.Vector3();
+// P23: the seat is never overhead. It opens high over one shoulder, looking down the shafts to the floor, and comes down to a low raking eye by late afternoon.
+if(mob){P0.set(.6,2.3,4.3);P1.set(.5,1.15,7.2);T0.set(.2,.55,.9);T1.set(0,1.2,.2)}else{P0.set(2.3,2.7,5.3);P1.set(1.5,.95,7.4);T0.set(-.1,0,1.55);T1.set(-.2,1.0,.4)}
+let s=0,t0=performance.now(),moved=false;addEventListener('scroll',()=>moved=true,{passive:true});
+function frame(now){requestAnimationFrame(frame);const t=(now-t0)/1000;
+ const sp=document.querySelector('.spacer').offsetHeight,max=sp-innerHeight,target=max>0?Math.min(1,scrollY/max):0;s+=(target-s)*.07;if(scrollY>sp+8)return;
+ // the pattern moves one minute by itself if nobody touches it
+ const creep=moved?0:sm3(7,10,t)/60,h=10.5+5.5*Math.min(1,s/.86)+creep,f=(h-10.5)/5.5;
+ const L=sunAt(h);sun.position.copy(sun.target.position).addScaledVector(L,22);sun.color.copy(sunCool).lerp(sunWarm,f*f);
+ const on=sm3(.1,1.6,t);sun.intensity=(3.4-.9*f)*on;hemi.intensity=(.085-.03*f)*on;
+ volU.uL.value.copy(L);volU.uCol.value.copy(sun.color);volU.uI.value=(mob?.3:.3)*on*(.8+.7*f)*(.55+.45*sm3(.12,.6,s));volU.uT.value=film.uniforms.uT.value=t;film.uniforms.uWarm.value=f;
+ // the crane: straight down at the floor, rising to eye level as the afternoon goes
+ const c=sm3(.05,1,s);cam.position.lerpVectors(P0,P1,c);const tg=T0.clone().lerp(T1,c);cam.up.set(0,1,0);cam.lookAt(tg);
+ cam.fov=THREE.MathUtils.lerp(mob?66:50,mob?56:40,c);cam.updateProjectionMatrix();
+ const mins=Math.round(h*60),hh=Math.floor(mins/60),mm=String(mins%60).padStart(2,'0');clk.textContent=String(hh).padStart(2,'0')+':'+mm;
+ sunl.textContent=f<.3?'Sun, high':f<.7?'Sun, west':'Sun, low in the west';
+ tin.textContent=(29.4-1.3*f).toFixed(1)+'°';tout.textContent=(33+3.2*f).toFixed(1)+'°';
+ top.style.opacity=sm3(4,5.5,t);temp.style.opacity=sm3(4,5.5,t)*(1-sm3(.86,.9,s));bn.style.opacity=sm3(5,6.5,t)*(s<.06?1:0);bn.style.transform=s<.06?'none':'translateY(-30px)';hint.style.opacity=sm3(7,8,t)*(s<.03?1:0);
+ beats.forEach((b,i)=>{const at=+b.dataset.at,nx=i<beats.length-1?+beats[i+1].dataset.at:.9;b.classList.toggle('on',s>at&&s<nx-.02)});
+ comp.render()}
+(document.fonts?document.fonts.load('800 60px Panchang'):Promise.resolve()).finally(()=>{drawLetters();hourMarks();requestAnimationFrame(frame)});
+</script>
+<script type="module" src="eet-o-alo-nav.js"></script>
+</body>
+</html>

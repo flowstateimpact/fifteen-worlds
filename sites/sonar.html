@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonar · Goldsmiths, Hatton Garden</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--g:#e6c066;--ink:#0b0908;--cr:#efe6d4}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ink);color:var(--cr);font-family:'Satoshi',system-ui,sans-serif}
+#gl{position:fixed;inset:0;width:100vw;height:100vh;cursor:none;touch-action:pan-y}
+#snd{position:fixed;right:28px;bottom:18px;z-index:6;font:500 11px 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(230,192,102,.85);background:rgba(11,9,8,.6);border:1px solid rgba(230,192,102,.35);border-radius:20px;padding:7px 12px;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cap{text-shadow:0 1px 18px rgba(0,0,0,.8)}
+.scr{height:100vh;position:relative;pointer-events:none}
+.bar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;padding:22px 28px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--g)}
+.cap{position:absolute;left:28px;bottom:48px;max-width:380px;font-size:16px;line-height:1.6;color:rgba(239,230,212,.72)}
+.cap h2{font:400 italic clamp(30px,3vw,48px)/1.05 'Zodiak',serif;color:var(--cr);margin-bottom:12px}
+.cap.r{left:auto;right:28px;text-align:right}
+.photo{position:relative;height:110vh;background:#000 url(../img/sonar-gold.webp) center/cover no-repeat;z-index:2}
+.photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0b0908 0%,rgba(11,9,8,0) 18%,rgba(11,9,8,0) 70%,#0b0908 100%);pointer-events:none}
+.photo .txt{position:absolute;right:5vw;top:24vh;max-width:520px;z-index:3}
+.photo h2{font:400 clamp(48px,6.4vw,112px)/.9 'Zodiak',serif;letter-spacing:-.03em}
+.photo h2 i{color:var(--g)}
+.photo p{margin-top:22px;font-size:17px;line-height:1.6;color:rgba(239,230,212,.78);max-width:420px}
+.coll{position:relative;z-index:2;background:var(--ink);padding:14vh 28px 10vh}
+.coll h3{font:500 12px 'Satoshi';letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:5vh}
+.piece{display:grid;grid-template-columns:3em 1fr auto auto;gap:3vw;align-items:baseline;padding:3vh 0;border-top:1px solid rgba(230,192,102,.25);cursor:pointer}
+.piece:hover b{font-style:italic;color:var(--g)}
+.piece em{font:400 13px 'Satoshi';font-style:normal;opacity:.5}
+.piece b{font:400 clamp(30px,4.4vw,72px)/1 'Zodiak',serif;letter-spacing:-.02em;transition:color .3s}
+.piece span{font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.piece strong{font:400 clamp(20px,2vw,30px) 'Zodiak';font-weight:400}
+.foot{position:relative;z-index:2;background:var(--g);color:var(--ink);padding:10vh 28px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px}
+.foot h2{font:400 clamp(54px,9vw,170px)/.84 'Zodiak',serif;letter-spacing:-.04em}
+.foot p{font-size:14px;line-height:1.7;letter-spacing:.04em}
+@media (max-width:700px){.piece{grid-template-columns:1fr auto}.piece em,.piece span{display:none}.cap.r{left:28px;text-align:left}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html button#snd,
+html div.bar > span,
+html section.coll > h3,
+html div.piece > em,
+html div.piece > span,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.scr > div.cap,
+html div.scr > div.cap.r,
+html div.txt > p,
+html section.foot > p{font-size:18px}
+}
+@media (max-width:699px){
+html button#snd,
+html div.bar > span,
+html section.coll > h3,
+html a.fsi-tag{font-size:14px}
+html section.foot > p{font-size:16px}
+}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--door-rail:clamp(56px,10vw,150px);--ix-bg:#0b0908;--ix-fg:#efe6d4;--ix-acc:#e6c066;--ix-font:400 1em 'Zodiak',serif;--door-bg:#0b0908;--door-fg:#efe6d4}
+/* the ring stick: held at the wide end, bare at the tip; its steel takes the bench lamp, the same dark warm metal as the mandrel in the scene */
+.stick{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;align-items:center}
+.rod{position:relative;width:18px;height:250px}
+.rod::before{content:'';position:absolute;inset:0;clip-path:polygon(40% 0,60% 0,100% 100%,0 100%);background:linear-gradient(90deg,#060504,#2b221a 30%,#b98a4a 46%,#f1cf8e 50%,#5a4430 58%,#15100c 78%,#050403)}
+.ixb{all:unset;cursor:pointer;width:22px;height:30px;border-radius:3px 3px 9px 9px;background:linear-gradient(90deg,#060504,#1d1712 28%,#8a6a3e 47%,#c9a565 51%,#3a2c20 60%,#0a0807);box-shadow:inset 0 1px 0 rgba(241,207,142,.35),inset 0 -6px 8px rgba(0,0,0,.5),0 0 0 1px rgba(241,207,142,.22),-2px 0 6px rgba(241,207,142,.18)}
+.ixb:focus-visible{outline:2px solid #e6c066;outline-offset:3px}
+.rod ol{list-style:none;margin:0;padding:0;position:absolute;inset:0}
+.rod li{position:absolute;left:0;right:0;top:calc(var(--at) * 100%)}
+.rod button{all:unset;cursor:pointer;position:absolute;left:-12px;right:-12px;top:-9px;height:18px}
+.rod button::before{content:'';position:absolute;top:8px;height:1px;left:calc(12px + (1 - var(--at)) * 7.2px + 1px);right:calc(12px + (1 - var(--at)) * 7.2px + 1px);background:rgba(6,5,4,.85);box-shadow:0 1px 0 rgba(241,207,142,.28)}
+.rod button:focus-visible{outline:2px solid #e6c066;outline-offset:0}
+.stick .size{position:absolute;right:36px;top:calc(var(--y,0px) - 13px);white-space:nowrap;text-align:right;transition:top .8s cubic-bezier(.2,.7,.1,1)}
+.stick .size b{display:block;font:400 italic 26px/1 'Zodiak',serif;color:#e6c066}
+.stick .size span{display:block;margin-top:4px;font:400 16px 'Satoshi',sans-serif;color:rgba(239,230,212,.85);opacity:0;transition:opacity .5s}
+.stick.say .size span,.stick:hover .size span,.stick:focus-within .size span{opacity:1}
+body.in-table .stick .size span{opacity:0!important}
+.band{position:absolute;left:50%;top:var(--y,0px);width:calc(11px + var(--f,0) * 13px);height:7px;transform:translate(-50%,-50%);border-radius:3px;background:linear-gradient(180deg,#fff3c4,#e6c066 40%,#9a7420);box-shadow:0 2px 4px rgba(0,0,0,.6),0 0 10px rgba(230,192,102,.4);transition:top .8s cubic-bezier(.2,.7,.1,1),width .8s}
+/* the fineness punch: an octagon struck into the row, sunk ground, each a fraction off true */
+.coll.chap{padding-right:104px}
+.coll .piece{position:relative;grid-template-columns:3em 1fr auto auto 60px;align-items:center}
+.hm{position:relative;display:grid;place-items:center;width:56px;height:36px;font:400 17px/1 'Zodiak',serif;font-style:normal;letter-spacing:.04em;color:#d9b45c;text-shadow:0 1px 0 rgba(255,243,196,.25),0 -1px 0 rgba(0,0,0,.9);clip-path:polygon(16% 0,84% 0,100% 28%,100% 72%,84% 100%,16% 100%,0 72%,0 28%);background:linear-gradient(160deg,#6d5523,#c9a24e 50%,#5a451b);isolation:isolate}
+.hm::before{content:'';position:absolute;inset:1.5px;z-index:-1;clip-path:inherit;background:radial-gradient(ellipse at 50% 120%,#2a2110,#0d0a06 70%);box-shadow:inset 0 3px 6px #000}
+.piece:nth-of-type(1) .hm{rotate:-.9deg}.piece:nth-of-type(2) .hm{rotate:.6deg}.piece:nth-of-type(3) .hm{rotate:-.4deg}.piece:nth-of-type(4) .hm{rotate:1.1deg}
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.hm{animation:punch linear both;animation-timeline:view();animation-range:entry 60% entry 100%}@keyframes punch{0%,70%{opacity:0;transform:scale(1.9)}72%{opacity:1;transform:scale(1.9);filter:brightness(3)}100%{opacity:1;transform:none;filter:none}}}}
+/* the door is struck in; everything fixed re-inks for the door's ground */
+.door-a{clip-path:none;transform:scale(calc(1 + (1 - var(--rise,0)) * .22));filter:brightness(calc(1 + (1 - var(--rise,0)) * 1.4));opacity:min(1,calc(var(--rise,0) * 3));transition:transform .12s cubic-bezier(.5,0,1,.4),filter .12s}
+body.at-door .bar,body.at-door .stick .size b{color:var(--dfg);transition:color .3s}
+body.at-door a.fsi-tag{color:var(--dfg);mix-blend-mode:normal}
+body.at-door .stick .size span{opacity:0!important}
+@media (max-width:700px){.coll.chap{padding-right:46px}.coll.chap h3{padding-right:0}.coll .piece{grid-template-columns:1fr auto 56px}
+ .stick{right:12px;top:auto;bottom:84px;transform:none}.rod{height:96px;width:16px}.ixb{width:20px;height:22px}
+ .stick .size{right:28px}.stick .size b{font-size:22px;text-shadow:0 1px 10px #000}.stick .size span{display:none}
+ .cap,.cap.r{right:58px;max-width:none;bottom:88px}#snd{bottom:42px}}
+@media (prefers-reduced-motion:reduce){.band,.stick .size,.stick .size span{transition:none}.hm{animation:none}.door-a{transform:none;filter:none;opacity:1}}
+</style>
+<style id="mk-css">
+/* the second act (sonar-marks.js): the hallmark, read under the bench lamp. The ring stick sits on the right edge, so the page keeps clear of it. */
+.marks{position:relative;z-index:2;min-height:100vh;scroll-snap-align:start;overflow:hidden;background:radial-gradient(70% 60% at 6% 0%,rgba(230,192,102,.16),transparent 70%),var(--ink);color:var(--cr);padding:12vh 120px 10vh 28px;font-family:'Satoshi',system-ui,sans-serif}
+.mk-h .k{font:500 14px 'Satoshi',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin:0 0 14px}
+.mk-h h2{font:400 clamp(38px,4.6vw,78px)/.98 'Zodiak',serif;letter-spacing:-.02em;margin:0 0 3vh}
+.mk-f{margin:0 -28px 0 -28px}.mk-f svg{display:block;width:100%;height:auto;overflow:visible}
+.mk-f .mk{font:700 31px 'Zodiak',serif;text-anchor:middle;fill:#f3d789;letter-spacing:.02em}.mk-f .mg{fill:#f3d789}.mk-f .md{fill:#6a4a10}
+.mk-f .msh .mk,.mk-f .msh .mg{fill:#3d2805;opacity:.7}.mk-f .msh .md{display:none}
+.mk-f .mn{font:500 13px 'Satoshi',sans-serif;text-anchor:middle;fill:#5a3c08;opacity:.9}
+.mk-l{list-style:none;margin:6px -28px 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));counter-reset:m}
+.mk-l li{counter-increment:m;padding:14px 12px 0;text-align:center;position:relative}.mk-l li::before{content:"";position:absolute;left:50%;top:-22px;height:28px;border-left:1px solid rgba(230,192,102,.6)}
+.mk-l b{display:block;font:500 13px/1.4 'Satoshi',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:6px}.mk-l span{font:400 18px/1.35 'Zodiak',serif}
+.mk-b{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3vw;margin-top:7vh;border-top:1px solid rgba(230,192,102,.3);padding-top:3vh}
+.mk-b h3{font:400 26px/1.1 'Zodiak',serif;color:var(--g);margin:0 0 10px}.mk-b p{font:400 17px/1.5 'Satoshi',sans-serif;margin:0;opacity:.9}
+@media (max-width:860px){.marks{padding:96px 58px 9vh 20px}.mk-w{margin:0 -58px 0 -20px;overflow-x:auto}.mk-f{margin:0;width:250vw}.mk-l{margin:6px 0 0;width:250vw}.mk-l span{font-size:16px}.mk-b{grid-template-columns:1fr;gap:22px}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A goldsmith's bench under one lamp: a gold band on a steel mandrel. Click to strike it with the planishing hammer."></canvas>
+<button id="snd" data-hud>Sound · off</button><span id="cnt" class="sr" aria-live="polite">0</span>
+<div class="bar"><span>Sonar · Goldsmiths</span><span>Hatton Garden, London</span></div>
+<nav class="stick" id="stick" aria-label="Chapters"><div class="rod"><i class="band" aria-hidden="true"></i><ol></ol></div><button type="button" class="ixb" aria-label="Open the index"></button></nav>
+<div id="drv">
+<div class="scr"><div class="cap"><h2>Gold, by hand, in London.</h2>Four thousand strikes to a band. <span class="verb">Click</span> for one, hold for more, scroll to turn.</div></div>
+<div class="scr"><div class="cap r"><h2>Hammered, never cast.</h2>Every band is raised from a strip of 22 carat gold with a planishing hammer. About four thousand strikes. No two rings take the light the same way.</div></div>
+<div class="scr"><div class="cap"><h2>সোনা, sona. Gold.</h2>Our name is the first line of a song every Bangladeshi child can sing: amar sonar Bangla, my golden Bengal. Three generations of our family made gold in Dhaka before we made it here.</div></div>
+</div>
+<section class="photo chap" id="band"><div class="txt sda"><h2>The band that took <i>four thousand</i> strikes.</h2><p>Each piece carries the leopard's head, the mark struck on London gold since 1300, and our own small mark beside it.</p></div></section>
+<section class="coll chap" id="coll"><h3>The collection · made to order in six weeks</h3>
+ <div class="piece"><em>01</em><b>Sona band</b><span>22ct · hammered</span><strong>£1,450</strong><i class="hm sda" aria-hidden="true">916</i></div>
+ <div class="piece"><em>02</em><b>Nokshi signet</b><span>22ct · hand-engraved</span><strong>£2,900</strong><i class="hm sda" aria-hidden="true">916</i></div>
+ <div class="piece"><em>03</em><b>Monsoon hoops</b><span>18ct · pair</span><strong>£1,180</strong><i class="hm sda" aria-hidden="true">750</i></div>
+ <div class="piece"><em>04</em><b>Bridal collar</b><span>22ct · by commission</span><strong>from £14,000</strong><i class="hm sda" aria-hidden="true">916</i></div></section>
+<section class="marks" id="marks"></section>
+<section class="foot chap" id="appt"><h2>By<br>appointment.</h2><p>Hatton Garden, London EC1<br>Tuesday to Saturday<br>Bring your grandmother's gold. We will listen first.</p></section>
+<section class="door chap" id="door"></section>
+<script type="application/json" id="chapters">[{"n":"H","t":"Gold, by hand, in London","at":0},{"n":"J","t":"Hammered, never cast","at":0.5},{"n":"L","t":"সোনা, sona. Gold.","at":1},{"n":"N","t":"Four thousand strikes","el":"#band"},{"n":"P","t":"The collection","el":"#coll"},{"n":"R","t":"By appointment","el":"#appt"},{"n":"T","t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script>if(matchMedia("(pointer:coarse)").matches)document.querySelectorAll(".verb").forEach(e=>e.textContent="Tap")</script>
+<script type="module" src="sonar-scene.js"></script>
+<script type="module" src="sonar-marks.js"></script>
+<script type="module" src="sonar-nav.js"></script>
+</body>
+</html>

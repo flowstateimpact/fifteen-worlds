@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Badabon · A lodge in the Sundarbans</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--ink:#070b10;--fl:#d8f36a;--cr:#ece6d6;--k:#f2b35a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#050607;color:var(--cr);font-family:'General Sans',system-ui,sans-serif}
+#gl{position:fixed;inset:0;width:100vw;height:100vh;display:block;touch-action:pan-y;cursor:default}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tide{height:560vh;position:relative;pointer-events:none}
+.bar{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:22px 3vw;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,230,214,.8)}
+.bar a{color:var(--cr);text-decoration:none;border-bottom:1px solid rgba(236,230,214,.35);padding-bottom:2px}
+.name{position:fixed;left:3vw;top:11vh;z-index:3;pointer-events:none;transition:opacity 1.2s ease}
+.name h1{font:400 clamp(64px,9vw,170px)/.8 'Stardom',serif;letter-spacing:-.02em;color:var(--cr)}
+.name .bn{font:400 clamp(24px,2.6vw,44px)/1 'Tiro Bangla',serif;color:var(--fl);margin-top:2.2vh}
+.name p{margin-top:2.4vh;max-width:360px;font-size:15px;line-height:1.6;color:rgba(236,230,214,.78)}
+@media (min-width:701px){.name p{margin-left:calc(min(520px,58vh)*.1818 + 30px)}}
+.cap{position:fixed;left:3vw;top:12vh;z-index:3;max-width:360px;font:400 italic 18px/1.55 'Gambetta',Georgia,serif;color:rgba(236,230,214,.86);text-shadow:0 1px 16px rgba(0,0,0,.9);pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity 1.1s ease,transform 1.1s ease}
+.cap.on{opacity:1;transform:none}
+.end{position:fixed;left:3vw;right:3vw;bottom:6vh;z-index:4;max-width:660px;opacity:0;transform:translateY(14px);transition:opacity 1.4s ease,transform 1.4s ease;pointer-events:none}
+.end.on{opacity:1;transform:none;pointer-events:auto}
+.end::before{content:'';position:absolute;inset:-12vh -8vw -10vh -8vw;background:radial-gradient(72% 72% at 32% 60%,rgba(5,6,7,.94),rgba(5,6,7,.7) 55%,rgba(5,6,7,0));z-index:-1}
+.end h2{font:400 clamp(34px,4vw,64px)/.95 'Stardom',serif;color:var(--cr)}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(236,230,214,.3);margin-top:2.6vh}
+.rooms div{padding:14px 18px 0 0;font-size:13px;line-height:1.5;color:rgba(236,230,214,.8)}
+.rooms b{display:block;font:400 24px 'Stardom',serif;margin-bottom:4px;color:var(--fl)}
+.end p{margin-top:2.4vh;font-size:15px;line-height:1.6;color:rgba(236,230,214,.82)}
+.book{display:inline-block;margin-top:2.2vh;padding:14px 24px;border:1px solid var(--k);border-radius:40px;color:var(--k);text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.book:hover{background:var(--k);color:#120c05}
+.hint{position:fixed;right:3vw;bottom:62px;z-index:3;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,179,90,.8);pointer-events:none;transition:opacity 1s ease}
+#snd{position:fixed;right:3vw;bottom:18px;z-index:6;font:500 11px 'General Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,230,214,.75);background:rgba(5,6,7,.55);border:1px solid rgba(236,230,214,.28);border-radius:20px;padding:7px 14px;cursor:pointer}
+.fsi-tag{z-index:6}
+@media (max-width:700px){.name{top:11vh}.name p{max-width:78vw;font-size:14px}.cap{top:11vh;max-width:84vw;font-size:16px}.rooms{grid-template-columns:1fr}.rooms div{padding:9px 0 0}.rooms b{font-size:20px;display:inline;margin-right:8px}.end{bottom:9vh}}
+</style>
+
+<style id="floor">
+@media (min-width:700px){
+html div.bar > span,
+html div.bar > a.ask,
+html div.hint#hint,
+html div.hint#hint > span.verb,
+html button#snd,
+html div.rooms > div,
+html div.end#book > a.book,
+html a.fsi-tag,
+html a.fsi-tag > b{font-size:14px}
+html div.name#name > p,
+html div.end#book > p{font-size:18px}
+}
+@media (max-width:699px){
+html div.bar > span,
+html div.bar > a.ask,
+html div.hint#hint,
+html div.hint#hint > span.verb,
+html button#snd,
+html div.rooms > div,
+html div.end#book > a.book,
+html a.fsi-tag{font-size:14px}
+html div.name#name > p,
+html div.end#book > p{font-size:16px}
+}
+</style>
+<link rel="stylesheet" href="lib/nav.css">
+<style id="nav">
+:root{--door-lrail:clamp(64px,10vw,150px);--ix-bg:#070b10;--ix-fg:#ece6d6;--ix-acc:#d8f36a;--ix-font:400 1em 'Stardom',serif;--door-bg:#070b10;--door-fg:#ece6d6}
+/* the tide staff (badabon-nav.js draws it): enamel plate on a bamboo culm, lashed with jute; the water climbs it, violet, and reflects it */
+.staff{position:fixed;left:2.4vw;bottom:9vh;z-index:5;height:min(520px,58vh);aspect-ratio:88/484}
+.staff svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.staff .nd{stroke:#3f4630;stroke-width:1.6}.staff .hair{stroke:rgba(40,44,28,.55);stroke-width:.35}.staff .cut{fill:#c9b27c;stroke:#6f6040;stroke-width:.4}.staff .hole{fill:#231d12}
+.staff .rimw{stroke:#ffb070;stroke-width:.8;opacity:.55;fill:none}
+.staff .ft{font:600 8.5px 'General Sans',sans-serif;fill:#151209;letter-spacing:.06em}.staff .num text{font:600 12.5px 'General Sans',sans-serif;fill:#151209}.staff .bar{fill:#151209}
+.staff .chip{fill:#2a2420;stroke:#6b3a1c;stroke-width:.35}.staff .rust{fill:none;stroke:rgba(122,59,26,.55);stroke-width:1.1;stroke-linecap:round}.staff .bolt{fill:#5d5448;stroke:#2c261e;stroke-width:.4}
+.staff .twist{stroke:rgba(50,36,16,.55);stroke-width:.7}.staff .tail{fill:none;stroke:#8f7447;stroke-width:1.6;stroke-linecap:round}
+.staff .uw{fill:rgba(26,20,58,.72)}.staff .refl{opacity:.3}
+.staff .wet{fill:rgba(28,22,58,.3)}.staff .men{stroke:rgba(222,212,255,.7);stroke-width:.7}.staff .ring{fill:none;stroke:rgba(206,196,255,.36);stroke-width:.7}
+.staff .rip path{fill:none;stroke:rgba(206,196,255,.72);stroke-width:.8;stroke-linecap:round}.staff .rip{animation:bd-rip 3.2s ease-in-out infinite alternate}
+@keyframes bd-rip{from{transform:translateX(-1.6px);opacity:.55}to{transform:translateX(1.8px);opacity:1}}
+.staff .mark{fill:none;stroke:rgba(96,88,52,.75);stroke-width:1.3;stroke-dasharray:2.4 .8 5 1.2}
+.staff .knot{all:unset;position:absolute;left:62%;top:0;width:26%;height:4.5%;cursor:pointer;border-radius:3px}
+.staff .knot:focus-visible{outline:2px solid #d8f36a;outline-offset:3px}
+.marks{list-style:none;margin:0;padding:0;position:absolute;inset:0;pointer-events:none}
+.marks li{position:absolute;left:30%;width:0}
+.marks button{all:unset;cursor:pointer;pointer-events:auto;position:absolute;left:-16px;top:-8px;width:34px;height:16px}
+.marks button.on::after{content:'';position:absolute;left:16px;top:6.5px;width:5px;height:3px;border-radius:.5px;background:#f4f1e6;box-shadow:0 0 0 .5px rgba(20,16,8,.55)}
+.marks button:focus-visible{outline:2px solid #d8f36a;outline-offset:0}
+.marks button em{position:absolute;left:calc(100% + 40px);top:0;white-space:nowrap;font:400 italic 17px/1 'Gambetta',serif;color:var(--lc,#ece6d6);text-shadow:0 1px 10px #000;opacity:0;transition:opacity .4s;pointer-events:none}
+.marks button:hover em,.marks button:focus-visible em,.staff.say .marks button.on em{opacity:1}
+body.in-table .marks button em,body.in-rooms .marks button em{opacity:0!important}body.in-rooms .bar .ask{opacity:0;pointer-events:none}.bar .ask{transition:opacity .4s}
+body.at-door .staff{--lc:var(--dfg)}body.at-door .marks button em{text-shadow:none}
+body.at-door .bar,body.at-door .bar a{color:var(--dfg);border-color:currentColor}
+.chap.table,.chap.lodge{background:#050607;color:#ece6d6;padding-left:calc(2.4vw + min(520px,58vh) * .1818 + 64px)}
+.table .k{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#f2b35a}
+.tt{width:min(900px,100%);border-collapse:collapse;font-size:20px;margin:3vh 0 4vh}
+.tt th{text-align:left;font:400 14px 'General Sans';letter-spacing:.14em;text-transform:uppercase;color:rgba(236,230,214,.55);padding:10px 0;border-bottom:1px solid rgba(236,230,214,.3)}
+.tt td{padding:2.2vh 24px 2.2vh 0;border-bottom:1px solid rgba(236,230,214,.14);font-family:'Stardom',serif;font-size:clamp(20px,2vw,30px)}
+.tt td:first-child{color:#d8f36a}.tt tr:nth-child(3) td{color:rgba(236,230,214,.55)}
+.table p{font-size:18px;max-width:34em;line-height:1.6;color:rgba(236,230,214,.82)}
+.lodge h2{font:400 clamp(40px,5.4vw,96px)/.95 'Stardom',serif}
+.rooms-l{display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px;margin-top:4vh;border-top:1px solid rgba(236,230,214,.3);max-width:1100px}
+.rooms-l div{padding:16px 0 0;font-size:18px;line-height:1.55}.rooms-l b{display:block;font:400 28px 'Stardom',serif;color:#d8f36a;margin-bottom:6px}
+.lodge p{margin-top:4vh;font-size:18px}.lodge .book{display:inline-block;justify-self:start;margin-top:3vh;padding:14px 24px;border:1px solid #f2b35a;border-radius:40px;color:#f2b35a;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.door{position:relative}.door-a{clip-path:none}
+.lodge .two{margin-top:5vh;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#f2b35a}
+.door::after{content:'';position:absolute;left:0;right:0;top:0;height:calc((1 - var(--rise,0)) * 100%);background:linear-gradient(180deg,#07070f,#15132b 62%,#2a2552);box-shadow:0 1.5px 0 rgba(206,196,255,.6),0 5px 0 -2px rgba(206,196,255,.18);pointer-events:none;transition:height .2s linear;filter:url(#tideedge)}
+@media (max-width:760px){.staff{left:6px;bottom:12vh;height:34vh}.lodge h2{font-size:31px}#snd{bottom:46px}.marks button em{display:none}.rooms-l{grid-template-columns:1fr}.tt td{font-size:18px;padding-right:12px}.tt th:nth-child(3),.tt td:nth-child(3){display:none}.table p,.lodge p,.rooms-l div{font-size:16px}.chap.table,.chap.lodge{padding-left:calc(6px + 34vh * .1818 + 18px)}.hint{bottom:94px;max-width:calc(100vw - 96px);text-align:right;line-height:1.5}}
+@media (prefers-reduced-motion:reduce){.staff .rip{animation:none}.door::after{display:none}}
+</style>
+<style id="kit-css">
+/* the second act (badabon-kit.js): the things on the veranda boards. Left padding clears the tide staff, as the table and rooms do. */
+.kitc{position:relative;z-index:3;min-height:100vh;scroll-snap-align:start;overflow:hidden;background:#050607;color:#ece6d6;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:4vw;align-items:center;padding:10vh 4vw 10vh calc(2.4vw + min(520px,58vh) * .1818 + 64px)}
+.kt-f{margin:0}.kt-f svg{display:block;width:100%;height:auto;border-radius:3px}
+.kitc{grid-template-columns:minmax(0,1fr);gap:2.6vh;align-content:center}
+.kt-h .k{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#f2b35a;margin:0 0 10px}.kt-h h2{font:400 clamp(34px,3.6vw,60px)/.98 'Stardom',serif;margin:0}
+.kt-f .gt{font:700 11px 'Satoshi',system-ui,sans-serif;letter-spacing:.18em;fill:#8a4a12}.kt-f .gl{font:italic 400 15.5px Georgia,'Times New Roman',serif;fill:#2a2218}
+.kt-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0;padding:0}
+.kitc > .gh{margin:0;max-width:900px;font-size:17px;line-height:1.5;border-top:1px solid rgba(236,230,214,.4);padding-top:14px}.kitc > .gh b{color:#d8f36a;font-weight:400}
+.kt-f .nm{font:700 14px 'Satoshi',system-ui,sans-serif;text-anchor:middle;fill:#070b10}.kt-f .mb{font:400 17px 'Tiro Bangla',serif;text-anchor:middle;fill:#f6e7b0}
+.kt-f .pf{font:700 10px 'JetBrains Mono',monospace;fill:#e9e4d2;letter-spacing:.06em}.kt-f .pt{font:700 13px 'JetBrains Mono',monospace;fill:#1c2a20}.kt-f .pl{font:400 10px 'JetBrains Mono',monospace;fill:#55604f}.kt-f .pv{font:400 11px 'JetBrains Mono',monospace;fill:#1b2f6e}.kt-f .pr{stroke:#8c927f;stroke-width:.7;stroke-dasharray:2 2}.kt-f .ps{font:700 9px 'JetBrains Mono',monospace;text-anchor:middle;fill:#5a2f9a;letter-spacing:.1em}
+.kt-f .th{font:700 12px 'JetBrains Mono',monospace;text-anchor:middle;fill:#15110d;letter-spacing:.12em}.kt-f .td{font:700 13px 'JetBrains Mono',monospace;fill:#15110d}.kt-f .tv{font:400 12px 'JetBrains Mono',monospace;fill:#15110d;text-anchor:end}.kt-f .tn{font:400 italic 11px Georgia,serif;text-anchor:middle;fill:#6a5a3a}
+.kt-t .k{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#f2b35a;margin:0 0 14px}
+.kt-t h2{font:400 clamp(36px,4vw,68px)/.98 'Stardom',serif;margin:0 0 24px}
+.kt-t ol{list-style:none;margin:0;padding:0;counter-reset:k}.kt-t li{counter-increment:k;position:relative;padding:11px 0 11px 44px;border-top:1px solid rgba(236,230,214,.22);font-size:17px;line-height:1.45}
+.kt-t li::before{content:counter(k);position:absolute;left:0;top:11px;width:26px;height:26px;border-radius:50%;background:#d8f36a;color:#070b10;font-weight:700;font-size:14px;display:grid;place-content:center}
+.kt-t li b{display:block;font-weight:400;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#f2b35a;margin-bottom:2px}
+.kt-t .gh{margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(236,230,214,.5);font-size:17px;line-height:1.5}.kt-t .gh b{color:#d8f36a;font-weight:400}
+@media (max-width:860px){.kitc{grid-template-columns:1fr;gap:30px;padding:96px 16px 9vh calc(6px + 34vh * .1818 + 18px)}.kt-f{margin-right:-16px;overflow-x:auto}.kt-f svg{width:290vw;max-width:none}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="Dusk from the veranda of a stilt room over a Sundarbans creek. The words are written on the mud below; as you scroll, the tide rises over them. Hold to see the far bank."></canvas>
+<div class="bar"><span>Badabon Lodge</span><a href="#book" class="ask">Ask for a date</a></div>
+<div class="name" id="name" data-hud><h1>Badabon</h1><div class="bn">বাদাবন · the forest that floods</div><p>Six rooms on stilts at the edge of the Sundarbans. Twice a day the forest floor becomes a river. We built the lodge to let it.</p></div>
+<div class="cap" id="cap" data-hud></div>
+<div class="hint" id="hint" data-hud><span class="verb">Hold</span> to see the far bank</div>
+<button id="snd" data-hud>Sound · off</button>
+<div class="tide" id="tide">
+ <div id="src" class="sr">
+  <div class="blk"><h2>The tide table is the schedule.</h2><p>There is no wifi and no generator after ten. The boat leaves when the water says so. Dinner is whatever the boatman's cousin caught that afternoon.</p></div>
+  <div class="blk r"><h2>Tigers swim between these islands.</h2><p>You will almost never see one. It will almost always see you.</p></div>
+  <div class="blk"><h2>Six rooms. Raised four metres.</h2></div>
+ </div>
+</div>
+<nav class="staff" id="staff" aria-label="Chapters, read from the bottom up"></nav>
+<section class="chap table" id="table">
+ <p class="k sda">Tide table · this week · the schedule</p>
+ <table class="tt sda"><thead><tr><th>Day</th><th>High water</th><th>Low water</th><th>The boat</th></tr></thead><tbody>
+  <tr><td>Thu</td><td>05:12 · 17:41</td><td>11:26</td><td>leaves at high water</td></tr><tr><td>Fri</td><td>06:02 · 18:30</td><td>12:15</td><td>leaves at high water</td></tr><tr><td>Sat</td><td>06:51 · 19:19</td><td>13:04</td><td>no boat · the river decides</td></tr><tr><td>Sun</td><td>07:40 · 20:07</td><td>13:52</td><td>leaves at high water</td></tr></tbody></table>
+ <p class="sda">There is no wifi and no generator after ten. The boat leaves when the water says so. Dinner is whatever the boatman's cousin caught that afternoon.</p>
+</section>
+<section class="chap lodge" id="rooms">
+ <h2 class="reveal"><span class="ln"><span>Six rooms.</span></span><span class="ln"><span>Raised four metres.</span></span></h2>
+ <p class="k sda two">Three kinds of room, two of each</p>
+ <div class="rooms-l"><div class="sda"><b>Golpata</b>Roof of nipa palm, veranda over the creek, sleeps two.</div><div class="sda"><b>Keora</b>Faces the sunset channel, outdoor shower, sleeps three.</div><div class="sda"><b>Sundari</b>The quiet one. Nothing but roots and birds, sleeps two.</div></div>
+ <p class="sda">From ৳ 18,000 a night, meals and boatman included. October to March.</p>
+ <a class="book sda" id="book" href="#">Ask for a date</a>
+</section>
+<section class="kitc" id="kit"></section>
+<section class="door chap" id="door"></section>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><filter id="tideedge" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.9 0.02" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="10"/></filter></svg>
+<script type="application/json" id="chapters">[{"n":"0 ft","t":"Dry feet","at":0},{"n":"2 ft","t":"First water","at":0.28},{"n":"5 ft","t":"Tigers swim here","at":0.52},{"n":"8 ft","t":"The far bank","at":0.86},{"n":"10 ft","t":"High water","el":"#table"},{"n":"","t":"Six rooms","el":"#rooms"},{"n":"","t":"Next world","el":"#door"}]</script>
+<a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script>if(matchMedia("(pointer:coarse)").matches)document.querySelectorAll(".verb").forEach(e=>e.textContent="Press and hold")</script>
+<script type="module" src="badabon-scene.js"></script>
+<script type="module" src="badabon-kit.js"></script>
+<script type="module" src="badabon-nav.js"></script>
+</body>
+</html>
