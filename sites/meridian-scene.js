@@ -97,8 +97,8 @@ const N0=live.length-40;let shown=N0,landing=[];
 // the day, stencilled on the nearest door and repainted at every port; a numbered bolt seal on the handle
 const dc=document.createElement('canvas');dc.width=dc.height=512;const doorDay=new THREE.CanvasTexture(dc);doorDay.colorSpace=THREE.SRGBColorSpace;doorDay.anisotropy=8;
 function paintDay(d){const g=dc.getContext('2d');g.clearRect(0,0,512,512);g.fillStyle='rgba(240,238,230,.93)';g.font="700 40px 'JetBrains Mono'";g.textAlign='left';g.fillText('MRDU 214'+String(d).padStart(3,'0')+' 4',40,66);
- g.font="700 22px 'JetBrains Mono'";g.fillText('22G1 · MAX GROSS 30,480 KG',40,98);g.font="700 64px 'JetBrains Mono'";g.fillText('DAY',60,300);g.font="700 190px 'JetBrains Mono'";g.fillText(String(d).padStart(2,'0'),52,455);
- g.fillStyle='#e0b320';g.fillRect(300,262,26,46);g.fillStyle='#1d2a3a';g.font="700 13px 'JetBrains Mono'";g.save();g.translate(318,305);g.rotate(-Math.PI/2);g.fillText('MF 004417',0,0);g.restore();doorDay.needsUpdate=true}
+ g.font="700 22px 'JetBrains Mono'";g.fillText('22G1 · MAX GROSS 30,480 KG',40,98);g.font="700 64px 'JetBrains Mono'";g.fillText('DAY',60,232);g.font="700 190px 'JetBrains Mono'";g.fillText(String(d).padStart(2,'0'),52,387);
+ g.fillStyle='#e0b320';g.fillRect(300,194,26,46);g.fillStyle='#1d2a3a';g.font="700 13px 'JetBrains Mono'";g.save();g.translate(318,237);g.rotate(-Math.PI/2);g.fillText('MF 004417',0,0);g.restore();doorDay.needsUpdate=true}
 paintDay(0);let dayPainted=0;
 const dayM=new THREE.Mesh(new THREE.PlaneGeometry(2.3,2.3),new THREE.MeshStandardMaterial({map:doorDay,transparent:true,roughness:.7,polygonOffset:true,polygonOffsetFactor:-2}));dayM.position.set(RX(0),TY(1)+.05,BZ(0)+3.045);V.add(dayM);
 

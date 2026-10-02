@@ -144,7 +144,7 @@ for(const [w,h,x,y] of[[3.3,4.6,WIN.x0-1.65,1.2],[3.3,4.6,WIN.x1+1.65,1.2],[WW,3
  const gr=g.createLinearGradient(0,0,0,460);gr.addColorStop(0,'#dde3ea');gr.addColorStop(.6,'#ecebe4');gr.addColorStop(1,'#dcdccc');g.fillStyle=gr;g.fillRect(0,0,640,460);
  g.filter='blur(14px)';g.fillStyle='rgba(70,92,58,.55)';for(let i=0;i<9;i++){g.save();g.translate(rnd()<.5?rnd()*120:520+rnd()*120,300+rnd()*180);g.rotate(-1+rnd()*2);g.beginPath();g.ellipse(0,0,120+rnd()*80,34+rnd()*20,0,0,6.283);g.fill();g.restore()}
  g.filter='blur(7px)';g.fillStyle='rgba(40,32,26,.85)';for(let i=1;i<3;i++)g.fillRect(i*213-6,0,12,460);g.fillRect(0,Math.round(460*.45)-5,640,10);
- const win=new THREE.Mesh(new THREE.PlaneGeometry(WIN.x1-WIN.x0,WIN.y1-WIN.y0),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),color:new THREE.Color(1.9,1.9,1.85),fog:false}));
+ const win=new THREE.Mesh(new THREE.PlaneGeometry(WIN.x1-WIN.x0,WIN.y1-WIN.y0),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),color:new THREE.Color(1.55,1.55,1.5),fog:false}));
  win.material.map.colorSpace=THREE.SRGBColorSpace;win.position.set(0,(WIN.y0+WIN.y1)/2,WZ);S.add(win)}
 const north=new THREE.RectAreaLight(0xe6edff,7,WW,WIN.y1-WIN.y0);north.position.set(0,(WIN.y0+WIN.y1)/2,WZ+.02);north.lookAt(0,.3,0);S.add(north);
 S.add(new THREE.HemisphereLight(0x8a7254,0x2a1d12,.9));const fill=new THREE.DirectionalLight(0xffcf9a,.75);fill.position.set(-1.2,2.2,2.4);S.add(fill);

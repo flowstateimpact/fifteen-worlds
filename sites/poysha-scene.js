@@ -196,9 +196,9 @@ if(QS.has('fill'))preload(+QS.get('fill')||120);
 const D=BASE-EYE,hH=D*Math.tan(cam.fov*Math.PI/360),hW=hH*cam.aspect,EX=hW*1.08,EZ=hH*1.12;
 const etch=document.createElement('canvas');etch.width=1024;etch.height=Math.round(1024*EZ/EX);const eg=etch.getContext('2d'),etchT=new THREE.CanvasTexture(etch);
 function drawEtch(){const W=etch.width,H=etch.height,u=W/(2*EX);eg.fillStyle='#000';eg.fillRect(0,0,W,H);eg.fillStyle='#fff';eg.textAlign='center';eg.textBaseline='alphabetic';
- const cy=H*(phone?.8:.86),big=(phone?.0105:.0112)*u;eg.font=`400 ${big}px 'Tiro Bangla'`;eg.fillText('৳ '+bn(total),W/2,cy);
- eg.font=`600 ${(phone?.0016:.0019)*u}px 'Switzer'`;if('letterSpacing' in eg)eg.letterSpacing=`${.0003*u}px`;
- if(phone){eg.fillText('SAVED WHILE YOU',W/2,cy-big*1.2);eg.fillText('WERE READING',W/2,cy-big*.95)}else eg.fillText('SAVED WHILE YOU WERE READING',W/2,cy-big*.98);etchT.needsUpdate=true;etchDirty=false}
+ const cy=H*(phone?.82:.86),big=(phone?.0068:.0112)*u;eg.font=`400 ${big}px 'Tiro Bangla'`;eg.fillText('৳ '+bn(total),W/2,cy);
+ eg.font=`600 ${(phone?.0015:.0019)*u}px 'Switzer'`;if('letterSpacing' in eg)eg.letterSpacing=`${.0003*u}px`;
+ if(phone)eg.fillText('SAVED WHILE YOU WERE READING',W/2,cy-big*1.12);else eg.fillText('SAVED WHILE YOU WERE READING',W/2,cy-big*.98);etchT.needsUpdate=true;etchDirty=false}
 const BUB=new THREE.Vector2(CX+(phone?.0045:.017),CZ+(phone?.012:.006));
 const baseU={tDiffuse:{value:null},uIP:{value:cam.projectionMatrixInverse},uCW:{value:cam.matrixWorld},uE:{value:etchT},uEA:{value:0},uGlow:{value:1},uR:{value:new THREE.Vector2()},uT:{value:0}};
 const basePass=new ShaderPass({uniforms:baseU,vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,

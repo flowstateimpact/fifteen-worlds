@@ -181,7 +181,7 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-last
   if(on[r][i]&&lit)p.material.emissive.copy(rowC[r]).multiplyScalar(.1+u.e*1.3+ph*.22);else p.material.emissive.setScalar(ph*.05+u.e*.1)}
  for(const l of pool){l.userData.v*=Math.exp(-dt*5.5);l.intensity=l.userData.v*2.6}
  // the room waits on a dimmer before the gate, then comes up: the lamp first, then the meters
- const up=to<0?0:sm(.4,2.6,to);lamp.intensity=8*(.16+.84*up)*(.985+.015*Math.sin(t*9.1));
+ const up=to<0?0:sm(.4,2.6,to);lamp.intensity=8*((phone?.42:.16)+(phone?.58:.84)*up)*(.985+.015*Math.sin(t*9.1));
  const play=opened>=0?1:0;reels.forEach((rl,k)=>rl.rotation.y-=dt*(1.1+k*.25)*play*up);
  needles.forEach((nd,k)=>{nd.rotation.z=.75-Math.min(1.5,(lvl*2.2+Math.sin(t*1.3+k)*.02)*up)});
  // the camera: breathing at the stool; after twelve quiet seconds it pans to the tape machine and the empty chair
