@@ -166,7 +166,7 @@ vec3 bend(vec3 p,out vec3 nrm){float u=p.x+uW*.5,zc=-p.y,corner=smoothstep(-.3,1
  ph=uA+uC*u+uLift*corner*smoothstep(uW*.5,uW,u);nrm=vec3(-sin(ph),cos(ph),0.);return vec3(q.x,q.y+uY,zc);}`;
 const leaves=[];
 function makeLeaf(i,front,back){const U={uA:{value:0},uC:{value:0},uLift:{value:0},uY:{value:Y0},uW:{value:W},uH:{value:H},mapB:{value:back},uShow:{value:.035},uThin:{value:i===0||i===N-1?.14:.42}};
- const m=new THREE.MeshStandardMaterial({map:front,roughness:.9,metalness:0,side:THREE.DoubleSide,bumpMap:fibre,bumpScale:.012});
+ const m=new THREE.MeshStandardMaterial({map:front,roughness:.9,metalness:0,side:THREE.DoubleSide,bumpMap:fibre,bumpScale:.003});
  m.onBeforeCompile=sh=>{Object.assign(sh.uniforms,U);
   sh.vertexShader=sh.vertexShader.replace('#include <common>','#include <common>\n'+BEND).replace('#include <beginnormal_vertex>','vec3 objectNormal;vec3 bentP=bend(position,objectNormal);').replace('#include <begin_vertex>','vec3 transformed=bentP;');
   sh.fragmentShader=sh.fragmentShader.replace('#include <common>','#include <common>\nuniform sampler2D mapB;uniform float uShow,uW,uH;').replace('#include <map_fragment>',
@@ -212,7 +212,7 @@ const comp=new EffectComposer(R,new THREE.WebGLRenderTarget(innerWidth*DPR,inner
 const film=new ShaderPass({uniforms:{tDiffuse:{value:null},uT:{value:0},uR:{value:new THREE.Vector2()},uF:{value:0}},
  vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
  fragmentShader:`uniform sampler2D tDiffuse;uniform float uT,uF;uniform vec2 uR;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
- void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec3 hl=vec3(0.);for(int i=0;i<10;i++){float a=float(i)*.6283;vec2 o=vec2(cos(a),sin(a))*(i<5?5.:11.)/uR;hl+=clamp(texture2D(tDiffuse,vUv+o).rgb-1.35,0.,2.);}c+=hl*.1*vec3(1.,.5,.24);c*=1.03-.06*smoothstep(0.,1.,vUv.x);vec2 q=vUv-.5;c*=1.-dot(q,q)*.9;c=c*.975+vec3(.011,.007,.004);float gr=h(floor(vUv*uR/1.6)+fract(uT)*91.)-.5;c+=gr*.03*(.4+sqrt(max(dot(c,vec3(.33)),0.)));gl_FragColor=vec4(c*uF,1.);}`});
+ void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec3 hl=vec3(0.);for(int i=0;i<10;i++){float a=float(i)*.6283;vec2 o=vec2(cos(a),sin(a))*(i<5?5.:11.)/uR;hl+=clamp(texture2D(tDiffuse,vUv+o).rgb-1.35,0.,2.);}c+=hl*.1*vec3(1.,.5,.24);c*=1.03-.06*smoothstep(0.,1.,vUv.x);vec2 q=vUv-.5;c*=1.-dot(q,q)*.9;c=c*.975+vec3(.011,.007,.004);float gr=h(floor(vUv*uR)+fract(uT)*91.)-.5;c+=gr*.007*(.4+sqrt(max(dot(c,vec3(.33)),0.)));gl_FragColor=vec4(c*uF,1.);}`});
 comp.addPass(film);comp.addPass(new OutputPass());
 // the render (the bending pages stay out of the shading pass: it would see them flat, unbent, as ghost edges): contact shading where surfaces meet, glow only on true light sources, tuned to this world's scale and light
 lux(R,S,cam,comp,{ao:{radius:.5,thickness:.8,blend:.7,protect:[.3,1.2]},bloom:{strength:.15,radius:.4,threshold:2}});

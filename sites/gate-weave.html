@@ -259,7 +259,7 @@ function seat(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);comp.setSize(W,H
  // sit in the row whose distance lets the frame fill the wall: on a phone that is the back row
  const want=asp<1?FW*1.02:FW/.6,d=want/(2*Math.tan(THREE.MathUtils.degToRad(cam.fov/2))*asp);
  let r=0;for(let i=0;i<ROWS;i++)if(rowZ(i)<=d+.3)r=i;const z=rowZ(r)+.12;
- cam.position.set(0,rowY(r)+(asp<1?1.34:1.2),z);cam.lookAt(0,asp<1?FY-.1:FY-.95,0);cam.updateProjectionMatrix();
+ cam.position.set(0,rowY(r)+(asp<1?1.34:1.2),z);cam.lookAt(0,asp<1?FY-.1:FY-.95,0);cam.updateProjectionMatrix();cam.setViewOffset(W,H,0,-Math.round(asp<1?H*.05:H*.17),W,H);
  crown.visible=r>0;crown.position.set(0,rowY(r-1)+1.12,rowZ(r-1)+.26);crown.rotation.x=-.17;
  cam.updateMatrixWorld();fb.set(0,FY-FH/2,0).project(cam);const yb=(-fb.y*.5+.5)*H;fb.set(-FW/2,FY,0).project(cam);const xl=Math.max(20,(fb.x*.5+.5)*W);
  cap.style.top=Math.min(H-(asp<1?150:118),yb+18)+'px';cap.style.padding=`0 ${xl}px`}

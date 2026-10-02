@@ -98,7 +98,7 @@ box.addEventListener('click', e => { const b = e.target.closest('.fr'); if (b) N
 let ppm = 3.77, H = 132;
 const cap = document.getElementById('cap'), hint = document.getElementById('hint');
 function size(){ const cb = cap.getBoundingClientRect().bottom, ht = hint.getBoundingClientRect().top, ph = innerWidth < 760;
- const top = N.index >= n - 2 ? (ph ? 96 : 70) : (cb > 40 ? cb : innerHeight * .64) + (ph ? 12 : 22); H = Math.max(84, Math.min(ph ? 104 : 132, (ht > top ? ht : innerHeight - 90) - top - (ph ? 8 : 14))); ppm = H / FW;
+ const top = ph ? 96 : 70; H = Math.max(84, Math.min(ph ? 104 : 132, (ht > top ? ht : innerHeight - 90) - top - (ph ? 8 : 14))); ppm = H / FW;
  box.style.top = Math.round(top - 14) + 'px'; box.style.height = Math.round(H + 28) + 'px'; track.style.height = H + 'px'; box.style.setProperty('--canw', Math.round(H * (ph ? 1.02 : 1.06)) + 'px');
  film.style.width = (LEN * ppm).toFixed(1) + 'px'; film.style.height = H + 'px';
  frs.forEach((b, k) => { const d = k === n - 1; b.style.left = ((d ? centre(k) : centre(k) - 1) * FP * ppm).toFixed(1) + 'px'; b.style.width = (FP * ppm * (d ? CD : 3)).toFixed(1) + 'px'; }); }

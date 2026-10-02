@@ -165,6 +165,20 @@ html body div.ui > div.temp.fade#temp{bottom:calc(108px + var(--mw))}
 @media (max-width:720px){:root{--mw:0px}html body div.ui > div.temp.fade#temp{bottom:112px}.mer{width:168px;height:140px;right:6px;bottom:auto;top:34vh}.mer[data-mode=stage],.mer[data-mode=page],.mer[data-mode=door]{right:8px;top:10px}.mer .mk{width:26px;height:14px}.mer .ixp{width:40px;height:14px}.mer .say{bottom:auto;top:calc(100% + 2px);font-size:12px}.mer .say b{font-size:12px}}
 @media (prefers-reduced-motion:reduce){.mer{transition:none}}
 </style>
+<style id="p43">
+/* the chapter control, flat: a brass line down the right edge, a tick and an hour for each chapter, the index at its foot */
+.mer{width:auto;height:auto;display:flex;flex-direction:column;align-items:flex-end;gap:0;padding:4px 0;border-right:1px solid rgba(168,132,63,.5)}
+.mer svg{display:none}
+.mer .mk{all:unset;position:static;transform:none;width:auto;height:auto;display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:7px 0 7px 18px;cursor:pointer;font:500 11px 'Panchang',sans-serif;letter-spacing:.06em;color:rgba(241,230,216,.55);text-shadow:0 1px 10px rgba(10,6,4,.9);transition:color .3s}
+.mer .mk i{display:block;width:12px;height:1px;background:#a8843f;transition:width .35s,background .3s}
+.mer .mk:hover{color:#f1e6d8}.mer .mk:hover i{width:20px;background:#f4dfa8}
+.mer .mk[aria-current]{color:#f1e6d8}.mer .mk[aria-current] i{width:28px;height:2px;background:#e8c77e}
+.mer .ixp{all:unset;position:static;transform:none;width:auto;height:auto;margin:10px 12px 2px 0;padding:7px 11px 6px;cursor:pointer;font:500 10px 'Panchang',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#d9bd83;border:1px solid rgba(217,189,131,.45);border-radius:2px;background:rgba(14,9,7,.45);transition:background .3s,color .3s}
+.mer .ixp:hover{background:rgba(217,189,131,.14);color:#f4dfa8}
+.mer[data-mode=page]::before{inset:-12px -8px -12px -16px;z-index:-1}
+.mer .say,.mer[data-mode=room] .say,.mer[data-mode=stage] .say{right:calc(100% + 16px);bottom:auto;top:50%;transform:translateY(-50%)}
+@media (max-width:720px){.mer{width:auto;height:auto}.mer .mk{width:auto;height:auto;padding:5px 0 5px 12px;font-size:10px}.mer .ixp{width:auto;height:auto;font-size:9px;padding:5px 8px;margin-right:8px}.mer .say{display:none}}
+</style>
 </head>
 <body>
 <canvas id="c" aria-label="A brick jaali wall and a cement floor; the sun draws the wall's pattern across the floor as the hour moves"></canvas>
@@ -272,7 +286,7 @@ const outside=new THREE.Mesh(new THREE.PlaneGeometry(40,20),new THREE.MeshBasicM
 const floorTex=(()=>{const c=document.createElement('canvas');c.width=c.height=1024;const g=c.getContext('2d');g.fillStyle='#a79c8e';g.fillRect(0,0,1024,1024);
  for(let i=0;i<60;i++){const x=rnd()*1024,y=rnd()*1024,r=80+rnd()*260,gr=g.createRadialGradient(x,y,0,x,y,r);const v=rnd()<.5;gr.addColorStop(0,v?'rgba(255,245,230,.07)':'rgba(40,30,20,.06)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,1024,1024)}
  for(let i=0;i<220;i++){const x=rnd()*1024,y=rnd()*1024,r=60+rnd()*140,a=rnd()*6.28;g.strokeStyle=`rgba(${rnd()<.5?'255,250,240':'50,40,30'},${.03+rnd()*.05})`;g.lineWidth=1+rnd()*3;g.beginPath();g.arc(x,y,r,a,a+.6+rnd()*.8);g.stroke()}
- const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(2,3);t.anisotropy=8;return t})();
+ const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(2,3);t.anisotropy=16;return t})();
 const floor=new THREE.Mesh(new THREE.PlaneGeometry(2*WX,11),new THREE.MeshStandardMaterial({map:floorTex,roughness:.42,metalness:0,envMapIntensity:.4}));floor.rotation.x=-Math.PI/2;floor.position.set(0,0,5.5);floor.receiveShadow=true;S.add(floor);
 // the pale strip where the wall meets the floor, and a plinth under the jaali
 const plinth=new THREE.Mesh(new THREE.BoxGeometry(2*WX,.06,.36),new THREE.MeshStandardMaterial({color:0x6a4a3c,roughness:.9}));plinth.position.set(0,.03,0);plinth.receiveShadow=true;S.add(plinth);
@@ -313,12 +327,12 @@ vol.position.set(0,WH/2,5.01);vol.frustumCulled=false;S.add(vol);
 
 // ---- lens and grade: four o'clock brick, a soft bloom on the holes, minimal grain
 const cam=new THREE.PerspectiveCamera(53,1,.05,80);
-const comp=new EffectComposer(R);comp.addPass(new RenderPass(S,cam));
+const comp=new EffectComposer(R,new THREE.WebGLRenderTarget(innerWidth*R.getPixelRatio(),innerHeight*R.getPixelRatio(),{type:THREE.HalfFloatType,samples:innerWidth<760?0:4}));comp.addPass(new RenderPass(S,cam));
 const film=new ShaderPass({uniforms:{tDiffuse:{value:null},uT:{value:0},uR:{value:new THREE.Vector2()},uWarm:{value:0}},
  vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
  fragmentShader:`uniform sampler2D tDiffuse;uniform float uT,uWarm;uniform vec2 uR;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
  void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec2 px=1./uR;vec3 b=vec3(0.);for(int i=0;i<12;i++){float a=float(i)*.5236;b+=texture2D(tDiffuse,vUv+vec2(cos(a),sin(a))*px*10.).rgb;}b/=12.;
-  c+=max(b-.62,0.)*vec3(1.,.55,.3)*.6;c*=mix(vec3(1.),vec3(1.05,.98,.9),uWarm);c=c/(1.+max(c-.82,0.)*.9);c=c*.965+vec3(.03,.021,.014);vec2 q=vUv-.5;c*=1.-dot(q,q)*.95;c+=(h(floor(vUv*uR/1.7)+fract(uT)*91.)-.5)*.05*(.4+c.g);gl_FragColor=vec4(c,1.);}`});
+  c+=max(b-.62,0.)*vec3(1.,.55,.3)*.6;c*=mix(vec3(1.),vec3(1.05,.98,.9),uWarm);c=c/(1.+max(c-.82,0.)*.9);c=c*.965+vec3(.03,.021,.014);vec2 q=vUv-.5;c*=1.-dot(q,q)*.95;c+=(h(floor(vUv*uR)+fract(uT)*91.)-.5)*.012*(.4+c.g);gl_FragColor=vec4(c,1.);}`});
 comp.addPass(film);comp.addPass(new OutputPass());
 // the render: contact shading where surfaces meet, glow only on true light sources, tuned to this world's scale and light
 lux(R,S,cam,comp,{hemi:.28,ao:{radius:.6,thickness:1,protect:[.3,1.2]},bloom:{strength:.2,radius:.5,threshold:2}});

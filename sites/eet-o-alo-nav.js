@@ -92,9 +92,10 @@ function draw(){ seed = 7;
  </g></svg>`; }
 
 el.innerHTML = draw() + N.list.map((c, k) => { const [x, y] = P(0, tz(k));
- return `<button type="button" class="mk" data-k="${k}" style="left:${(x / VW * 100).toFixed(2)}%;top:${(y / VH * 100).toFixed(2)}%" aria-label="${c.t}"></button>`; }).join('')
- + (() => { const [x, y] = P(0, 1.133); return `<button type="button" class="ixp" style="left:${(x / VW * 100).toFixed(2)}%;top:${(y / VH * 100).toFixed(2)}%" aria-label="Open the index"></button>`; })()
+ return `<button type="button" class="mk" data-k="${k}" style="left:${(x / VW * 100).toFixed(2)}%;top:${(y / VH * 100).toFixed(2)}%" aria-label="${c.t}"><span>${c.n || ''}</span><i></i></button>`; }).join('')
+ + (() => { const [x, y] = P(0, 1.133); return `<button type="button" class="ixp" style="left:${(x / VW * 100).toFixed(2)}%;top:${(y / VH * 100).toFixed(2)}%" aria-label="Open the index">Index · 1–15</button>`; })()
  + `<p class="say" aria-hidden="true"></p>`;
+const fitMw = () => { if (innerWidth > 720) document.documentElement.style.setProperty('--mw', (el.offsetHeight + 14) + 'px'); }; fitMw(); addEventListener('resize', fitMw);
 const svg = el.querySelector('svg'), beam = svg.querySelector('.beam'), halo = svg.querySelector('.halo'), img = svg.querySelector('.img'), ecp = svg.querySelector('#ecp'),
  hglow = svg.querySelector('.hglow'), dustG = svg.querySelector('.dust'), say = el.querySelector('.say'), ticks = [...svg.querySelectorAll('.tk')], mks = [...el.querySelectorAll('.mk')];
 const [hx, hy] = P(0, ZW, .25);

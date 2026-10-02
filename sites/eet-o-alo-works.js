@@ -137,20 +137,20 @@ export function stage(canvas){
   float vn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x),mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x),f.y),mix(mix(h(i+vec3(0,0,1)),h(i+vec3(1,0,1)),f.x),mix(h(i+vec3(0,1,1)),h(i+1.),f.x),f.y),f.z);}
   void main(){vec3 ro=cameraPosition,rd=normalize(vW-ro);vec3 bmin=vec3(-uW*.5,0.,.01),bmax=vec3(uW*.5,uH,uD);
    vec3 t1=(bmin-ro)/rd,t2=(bmax-ro)/rd;vec3 tn=min(t1,t2),tf=max(t1,t2);float a=max(max(tn.x,tn.y),max(tn.z,0.)),b=min(min(tf.x,tf.y),tf.z);if(b<=a)discard;
-   const int N=${mob ? 20 : 36};float dt=(b-a)/float(N),acc=0.,j=h(vec3(gl_FragCoord.xy,uT))*dt;
+   const int N=${mob ? 28 : 64};float dt=(b-a)/float(N),acc=0.,j=fract(52.9829189*fract(dot(gl_FragCoord.xy,vec2(.06711056,.00583715))))*dt;
    for(int i=0;i<N;i++){vec3 p=ro+rd*(a+j+dt*float(i));float k=-p.z/uL.z;vec3 q=p+uL*k;
     if(q.y>0.&&q.y<uH&&abs(q.x)<uW*.5){float m=1.-texture2D(uMask,vec2(q.x/uW+.5,q.y/uH)).r;acc+=m*(.3+.9*vn(p*3.+vec3(0.,uT*.05,uT*.03)))*smoothstep(0.,.5,p.y);}}
    gl_FragColor=vec4(uCol*acc*dt*uI,1.);}`}));
  vol.frustumCulled = false; S.add(vol);
 
- const comp = new EffectComposer(R); comp.addPass(new RenderPass(S, cam));
+ const comp = new EffectComposer(R,new THREE.WebGLRenderTarget(innerWidth*R.getPixelRatio(),innerHeight*R.getPixelRatio(),{type:THREE.HalfFloatType,samples:innerWidth<760?0:4})); comp.addPass(new RenderPass(S, cam));
  // The Wall's finish: highlights bleed warm into the dark, blacks stay umber, a coarse grain, highlights roll off before white
  const film = new ShaderPass({uniforms:{tDiffuse:{value:null}, uT:{value:0}, uR:{value:new THREE.Vector2(1, 1)}},
   vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
   fragmentShader:`uniform sampler2D tDiffuse;uniform float uT;uniform vec2 uR;varying vec2 vUv;float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
   void main(){vec3 c=texture2D(tDiffuse,vUv).rgb;vec2 px=1./uR;vec3 b=vec3(0.);for(int i=0;i<12;i++){float a=float(i)*.5236;b+=texture2D(tDiffuse,vUv+vec2(cos(a),sin(a))*px*12.).rgb;}b/=12.;
    c+=max(b-.72,0.)*vec3(1.,.42,.22)*.42;c=c*.955+vec3(.022,.015,.01);c=min(c,vec3(.965));vec2 q=vUv-.5;c*=1.-dot(q,q)*.55;
-   c+=(h(floor(vUv*uR/1.6)+fract(uT)*91.)-.5)*.05*(.35+c.g);gl_FragColor=vec4(c,1.);}`});
+   c+=(h(floor(vUv*uR)+fract(uT)*91.)-.5)*.012*(.35+c.g);gl_FragColor=vec4(c,1.);}`});
  comp.addPass(film); comp.addPass(new OutputPass());
  lux(R, S, cam, comp, {hemi:.8, ao:{radius:.5, thickness:1, protect:[.3, 1.2]}, bloom:{strength:.18, radius:.5, threshold:2.2}});
  function size(){ const w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return; R.setSize(w, h, false); comp.setSize(w, h); cam.aspect = w / h; cam.updateProjectionMatrix(); film.uniforms.uR.value.set(w * DPR, h * DPR); }
@@ -165,13 +165,13 @@ export function stage(canvas){
   const bc = document.createElement('canvas'), mc = document.createElement('canvas'); bc.width = mc.width = MW; bc.height = mc.height = MH;
   const bg = bc.getContext('2d'), mg = mc.getContext('2d'); let s = w.seed * 7; const rn = () => (s = s * 16807 % 2147483647) / 2147483647;
   bg.fillStyle = '#6e4a3a'; bg.fillRect(0, 0, MW, MH); const bw = .24 * pxm, bh = .07 * pxm, mj = .012 * pxm;
-  for (let r = 0, y = MH; y > -bh; r++, y -= bh + mj) for (let x = -((r % 2) * bw / 2); x < MW; x += bw + mj){ const bloom = rn() < .03;
-   bg.fillStyle = bloom ? `hsl(28,18%,${60 + rn() * 8}%)` : `hsl(${10 + rn() * 9},${46 + rn() * 18}%,${28 + rn() * 12 - (rn() < .08 ? 8 : 0)}%)`; bg.fillRect(x, y - bh, bw, bh);
+  for (let r = 0, y = MH; y > -bh; r++, y -= bh + mj) for (let x = -((r % 2) * bw / 2); x < MW; x += bw + mj){ const bloom = rn() < .012;
+   bg.fillStyle = bloom ? `hsl(24,20%,${46 + rn() * 5}%)` : `hsl(${12 + rn() * 5},${50 + rn() * 8}%,${31 + rn() * 5 - (rn() < .05 ? 4 : 0)}%)`; bg.fillRect(x, y - bh, bw, bh);
    bg.fillStyle = 'rgba(0,0,0,.12)'; bg.fillRect(x, y - bh * .18, bw, bh * .18); }
   mg.fillStyle = '#fff'; mg.fillRect(0, 0, MW, MH); mg.fillStyle = '#000'; bg.fillStyle = '#1a100a';
   for (const h of holes(w)){ const cx = h.x * pxm, cy = MH - h.y * pxm, rr = h.r * pxm;
    for (const g of [mg, bg]){ g.beginPath(); if (h.k === 'o') g.arc(cx, cy, rr, 0, 7); else if (h.k === 'd') { g.moveTo(cx, cy - rr * 1.25); g.lineTo(cx + rr, cy); g.lineTo(cx, cy + rr * 1.25); g.lineTo(cx - rr, cy); } else g.rect(cx - rr, cy - h.h / 2 * pxm, rr * 2, h.h * pxm); g.fill(); } }
-  const map = new THREE.CanvasTexture(bc), alpha = new THREE.CanvasTexture(mc); map.colorSpace = THREE.SRGBColorSpace; map.anisotropy = 8;
+  const map = new THREE.CanvasTexture(bc), alpha = new THREE.CanvasTexture(mc); map.colorSpace = THREE.SRGBColorSpace; map.anisotropy = 16;
   for (const z of [0, -T]){ const m = new THREE.MeshStandardMaterial({map, alphaMap:alpha, alphaTest:.5, roughness:.9, side:THREE.DoubleSide, shadowSide:THREE.DoubleSide}); m.userData.own = true;
    const wall = add(new THREE.PlaneGeometry(W, H), m, 0, H / 2, z); }
   add(new THREE.BoxGeometry(W + .5, .22, D + .6), slabM, 0, H + .11, D / 2);
@@ -210,7 +210,7 @@ function cementTex(){ const c = document.createElement('canvas'); c.width = c.he
  g.fillStyle = '#a79c8e'; g.fillRect(0, 0, 1024, 1024);
  for (let i = 0; i < 60; i++){ const x = r() * 1024, y = r() * 1024, rr = 80 + r() * 260, gr = g.createRadialGradient(x, y, 0, x, y, rr), v = r() < .5; gr.addColorStop(0, v ? 'rgba(255,245,230,.07)' : 'rgba(40,30,20,.07)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(0, 0, 1024, 1024); }
  for (let i = 0; i < 220; i++){ const x = r() * 1024, y = r() * 1024, rr = 60 + r() * 140, a = r() * 6.28; g.strokeStyle = `rgba(${r() < .5 ? '255,250,240' : '50,40,30'},${.03 + r() * .05})`; g.lineWidth = 1 + r() * 3; g.beginPath(); g.arc(x, y, rr, a, a + .6 + r() * .8); g.stroke(); }
- const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(3, 3); t.anisotropy = 8; return t; }
+ const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(3, 3); t.anisotropy = 16; return t; }
 
 // ---- the page: the register of all nine, then one step per building beside the stage
 export function mountWorks(){
