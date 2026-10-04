@@ -113,29 +113,60 @@ body.past a.fsi-tag{text-shadow:none!important;color:#efe8d8!important}
 @media (prefers-reduced-motion:reduce){.lane .box{transition:none}.stack li{animation:none}.door-a{transform:none}}
 </style>
 <style id="box-css">
-/* the second act (meridian-box.js): one box. Its door end, its voyage, what it costs. */
-.chap.onebox{background:#2c373e;color:#efe8d8;padding-left:max(6vw,196px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:5vw;align-items:center;position:relative;overflow:hidden}
-.onebox::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 2% 70%,rgba(255,180,110,.2),transparent 62%);pointer-events:none}
-.onebox figure{position:relative;margin:0;justify-self:center;width:min(430px,30vw,60vh)}
-.onebox figure svg{display:block;width:100%;height:auto;filter:drop-shadow(34px 18px 20px rgba(0,0,0,.6))}
-.onebox figcaption{margin-top:20px;font:500 14px 'JetBrains Mono',monospace;letter-spacing:.06em;color:rgba(239,232,216,.65);text-align:center}
-.onebox .tx{position:relative;max-width:40em}
-.onebox .k{font:500 14px 'Switzer';letter-spacing:.12em;text-transform:uppercase;color:rgba(239,232,216,.7)}
-.onebox h2{margin-top:12px;font:700 clamp(38px,4.6vw,76px)/.9 'JetBrains Mono',monospace;letter-spacing:-.04em}
-.onebox form{margin-top:3vh}.onebox label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.onebox form div{display:flex;gap:8px;max-width:420px}
-.onebox input{flex:1;min-width:0;background:#1d2a3a;border:1px solid rgba(239,232,216,.35);color:#efe8d8;font:700 18px 'JetBrains Mono',monospace;letter-spacing:.06em;padding:12px 14px}
-.onebox button{background:#b8321f;color:#efe8d8;border:0;font:500 14px 'Switzer';letter-spacing:.12em;text-transform:uppercase;padding:0 18px;cursor:pointer}
-.onebox #bmsg{margin-top:10px;font-size:16px;min-height:1.5em;color:rgba(239,232,216,.85)}
-.legs{list-style:none;margin:2.4vh 0 0;padding:0;border-top:1px solid rgba(239,232,216,.2);transition:opacity .4s}.legs.off{opacity:.25}
-.legs li{display:grid;grid-template-columns:5.2em 3em 1fr;gap:10px;padding:7px 0;border-bottom:1px solid rgba(239,232,216,.12);font-size:15px;color:rgba(239,232,216,.5)}
-.legs li b{font:700 14px 'JetBrains Mono',monospace}.legs li i{font-style:normal}
-.legs li.done{color:rgba(239,232,216,.85)}.legs li.now{color:#efe8d8;background:#b8321f;padding-left:10px;margin-left:-10px}
-.onebox table{width:100%;max-width:420px;margin-top:3vh;border-collapse:collapse;font-size:16px}
-.onebox th{text-align:left;font:500 14px 'Switzer';letter-spacing:.1em;text-transform:uppercase;color:rgba(239,232,216,.6);padding-bottom:8px}
-.onebox td{padding:8px 0;border-top:1px solid rgba(239,232,216,.18)}.onebox td:last-child,.onebox th:last-child{text-align:right;font-family:'JetBrains Mono',monospace}
-.onebox .cut{margin-top:2.4vh;font-size:15px;color:rgba(239,232,216,.8)}.onebox .cut b{font-weight:500;color:#efe8d8}
-@media (max-width:760px){.chap.onebox{grid-template-columns:minmax(0,1fr);padding-left:84px;padding-right:16px;gap:26px}.onebox input{font-size:15px;padding:10px}.onebox button{padding:0 12px}.onebox figure{width:min(250px,62vw)}.legs li{grid-template-columns:4.6em 1fr;font-size:14px}.legs li i{display:none}}
+/* the second act (meridian-box.js): one box. P45: the ship's office table under one lamp, upper left. The door is the gate photograph;
+   the tracker, the voyage, the freight and the cut-offs are on the box's bill of lading. Every shadow falls down and to the right, away from the lamp;
+   paper lies flat and casts a tight one, the brass dividers stand off the table and cast a longer, sharper one. */
+.chap.onebox{background:radial-gradient(78% 96% at 3% -8%,rgba(255,216,164,.34) 0,rgba(255,216,164,.13) 32%,rgba(255,216,164,0) 62%),radial-gradient(150% 150% at 0% 0%,#3d4b53 0,#2b363d 42%,#171d21 100%);background-color:#1b2226;color:#efe8d8;padding-top:7vh;padding-bottom:9vh;padding-left:max(6vw,196px);display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:4.6vw;align-items:center;position:relative;overflow:hidden}
+.onebox::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011 .7' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='600' height='300' filter='url(%23g)'/%3E%3C/svg%3E");opacity:.16;mix-blend-mode:soft-light;pointer-events:none}
+.onebox::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 0% 0%,transparent 48%,rgba(8,11,13,.5) 100%);pointer-events:none}
+.onebox > *{position:relative;z-index:1}
+.onebox .prt{margin:0;justify-self:center;width:min(410px,29vw,56vh);rotate:-1.5deg;padding:12px 12px 0;background:linear-gradient(128deg,rgba(255,250,236,.55) 0,rgba(255,250,236,0) 42%,rgba(70,50,30,.14) 100%),linear-gradient(#e9e2d0,#e9e2d0);filter:drop-shadow(1px 1.5px 1px rgba(0,0,0,.55)) drop-shadow(7px 10px 12px rgba(0,0,0,.42))}
+.onebox .prt > svg{display:block;width:100%;height:auto}
+.onebox .prt::after{content:"";position:absolute;left:12px;right:12px;top:12px;aspect-ratio:400/440;background:linear-gradient(128deg,rgba(255,255,255,.2) 0,rgba(255,255,255,.04) 26%,rgba(255,255,255,0) 44%);pointer-events:none}
+.onebox figcaption span{white-space:nowrap}.onebox figcaption{text-wrap:balance;padding:12px 2px 13px;font:500 14px/1.45 'JetBrains Mono',monospace;letter-spacing:.02em;color:#2a3138;text-align:left}
+.onebox .tx{max-width:44em}
+.onebox .k{font:500 14px 'Switzer';letter-spacing:.12em;text-transform:uppercase;color:rgba(239,232,216,.74)}
+.onebox h2{margin-top:10px;font:700 clamp(36px,4.2vw,68px)/.92 'JetBrains Mono',monospace;letter-spacing:-.04em}
+.bol{position:relative;margin-top:3.2vh;rotate:.5deg;padding:20px 26px 24px;color:#1d2a3a;background:linear-gradient(90deg,transparent calc(41.4% - 1px),rgba(60,40,20,.1) 41.4%,rgba(255,252,240,.5) calc(41.4% + 1px),transparent calc(41.4% + 3px)),linear-gradient(124deg,rgba(255,247,226,.6) 0,rgba(255,247,226,0) 40%,rgba(64,44,22,.2) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 .32  0 0 0 0 .22  0 0 0 0 .1  0 0 0 .55 -.2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23p)'/%3E%3C/svg%3E"),linear-gradient(#e7ddc4,#e7ddc4);filter:drop-shadow(1px 1.5px 1px rgba(0,0,0,.55)) drop-shadow(8px 11px 13px rgba(0,0,0,.44))}
+.bol header{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding-bottom:7px;border-bottom:3px double #a82c1b;color:#a82c1b}
+.bol header b{font:700 14px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.bol header span{font:italic 400 24px/1 'Gambetta',serif}
+.bol form{margin-top:14px}
+.bol label{display:block;font:500 14px 'Switzer';letter-spacing:.1em;text-transform:uppercase;color:#a82c1b;margin-bottom:5px}
+.bol form div{display:flex;gap:16px;align-items:center;max-width:440px}
+.bol input{flex:1;min-width:0;background:rgba(29,42,58,.07);border:0;border-bottom:1.5px solid #1d2a3a;border-radius:0;color:#1d2a3a;font:700 19px 'JetBrains Mono',monospace;letter-spacing:.06em;padding:9px 10px 7px}
+.bol input:focus-visible{outline:2px solid #a82c1b;outline-offset:2px}
+/* the gate clerk's rubber stamp, not a filled button: red ink, double frame, struck a little off square */
+.bol button{flex:none;background:rgba(168,44,27,.06);color:#a82c1b;border:2px solid #a82c1b;border-radius:3px;outline:1px solid #a82c1b;outline-offset:2px;font:700 14px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:9px 13px;rotate:-3deg;cursor:pointer;transition:rotate .25s,background .25s,scale .12s}
+.bol button:hover{rotate:0deg;background:rgba(168,44,27,.15)}.bol button:active{scale:.95}.bol button:focus-visible{outline:2px solid #1d2a3a;outline-offset:3px}
+.bol #bmsg{margin-top:9px;font:500 15px/1.4 'JetBrains Mono',monospace;min-height:1.4em;color:#1d2a3a}
+.bol .bd{display:grid;grid-template-columns:minmax(0,38%) minmax(0,1fr);gap:0 30px;margin-top:14px;align-items:start}
+.frt{padding-right:6px}
+.frt table{width:100%;border-collapse:collapse}
+.frt tr{display:flex;align-items:baseline;gap:7px;padding:5px 0}.frt thead tr{flex-wrap:wrap;gap:0 7px;padding-top:0}
+.frt th{font:500 14px/1.25 'Switzer';letter-spacing:.06em;text-transform:uppercase;color:#a82c1b;text-align:left;padding:0 0 3px}.frt th:first-child{white-space:nowrap}.frt th:last-child{margin-left:auto;text-align:right;white-space:nowrap}
+.frt td{padding:0;font-size:15px}.frt td:first-child{flex:1;display:flex;align-items:baseline;gap:7px;white-space:nowrap}
+.frt td:first-child::after{content:"";flex:1;min-width:10px;border-bottom:1.5px dotted rgba(29,42,58,.5);translate:0 -3px}
+.frt td:last-child{font:700 15px 'JetBrains Mono',monospace}
+/* the cut-offs, struck on with the office's own stamp */
+.frt .cut{margin:16px 0 0 2px;display:inline-block;rotate:-1.7deg;border:2px solid #57418f;border-radius:2px;padding:7px 11px 8px;color:#3f2f72;font:500 14px/1.5 'JetBrains Mono',monospace;background-image:linear-gradient(rgba(87,65,143,.05),rgba(87,65,143,.05))}
+.frt .cut span{display:block;white-space:nowrap}.frt .cut b{font-weight:700}
+.legs{list-style:none;margin:0;padding:0;transition:opacity .4s}.legs.off{opacity:.25}
+.legs li{display:grid;grid-template-columns:36px 3.9em minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:3px 0;min-height:40px;color:#4a4f53;font-size:15px;line-height:1.3;position:relative}
+.legs .stp{grid-row:1/3;width:36px;height:36px;color:#57418f;opacity:.86}.legs .stp.wait{color:#a82c1b;opacity:.55}.legs .stp.now{color:#b8321f;opacity:1;width:42px;height:42px;margin:-3px}
+.legs li b{grid-column:2;grid-row:1;align-self:end;font:700 14px 'JetBrains Mono',monospace}.legs li i{grid-column:2;grid-row:2;align-self:start;font-style:normal;font-size:14px}
+.legs li span{grid-column:3;grid-row:1/3}
+.legs li.done{color:#1d2a3a}.legs li.now{color:#1d2a3a}.legs li.now span,.legs li.now i{font-weight:600}
+/* where the box is today: the clerk's red pencil under the line, in place of a filled row */
+.legs li.now span{background:linear-gradient(#b8321f,#b8321f) 0 100%/100% 2px no-repeat;padding-bottom:3px;justify-self:start}
+.bol .dv{position:absolute;left:-112px;bottom:10px;width:236px;rotate:-15deg;pointer-events:none;filter:drop-shadow(1px 1.4px .5px rgba(0,0,0,.6)) drop-shadow(5px 7px 2.6px rgba(0,0,0,.5))}
+@media (max-width:1180px){.bol .bd{grid-template-columns:minmax(0,1fr)}.bol .bd .legs{order:-1;margin-bottom:14px}.bol{background:linear-gradient(124deg,rgba(255,247,226,.6) 0,rgba(255,247,226,0) 40%,rgba(64,44,22,.2) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 .32  0 0 0 0 .22  0 0 0 0 .1  0 0 0 .55 -.2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23p)'/%3E%3C/svg%3E"),linear-gradient(#e7ddc4,#e7ddc4)}}
+@media (max-width:760px){.chap.onebox{grid-template-columns:minmax(0,1fr);padding-left:84px;padding-right:16px;gap:26px}.onebox .prt{width:min(250px,62vw)}.onebox figcaption{font-size:14px}
+ .bol{padding:16px 14px 20px;rotate:0deg}.bol header{flex-wrap:wrap}.bol header span{font-size:21px}.bol input{font-size:15px;padding:9px 8px 7px}.bol form div{gap:12px}.bol button{padding:8px 9px}
+ .bol .dv{width:150px;left:auto;right:-8px;bottom:-26px;rotate:-9deg}}
+/* below a full laptop width the sound switch belongs to the voyage: it steps out while a reading sheet is under it, so it never crosses a line (rule 14) */
+@media (max-width:1180px){html body.cred-band #snd{opacity:0;pointer-events:none;transition:opacity .3s}}
+@media (prefers-reduced-motion:reduce){.bol button{transition:none}}
 </style>
 <style id="p44">@media (min-width:900px){html div.intro#intro{max-width:none}html div.intro#intro > h1{white-space:nowrap;font-size:clamp(42px,4.9vw,76px)}html div.intro#intro > p{max-width:440px}}</style>
 </head>

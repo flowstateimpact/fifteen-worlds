@@ -120,25 +120,55 @@ body.at-door a.fsi-tag{bottom:14px!important;background:none!important;box-shado
 @media (prefers-reduced-motion:reduce){#visit > *{-webkit-mask:none;mask:none}#visit::before{display:none}#door .door-a{clip-path:none}.say{transition:none}}
 </style>
 <style id="reg-css">
-/* the second act (dark-room-register.js): the accession register, read by torch; hours and tonight's timed entries */
-.reg{position:relative;z-index:5;background:#050505;min-height:100vh;padding:14vh 6vw 22vh;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:5vw;align-items:center;border-top:1px solid rgba(236,231,222,.08)}
-.reg .pg{position:relative;--mx:34%;--my:30%;transform:rotate(-1.4deg);filter:drop-shadow(0 24px 30px #000)}
+/* the second act (dark-room-register.js): the accession register, read by torch; hours and tonight's timed entries.
+   P45: everything lies on the porter's desk and there is one light, the torch (--tx --ty, set where the hand is). The desk's oak shows only in its pool:
+   a hot core, then a long falloff. Paper outside the pool keeps the room's own dimness, never so dark it cannot be read. Every shadow (--dx --dy)
+   falls away from the torch. Reading text stays on a clean spine; the paper things are laid out of square. */
+.reg{position:relative;z-index:5;background:#050505;min-height:100vh;padding:6vh 6vw calc(var(--bb) + 38px + 5vh);display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,1fr);gap:5vw;align-items:center;border-top:1px solid rgba(236,231,222,.08);overflow:hidden;--tx:30%;--ty:36%}
+.reg::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle 190px at var(--tx) var(--ty),rgba(255,226,182,.4),rgba(255,226,182,0)),repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 164px,rgba(0,0,0,.6) 164px 166px,rgba(255,220,170,.06) 166px 167px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='450'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .22' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .1  0 0 0 0 .06  0 0 0 0 .03  0 0 0 1.5 -.55'/%3E%3C/filter%3E%3Crect width='900' height='450' filter='url(%23w)'/%3E%3C/svg%3E"),linear-gradient(#70543a,#70543a);-webkit-mask:radial-gradient(circle 560px at var(--tx) var(--ty),#000 0,rgba(0,0,0,.72) 11%,rgba(0,0,0,.4) 28%,rgba(0,0,0,.17) 52%,rgba(0,0,0,.05) 78%,transparent 100%);mask:radial-gradient(circle 560px at var(--tx) var(--ty),#000 0,rgba(0,0,0,.72) 11%,rgba(0,0,0,.4) 28%,rgba(0,0,0,.17) 52%,rgba(0,0,0,.05) 78%,transparent 100%)}
+.reg::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(circle 190px at var(--tx) var(--ty),rgba(255,228,188,.1),rgba(255,228,188,0)),radial-gradient(circle 540px at var(--tx) var(--ty),rgba(5,5,5,0) 0,rgba(5,5,5,.06) 14%,rgba(5,5,5,.26) 38%,rgba(5,5,5,.4) 78%)}
+.reg .cs{filter:drop-shadow(calc(var(--dx,2) * 1px) calc(var(--dy,3) * 1px) calc(var(--bl,3) * 1px) rgba(0,0,0,.82))}
+.reg .pg{position:relative;z-index:2;--mx:36%;--my:32%;transform:rotate(-1.4deg)}
 .reg .pg svg{display:block;width:100%;height:auto}
-.reg .pg .dim{filter:brightness(.13) saturate(.6)}
-.reg .pg .lit{position:absolute;inset:0;filter:sepia(.25) saturate(1.15) brightness(1.04);-webkit-mask:radial-gradient(circle 190px at var(--mx) var(--my),#000 0,rgba(0,0,0,.92) 34%,rgba(0,0,0,.35) 62%,transparent 100%);mask:radial-gradient(circle 190px at var(--mx) var(--my),#000 0,rgba(0,0,0,.92) 34%,rgba(0,0,0,.35) 62%,transparent 100%)}
-.reg .rg-c{margin-bottom:26px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,231,222,.5)}
-.reg h2{font:300 clamp(38px,4.6vw,78px)/.98 'Sentient',serif;letter-spacing:-.025em}.reg h2 i{font-style:italic;font-weight:400;color:#c9a26a}
-.reg .rg-r > p{margin-top:22px;font-size:18px;line-height:1.55;color:rgba(236,231,222,.82);max-width:30em}
-.reg table{width:100%;max-width:460px;margin-top:26px;border-collapse:collapse;font-size:17px}
-.reg td{padding:10px 0;border-top:1px solid rgba(236,231,222,.14)}.reg td:last-child{text-align:right;font-variant-numeric:tabular-nums}.reg tr.late td{color:#c9a26a}
-.reg .k{font-size:14px!important;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,231,222,.55)!important;margin-top:30px!important}
-.slots{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:460px}
-.slots a{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:baseline;padding:10px 12px;border:1px solid rgba(236,231,222,.2);color:#ece7de;text-decoration:none;transition:border-color .3s,background .3s}
-.slots a:hover{border-color:#c9a26a;background:rgba(201,162,106,.08)}
-.slots b{font:400 19px 'Sentient',serif}.slots span{font-size:14px;color:rgba(236,231,222,.6);text-align:right}
-.slots i{grid-column:1/-1;display:flex;gap:3px;margin-top:6px}.slots u,.slots s{flex:1;height:3px;background:#c9a26a;border-radius:2px}.slots s{background:rgba(236,231,222,.14)}
-.slots .full a{opacity:.38;pointer-events:none}
-@media (max-width:760px){.reg{grid-template-columns:minmax(0,1fr);padding:12vh 20px 26vh;gap:34px}.reg .pg{width:150%;transform:rotate(-1.4deg)}.reg .rg-l{overflow:hidden;margin-right:-20px}.reg .pg .lit{-webkit-mask-size:auto;}.reg table{font-size:16px}.slots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.reg .pg .dim{filter:brightness(.3) saturate(.6)}
+.reg .pg .lit{position:absolute;inset:0;filter:sepia(.25) saturate(1.15) brightness(1.04);-webkit-mask:radial-gradient(circle 270px at var(--mx) var(--my),#000 0,rgba(0,0,0,.92) 14%,rgba(0,0,0,.62) 34%,rgba(0,0,0,.3) 56%,rgba(0,0,0,.1) 78%,transparent 100%);mask:radial-gradient(circle 270px at var(--mx) var(--my),#000 0,rgba(0,0,0,.92) 14%,rgba(0,0,0,.62) 34%,rgba(0,0,0,.3) 56%,rgba(0,0,0,.1) 78%,transparent 100%)}
+.reg .pg::after{content:'';position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(circle 120px at var(--mx) var(--my),rgba(255,240,210,.75),rgba(255,240,210,0))}
+.reg .rg-c{position:relative;z-index:3;margin-bottom:22px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,231,222,.62)}
+.reg h2{position:relative;z-index:3;font:300 clamp(38px,4.4vw,74px)/.98 'Sentient',serif;letter-spacing:-.025em}.reg h2 i{font-style:italic;font-weight:400;color:#c9a26a}
+.reg .rg-r > p{position:relative;z-index:3;margin-top:20px;font-size:18px;line-height:1.55;color:rgba(236,231,222,.86);max-width:30em}
+.reg .k{font-size:14px!important;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,231,222,.66)!important;margin-top:26px!important}
+/* the hours: the printed notice card, a keyline frame, the late night in the second colour, tucked under the foot of the book */
+.hrs{position:relative;z-index:1;width:min(372px,88%);margin:-42px 0 0 8%;rotate:1.8deg;padding:52px 22px 15px;color:#1c150c;background-image:linear-gradient(118deg,rgba(255,248,230,.5),rgba(255,248,230,0) 46%,rgba(70,48,20,.14)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .08  0 0 0 .5 -.18'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E"),linear-gradient(#e7dcc0,#e7dcc0);box-shadow:inset 0 0 0 7px #e7dcc0,inset 0 0 0 8px rgba(60,40,18,.6)}
+.hrs table{width:100%;border-collapse:collapse;font:400 17px/1.3 'Sentient',serif}
+.hrs tr{display:flex;align-items:baseline;gap:8px;padding:4px 0}
+.hrs td{padding:0}.hrs td:first-child{flex:1;display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.hrs td:first-child::after{content:'';flex:1;min-width:10px;border-bottom:1.5px dotted rgba(28,21,12,.55);translate:0 -4px}
+.hrs td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}.hrs tr.late td{color:#5c150e;font-weight:500}.hrs tr.late td:first-child::after{border-color:rgba(92,21,14,.6)}
+/* tonight's entries: strips from the ticket roll. The counterfoil carries the time; one ticket for each torch still on the hook */
+.slots{position:relative;z-index:1;list-style:none;margin:14px 0 0;padding:0 0 4px;display:grid;grid-auto-flow:column;grid-template-rows:repeat(6,auto);grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;max-width:560px;container-type:inline-size;--tw:calc((100cqw - 16px - 196px) / 16)}
+.slots li{rotate:var(--rot);translate:var(--ox) 0;min-width:0}
+.slots a{display:inline-flex;height:42px;color:#1c150c;text-decoration:none;transition:translate .3s cubic-bezier(.2,.8,.2,1)}
+.slots a:hover,.slots a:focus-visible{translate:6px -2px}.slots a:focus-visible{outline:1px solid #c9a26a;outline-offset:4px}
+.slots .stub{flex:none;width:98px;padding:1px 0 0 11px;display:flex;flex-direction:column;justify-content:center;gap:1px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .08  0 0 0 .5 -.18'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E"),linear-gradient(#e6d6ac,#e6d6ac);border-right:1.5px dashed rgba(60,40,18,.55)}
+.slots .stub b{font:500 20px/1 'Sentient',serif;letter-spacing:-.01em}.slots .stub span{font:500 14px/1.15 'Switzer',sans-serif}
+.slots i{display:flex;font-style:normal}
+.slots u{width:var(--tw);min-width:14px;display:grid;place-items:center;text-decoration:none;font:500 14px 'Sentient',serif;color:#9c3a30;border-right:1.5px dashed rgba(60,40,18,.5);background-image:linear-gradient(rgba(156,58,48,.7),rgba(156,58,48,.7)),linear-gradient(rgba(156,58,48,.7),rgba(156,58,48,.7)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .08  0 0 0 .5 -.18'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E"),linear-gradient(#e8dcbc,#e8dcbc);background-size:calc(100% - 7px) 1px,calc(100% - 7px) 1px,auto,auto;background-position:3px 6px,3px calc(100% - 6px),0 0,0 0;background-repeat:no-repeat,no-repeat,repeat,repeat}
+.slots u:last-child{border-right:0;clip-path:var(--torn);padding-right:2px}
+.slots .full a{pointer-events:none}.slots .full .stub{border-right:0;width:101px;clip-path:var(--torn);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .08  0 0 0 .5 -.18'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E"),linear-gradient(#ddcfa8,#ddcfa8);-webkit-mask:radial-gradient(circle 4.5px at 78px 21px,transparent 96%,#000);mask:radial-gradient(circle 4.5px at 78px 21px,transparent 96%,#000)}
+@media (max-width:1100px) and (min-width:761px){.slots{grid-auto-flow:row;grid-template-rows:none;grid-template-columns:minmax(0,1fr);--tw:min(26px,calc((100cqw - 104px) / 8))}.slots a{height:38px}}
+@media (max-width:760px){.reg{grid-template-columns:minmax(0,1fr);padding:11vh 20px 14vh;gap:30px}.reg .pg{width:150%;transform:rotate(-1.4deg)}.reg .rg-l{overflow:hidden;margin-right:-20px;padding-bottom:14px}
+ .hrs{width:calc(100% - 34px);margin:-26px 0 0 6px;padding:40px 16px 14px;rotate:1.2deg}.hrs table{font-size:16px}
+ .slots{grid-auto-flow:row;grid-template-rows:none;grid-template-columns:minmax(0,1fr);gap:5px;--tw:min(27px,calc((100cqw - 104px) / 8))}}
+@media (prefers-reduced-motion:reduce){.slots a{transition:none}}
+/* E10: the credit's reserved band was being painted, but underneath the tag rail (the rail sits at layer 6, the band at 4), so this was the one world
+   with no visible credit over its reading sections. Here the band takes the bottom edge, as on the other fourteen, and the rail stands on top of it.
+   On a phone the shared rule already steps the tags out over a reading section; the empty black bar steps out with them. */
+html body.cred-band a.fsi-tag{z-index:7!important;box-shadow:none}
+.bar.b{transition:opacity .5s,bottom .35s}
+@media (min-width:861px){body.cred-band:not(.at-door) .bar.b{bottom:38px}}
+/* the rail's caption gives way before the index drawer does: a long chapter name used to push the drawer off the right edge */
+.say{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:860px){body.cred-band .bar.b{opacity:0;pointer-events:none}}
 </style>
 </head>
 <body>

@@ -32,15 +32,34 @@ const sun=new THREE.DirectionalLight(new THREE.Color().setRGB(1,.7,.44),3);sun.p
 // ---- the banks: launches moored bow-in along Sadarghat at three depths, the terminal behind them, Keraniganj's low line across the water
 const box=new THREE.BoxGeometry(1,1,1),parts=[],lights=[],lparts=[];
 function part(x,y,z,sx,sy,sz,c,ry=0){parts.push([x,y,z,sx,sy,sz,c,ry])}
-function launch(x,z,len,c,ry=0,out=lparts,lit=false){const L=len,cy=Math.cos(ry),sy=Math.sin(ry),P=(lx,ly,lz,a,b,d,col)=>out.push([x+lx*cy+lz*sy,ly,z-lx*sy+lz*cy,a,b,d,col,ry]);
- P(0,1.4,0,11,4.2,L,c);P(0,4.4,-.02*L,10.8,2.4,L*.9,0xe9e4d6);P(0,6.9,-.05*L,10.8,2.4,L*.78,0xe4ddcb);P(0,9.3,-.18*L,10.4,2.3,L*.45,0xd9d2c0);
+// e is the end that faces the river: 0 for the far launches, which stay plain slabs in the haze; -1 or 1 for the near ones, built the way a Sadarghat launch is
+// (looked at: the Commons photographs "Sadarghat Launch 1 to 4"): every deck ends in a rounded gallery, the top deck is an awning on stanchions with the haze
+// showing through, the wheelhouse sits forward under its own oversailing roof, one funnel aft carries the owner's band, and a mast with a yard stands over it.
+const lcyl=[];
+function launch(x,z,len,c,ry=0,out=lparts,lit=false,e=0,rout=lcyl){const L=len,cy=Math.cos(ry),sy=Math.sin(ry),P=(lx,ly,lz,a,b,d,col)=>out.push([x+lx*cy+lz*sy,ly,z-lx*sy+lz*cy,a,b,d,col,ry]),
+  RD=(ly,lz,a,b,d,col)=>rout.push([x+lz*sy,ly,z+lz*cy,a,b,d,col,ry+(e<0?Math.PI:0)]);
+ P(0,1.4,0,11,4.2,L,c);P(0,4.4,-.02*L,10.8,2.4,L*.9,0xe9e4d6);P(0,6.9,-.05*L,10.8,2.4,L*.78,0xe4ddcb);
  P(0,3.45,-.02*L,11.1,.3,L*.9,0x2a2923);P(0,5.95,-.05*L,11.1,.3,L*.78,0x2a2923);P(0,8.35,-.18*L,10.7,.3,L*.45,0x2a2923);
- P(0,4.55,-.47*L-.06,10.2,1.5,.2,0x34332c);P(0,4,-.47*L-.14,10.2,.08,.1,0xe6e0d0);P(0,7.05,-.44*L-.06,10.2,1.5,.2,0x34332c);P(0,6.5,-.44*L-.14,10.2,.08,.1,0xe6e0d0);P(0,9.4,-.405*L-.06,9.8,1.4,.2,0x34332c);
- P(0,11.5,-.34*L,6.5,2.2,7,0xf0ece2);P(-2,13.4,.12*L,1.3,5,1.3,0x2b2a26);P(2,13.4,.12*L,1.3,5,1.3,0x2b2a26);
- // only the nearest launch is lit, one unbroken string along its middle deck (Anwar): a silhouette with lights is a launch
- for(let k=0;k<3;k++)for(let w=0;w<9;w++){const q=rnd()<.18;if(lit&&k===1)for(const h of[0,.046]){const lz=-L*.42+w*L*.0925+h*L;lights.push([x+5.35*cy+lz*sy,4.4+k*2.5,z-5.35*sy+lz*cy,ry])}}}
+ P(0,4.55,-.47*L-.06,10.2,1.5,.2,0x34332c);P(0,4,-.47*L-.14,10.2,.08,.1,0xe6e0d0);P(0,7.05,-.44*L-.06,10.2,1.5,.2,0x34332c);P(0,6.5,-.44*L-.14,10.2,.08,.1,0xe6e0d0);
+ if(!e){P(0,9.3,-.18*L,10.4,2.3,L*.45,0xd9d2c0);P(0,9.4,-.405*L-.06,9.8,1.4,.2,0x34332c);P(0,11.5,-.34*L,6.5,2.2,7,0xf0ece2);P(-2,13.4,.12*L,1.3,5,1.3,0x2b2a26);P(2,13.4,.12*L,1.3,5,1.3,0x2b2a26)}
+ else{const zc=-.18*L,hl=.225*L,zw=zc+hl*.5,zf=zc-hl*.62;
+  P(0,9.2,zc-.04*L,7,1.9,L*.22,0xd9d2c0);P(0,10.55,zc,10.9,.16,L*.47,0xe4ddcb);
+  for(let k=0;k<7;k++)for(const sx of[-5.15,5.15])P(sx,9.5,zc-hl+.5+k*(2*hl-1)/6,.14,2,.14,0xd9d2c0);
+  for(const sx of[-5.15,5.15])P(sx,9.05,zc,.08,.08,2*hl,0xd9d2c0);P(0,9.05,zc-e*hl,10.3,.08,.08,0xd9d2c0);
+  P(0,11.72,zw,5,2.1,4.6,0xf0ece2);P(0,12.84,zw,6.1,.14,5.9,0xd9d2c0);P(0,11.9,zw+2.33,4.2,.85,.06,0x34332c);
+  P(0,14.6,zw,.13,3.5,.13,0x2b2a26);P(0,15.35,zw,1.9,.08,.08,0x2b2a26);
+  P(0,12.4,zf,1.7,3.6,2.3,0x2b2a26);P(0,13.35,zf,1.78,.7,2.38,c);
+  P(0,.32,0,11.08,.75,L+.06,0x2a2923);
+  RD(1.4,e*L*.5,11,4.2,7.4,c);RD(.32,e*L*.5,11.08,.75,7.5,0x2a2923);
+  RD(4.4,-.02*L+e*.45*L,10.8,2.4,5.8,0xe9e4d6);RD(3.45,-.02*L+e*.45*L,11.1,.3,6.2,0x2a2923);
+  RD(6.9,-.05*L+e*.39*L,10.8,2.4,5,0xe4ddcb);RD(5.95,-.05*L+e*.39*L,11.1,.3,5.4,0x2a2923);
+  RD(8.35,zc+e*hl,10.7,.3,4.6,0x2a2923);RD(10.55,zc+e*hl,10.9,.16,4.8,0xe4ddcb)}
+ // only the nearest launch is lit, one string along its middle deck (Anwar): a silhouette with lights is a launch. The string is cabins, not a ruler:
+ // some are dark, a door stands taller than a window, a saloon is wider, and one cabin has a tube light where the rest have bulbs.
+ for(let k=0;k<3;k++)for(let w=0;w<9;w++){const q=rnd()<.18;if(lit&&k===1)for(const h of[0,.046]){const hv=Math.abs(Math.sin(w*12.9898+h*913.7+L)*43758.5453)%1;if(hv<.3)continue;
+  const lz=-L*.42+w*L*.0925+h*L;lights.push([x+5.35*cy+lz*sy,4.4+k*2.5-(hv>.86?.28:0),z-5.35*sy+lz*cy,ry,hv>.6?1.1+hv*1.3:.8+hv,hv>.86?1.5:.7+hv*.35,hv>.72&&hv<.8?1:0])}}}
 const HULLS=[0xd8d3c6,0x9d3b2e,0x2f4d6e,0x3e6b4c,0xc9b28a,0xe6e1d4];
-for(let i=0;i<16;i++)launch(-72-i*17.5,126,52+rnd()*14,HULLS[i%6],0,lparts,i===0);
+for(let i=0;i<16;i++)launch(-72-i*17.5,126,52+rnd()*14,HULLS[i%6],0,lparts,i===0,i<3?-1:0);
 for(let i=0;i<14;i++)launch(-430-i*21,132,56,HULLS[(i+3)%6]);
 for(let i=0;i<10;i++)launch(-900-i*26,136,60,HULLS[(i+1)%6]);
 for(let i=0;i<9;i++)launch(70+i*19,128,50+rnd()*10,HULLS[(i+2)%6]);
@@ -51,7 +70,18 @@ part(-60,.6,-200,1600,2.4,56,0x5e5645);
 function steps(x0,x1,zw,dir,top){for(let k=0;k<11;k++){const y=-.4+k*.24,z=zw+dir*(k*.75+.375);part((x0+x1)/2,y-.6+.12,z,x1-x0,1.2+.24,.75,y>-.3&&y<.5?0x55613e:0xa8a293)}
  part((x0+x1)/2,top/2-.3,zw+dir*(11*.75+5),x1-x0+12,top+.6,10,0xb1ab9c)}
 steps(-30,-8,101,1,2.4);steps(-74,-46,-166,-1,2.4);
-part(-44,3.9,117,16,3,8,0xa9a18f);part(-44,5.5,117,17,.25,9,0x2d3440);
+// the ghat terminal, where a box shed stood. Looked at before building: the Commons photographs "Sadarghat Launch Terminal, Dhaka" and "Port of Dhaka, Sadarghat
+// Launch Terminal". What the real one does: it grew in pieces of unequal height, tin verandahs on thin posts stand in front of it, and it sits on a piled deck.
+// So: a hall, a lower wing added later, a ticket office pushed out toward the steps (its east edge where the shed's was, so the low sun still slips past it),
+// a tin verandah with a gap in the rail for the gangway, the name on a board standing on the cornice, a black water tank, a pennant, and the solar rack on its own legs.
+part(-52,1.5,116,34,1.8,13,0x8f8877);for(const px of[-67.4,-62,-56.3,-51.2,-45.6,-41,-37.2])part(px,.2,110.1,.5,2.8,.5,0x3f3a30);
+part(-50,4.9,118,20,5,8,0xb9ab86);part(-64,4.1,118.6,8,3.4,6.8,0xaaa48e);part(-38,4.6,116.8,4,4.4,10.4,0xc0b490);
+part(-50,7.55,114.1,20.5,.34,.6,0xa59a7c);part(-38,6.9,116.6,4.9,.2,11.3,0x5f594c);part(-64,5.9,118.5,8.7,.18,7.5,0x5f594c);
+for(const px of[-60.2,-55.9,-50.1,-45.7,-41.3])part(px,3.42,109.95,.15,2.05,.15,0x2c2a25);
+part(-53.65,3.3,109.95,13.3,.07,.07,0x2c2a25);part(-53.65,2.9,109.95,13.3,.05,.05,0x2c2a25);part(-42.8,3.3,109.95,3,.07,.07,0x2c2a25);
+part(-37.3,8.6,112.4,.07,3.3,.07,0x2c2a25);part(-36.92,9.95,112.4,.7,.42,.03,0x9e2b25);part(-65,6.2,119.6,1.5,.42,1.5,0x8d8672);
+for(const[lx,lz,lh]of[[-41.8,115.3,3.1],[-41.8,121.5,3.1],[-50,115.3,1.6],[-50,121.5,1.6]])part(lx,7.4+lh/2,lz,.13,lh,.13,0x2c2a25);
+part(-54,8,113.95,.12,.5,.12,0x2c2a25);part(-46,8,113.95,.12,.5,.12,0x2c2a25);
 part(-60,4.3,-181,26,4.6,.6,0xe7e2d6);
 const PM=new THREE.MeshStandardMaterial({roughness:.85});
 const pm=new THREE.InstancedMesh(box,PM,parts.length);const M4=new THREE.Matrix4(),Q=new THREE.Quaternion(),V3=new THREE.Vector3(),SC=new THREE.Vector3(),C=new THREE.Color();
@@ -60,24 +90,73 @@ parts.forEach((p,i)=>{pm.setMatrixAt(i,M4.compose(V3.set(p[0],p[1],p[2]),Q.setFr
 const LM=PM.clone();LM.onBeforeCompile=sh=>{sh.fragmentShader=sh.fragmentShader.replace('#include <fog_fragment>',`#ifdef USE_FOG
  float lf=clamp(.6+.4*(1.-exp(-pow(fogDensity*vFogDepth*1.8,2.))),0.,.97);gl_FragColor.rgb=mix(gl_FragColor.rgb,fogColor*.93,lf);
 #endif`)};
-const lmesh=new THREE.InstancedMesh(box,LM,lparts.length);lparts.forEach((p,i)=>{lmesh.setMatrixAt(i,M4.compose(V3.set(p[0],p[1],p[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),p[7]),SC.set(p[3],p[4],p[5])));lmesh.setColorAt(i,C.setHex(p[6]))});S.add(lmesh);;
+const lmesh=new THREE.InstancedMesh(box,LM,lparts.length);lparts.forEach((p,i)=>{lmesh.setMatrixAt(i,M4.compose(V3.set(p[0],p[1],p[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),p[7]),SC.set(p[3],p[4],p[5])));lmesh.setColorAt(i,C.setHex(p[6]))});S.add(lmesh);
+const hcyl=new THREE.CylinderGeometry(.5,.5,1,20,1,false,-Math.PI/2,Math.PI),YA=new THREE.Vector3(0,1,0);
+const rounds=list=>{const m=new THREE.InstancedMesh(hcyl,LM,list.length);list.forEach((p,i)=>{m.setMatrixAt(i,M4.compose(V3.set(p[0],p[1],p[2]),Q.setFromAxisAngle(YA,p[7]),SC.set(p[3],p[4],p[5])));m.setColorAt(i,C.setHex(p[6]))});return m};
+S.add(rounds(lcyl));
 // Keraniganj's walls: one window grid painted once, stretched per building, soft enough in the haze
 const wc=document.createElement('canvas');wc.width=wc.height=256;{const g=wc.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,256,256);for(let r=0;r<6;r++)for(let c=0;c<5;c++)if(rnd()<.8){g.fillStyle=`rgba(40,38,32,${.5+rnd()*.3})`;g.fillRect(14+c*48,18+r*40,26,20)}g.fillStyle='rgba(40,38,32,.35)';g.fillRect(0,0,256,8)}
 const wT=new THREE.CanvasTexture(wc);wT.colorSpace=THREE.SRGBColorSpace;const bm=new THREE.InstancedMesh(box,new THREE.MeshStandardMaterial({map:wT,roughness:.9}),bparts.length);
 bparts.forEach((p,i)=>{bm.setMatrixAt(i,M4.compose(V3.set(p[0],p[1],p[2]),Q.identity(),SC.set(p[3],p[4],p[5])));bm.setColorAt(i,C.setHex(p[6]))});S.add(bm);
 const lm=new THREE.InstancedMesh(box,new THREE.MeshBasicMaterial({color:0xffffff}),lights.length);
-lights.forEach((l,i)=>{lm.setMatrixAt(i,M4.compose(V3.set(l[0],l[1],l[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),l[3]),SC.set(.2,.9,1.6)));lm.setColorAt(i,C.setRGB(2.2,1.45,.7))});S.add(lm);
+lights.forEach((l,i)=>{lm.setMatrixAt(i,M4.compose(V3.set(l[0],l[1],l[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),l[3]),SC.set(.2,l[5],l[4])));lm.setColorAt(i,l[6]?C.setRGB(1.5,1.8,1.55):C.setRGB(2.2,1.45,.7))});S.add(lm);
 // the solar roof tilts to the sun; bamboo poles at both ghats; wooden noukas moored at Keraniganj
-const solar=new THREE.Mesh(new THREE.BoxGeometry(16,.12,8.4),new THREE.MeshStandardMaterial({color:0x1d2632,roughness:.25,metalness:.4}));solar.position.set(-44,5.8,117);solar.rotation.z=.18;S.add(solar);
+const solar=new THREE.Mesh(new THREE.BoxGeometry(18.4,.12,7),new THREE.MeshStandardMaterial({color:0x1d2632,roughness:.25,metalness:.4}));solar.position.set(-50,9.05,118.4);solar.rotation.z=.18;S.add(solar);
+// the terminal's faces are painted once each. The east wall is the one the steps arrive at, and it is the wall of the second act seen from the river:
+// the fare list in its red line, the ticket window with a clerk in it, the green dado. Soot runs down from every roof line and damp climbs from the deck.
+{let s2=91;const rn=()=>(s2=(s2*16807)%2147483647)/2147483647;
+ const wallTex=(Wm,Hm,p,paint)=>{const c=document.createElement('canvas'),W=c.width=Math.round(Wm*p),H=c.height=Math.round(Hm*p),g=c.getContext('2d'),Y=m=>H-m*p;
+  g.fillStyle='#cdbf9b';g.fillRect(0,0,W,H);for(let i=0;i<Wm*Hm*4;i++){g.fillStyle=`rgba(${rn()<.5?'96,84,60':'238,230,208'},${rn()*.08})`;g.fillRect(rn()*W-40,rn()*H,20+rn()*170,6+rn()*44)}
+  g.fillStyle='#27493c';g.fillRect(0,Y(1.05),W,1.05*p);g.fillStyle='#8f2a23';g.fillRect(0,Y(1.16),W,.07*p);for(let i=0;i<Wm*9;i++){g.fillStyle=`rgba(205,191,155,${.25+rn()*.5})`;g.fillRect(rn()*W,Y(1.05)+rn()*1.05*p,3+rn()*16,2+rn()*8)}
+  paint(g,p,Y,W,H);
+  for(let i=0;i<Wm*4.5;i++){const x=rn()*W,l=(.3+rn()*rn()*2.8)*p,gr=g.createLinearGradient(0,0,0,l);gr.addColorStop(0,`rgba(28,30,22,${.22+rn()*.34})`);gr.addColorStop(1,'rgba(28,30,22,0)');g.fillStyle=gr;g.fillRect(x,0,2+rn()*10,l)}
+  const dg=g.createLinearGradient(0,H,0,Y(.75));dg.addColorStop(0,'rgba(16,20,12,.78)');dg.addColorStop(1,'rgba(16,20,12,0)');g.fillStyle=dg;g.fillRect(0,Y(.75),W,.75*p);
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t};
+ const face=(t,w,hh,x,y,z,ry)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,hh),new THREE.MeshStandardMaterial({map:t,roughness:.92,emissive:0xffffff,emissiveMap:t,emissiveIntensity:.17}));m.position.set(x,y,z);m.rotation.y=ry;S.add(m)};
+ const door=(g,p,Y,x,w,hh,col)=>{g.fillStyle='#b5a987';g.fillRect((x-.08)*p,Y(hh+.12),(w+.16)*p,.12*p);g.fillStyle=col;g.fillRect(x*p,Y(hh),w*p,hh*p);g.fillStyle='rgba(0,0,0,.34)';for(let k=1;k<w/.19;k++)g.fillRect((x+k*.19)*p,Y(hh),2,hh*p)};
+ const shut=(g,p,Y,x,y,w,hh,open)=>{g.fillStyle='#17140f';g.fillRect(x*p,Y(y+hh),w*p,hh*p);g.fillStyle='#355f4e';g.fillRect(x*p,Y(y+hh),w*p*(open?.5:1),hh*p);g.fillStyle='rgba(0,0,0,.3)';for(let k=1;k<hh/.11;k++)g.fillRect(x*p,Y(y+k*.11),w*p*(open?.5:1),1.5);g.fillStyle='#b5a987';g.fillRect((x-.06)*p,Y(y),(w+.12)*p,.07*p)};
+ // east wall: door from the steps, the fare list, a handbill, the ticket window under its tin hood, a meter box and its conduit, brick where the plaster has gone
+ face(wallTex(10.4,4.4,100,(g,p,Y,W)=>{door(g,p,Y,.95,1.05,2.2,'#2f5a49');g.fillStyle='#16130e';g.fillRect(1.82*p,Y(2.2),.18*p,2.2*p);
+  const fx=2.8*p,fy=Y(3.4),fw=2.5*p,fh=2.05*p;g.fillStyle='#efe8d6';g.fillRect(fx,fy,fw,fh);g.strokeStyle='#9e2b25';g.lineWidth=7;g.strokeRect(fx+9,fy+9,fw-18,fh-18);g.strokeStyle='#0f2a24';g.lineWidth=1.5;g.strokeRect(fx+19,fy+19,fw-38,fh-38);
+  g.fillStyle='#0f2a24';g.font="400 46px 'Tanker'";g.fillText('FARES',fx+30,fy+68);g.fillStyle='#9e2b25';g.font="400 26px 'Tiro Bangla'";g.fillText('ভাড়ার তালিকা',fx+32,fy+100);
+  for(let k=0;k<4;k++){g.fillStyle='#0f2a24';g.fillRect(fx+32,fy+126+k*18,62+((k*37)%52),7);g.fillStyle='#9e2b25';g.fillRect(fx+fw-76,fy+125+k*18,38,9)}
+  g.fillStyle='#9e2b25';g.beginPath();g.arc(fx+fw-62,fy+70,30,0,7);g.fill();g.fillStyle='#efe8d6';g.font="400 26px 'Tanker'";g.fillText('20',fx+fw-76,fy+80);
+  g.save();g.translate(5.5*p,Y(2.15));g.rotate(.03);g.fillStyle='#e6cf8c';g.fillRect(0,0,.42*p,.6*p);g.fillStyle='rgba(40,30,10,.5)';for(let k=0;k<6;k++)g.fillRect(5,8+k*8,30-k%3*6,2);g.restore();
+  g.fillStyle='#b5a987';g.fillRect(6.12*p,Y(1.16),1.76*p,.1*p);g.fillStyle='#14110c';g.fillRect(6.2*p,Y(2.4),1.6*p,1.24*p);
+  g.fillStyle='#4a514c';g.beginPath();g.moveTo(6.02*p,Y(2.52));g.lineTo(7.98*p,Y(2.52));g.lineTo(7.9*p,Y(2.86));g.lineTo(6.1*p,Y(2.86));g.fill();g.fillStyle='rgba(122,58,26,.6)';for(let k=0;k<7;k++)g.fillRect((6.1+rn()*1.8)*p,Y(2.86),2+rn()*4,(.1+rn()*.24)*p);
+  g.fillStyle='#9e2b25';g.font="400 30px 'Tiro Bangla'";g.fillText('টিকিট',6.62*p,Y(3.0));
+  g.fillStyle='#2b2f2c';g.fillRect(8.5*p,Y(2.5),.36*p,.5*p);g.fillRect(8.66*p,Y(4.4),.04*p,1.9*p);
+  g.fillStyle='#7a4630';g.fillRect(9.1*p,Y(1.9),1.3*p,.85*p);g.fillStyle='rgba(40,22,14,.55)';for(let k=0;k<9;k++){g.fillRect(9.1*p,Y(1.9)+k*.094*p,1.3*p,1.5);for(let b=0;b<6;b++)g.fillRect((9.1+b*.23+(k%2)*.115)*p,Y(1.9)+k*.094*p,1.5,.094*p)}
+ }),10.4,4.4,-35.97,4.6,116.8,Math.PI/2);
+ // the river face of the hall, under the verandah: no two openings alike
+ face(wallTex(20,5,64,(g,p,Y)=>{g.fillStyle='#14110c';g.fillRect(.8*p,Y(2.9),2.8*p,2.9*p);g.fillStyle='#6f736b';g.fillRect(.8*p,Y(2.9),2.8*p,1.3*p);g.fillStyle='rgba(0,0,0,.3)';for(let k=0;k<13;k++)g.fillRect(.8*p,Y(2.9)+k*.1*p,2.8*p,1.5);
+  shut(g,p,Y,5,1,1.1,1.3,true);g.fillStyle='#14110c';g.beginPath();g.moveTo(7.4*p,Y(0));g.lineTo(7.4*p,Y(2.2));g.arc(8.5*p,Y(2.2),1.1*p,Math.PI,0);g.lineTo(9.6*p,Y(0));g.fill();
+  shut(g,p,Y,11,1,1.15,1.3,false);g.fillStyle='#14110c';g.fillRect(13.5*p,Y(2.7),3.5*p,2.7*p);for(let k=0;k<9;k++){g.fillStyle=k%2?'#d9d0b6':'#9e2b25';g.fillRect((13.4+k*.41)*p,Y(3.25),.41*p,.55*p)}
+  g.fillStyle='#2b2f2c';g.fillRect(18.2*p,Y(3.6),1*p,.5*p);g.fillStyle='rgba(205,191,155,.7)';for(let k=1;k<5;k++)g.fillRect(18.2*p,Y(3.6)+k*.1*p,1*p,1.5)}),20,5,-50,4.9,113.97,Math.PI);
+ // the ticket office's river face: a grilled window and the lifebuoy every ghat hangs up; the wing: two doors that were never the same width
+ face(wallTex(4,4.4,64,(g,p,Y)=>{shut(g,p,Y,.5,1.2,1.2,1.2,false);g.lineWidth=.13*p;g.strokeStyle='#e9e2cf';g.beginPath();g.arc(2.95*p,Y(1.9),.36*p,0,7);g.stroke();g.strokeStyle='#b3261a';for(let k=0;k<4;k++){g.beginPath();g.arc(2.95*p,Y(1.9),.36*p,k*1.571+.2,k*1.571+.75);g.stroke()}}),4,4.4,-38,4.6,111.57,Math.PI);
+ face(wallTex(8,3.4,64,(g,p,Y)=>{door(g,p,Y,1,1.4,2.2,'#5b3a28');door(g,p,Y,4.6,.9,2.05,'#2f5a49');shut(g,p,Y,6.3,1.2,.9,.9,false)}),8,3.4,-64,4.1,115.17,Math.PI);
+ // the name board: enamel blue and cream, the same blue as the fare board on our rail, rust weeping from its bolts
+ const sc=document.createElement('canvas');sc.width=1040;sc.height=136;{const g=sc.getContext('2d');g.fillStyle='#234a78';g.fillRect(0,0,1040,136);g.strokeStyle='#e9e2cf';g.lineWidth=5;g.strokeRect(9,9,1022,118);
+  g.fillStyle='#f1ead6';g.textBaseline='middle';g.font="400 90px 'Tiro Bangla'";g.fillText('সদরঘাট',40,72);g.font="400 86px 'Tanker'";g.fillText('NOUKA',408,74);g.font="700 23px 'Supreme'";g.fillText('SADARGHAT · KERANIGANJ',668,72);
+  for(let i=0;i<16;i++){const x=rn()*1040,l=20+rn()*90,gr=g.createLinearGradient(0,0,0,l);gr.addColorStop(0,`rgba(122,58,26,${.3+rn()*.4})`);gr.addColorStop(1,'rgba(122,58,26,0)');g.fillStyle=gr;g.fillRect(x,0,2+rn()*5,l)}}
+ const st=new THREE.CanvasTexture(sc);st.colorSpace=THREE.SRGBColorSpace;st.anisotropy=8;
+ const sign=new THREE.Mesh(new THREE.PlaneGeometry(13,1.7),new THREE.MeshStandardMaterial({map:st,roughness:.5,emissive:0xffffff,emissiveMap:st,emissiveIntensity:.2,side:THREE.DoubleSide}));sign.position.set(-50,9.1,113.95);sign.rotation.y=Math.PI;S.add(sign);
+ // the tin verandah, the water tank, and the ticket window: one bulb inside, the clerk against it, bars across
+ const tin=new THREE.Mesh(new THREE.BoxGeometry(21,.1,4.5),new THREE.MeshStandardMaterial({color:0x39403d,roughness:.55,metalness:.3}));tin.position.set(-50.6,5.05,111.85);tin.rotation.x=.25;S.add(tin);
+ const tank=new THREE.Mesh(new THREE.CylinderGeometry(.78,.78,1.55,16),new THREE.MeshStandardMaterial({color:0x15161a,roughness:.5}));tank.position.set(-65,7.19,119.6);S.add(tank);
+ const kc=document.createElement('canvas');kc.width=160;kc.height=124;{const g=kc.getContext('2d'),gr=g.createRadialGradient(104,30,4,90,60,120);gr.addColorStop(0,'#ffe2a6');gr.addColorStop(.3,'#f0a850');gr.addColorStop(1,'#6a3c16');g.fillStyle=gr;g.fillRect(0,0,160,124);
+  g.fillStyle='#1b140c';g.beginPath();g.arc(58,66,17,0,7);g.fill();g.beginPath();g.ellipse(58,128,36,50,0,0,7);g.fill();g.fillStyle='#17140f';for(let k=1;k<8;k++)g.fillRect(k*20-2,0,4,124);g.fillRect(0,58,160,4)}
+ const kt=new THREE.CanvasTexture(kc);kt.colorSpace=THREE.SRGBColorSpace;const tw0=new THREE.Mesh(new THREE.PlaneGeometry(1.6,1.24),new THREE.MeshBasicMaterial({map:kt,color:new THREE.Color().setRGB(1.3,1.1,.9)}));tw0.position.set(-35.95,4.18,115);tw0.rotation.y=Math.PI/2;S.add(tw0)}
 const bam=new THREE.MeshStandardMaterial({color:0x8a7a52,roughness:.7});
 for(const[x,z,h,l]of[[-6,99.5,5.2,.05],[-33,100,4.4,-.08],[-40,-163.5,4.8,.06],[-80,-162.5,5,-.05]]){const b=new THREE.Mesh(new THREE.CylinderGeometry(.045,.06,h,10),bam);b.position.set(x,h/2-.8,z);b.rotation.z=l;S.add(b)}
 const wood=new THREE.MeshStandardMaterial({color:0x3a2c1e,roughness:.8});
 for(const[x,z,r]of[[-86,-160,.2],[-96,-158,-.1],[-36,-160.5,.05]]){const g=new THREE.Mesh(new THREE.CylinderGeometry(.9,.9,9,16,1,false,0,Math.PI),wood);g.rotation.set(0,r,Math.PI/2);g.scale.set(1,1,.45);g.position.set(x,.25,z);S.add(g)}
 // the drifter: one launch that pulls out while you watch, and sounds its horn
-const dparts=[],l0=lights.length;launch(0,0,58,0x9d3b2e,Math.PI/2,dparts,true);const dl=lights.splice(l0);const drift=new THREE.InstancedMesh(box,LM,dparts.length);
+const dparts=[],dcyl=[],l0=lights.length;launch(0,0,58,0x9d3b2e,Math.PI/2,dparts,true,1,dcyl);const dl=lights.splice(l0);const drift=new THREE.InstancedMesh(box,LM,dparts.length);
 dparts.forEach((p,i)=>{drift.setMatrixAt(i,M4.compose(V3.set(p[0],p[1],p[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),p[7]),SC.set(p[3],p[4],p[5])));drift.setColorAt(i,C.setHex(p[6]))});S.add(drift);drift.position.set(-230,0,70);
 // the drifter is the launch in view, so it carries the one string of lit windows, fixed to it as it pulls out
-const dlm=new THREE.InstancedMesh(box,lm.material,dl.length);dl.forEach((l,i)=>{dlm.setMatrixAt(i,M4.compose(V3.set(l[0],l[1],l[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),l[3]),SC.set(.2,.9,1.6)));dlm.setColorAt(i,C.setRGB(2.2,1.45,.7))});drift.add(dlm);
+const dlm=new THREE.InstancedMesh(box,lm.material,dl.length);dl.forEach((l,i)=>{dlm.setMatrixAt(i,M4.compose(V3.set(l[0],l[1],l[2]),Q.setFromAxisAngle(new THREE.Vector3(0,1,0),l[3]),SC.set(.2,l[5],l[4])));dlm.setColorAt(i,l[6]?C.setRGB(1.5,1.8,1.55):C.setRGB(2.2,1.45,.7))});drift.add(dlm);drift.add(rounds(dcyl));
 // the timetable painted on the Keraniganj ghat wall, Bangla above English
 const tw=document.createElement('canvas');tw.width=2048;tw.height=380;{const g=tw.getContext('2d');g.fillStyle='#ece7da';g.fillRect(0,0,2048,380);
  for(let i=0;i<900;i++){g.fillStyle=`rgba(90,80,60,${rnd()*.06})`;g.fillRect(rnd()*2048,rnd()*380,rnd()*40,rnd()*6)}
@@ -136,24 +215,33 @@ const nameT=new THREE.CanvasTexture(nc);
 const refRT=new THREE.WebGLRenderTarget(8,8,{type:THREE.HalfFloatType});const mcam=new THREE.PerspectiveCamera();
 const slots=[...Array(12)].map(()=>new THREE.Vector4(0,0,-99,0));let slotI=0;
 const WU={uRef:{value:refRT.texture},uName:{value:nameT},uR:{value:new THREE.Vector2()},uCam:{value:new THREE.Vector3()},uSun:{value:SUN},uFog:{value:HAZE},uT:{value:0},uNA:{value:0},uFD:{value:.0046},uPV0:{value:PV0},uS:{value:slots},uOil:{value:new THREE.Vector2(-19,100.5)}};
-const water=new THREE.Mesh(new THREE.PlaneGeometry(4000,4000),new THREE.ShaderMaterial({uniforms:WU,fog:false,
+// P45, after looking at the Commons photographs "Buriganga and waves" and "Boat on the Buriganga": the river is matte and full of silt, its surface a short wind chop
+// with no two crests alike, and nothing reflects in it as a picture, only as a smear dragged toward you. So the swell is halved, the chop is three octaves of noise
+// (each faded out before a crest gets smaller than a pixel, and what fades is kept as roughness), the mirror is read seven times along the smear, and the body is silt.
+const water=new THREE.Mesh(new THREE.PlaneGeometry(4000,4000),new THREE.ShaderMaterial({uniforms:WU,fog:false,extensions:{derivatives:true},
  vertexShader:`varying vec3 vW;void main(){vW=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*viewMatrix*vec4(vW,1.);}`,
  fragmentShader:`uniform sampler2D uRef,uName;uniform vec2 uR,uOil;uniform vec3 uCam,uSun,uFog;uniform float uT,uNA,uFD;uniform mat4 uPV0;uniform vec4 uS[12];varying vec3 vW;
  float hs(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
  float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hs(i),hs(i+vec2(1,0)),f.x),mix(hs(i+vec2(0,1)),hs(i+vec2(1,1)),f.x),f.y);}
- float wk(vec2 p){float h=0.;for(int i=0;i<12;i++){vec4 s=uS[i];float a=uT-s.z;if(a<0.||a>5.)continue;float r=length(p-s.xy),x=r-1.6*a-.3;h+=s.w*exp(-a*.75)*sin(x*3.6)*exp(-x*x*.9)/(1.+r*.35);}return h;}
+ vec3 vnd(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f),du=6.*f*(1.-f);float a=hs(i),b=hs(i+vec2(1,0)),c=hs(i+vec2(0,1)),e=hs(i+vec2(1,1));return vec3(a+(b-a)*u.x+(c-a)*u.y+(a-b-c+e)*u.x*u.y,du*(vec2(b-a,c-a)+(a-b-c+e)*u.yx));}
+ float wk(vec2 p){float h=0.;for(int i=0;i<12;i++){vec4 s=uS[i];float a=uT-s.z;if(a<0.||a>5.)continue;float r=length(p-s.xy),x=r-1.6*a-.3;h+=s.w*.42*exp(-a*.75)*sin(x*6.4)*exp(-x*x*1.5)/(1.+r*.35);}return h;}
  float fm(vec2 p){float q=0.;for(int i=0;i<12;i++){vec4 s=uS[i];float a=uT-s.z;if(a<0.||a>4.)continue;float r=length(p-s.xy);q+=s.w*(1.-a/4.)*(exp(-pow(r-1.6*a-.3,2.)*5.)*.6+exp(-r*r*.8)*(1.-a/1.5)*step(a,1.5));}return q;}
  void main(){vec2 p=vW.xz;float d=length(uCam-vW);
-  vec2 g=vec2(0.);for(int i=0;i<5;i++){float fi=float(i),a=fi*1.9+.3;vec2 k=vec2(cos(a),sin(a))*(1.3+fi*1.1);g+=k*cos(dot(p,k)+uT*(1.1+fi*.55)+fi*2.)*(.028/(1.+fi*.7));}
-  g*=1./(1.+d*.035);float e=.06,h0=wk(p);g+=vec2(wk(p+vec2(e,0.))-h0,wk(p+vec2(0.,e))-h0)/e;
-  vec3 N=normalize(vec3(-g.x,1.,-g.y)),V=normalize(vW-uCam);float F=.02+.98*pow(1.-max(dot(-V,N),0.),5.);
-  vec2 su=gl_FragCoord.xy/uR;vec3 ref=texture2D(uRef,vec2(su.x,1.-su.y)+vec2(N.x,N.z)*.07/(1.+d*.03)).rgb;
+  vec2 g=vec2(0.);for(int i=0;i<5;i++){float fi=float(i),a=fi*1.9+.3;vec2 k=vec2(cos(a),sin(a))*(1.3+fi*1.1);g+=k*cos(dot(p,k)+uT*(1.1+fi*.55)+fi*2.)*(.013/(1.+fi*.7));}
+  g*=1./(1.+d*.035);float e=.04,h0=wk(p);g+=vec2(wk(p+vec2(e,0.))-h0,wk(p+vec2(0.,e))-h0)/e;
+  float fw=max(length(dFdx(p)),length(dFdy(p))),rough=0.,fr=2.1,am=.062;mat2 ro=mat2(.8,.6,-.6,.8);vec2 q2=p;
+  for(int i=0;i<3;i++){q2=ro*q2;float keep=1.-smoothstep(.12,.42,fw*fr*2.2);vec3 n=vnd(q2*fr*vec2(1.,1.8)+vec2(uT*(.34+float(i)*.21),-uT*.13*float(i)));
+   vec2 dn=n.yz*vec2(1.,1.8);for(int k=0;k<=i;k++)dn=dn*ro;g+=dn*am*keep;rough+=am*(1.-keep);fr*=2.3;am*=.8;}
+  vec3 N=normalize(vec3(-g.x,1.,-g.y)),V=normalize(vW-uCam);float F=(.02+.98*pow(1.-max(dot(-V,N),0.),5.))*.64;
+  vec2 su=gl_FragCoord.xy/uR,rc=vec2(su.x,1.-su.y),off=vec2(N.x*.05,N.z*.13)/(1.+d*.03);float sp=.018+rough*.5,jt=hs(gl_FragCoord.xy*.731+3.1);
+  vec3 ref=vec3(0.);for(int i=0;i<7;i++){float k=(float(i)+jt)/7.-.5;ref+=texture2D(uRef,rc+off+vec2(k*sp*.22*(jt-.5),k*sp)).rgb;}ref/=7.;
   vec3 Tr=refract(V,normalize(vec3(-g.x*.35,1.,-g.y*.35)),.75);vec3 q=vW+Tr*(-.3/min(Tr.y,-.08));vec4 c0=uPV0*vec4(q,1.);vec2 nu=c0.xy/c0.w*.5+.5;float nm=0.;
   if(c0.w>0.&&nu.x>0.&&nu.x<1.&&nu.y>0.&&nu.y<1.)nm=texture2D(uName,nu).r;
-  vec3 body=vec3(.095,.092,.05)+vec3(.06,.052,.028)*smoothstep(0.,.3,dot(-V,uSun));
+  float silt=vn(p*.06+vec2(uT*.012,0.))*.6+vn(p*.29+3.7)*.4;
+  vec3 body=mix(vec3(.118,.108,.066),vec3(.2,.172,.112),silt)+vec3(.06,.052,.028)*smoothstep(0.,.3,dot(-V,uSun));body*=1.+clamp(dot(N.xz,normalize(uSun.xz)),-.4,.4)*1.5;
   body=mix(body,vec3(.93,.88,.74),nm*uNA*.8);
   vec3 col=mix(body,ref,F*(1.-nm*uNA*.75));
-  vec3 H=normalize(uSun-V);col+=vec3(1.,.7,.42)*pow(max(dot(N,H),0.),420.)*16.;
+  vec3 H=normalize(uSun-V);float fa=clamp(rough/.1,0.,1.);col+=vec3(1.,.7,.42)*pow(max(dot(N,H),0.),mix(420.,70.,fa))*mix(16.,1.1,fa);
   col+=vec3(.9,.88,.8)*min(fm(p),1.)*.6;
   float oil=smoothstep(9.,2.,length(p-uOil))*smoothstep(.5,.8,vn(p*.3+uT*.03));col+=col*oil*.25*(.5+.5*cos(6.2832*(vn(p*1.4)*2.+vec3(0.,.33,.67))));
   col=mix(col,uFog,1.-exp(-pow(d*uFD,2.)));gl_FragColor=vec4(col,1.);}`}));
@@ -186,7 +274,7 @@ function reflect(){cam.getWorldPosition(Cp);cam.getWorldDirection(Fw);U.set(0,1,
 let ac=null,master=null,sndOn=false,lap=null;const sndB=document.getElementById('snd');
 sndB.onclick=()=>{if(!ac){try{ac=new AudioContext();master=ac.createGain();master.connect(ac.destination);const b=ac.createBuffer(1,ac.sampleRate*4,ac.sampleRate),d=b.getChannelData(0);let y=0;for(let i=0;i<d.length;i++){y=y*.97+(Math.random()*2-1)*.03;d[i]=y*3}
  const s=ac.createBufferSource();s.buffer=b;s.loop=true;const bp=ac.createBiquadFilter();bp.type='bandpass';bp.frequency.value=520;bp.Q.value=.8;lap=ac.createGain();lap.gain.value=.25;s.connect(bp);bp.connect(lap);lap.connect(master);s.start()}catch(e){return}}
- sndOn=!sndOn;ac.resume();master.gain.value=sndOn?1:0;sndB.textContent='Sound · '+(sndOn?'on':'off')};
+ sndOn=!sndOn;ac.resume();master.gain.cancelScheduledValues(ac.currentTime);master.gain.value=sndOn?1:0;sndB.textContent='Sound · '+(sndOn?'on':'off')};
 function horn(){if(!sndOn)return;const t=ac.currentTime,g=ac.createGain(),lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;g.connect(master);lp.connect(g);
  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.25);g.gain.setValueAtTime(.16,t+1.9);g.gain.linearRampToValueAtTime(0,t+2.6);
  for(const fr of[98,123.5,196]){const o=ac.createOscillator();o.type='sawtooth';o.frequency.value=fr;o.connect(lp);o.start(t);o.stop(t+2.7)}}
@@ -208,9 +296,11 @@ cv.addEventListener('pointercancel',()=>drawing=null);
 // ---- the frame
 const drv=document.getElementById('drv'),ov=document.getElementById('ov'),sub=document.getElementById('sub'),scrim=document.getElementById('scrim'),beats=[...document.querySelectorAll('.beat')];
 const bow=new THREE.Vector3(),lastBow=new THREE.Vector3(1e9,0,0);let sp=0,horned=false,rippled=false;const t0=performance.now();let last=t0;
-window.__nk={cam,boat,route:()=>route,slots,WU,get u(){return u}};const SPQ=QS.has('sp')?+QS.get('sp'):null;
+window.__nk={cam,boat,route:()=>route,slots,WU,get u(){return u},get t(){return (performance.now()-t0)/1000}};
+// ashore: past the river the sound button has nothing to switch, and on a phone it sat across the fare prices. It listens to the scroll itself, never to the render loop, so a slow frame cannot leave it showing.
+let ashore=false;const shore=()=>{const a=scrollY>drv.offsetHeight-innerHeight+6;if(a!==ashore){ashore=a;document.body.classList.toggle('ashore',a);if(master)master.gain.setTargetAtTime(!a&&sndOn?1:0,ac.currentTime,.3)}};addEventListener('scroll',shore,{passive:true});shore();const SPQ=QS.has('sp')?+QS.get('sp'):null;
 function emit(x,z,t,w){slots[slotI].set(x,z,t,w);slotI=(slotI+1)%12}
-function frame(now){requestAnimationFrame(frame);const dt=Math.min(.05,(now-last)/1000);last=now;const t=(now-t0)/1000;
+function frame(now){requestAnimationFrame(frame);const dt=Math.max(0,Math.min(.05,(now-last)/1000));last=now;const t=Math.max(0,(now-t0)/1000);
  sp=Math.max(0,Math.min(1,scrollY/Math.max(1,drv.offsetHeight-innerHeight)));if(SPQ!==null)sp=SPQ;if(scrollY>drv.offsetHeight+innerHeight*.2)return;
  const us=Math.max(0,Math.min(1,(sp-route.s0)/Math.max(.001,1-route.s0)));if(route.auto<route.autoEnd)route.auto=Math.min(route.autoEnd,route.auto+dt*2.6/route.len);
  const tgt=Math.max(us,route.auto),maxStep=dt*14/route.len;u+=Math.max(-maxStep,Math.min(maxStep,(tgt-u)*Math.min(1,dt*1.8)));if(SPQ!==null)u=us;
