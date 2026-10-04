@@ -129,7 +129,7 @@ function canvasTex(w,h,draw,srgb=true,rep=[1,1]){const c=document.createElement(
 const oak=canvasTex(1024,512,(g,w,h)=>{g.fillStyle='#2b1c12';g.fillRect(0,0,w,h);for(let i=0;i<220;i++){g.strokeStyle=`rgba(${rnd()<.5?14:96},${rnd()<.5?8:62},${rnd()<.5?4:36},${.07+rnd()*.13})`;g.lineWidth=1+rnd()*3;const y=rnd()*h;g.beginPath();g.moveTo(0,y);g.bezierCurveTo(w*.3,y+rnd()*16-8,w*.7,y+rnd()*16-8,w,y+rnd()*10-5);g.stroke()}},true,[2,2]);
 const desk=new THREE.Mesh(new THREE.PlaneGeometry(260,180),new THREE.MeshStandardMaterial({map:oak,roughness:.62}));desk.rotation.x=-Math.PI/2;desk.receiveShadow=true;S.add(desk);
 // linen: a plain weave with slubs, its own threads catching the window
-const weave=(g,w,h,col)=>{g.fillStyle=col?'#857662':'#808080';g.fillRect(0,0,w,h);const v=()=>col?`rgba(${rnd()<.5?'96,84,66':'250,244,232'},${.05+rnd()*.07})`:`rgba(${rnd()<.5?'0,0,0':'255,255,255'},${.1+rnd()*.14})`;
+const weave=(g,w,h,col)=>{g.fillStyle=col?'#6b5d4a':'#808080';g.fillRect(0,0,w,h);const v=()=>col?`rgba(${rnd()<.5?'96,84,66':'250,244,232'},${.05+rnd()*.07})`:`rgba(${rnd()<.5?'0,0,0':'255,255,255'},${.1+rnd()*.14})`;
  for(let y=0;y<h;y+=2){g.fillStyle=v();g.fillRect(0,y,w,1+rnd()*.6)}for(let x=0;x<w;x+=2){g.fillStyle=v();g.fillRect(x,0,1+rnd()*.6,h)}
  for(let i=0;i<90;i++){g.fillStyle=col?'rgba(150,132,106,.12)':'rgba(255,255,255,.28)';g.fillRect(rnd()*w,rnd()*h,14+rnd()*50,1.3)}};   
 const linC=canvasTex(1024,1024,(g,w,h)=>weave(g,w,h,true),true,[11,8]),linB=canvasTex(1024,1024,(g,w,h)=>weave(g,w,h,false),false,[11,8]);
@@ -143,7 +143,7 @@ const win=canvasTex(512,512,(g,w,h)=>{g.fillStyle='#000';g.fillRect(0,0,w,h);g.f
  g.fillStyle='rgba(0,0,0,.82)';g.fillRect(w*WIN.bar-w*.012,0,w*.024,h);g.fillRect(0,h*(1-WIN.rail)-h*.012,w,h*.024);g.filter='none'},true);
 win.wrapS=win.wrapT=THREE.ClampToEdgeWrapping;
 const sun=new THREE.SpotLight(0xffdfb8,SUN,0,.5,.5,1.2);sun.map=win;sun.position.set(-70,33,-34);sun.target.position.set(4,0,3);S.add(sun.target);sun.castShadow=true;sun.shadow.mapSize.set(phone?1024:2048,phone?1024:2048);
-Object.assign(sun.shadow.camera,{near:30,far:190});sun.shadow.bias=-.0022;sun.shadow.normalBias=0;sun.shadow.radius=1.6;S.add(sun);
+Object.assign(sun.shadow.camera,{near:30,far:190});sun.shadow.bias=-.0034;sun.shadow.normalBias=.06;sun.shadow.radius=2.4;S.add(sun);
 // the room behind the reader is wood and plaster, so what fills the shadows is warm: umber, not grey
 S.add(new THREE.HemisphereLight(0xe4d8c6,0x6a4a2c,.7));   // warm, but pale enough that a page in the shade stays paper and does not turn the linen's tan
 const warm=new THREE.DirectionalLight(0xffc89a,.22);warm.position.set(40,25,30);S.add(warm);

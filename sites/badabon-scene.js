@@ -56,13 +56,13 @@ function layout(){pose(rest,0,0);const ST=2.7,pxm=phone?60:80,W=Math.round((TX.x
  const hx=(TX.x1-TX.x0)/2,cxW=(TX.x0+TX.x1)/2,hz=(TX.zN-TX.zF)/2,czW=(TX.zN+TX.zF)/2;
  uPV.value.set(1/hx,0,0,-cxW/hx, 0,0,-1/hz,czW/hz, 0,0,0,0, 0,0,0,1);
  const px=x=>(x-TX.x0)*pxm,pz=z=>(z-TX.zF)/(TX.zN-TX.zF)*Hh;
- const B=phone?[[-16.5,.72],[-12.2,.6],[-9.6,.52]]:[[-20,1],[-14.6,.85],[-9.2,.66]];let zPrev=-1e9;
+ const B=phone?[[-16.5,.72],[-12.2,.6],[-9.6,.52]]:[[-17.4,.9],[-12.6,.74],[-8.6,.6]];let zPrev=-1e9;
  txG.textBaseline='alphabetic';
- blocks.forEach((b,i)=>{const em=B[i][1],z0=Math.max(B[i][0],zPrev+em*ST*.74+.6),fs=em*pxm,rowZ=em*ST*1.02,hw=halfW(z0+1.4)*.86,maxW=(phone?2*hw:1.3*hw)*pxm;
+ blocks.forEach((b,i)=>{const sk=phone?1:[1.35,1,1][i],em=B[i][1],z0=Math.max(B[i][0],zPrev+em*ST*sk*.74+.6),fs=em*pxm,rowZ=em*ST*sk*1.02,hw=halfW(z0+1.4)*.86,maxW=(phone?2*hw:(i?1.75:1.3)*hw)*pxm;
   txG.font=`400 ${fs}px Stardom, Georgia, serif`;txG.fillStyle=['#f00','#0f0','#00f'][i];const ls=wrap(b.h,maxW);let z=z0,x0=1e9,x1=-1e9;
-  ls.forEach(l=>{const w=txG.measureText(l).width,x=phone?px(-hw):(b.r?px(hw)-w:px(i===0?-.12*hw:-hw));txG.fillText(l,x,pz(z));x0=Math.min(x0,x);x1=Math.max(x1,x+w);z+=rowZ});
+  ls.forEach(l=>{const w=txG.measureText(l).width,x=phone?px(-hw):(b.r?px(hw)-w:px(i===0?-.12*hw:-hw));txG.save();txG.translate(x,pz(z));txG.scale(1,sk);txG.fillText(l,0,0);txG.restore();x0=Math.min(x0,x);x1=Math.max(x1,x+w);z+=rowZ});
   uRx0.value.setComponent(i,x0/W);uRx1.value.setComponent(i,x1/W);
-  zPrev=z-rowZ+em*.3;rows.push({zF:z0-em*ST*.74,zN:zPrev,xc:TX.x0+(x0+x1)/2/pxm})});
+  zPrev=z-rowZ+em*.3;rows.push({zF:z0-em*ST*sk*.74,zN:zPrev,xc:TX.x0+(x0+x1)/2/pxm})});
  // written into silt by a stick, not printed: the edges break up
  txG.globalCompositeOperation='destination-out';for(let i=0;i<W*Hh/260;i++){txG.globalAlpha=.25+rnd()*.6;txG.beginPath();txG.arc(rnd()*W,rnd()*Hh,.5+rnd()*1.7,0,6.283);txG.fill()}
  txG.globalCompositeOperation='source-over';txG.globalAlpha=1;txT.needsUpdate=true;inkData=txG.getImageData(0,0,W,Hh)}
@@ -93,16 +93,16 @@ float caus(vec2 p,float t){p*=2.1;float v=0.;for(int i=0;i<3;i++){float k=float(
   vec4 pc_=uPV*vec4(vW,1.);vec2 su_=pc_.xy/pc_.w*.5+.5;
   vec4 tx_=(pc_.w>0.&&su_.x>0.&&su_.x<1.&&su_.y>0.&&su_.y<1.)?texture2D(uText,su_):vec4(0.);float ink=tx_.a;
   float sw_=dot(step(vec3(.5),tx_.rgb),mix(uRx0-.03,uRx1+.03,uRev));float swm_=smoothstep(su_.x-.012,su_.x+.012,sw_);ink*=swm_;
-  float inkF=texture2D(uText,su_+vec2(0.,.0035)).a*swm_,lip_=clamp(inkF-ink,0.,1.); // the stick throws up a lip on one side of each stroke: its shadow is what says pressed, not printed
+  float inkF=texture2D(uText,su_+vec2(0.,.0035)).a*swm_,lip_=clamp(inkF-ink,0.,1.);float lit_=clamp(texture2D(uText,su_-vec2(0.,.0035)).a*swm_-ink,0.,1.); // the stick throws up a lip on one side of each stroke: its shadow is what says pressed, not printed
   float dep=uL-vW.y,wn_=fract(sin(dot(floor(vW.xz*9.),vec2(12.9898,78.233)))*43758.5453),wet=smoothstep(-.3-.15*wn_,.02,dep);
   float n_=sin(vW.x*1.7+sin(vW.z*1.3))*sin(vW.z*2.1+sin(vW.x*.8))*.5+.5;
   diffuseColor.rgb*=.82+.36*n_;
   ink*=1.-smoothstep(0.,.1,uL-vW.y); // once the tide is over a line it is gone, no ghost under the water
-  diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.72,.66,.55),ink*.94);diffuseColor.rgb*=1.-.6*lip_;
+  diffuseColor.rgb*=1.-.62*ink;diffuseColor.rgb*=1.-.5*lip_;diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.78,.7,.58),lit_*.9);
   diffuseColor.rgb*=mix(1.,.6,wet*(1.-ink*.4));`)
  .replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n roughnessFactor=mix(roughnessFactor,.66,smoothstep(-.28,0.,dep)*(1.-smoothstep(0.,.04,dep))*(.45+.55*wn_))+ink*.04;')
  .replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
-  totalEmissiveRadiance+=vec3(.92,.8,.7)*ink*.36*(1.-smoothstep(-.02,.3,dep)); // wet silt in a fresh scratch catches the dusk sky
+  totalEmissiveRadiance+=vec3(.92,.8,.7)*(ink*.05+lit_*.62)*(1.-smoothstep(-.02,.3,dep)); // wet silt in a fresh scratch catches the dusk sky
   {float far_=smoothstep(-4.,-30.,vW.z),rip_=.5+.5*sin(vW.x*1.7+sin(vW.z*1.3))*sin(vW.z*2.1+sin(vW.x*.8));float sheen=(.25+.75*wet)*far_*(.35+.65*rip_)*(1.-smoothstep(0.,.05,dep));
    totalEmissiveRadiance+=vec3(.36,.27,.5)*sheen*.085;} // the flat is wet: at a low angle it returns the violet sky, strongest far off and at the water's edge
   if(dep>0.){vec3 dl_=vW-uLamp;float att=uLampI/(1.+dot(dl_,dl_)*.35);totalEmissiveRadiance+=vec3(1.,.6,.28)*caus(vW.xz,uT)*att*.012*smoothstep(0.,.2,dep)*exp(-dep*1.4);}`)};
