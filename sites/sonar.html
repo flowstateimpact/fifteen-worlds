@@ -19,6 +19,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /share:p46 -->
+<link rel="preload" href="../fonts/zodiak-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../img/sonar-gold.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="../fonts/fonts.css">
 <style>
 :root{--g:#e6c066;--ink:#0b0908;--cr:#efe6d4}
@@ -33,12 +35,6 @@ html,body{background:var(--ink);color:var(--cr);font-family:'Satoshi',system-ui,
 .cap{position:absolute;left:28px;bottom:48px;max-width:380px;font-size:16px;line-height:1.6;color:rgba(239,230,212,.72)}
 .cap h2{font:400 italic clamp(30px,3vw,48px)/1.05 'Zodiak',serif;color:var(--cr);margin-bottom:12px}
 .cap.r{left:auto;right:28px;text-align:right}
-.photo{position:relative;height:110vh;background:#000 url(../img/sonar-gold.webp) center/cover no-repeat;z-index:2}
-.photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0b0908 0%,rgba(11,9,8,0) 18%,rgba(11,9,8,0) 70%,#0b0908 100%);pointer-events:none}
-.photo .txt{position:absolute;right:5vw;top:24vh;max-width:520px;z-index:3}
-.photo h2{font:400 clamp(48px,6.4vw,112px)/.9 'Zodiak',serif;letter-spacing:-.03em}
-.photo h2 i{color:var(--g)}
-.photo p{margin-top:22px;font-size:17px;line-height:1.6;color:rgba(239,230,212,.78);max-width:420px}
 .coll{position:relative;z-index:2;background:var(--ink);padding:14vh 28px 10vh}
 .coll h3{font:500 12px 'Satoshi';letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:5vh}
 .piece{display:grid;grid-template-columns:3em 1fr auto auto;gap:3vw;align-items:baseline;padding:3vh 0;border-top:1px solid rgba(230,192,102,.25);cursor:pointer}
@@ -64,7 +60,6 @@ html a.fsi-tag,
 html a.fsi-tag > b{font-size:14px}
 html div.scr > div.cap,
 html div.scr > div.cap.r,
-html div.txt > p,
 html section.foot > p{font-size:18px}
 }
 @media (max-width:699px){
@@ -130,18 +125,26 @@ body.at-door .stick .size span{opacity:0!important}
 @media (max-width:860px){.marks{padding:96px 58px 9vh 20px}.mk-w{margin:0 -58px 0 -20px;overflow-x:auto}.mk-f{margin:0;width:250vw}.mk-l{margin:6px 0 0;width:250vw}.mk-l span{font-size:16px}.mk-b{grid-template-columns:1fr;gap:22px}}
 </style>
 <style id="p44">@media (max-width:860px){.scr .cap{padding-right:64px}.mk-w{position:relative;scroll-snap-type:x proximity}.mk-w::after{content:"Slide for all five \2192";position:sticky;left:0;display:block;width:100vw;box-sizing:border-box;padding:10px 20px 0;font:500 12px/1 Satoshi,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(230,192,102,.85)}}</style>
+<link rel="stylesheet" href="sonar-direction-first.css">
 </head>
-<body>
+<body class="on-sheet">
 <canvas id="gl" aria-label="A goldsmith's bench under one lamp: a gold band on a steel mandrel. Click to strike it with the planishing hammer."></canvas>
-<button id="snd" data-hud>Sound · off</button><span id="cnt" class="sr" aria-live="polite">0</span>
+<button id="snd" data-hud aria-pressed="false">Sound · off</button><span id="cnt" class="sr" aria-live="polite">0</span>
 <div class="bar"><span>Sonar · Goldsmiths</span><span>Hatton Garden, London</span></div>
 <nav class="stick" id="stick" aria-label="Chapters"><div class="rod"><i class="band" aria-hidden="true"></i><ol></ol></div><button type="button" class="ixb" aria-label="Open the index"></button></nav>
+<header id="first" aria-labelledby="first-line">
+ <h1 class="nm" aria-label="Sonar"><span aria-hidden="true">S</span><span aria-hidden="true">o</span><span aria-hidden="true">n</span><span aria-hidden="true">a</span><span aria-hidden="true">r</span></h1>
+ <figure class="pad"><img src="../img/sonar-gold.webp" width="2048" height="1152" alt="" fetchpriority="high" decoding="async"><b class="bn" lang="bn">সোনা</b></figure>
+ <div class="ko" aria-hidden="true"><div class="nm"><span>S</span><span>o</span><span>n</span><span>a</span><span>r</span></div></div>
+ <div class="txt"><h2 class="line" id="first-line"><span>The band that took</span> <i>four thousand</i> <span>strikes.</span></h2>
+ <p class="sub">Each piece carries the leopard's head, the mark struck on London gold since 1300, and our own small mark beside it.</p></div>
+</header>
 <div id="drv">
+<div class="tally" aria-hidden="true"><div><b id="tal">0000</b><span>/ 4000</span></div></div>
 <div class="scr"><div class="cap"><h2>Gold, by hand, in London.</h2>Four thousand strikes to a band. <span class="verb">Click</span> for one, hold for more, scroll to turn.</div></div>
 <div class="scr"><div class="cap r"><h2>Hammered, never cast.</h2>Every band is raised from a strip of 22 carat gold with a planishing hammer. About four thousand strikes. No two rings take the light the same way.</div></div>
 <div class="scr"><div class="cap"><h2>সোনা, sona. Gold.</h2>Our name is the first line of a song every Bangladeshi child can sing: amar sonar Bangla, my golden Bengal. Three generations of our family made gold in Dhaka before we made it here.</div></div>
 </div>
-<section class="photo chap" id="band"><div class="txt sda"><h2>The band that took <i>four thousand</i> strikes.</h2><p>Each piece carries the leopard's head, the mark struck on London gold since 1300, and our own small mark beside it.</p></div></section>
 <section class="coll chap" id="coll"><h3>The collection · made to order in six weeks</h3>
  <div class="piece"><em>01</em><b>Sona band</b><span>22ct · hammered</span><strong>£1,450</strong><i class="hm sda" aria-hidden="true">916</i></div>
  <div class="piece"><em>02</em><b>Nokshi signet</b><span>22ct · hand-engraved</span><strong>£2,900</strong><i class="hm sda" aria-hidden="true">916</i></div>
@@ -150,12 +153,12 @@ body.at-door .stick .size span{opacity:0!important}
 <section class="marks" id="marks"></section>
 <section class="foot chap" id="appt"><h2>By<br>appointment.</h2><p>Hatton Garden, London EC1<br>Tuesday to Saturday<br>Bring your grandmother's gold. We will listen first.</p></section>
 <section class="door chap" id="door"></section>
-<script type="application/json" id="chapters">[{"n":"H","t":"Gold, by hand, in London","at":0},{"n":"J","t":"Hammered, never cast","at":0.5},{"n":"L","t":"সোনা, sona. Gold.","at":1},{"n":"N","t":"Four thousand strikes","el":"#band"},{"n":"P","t":"The collection","el":"#coll"},{"n":"R","t":"By appointment","el":"#appt"},{"n":"T","t":"Next world","el":"#door"}]</script>
+<script type="application/json" id="chapters">[{"n":"H","t":"Four thousand strikes","el":"#first"},{"n":"J","t":"Gold, by hand, in London","at":0},{"n":"L","t":"Hammered, never cast","at":0.5},{"n":"N","t":"সোনা, sona. Gold.","at":1},{"n":"P","t":"The collection","el":"#coll"},{"n":"R","t":"By appointment","el":"#appt"},{"n":"T","t":"Next world","el":"#door"}]</script>
 <a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
 <script>if(matchMedia("(pointer:coarse)").matches)document.querySelectorAll(".verb").forEach(e=>e.textContent="Tap")</script>
-<script type="module" src="sonar-scene.js"></script>
-<script type="module" src="sonar-marks.js"></script>
-<script type="module" src="sonar-nav.js"></script>
+<script type="module" src="sonar-direction-scene.js"></script>
+<script type="module" src="sonar-direction-marks.js"></script>
+<script type="module" src="sonar-direction-nav.js"></script>
 </body>
 </html>

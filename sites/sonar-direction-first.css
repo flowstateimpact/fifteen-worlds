@@ -1,0 +1,115 @@
+/* sonar-direction-first.css · Sonar, direction copy: the whole page. (The file kept its first name; it began as the first screen only.)
+   ONE IDEA: the page is the goldsmith's own paper. Cream ground, ink, and one flat gold. The only black anywhere is the jeweller's velvet
+   in the one photograph. Nothing glows; nothing imitates a photograph. The bench scene is an engraving, the hallmark plate is printed
+   in the same two inks, the collection is the order book, and gold floods the page once, at the appointment.
+   MOTION LANGUAGE: STRUCK, THEN STILL. Things land in under a tenth of a second, take a two or three pixel recoil, and then nothing moves.
+   Measured from Zodiak 400 capitals: SONAR inks 3.6em wide at -.02em tracking, starts .071em in, cap top .155em down, cap height .71em. */
+:root{--m:20px;--fs:calc((100vw - 2*var(--m))/3.6);--top:clamp(56px,7.4vh,72px);
+ --ix-bg:#efe6d4;--ix-fg:#0b0908;--ix-acc:#0b0908;--door-bg:#efe6d4}
+html,body{background:var(--cr);color:var(--ink)}
+#drv{position:relative}
+
+/* ---------- the first screen: a printed sheet over the bench ---------- */
+#first{--pt:round(calc(var(--top) + var(--fs)*.71*.62),1px);--pw:round(50vw,1px);
+ position:relative;z-index:3;height:100vh;height:100svh;min-height:560px;overflow:hidden;overflow:clip;background:var(--cr);color:var(--ink);scroll-snap-align:start;cursor:default}
+#first .nm{position:absolute;left:calc(var(--m) - var(--fs)*.071);top:calc(var(--top) - var(--fs)*.155);margin:0;font:400 var(--fs)/1 'Zodiak',serif;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
+#first .nm span{display:inline-block}
+#first .pad{position:absolute;left:0;top:var(--pt);width:var(--pw);bottom:0;margin:0;overflow:hidden;background:#070707}
+#first .pad img{position:absolute;display:block;max-width:none;width:142vw;height:auto;left:calc(50% - 142vw*.2427);top:calc(58% - 142vw*.5625*.622)}
+/* the root of the name, set on the velvet beside the thing it names */
+#first .pad .bn{position:absolute;right:30px;bottom:26px;color:var(--cr);font:400 clamp(34px,3.4vw,56px)/1 'Tiro Bangla',serif}
+#first .ko{position:absolute;inset:0;color:var(--cr);pointer-events:none;clip-path:inset(var(--pt) calc(100% - var(--pw)) 0 0)}
+#first .txt{position:absolute;left:55vw;right:118px;top:calc(var(--top) + var(--fs)*.71 + clamp(44px,10.5vh,112px))}
+#first .line{margin:0;font:400 clamp(36px,4vw,72px)/1.02 'Zodiak',serif;letter-spacing:-.02em;white-space:nowrap}
+#first .line span,#first .line i{display:block}
+#first .line i{font-style:italic}
+#first .sub{margin:clamp(20px,3.2vh,34px) 0 0;max-width:27em;font:400 18px/1.55 'Satoshi',system-ui,sans-serif}
+
+/* ---------- the bench's fixed tools, re-inked for paper: they are on every screen, the first included ---------- */
+/* the name bar passes over the velvet as the sheet lifts, so it flips like the name does: ink on paper, paper on velvet */
+.bar{color:var(--ink);pointer-events:none;transition:opacity .3s}
+/* it steps out while the order book or the hallmark plate is passing under it, so it never prints across a row */
+body.bar-out .bar{opacity:0}
+body.on-sheet .bar{color:#e4ddcc;mix-blend-mode:difference}
+html button#snd{color:var(--ink);background:rgba(239,230,212,.88);border:1px solid rgba(11,9,8,.6)}
+#snd[aria-pressed="true"]{background:var(--ink);color:var(--cr)}
+#snd:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.rod::before{background:var(--ink)}
+.rod button::before{background:var(--cr);box-shadow:none}
+.ixb{background:var(--ink);box-shadow:none}
+.ixb:focus-visible,.rod button:focus-visible{outline-color:var(--ink)}
+.band{background:var(--g);box-shadow:0 0 0 1px var(--ink)}
+.stick .size b,.stick .size span{color:var(--ink);text-shadow:none}
+/* the size letter rides a small tab of paper, so it stays readable where the rod crosses the drawing */
+.stick .size b,.stick .size span{display:table;margin-left:auto;background:var(--cr);padding:1px 6px 2px;margin-right:-6px}
+body.at-door .stick .size b{background:none}
+@media (min-width:701px){.stick{top:max(56vh,calc(var(--top) + var(--fs)*.71 + 170px))}}
+
+/* ---------- the engraving, its three captions and the tally ---------- */
+.cap,.cap h2{color:var(--ink);text-shadow:none}
+/* each caption rides its own slip of the same paper, so it stays readable while it passes over the drawing */
+.cap{left:10px;bottom:32px;max-width:436px;padding:16px 18px;background:var(--cr)}
+.cap.r{left:auto;right:10px}
+.tally{position:sticky;top:0;height:0;z-index:1;pointer-events:none}
+.tally div{position:absolute;left:28px;top:clamp(64px,9vh,92px);color:var(--ink)}
+.tally b{display:block;font:400 clamp(64px,8.4vw,150px)/.82 'Zodiak',serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums lining-nums}
+.tally span{display:block;margin-top:12px;font:400 18px/1 'Satoshi',system-ui,sans-serif}
+
+/* ---------- the collection: the order book. No pictures of the pieces exist, so none are pretended. ---------- */
+.coll{background:var(--cr);color:var(--ink)}
+.coll h3{color:var(--ink);font:400 italic clamp(24px,2.4vw,38px)/1.1 'Zodiak',serif;letter-spacing:0;text-transform:none;margin-bottom:6vh}
+html section.coll > h3{font-size:clamp(24px,2.4vw,38px)}
+.piece{border-top:1px solid rgba(11,9,8,.32);padding:4.3vh 0}
+.piece:last-child{border-bottom:1px solid rgba(11,9,8,.32)}
+.piece:hover b{color:var(--ink)}
+.piece em{opacity:.62}.piece span{opacity:.72}
+html div.piece > em,html div.piece > span{font-size:14px}
+/* the fineness punch, printed: an ink octagon with the gold left standing */
+.hm{color:var(--ink);text-shadow:none;background:var(--ink)}
+.hm::before{background:var(--g);box-shadow:none}
+@keyframes punch{0%,70%{opacity:0;transform:scale(1.9)}72%{opacity:1;transform:scale(1.9)}100%{opacity:1;transform:none}}
+
+/* ---------- the hallmark plate, printed in the same two inks ---------- */
+.marks{background:var(--cr);color:var(--ink)}
+.mk-h .k{color:var(--ink);letter-spacing:.16em}
+.mk-f .mk,.mk-f .mg{fill:var(--g)}
+.mk-f .mn{font:500 18px 'Satoshi',sans-serif;fill:var(--ink);opacity:1}
+.mk-l li::before{border-left:1px solid rgba(11,9,8,.55)}
+.mk-l b{color:var(--ink);font-size:14px}
+.mk-b{border-top:1px solid rgba(11,9,8,.32)}
+.mk-b h3{color:var(--ink);font-style:italic}
+
+/* ---------- by appointment: the one flood of gold ---------- */
+.foot{padding-right:118px}
+
+/* ---------- the door: struck in, with no flash ---------- */
+.door-a{filter:none}
+
+/* ---------- a phone, or any screen taller than it is wide ---------- */
+@media (max-width:760px),(max-aspect-ratio:6/5){
+ :root{--m:10px;--top:54px}
+ #first{--pt:round(calc(var(--top) + var(--fs)*.71*.5),1px);--pw:100vw;--ph:round(min(92vw,43svh),1px)}
+ #first .pad{bottom:auto;height:var(--ph)}
+ #first .pad img{width:323vw;left:calc(50% - 323vw*.2427);top:calc(56% - 323vw*.5625*.622)}
+ #first .pad .bn{right:18px;bottom:16px;font-size:30px}
+ #first .ko{clip-path:inset(var(--pt) 0 calc(100% - var(--pt) - var(--ph)) 0)}
+ #first .txt{left:20px;right:20px;top:calc(var(--pt) + var(--ph) + 26px)}
+ #first .line{font-size:clamp(30px,9.2vw,48px)}
+ #first .sub{margin-top:16px;margin-right:44px;font-size:16px;line-height:1.5}
+ .bar{padding:16px 14px;letter-spacing:.05em;gap:12px;white-space:nowrap}
+ .scr .cap,.scr .cap.r{left:8px;right:8px;bottom:72px;max-width:none;padding:14px 70px 14px 20px;text-align:left}
+ .tally div{left:20px;top:56px}
+ .tally span{font-size:16px}
+ .mk-w::after{font-size:14px!important;color:var(--ink)!important}
+ html body.cred-band a.fsi-tag{font-size:14px!important}
+}
+
+/* load: the name is marked out faint, then struck in, letter by letter, in a goldsmith's uneven rhythm; the picture recoils with each blow */
+@media (prefers-reduced-motion:no-preference){
+ #first .nm span{animation:struck .08s cubic-bezier(.6,0,1,.5) both}
+ #first .nm span:nth-child(1){animation-delay:.34s}#first .nm span:nth-child(2){animation-delay:.56s}#first .nm span:nth-child(3){animation-delay:.74s}
+ #first .nm span:nth-child(4){animation-delay:1s}#first .nm span:nth-child(5){animation-delay:1.18s}
+ @keyframes struck{from{opacity:.13;transform:translateY(-.018em)}to{opacity:1;transform:none}}
+ #first .pad img{animation:recoil 1.5s linear both}
+ @keyframes recoil{0%,27%{translate:0 0}28.5%{translate:0 2px}36%{translate:0 0}42%{translate:0 0}43.5%{translate:0 2px}51%{translate:0 0}54%{translate:0 0}55.5%{translate:0 2px}63%{translate:0 0}71%{translate:0 0}72.5%{translate:0 2px}80%{translate:0 0}83%{translate:0 0}84.5%{translate:0 2.5px}100%{translate:0 0}}
+}
