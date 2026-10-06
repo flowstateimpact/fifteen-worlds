@@ -97,9 +97,9 @@ function drawName(){nameC.width=1024;nameC.height=Math.round(1024*H/W);const g=n
  g.clearRect(0,0,w,h);g.save();g.translate(cx,0);g.scale(-1,1);g.translate(-cx,0);g.font=`400 ${fs}px 'Tiro Bangla'`;g.textAlign='center';g.lineJoin='round';g.lineWidth=fs*.06;g.strokeStyle='#f1e4c8';g.strokeText('বর্ষা',cx,cy);g.fillStyle='#d9892b';g.fillText('বর্ষা',cx,cy);g.restore();
  g.globalCompositeOperation='destination-out';for(let i=0;i<500;i++){g.fillStyle=`rgba(0,0,0,${.3+rnd()*.7})`;g.fillRect(cx-fs*1.4+rnd()*fs*2.8,cy-fs*1.1+rnd()*fs*1.4,1+rnd()*4,1+rnd()*2)}g.globalCompositeOperation='source-over';if(typeof nT!=='undefined'){nT.dispose();nT.needsUpdate=true}}
 const nT=tex(nameC);nT.generateMipmaps=false;nT.minFilter=THREE.LinearFilter;
-const paneM=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,uniforms:{tS:{value:rt.texture},tD:{value:rt.depthTexture},tM:{value:mT},tO:{value:oT},tDr:{value:dT},tN:{value:nT},uRes:{value:new THREE.Vector2()},uB:{value:new THREE.Vector2(.5,.7)},uWarm:{value:0},uT:{value:0},uNF:{value:new THREE.Vector2(cam.near,cam.far)},uAsp:{value:1}},
+const paneM=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,uniforms:{tS:{value:rt.texture},tD:{value:rt.depthTexture},tM:{value:mT},tO:{value:oT},tDr:{value:dT},tN:{value:nT},uRes:{value:new THREE.Vector2()},uB:{value:new THREE.Vector2(.5,.7)},uWarm:{value:0},uT:{value:0},uNF:{value:new THREE.Vector2(cam.near,cam.far)},uAsp:{value:1},uRide:{value:0}},
  vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
- fragmentShader:`uniform sampler2D tS,tD,tM,tO,tDr,tN;uniform vec2 uRes,uB,uNF;uniform float uWarm,uT,uAsp;varying vec2 vUv;
+ fragmentShader:`uniform sampler2D tS,tD,tM,tO,tDr,tN;uniform vec2 uRes,uB,uNF;uniform float uWarm,uT,uAsp,uRide;varying vec2 vUv;
  float lin(float d){return uNF.x*uNF.y/(uNF.y-d*(uNF.y-uNF.x));}
  float hh(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
  vec3 tap(vec2 uv,float lod){float r=exp2(lod)*1.25/uRes.y,a0=hh(gl_FragCoord.xy)*6.2832;vec3 c=textureLod(tS,uv,lod).rgb*.08;float wsum=.08;
@@ -113,10 +113,11 @@ const paneM=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,uniforms:
   vec3 sharp=tap(s+off,coc*.9);vec3 foggy=tap(s+off*.5,5.2);
   float bd=length((s-uB)*vec2(uAsp,1.));float halo=exp(-bd*bd*9.)*uWarm,core=exp(-bd*bd*140.)*uWarm;
   vec3 veil=vec3(.62,.44,.28)*(.035+.5*halo+1.4*core)+vec3(.12,.13,.14)*.12;
-  vec4 pn=texture2D(tN,vUv);vec3 paint=pn.rgb*(.06+.9*halo+.25)*vec3(1.,.9,.8);
+  vec2 nu=vec2(vUv.x,vUv.y-uRide);vec4 pn=texture2D(tN,nu);pn.a*=step(0.,nu.y);   // the name is paint on the glass: it rides up with the pane and leaves with the first screen, it never stands behind a later wipe
+  vec3 paint=pn.rgb*(.06+.9*halo+.25)*vec3(1.,.9,.8);
   vec3 clear=mix(sharp,paint,pn.a*.92);
   vec3 fogged=mix(foggy*.5,paint*.3,pn.a*.12)+veil;
-  vec3 c=mix(clear,fogged,f);
+  float thin=1.-clr;vec3 c=mix(clear,fogged,f)-vec3(.62,.44,.28)*(.5*halo+1.4*core)*f*(1.-thin*thin)*exp(-bd*bd*60.)*smoothstep(.35,1.,uRide);   // below the first screen a thinned patch of fog scatters far less of the lamp than it holds of the grey: the bloom lives in the water. Only close to the lamp (the tight exp), so a smear elsewhere keeps the street glow and a row crossing the lamp keeps its ground
   vec3 N3=normalize(vec3(n,sqrt(max(.03,1.-dot(n,n)))));vec3 lens=mix(tap(s-n*vec2(.03/uAsp,.03),1.2)*1.25,foggy*.6+veil,f*.45);lens*=1.-.35*smoothstep(.6,1.,length(n));
   vec2 ld=normalize(vec2(uB.x-s.x,uB.y-s.y)+1e-4);lens+=vec3(1.,.8,.55)*pow(max(dot(N3,normalize(vec3(ld*.7,.6))),0.),28.)*(.4+uWarm);
   c=mix(c,lens,cov*(.55+.45*f));
@@ -201,7 +202,7 @@ const CLEAR=QS.has('clear'),FOGX=QS.has('late')?40:1;let fogAcc=0;let frames=0,s
 const t0=performance.now();let lastT=t0;const BP=new THREE.Vector3();
 function frame(now){requestAnimationFrame(frame);frames++;const B=window.__bs;
  // P71 trial: the street keeps drawing behind the whole pane. Below the first screen it idles at a third of the frame rate, full rate while the page moves, and stops where the wall covers it.
- if(B.off||scrollY>innerHeight*1.05&&frames%3&&now-(B.mv||0)>320)return;const dt=Math.min(.05,(now-lastT)/1000);lastT=now;const t=(now-t0)/1000;
+ if(B.off||scrollY>innerHeight*1.05&&frames%3&&now-(B.mv||0)>320)return;const dt=Math.min(.05,(now-lastT)/1000);lastT=now;const t=(now-t0)/1000;paneM.uniforms.uRide.value=Math.max(0,scrollY/innerHeight);
  cam.position.set(Math.sin(t*.53)*.0016,1.05+Math.sin(t*.9+1)*.0013,0);cam.rotation.set(PITCH+Math.sin(t*.41)*.0012,Math.sin(t*.33)*.0015,0);cam.updateMatrixWorld();
  pane.position.copy(cam.position).add(V.set(0,0,PZ).applyQuaternion(cam.quaternion));pane.quaternion.copy(cam.quaternion);
  const warm=sm(2.6,7,t)*(1+Math.sin(t*23)*.012*Math.sin(t*1.7));bulbL.intensity=2.4*warm;bulbM.color.setRGB(40*warm,24*warm,9*warm);paneM.uniforms.uWarm.value=warm;

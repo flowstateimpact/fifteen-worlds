@@ -322,21 +322,23 @@ function mark(S,now){const py=y+scrollY;if(!lm){lm={x:X(y),py,bp:py};return}
  else if(py<lm.py)lm.bp=py;
  lm.x=X(y);lm.py=py}
 // one pass of a thumb over a block of words: a band for each line or so, a firm pass and a wider faint one, the ends and the edge never the same twice
-function thumb(c,K,q,sy,a0,a1){const nb=Math.max(1,Math.round(q.h/50)),bh=q.h/nb;
+// With v it is a lower wipe: the fog is thinned TO v and never past it (lighten, so passes never add up on a slow phone), and the stroke lands only as its own blurred shadow, so the edge mists instead of cutting.
+function thumb(c,K,q,sy,a0,a1,v){const nb=Math.max(1,Math.round(q.h/50)),bh=q.h/nb,far=v?c.canvas.width*3:0;if(v){c.save();c.globalCompositeOperation="lighten";c.shadowOffsetX=far}
  for(let k=0;k<nb;k++)for(let p=0;p<2;p++){const s=q.i*13+k*5+p,x1=q.l-6-hash(s)*10,x2=q.l+q.w+4+hash(s+1)*14,n=Math.max(2,Math.round((x2-x1)/46)),cy=q.t-sy+bh*(k+.5)+(p?bh*.12:0);
-  c.strokeStyle=`rgba(255,255,255,${p?a1:a0})`;c.lineWidth=(p?bh+16:bh*.92+4)*K;c.beginPath();
-  for(let j=0;j<=n;j++){const x=x1+(x2-x1)*j/n,yy=cy+(hash(s+j*3.1)-.5)*bh*.16-(j/n-.5)*bh*.1;j?c.lineTo(x*K,yy*K):c.moveTo(x*K,yy*K)}c.stroke()}}
+  if(v){const g=Math.round(255*v*(p?.42:1));c.strokeStyle=c.shadowColor=`rgb(${g},${g},${g})`;c.shadowBlur=bh*(p?.55:.3)*K}else c.strokeStyle=`rgba(255,255,255,${p?a1:a0})`;c.lineWidth=(p?bh+16:bh*.92+4)*K;c.beginPath();
+  for(let j=0;j<=n;j++){const x=x1+(x2-x1)*j/n,yy=cy+(hash(s+j*3.1)-.5)*bh*.16-(j/n-.5)*bh*.1;j?c.lineTo(x*K-far,yy*K):c.moveTo(x*K-far,yy*K)}c.stroke()}if(v)c.restore()}
 // the water the thumb pushed gathers along the lower edge of the stroke
 function edge(q,sy,a){if(a<=0)return;const n=Math.round(q.w/12);for(let j=0;j<n;j++){const h1=hash(q.i*9+j*1.7);if(h1>.5)continue;bead(q.l+q.w*j/n+hash(q.i+j)*7,q.t-sy+q.h+7+hash(q.i*3+j)*7,.8+h1*4.2,a)}}
 // every quarter second, against the kettle. A wipe is less fog, never more paint: the fog is cleared where the words are, a firm pass and a faint wider one,
 // so the street stands sharp and lit behind them. Nothing is wiped along the sill: the fog gathers there, and the marks of the pools stand in it with no backing.
+const WV=.34;   // how far a lower wipe thins the fog: about a third clear once the pane has read it
 function tend(k){const S=window.__bs;if(!ready||!S||!S.mx||!pr||S.off||document.hidden)return;k=k||.36;
  const c=S.mx,K=c.canvas.width/W,sy=scrollY;c.save();c.globalCompositeOperation='source-over';c.globalAlpha=1;c.lineCap=c.lineJoin='round';
  words=(phone?[$('.hero .wipe')]:[$('.hero .top'),$('.hero .wipe')]).filter(Boolean).map((e,i)=>{const b=e.getBoundingClientRect();return{l:b.left,t:b.top+sy,w:b.width,h:b.height,i}}).filter(q=>q.w>0);
  if(pd&&!gone)stamp(c,K,pr.tw,k>.5?.9:.24);   // the price is held: the keeper goes over it when it mists
  c.beginPath();c.rect(0,0,c.canvas.width,(cutY-8)*K);c.clip();
  for(const q of words){const t=q.t-sy;if(t<cutY&&t+q.h>0)thumb(c,K,q,sy,k,k>.5?.3:.03)}
- for(const q of wipes){const t=q.t-sy;if(t<cutY&&t+q.h>0)thumb(c,K,q,sy,k>.5?.4:.03,k>.5?.14:.012)}   // lower down a thumb only thins the fog: a smear that mists back, the street glowing through it, never a hole onto the night
+ for(const q of wipes){const t=q.t-sy;if(t<cutY&&t+q.h>0)thumb(c,K,q,sy,0,0,WV)}   // lower down a thumb only thins the fog: a smear that mists back, the street glowing through it, never a hole onto the night
  c.restore()}
 setInterval(()=>tend(),250);
 
