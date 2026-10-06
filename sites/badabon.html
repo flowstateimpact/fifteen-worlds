@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Badabon · A lodge in the Sundarbans</title>
@@ -144,9 +144,200 @@ body.at-door .bar,body.at-door .bar a{color:var(--dfg);border-color:currentColor
 .kt-t .gh{margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(236,230,214,.5);font-size:17px;line-height:1.5}.kt-t .gh b{color:#d8f36a;font-weight:400}
 @media (max-width:860px){.kitc{grid-template-columns:1fr;gap:30px;padding:96px 16px 9vh calc(6px + 34vh * .1818 + 18px)}.kt-f{margin-right:-16px;overflow-x:auto}.kt-f svg{width:290vw;max-width:none}}
 </style>
+<style id="uplift">
+/* P64 trial: the standard of the studio's own site brought to Badabon, the way the Eleven trial did it, in Badabon's own terms.
+   Who Badabon is: a host who says a rule once and then goes quiet. It sits low, on the veranda boards, looking down at the mud.
+   It leaves most of the frame empty, the way the forest floor is empty at low water, and it measures everything against the tide staff.
+   So the one idea of this lift: the staff is the page's margin and the water level is its baseline. The name stands on the 0 ft mark
+   and the tide takes it first; the captions rise in the same place; the gauge reading is held on the bottom line the whole way up.
+   Colour, by painted area: 60 night mud (#050607), 30 tide violet (#15132b to #2a2552), 10 kerosene amber (#f2b35a), which now
+   marks only what you act on and what the water does. Phone layout (760 and under) is left as it is and gains only the grain and the grounds. */
+:root{--m:clamp(20px,3.2vw,60px);--lab:clamp(14px,.94vw,18px);--bh:clamp(48px,3.1vw,60px);--base:calc(34px + 2.6vh);
+ --sh:min(520px,58vh);--sw:calc(var(--sh)*.1818);--rm:calc(var(--m) + var(--sw)*.74 + clamp(28px,2.6vw,52px));--d0:calc(9vh + var(--sh)*.1074);
+ --h1:clamp(96px,min(12.6vw,30vh),248px);--p:clamp(18px,1.12vw,21.5px)}
+/* silt: one grain over the whole frame, drawn a little longer across than down, because everything here is seen through water that carries sediment */
+.grn{position:fixed;inset:0;z-index:7;pointer-events:none;opacity:.24;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.58 .96' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='.33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* the tide table stands in the water it lists: the section rises over the scene with a lit waterline on its top edge, violet near the surface and dark at depth */
+.chap.table{background-image:linear-gradient(180deg,#1c1939 0,#131129 24%,#09090f 64%,#050607 100%);box-shadow:inset 0 1.5px 0 rgba(206,196,255,.5)}
+/* each row's rule is a waterline as the staff draws one, a pale meniscus with a wet band above it, because a tide table is a list of where the water will stand */
+.tt tbody td{border-bottom-color:rgba(214,205,255,.46);background:linear-gradient(0deg,rgba(74,64,150,.3),rgba(74,64,150,0) 13px)}
+/* the rooms are raised four metres above this: breathing roots in a film of water along the foot of the section, the mud the height is measured from */
+.chap.lodge{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='190' viewBox='0 0 1200 190'%3E%3Cdefs%3E%3ClinearGradient id='w' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232a2552' stop-opacity='.7'/%3E%3Cstop offset='1' stop-color='%2315132b' stop-opacity='.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='f' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23100e22' stop-opacity='0'/%3E%3Cstop offset='.8' stop-color='%23100e22' stop-opacity='.96'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect y='140' width='1200' height='50' fill='url(%23w)'/%3E%3Cpath fill='%23ece6d6' fill-opacity='.085' d='M3 140l2 -8.9h.9l-.7 8.9zM9.1 140l-.2 -11.4h.9l2.1 11.4zM18 140l-.4 -7.1h.9l2.1 7.1zM24.5 140l-.9 -21.2h.9l2.4 21.2zM31 140l2.6 -10h.9l-1.7 10zM39.3 140l2.1 -10.8h.9l-.8 10.8zM45.5 140l-1 -7.8h.9l2.7 7.8zM53.1 140l.2 -16.6h.9l1.3 16.6zM61.3 140l1 -13.1h.9l.3 13.1zM66.6 140l-.5 -14.6h.9l1.8 14.6zM74.8 140l-1 -7.6h.9l2.8 7.6zM84.1 140l.8 -12.8h.9l.2 12.8zM92.5 140l2 -11.9h.9l-.1 11.9zM101.7 140l.4 -11.4h.9l1.2 11.4zM107.3 140l.6 -12.5h.9l.6 12.5zM114.7 140l1 -15h.9l.5 15zM123.9 140l.1 -10.1h.9l1.4 10.1zM130 140l2.5 -10.5h.9l-.9 10.5zM140.5 140l-.4 -9.7h.9l1.9 9.7zM146 140l2.9 -7.1h.9l-1.4 7.1zM153.4 140l2.6 -7.3h.9l-.9 7.3zM161.9 140l-.7 -11.5h.9l2.3 11.5zM167.7 140l2.3 -9.2h.9l-.5 9.2zM175.8 140l-.8 -9.5h.9l2 9.5zM184.7 140l1.6 -11.3h.9l-.1 11.3zM192.4 140l2.7 -7.2h.9l-1.4 7.2zM202.3 140l-.3 -10.1h.9l2.2 10.1zM211.4 140l-.6 -8.4h.9l1.9 8.4zM217.7 140l2.8 -7.2h.9l-1.1 7.2zM229.1 140l-.1 -11h.9l1 11zM240 140l-.3 -9.1h.9l2 9.1zM246.3 140l.4 -13.1h.9l1.2 13.1zM253.5 140l2.5 -9.1h.9l-1.3 9.1zM266.8 140l1 -9.3h.9l.5 9.3zM279.6 140l2.7 -15.1h.9l-1.3 15.1zM290.9 140l2.9 -9h.9l-1.5 9zM304.8 140l2.4 -9.6h.9l-1.2 9.6zM310.4 140l2 -7.7h.9l-.7 7.7zM320.4 140l.3 -7.9h.9l1.5 7.9zM328.9 140l2.8 -14.7h.9l-1.5 14.7zM341.8 140l2.6 -11h.9l-1.3 11zM350.5 140l-.5 -8.3h.9l2.4 8.3zM361 140l.9 -7.2h.9l.8 7.2zM375.3 140l-.1 -19.5h.9l1.5 19.5zM385.2 140l2.6 -11.8h.9l-1.1 11.8zM394.9 140l1.9 -14h.9l0 14zM407.2 140l1.3 -7.1h.9l0 7.1zM413.8 140l2.2 -11.7h.9l-.8 11.7zM421.8 140l1.9 -9.1h.9l-.9 9.1zM428.5 140l.3 -10h.9l1.3 10zM434.3 140l2.8 -7.3h.9l-1.3 7.3zM442.6 140l2.1 -7.1h.9l-.4 7.1zM453.5 140l.2 -9.5h.9l.7 9.5zM460.4 140l1.6 -8.2h.9l0 8.2zM472.6 140l-.1 -11.4h.9l1.5 11.4zM479 140l1.5 -7.9h.9l-.2 7.9zM484.6 140l.3 -11.7h.9l.7 11.7zM489.7 140l-.8 -7.5h.9l2.7 7.5zM496 140l1.5 -7h.9l-.1 7zM503.1 140l-1.6 -9.8h.9l2.7 9.8zM512.2 140l1 -10.3h.9l.7 10.3zM521.8 140l1.5 -12.5h.9l-.5 12.5zM528.2 140l.5 -7.4h.9l.6 7.4zM537.1 140l2 -13.4h.9l-.4 13.4zM543.3 140l1.6 -7.2h.9l-.6 7.2zM551.5 140l.2 -12.6h.9l1.6 12.6zM560 140l2.1 -13.7h.9l-1.2 13.7zM567.6 140l-.7 -9.2h.9l2.4 9.2zM576.2 140l1.5 -12.8h.9l-.2 12.8zM584.8 140l-.5 -13.9h.9l1.5 13.9zM590.1 140l1.6 -8.9h.9l.2 8.9zM597.6 140l1.5 -10.4h.9l.1 10.4zM603.5 140l1.8 -14.4h.9l-.5 14.4zM608.8 140l.9 -9.5h.9l.3 9.5zM616 140l.8 -12.4h.9l.9 12.4zM622.8 140l.7 -8.3h.9l1 8.3zM631.5 140l1.8 -7.3h.9l-.1 7.3zM638 140l0 -7.6h.9l.9 7.6zM644.1 140l.6 -12.1h.9l.7 12.1zM651.6 140l-1.4 -9.5h.9l2.8 9.5zM658.7 140l.9 -14.9h.9l.1 14.9zM665.1 140l1.4 -20.4h.9l.5 20.4zM671.4 140l0 -11.8h.9l1 11.8zM679.1 140l2.4 -7.4h.9l-1.1 7.4zM686.2 140l-.4 -9.5h.9l2.1 9.5zM692.1 140l2.3 -9h.9l-1.1 9zM700.1 140l2.1 -16.9h.9l-1.1 16.9zM707.6 140l1.1 -20.2h.9l.1 20.2zM713.5 140l-.7 -7.6h.9l2 7.6zM721.9 140l-1 -9.3h.9l2 9.3zM728 140l2.1 -7.7h.9l-.6 7.7zM734.6 140l1.8 -16.9h.9l-.8 16.9zM742.9 140l-1.1 -20h.9l2.7 20zM749.7 140l1.8 -7.7h.9l-.3 7.7zM756.9 140l0 -22.9h.9l1.3 22.9zM765.4 140l-1 -12h.9l2.2 12zM776.2 140l2.3 -8.8h.9l-.9 8.8zM784.8 140l1.9 -7.8h.9l-.7 7.8zM794.5 140l0 -11.1h.9l1.9 11.1zM806.2 140l1.5 -7.2h.9l.3 7.2zM812.6 140l1 -8.3h.9l.8 8.3zM818.3 140l-1.1 -18.7h.9l2.4 18.7zM830.9 140l2.5 -15.3h.9l-1.2 15.3zM836.7 140l.2 -9h.9l1.3 9zM849.9 140l1.1 -9.5h.9l.2 9.5zM861 140l1.2 -14.9h.9l.1 14.9zM874.5 140l1.6 -14.6h.9l.1 14.6zM888 140l2.3 -10.6h.9l-.5 10.6zM896.7 140l-.1 -7.8h.9l1.1 7.8zM907.1 140l-1 -17.8h.9l2.5 17.8zM915.8 140l2.4 -7.1h.9l-1 7.1zM928.3 140l-.8 -13.4h.9l1.9 13.4zM935.4 140l-.1 -7.7h.9l1.5 7.7zM947.8 140l.1 -8.8h.9l1.1 8.8zM953.4 140l1.2 -15.2h.9l.2 15.2zM964.5 140l1.2 -18.6h.9l.5 18.6zM972.3 140l1.3 -12.4h.9l.4 12.4zM978.2 140l2.8 -9h.9l-1 9zM988.5 140l.5 -11.7h.9l1.4 11.7zM995.2 140l1.6 -17h.9l-.6 17zM1005.7 140l2 -11.6h.9l-.5 11.6zM1012 140l-.6 -10.7h.9l2 10.7zM1024.1 140l-.1 -8.4h.9l1.3 8.4zM1031 140l2.4 -10.6h.9l-.8 10.6zM1042.6 140l-.8 -17h.9l2 17zM1051.8 140l.9 -7.3h.9l.3 7.3zM1057.8 140l3.1 -10.8h.9l-1.2 10.8zM1064.9 140l1.1 -16.4h.9l-.1 16.4zM1070.2 140l.7 -7.1h.9l.9 7.1zM1080.6 140l2.4 -10h.9l-1.1 10zM1090.3 140l1.6 -8.7h.9l.2 8.7zM1098 140l.1 -13.7h.9l1.1 13.7zM1104.8 140l.8 -10.6h.9l1.1 10.6zM1114.8 140l-.8 -8.7h.9l1.7 8.7zM1122 140l.8 -7.7h.9l.3 7.7zM1130.2 140l-.5 -8.6h.9l1.6 8.6zM1139.8 140l-.6 -13.8h.9l2.5 13.8zM1149.5 140l2 -8h.9l-1 8zM1157 140l.3 -10.2h.9l1.3 10.2zM1163.9 140l1.3 -17.6h.9l.3 17.6zM1172.1 140l.5 -17.2h.9l1.2 17.2zM1178.9 140l-.9 -11.5h.9l2.7 11.5zM1185.5 140l1.6 -8.6h.9l-.2 8.6z'/%3E%3Cpath id='r' fill='%23ece6d6' fill-opacity='.2' d='M3 140l-.9 -22.5h.9l2.8 22.5zM13.1 140l0 -15.5h.9l2.3 15.5zM25.7 140l.1 -28.3h.9l1.6 28.3zM41.1 140l-.7 -26.1h.9l3.5 26.1zM51.7 140l3.1 -27.8h.9l-.9 27.8zM63.5 140l2.5 -20.1h.9l.1 20.1zM80.2 140l2.9 -47.7h.9l-.9 47.7zM92.5 140l2.7 -21.2h.9l-.7 21.2zM105 140l-1.1 -20h.9l2.6 20zM114.3 140l.9 -20.8h.9l.9 20.8zM127.1 140l3 -14.1h.9l-.6 14.1zM141.9 140l2.4 -15.8h.9l.2 15.8zM158.2 140l2.4 -19.3h.9l.5 19.3zM168.6 140l2.1 -49.2h.9l.7 49.2zM192 140l.2 -27.7h.9l1.3 27.7zM206.8 140l3 -22.3h.9l-.5 22.3zM217.7 140l3 -14h.9l-.4 14zM233.9 140l-.3 -16.7h.9l2.7 16.7zM250.2 140l2.2 -18.6h.9l.1 18.6zM272.6 140l.9 -18h.9l1.9 18zM287.2 140l2.7 -50.7h.9l-.2 50.7zM305.6 140l1.3 -15.8h.9l.2 15.8zM324.9 140l-.7 -25.5h.9l2.5 25.5zM346.3 140l-.8 -16.9h.9l2.4 16.9zM360.5 140l.5 -17.2h.9l1.3 17.2zM373 140l1.1 -24.4h.9l1.6 24.4zM386.7 140l1.3 -19.2h.9l.4 19.2zM405.1 140l-.6 -49.9h.9l3.2 49.9zM422.8 140l2.5 -38.5h.9l0 38.5zM444.7 140l1.8 -14.3h.9l.7 14.3zM467 140l-.4 -24.8h.9l2.2 24.8zM486 140l2.3 -15.5h.9l-.7 15.5zM498.9 140l-.1 -18.9h.9l1.8 18.9zM510.6 140l-.9 -17.2h.9l3.1 17.2zM526 140l2.3 -49.7h.9l-.2 49.7zM537.3 140l-.4 -15.7h.9l3.3 15.7zM554.9 140l2.5 -14h.9l-.1 14zM567.8 140l-.9 -29.1h.9l2.9 29.1zM584.7 140l1.1 -18.4h.9l1.8 18.4zM595.4 140l1.6 -15h.9l.6 15zM607.8 140l.7 -14.5h.9l1.6 14.5zM624.1 140l2.9 -44.5h.9l-1.4 44.5zM633.1 140l2.5 -14.1h.9l-.7 14.1zM643.8 140l2.3 -16.5h.9l.6 16.5zM660.8 140l2.6 -36.1h.9l-.5 36.1zM675.2 140l-1.2 -18.4h.9l3 18.4zM686.3 140l-.2 -33.5h.9l2.6 33.5zM696.5 140l2.7 -20.7h.9l.2 20.7zM713.4 140l-.7 -63.3h.9l3.6 63.3zM731.2 140l.4 -30.4h.9l1.7 30.4zM743.7 140l.9 -22.6h.9l.6 22.6zM764 140l3.4 -27.4h.9l-.9 27.4zM786.4 140l2.7 -25h.9l0 25zM809.7 140l1.6 -38.1h.9l.5 38.1zM832.6 140l1.1 -14.2h.9l1.2 14.2zM856.6 140l-.8 -49.9h.9l3.3 49.9zM866.6 140l-.4 -33.7h.9l2 33.7zM882.6 140l3.1 -17.9h.9l-.9 17.9zM898.1 140l.1 -27.1h.9l2.4 27.1zM924.3 140l1.9 -33.6h.9l.8 33.6zM939.8 140l-.8 -16.5h.9l3.4 16.5zM951.3 140l.9 -32.3h.9l1.7 32.3zM965.2 140l-.5 -61.8h.9l2.6 61.8zM987.3 140l1.5 -24.3h.9l1 24.3zM1001.3 140l-.5 -28.4h.9l2.8 28.4zM1015.9 140l1 -32.4h.9l1.7 32.4zM1032.1 140l.4 -34h.9l1.7 34zM1041.2 140l1 -14.8h.9l.7 14.8zM1065 140l1.6 -17.9h.9l-.1 17.9zM1079 140l2.1 -53h.9l.4 53zM1090.3 140l1.9 -26.2h.9l.2 26.2zM1110.2 140l1.1 -20.3h.9l.7 20.3zM1119 140l-.2 -32.4h.9l2.1 32.4zM1139.6 140l1.1 -20.5h.9l1.6 20.5zM1151.8 140l.8 -26h.9l1.1 26zM1161.6 140l.9 -16h.9l1.2 16zM1177.2 140l2.9 -52.1h.9l-.5 52.1zM1189 140l3.1 -14h.9l-.6 14z'/%3E%3Cuse href='%23r' transform='translate(0 203) scale(1 -.45)' opacity='.55'/%3E%3Crect y='141' width='1200' height='49' fill='url(%23f)'/%3E%3Cpath d='M0 140.5H1200' stroke='%23cec4ff' stroke-opacity='.42'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:left bottom;background-size:auto clamp(120px,17vh,190px)}
+/* the veranda boards run on past the picture: the same planks, seam for seam, outside the lamplight, and the lantern's spill from the upper right */
+.kitc{background-image:radial-gradient(60% 46% at 100% 0,rgba(255,176,96,.11),rgba(255,160,80,.03) 46%,transparent 70%),linear-gradient(90deg,rgba(255,224,178,.026) 0 48.9%,rgba(0,0,0,.5) 48.9% 50%,rgba(255,224,178,.05) 50% 98.9%,rgba(0,0,0,.5) 98.9% 100%);background-size:100% 100%,16.1017% 100%;background-origin:border-box,content-box;background-repeat:no-repeat,repeat}
+@media (max-width:860px){.kitc{background-size:100% 100%,46.6949vw 100%}}
+@media (min-width:761px){
+/* the top line, on one baseline: the label on the margin, the ask as a button */
+.bar{padding:calc(var(--m)*.62) var(--m) 0;color:rgba(236,230,214,.92)}
+html body div.bar > span{font-size:var(--lab);text-shadow:0 1px 14px rgba(5,6,7,.8)}
+html body div.bar > a.ask{display:inline-flex;align-items:center;height:var(--bh);padding:0 calc(var(--bh)*.52);font-size:var(--lab);letter-spacing:.14em;color:var(--k);border:1px solid var(--k);border-radius:40px;background:rgba(5,6,7,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:opacity .4s,background .3s,color .3s}
+html body div.bar > a.ask:hover{background:var(--k);color:#120c05}
+html body.at-door div.bar > a.ask{color:var(--dfg);border-color:currentColor;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+html body.at-door div.bar > span{text-shadow:none}
+/* the staff stands on the margin: its plate's left edge is the page's left edge */
+.staff{left:calc(var(--m) - var(--sw)*.26)}
+/* each mark is a real target, the full width of the staff and just under two feet of it tall */
+.marks button{left:calc(var(--sw)*-.3);top:calc(var(--sh)*-.049);width:var(--sw);height:calc(var(--sh)*.098)}
+.marks button.on::after{left:calc(var(--sw)*.3);top:calc(50% - 1.5px)}
+.marks button:focus-visible,.staff .knot:focus-visible{outline-color:#f2b35a}
+.staff .knot{left:calc(75% - 24px);top:calc(2.25% - 24px);width:48px;height:48px}
+body.at-door .marks button em{left:calc(var(--sw)*.3 + 58px);top:calc(50% - 8px)}
+/* the gauge reading is held on the bottom line, in one place: where the water stands now, or the mark under the hand */
+body:not(.at-door) .marks button em{position:fixed;left:var(--rm);top:auto;bottom:calc(var(--base) + 0px);height:var(--bh);display:flex;align-items:center;font-size:clamp(19px,1.5vw,29px);text-shadow:0 1px 16px rgba(5,6,7,.95),0 0 40px rgba(5,6,7,.6)}
+body:not(.at-door) .marks button.on em{opacity:1}
+body:not(.at-door) .staff:has(.marks button:hover,.marks button:focus-visible) .marks button.on:not(:hover):not(:focus-visible) em{opacity:0}
+/* the name stands on the 0 ft mark, to the right of the staff; the Bangla leads, the first words sit on the same line of mud */
+.name{left:var(--rm);right:var(--m);top:auto;bottom:calc(var(--d0) - var(--h1)*.118);display:grid;grid-template-columns:auto minmax(0,calc(var(--p)*21));column-gap:clamp(32px,4.4vw,88px);justify-content:start;align-items:end;align-items:last baseline}
+.name h1{grid-column:1;grid-row:2;font-size:var(--h1);text-shadow:0 2px 44px rgba(5,6,7,.5)}
+.name .bn{grid-column:1;grid-row:1;margin:0 0 .46em;color:var(--k);text-shadow:0 1px 18px rgba(5,6,7,.85)}
+html body div.name#name > p{grid-column:2;grid-row:2;margin:0;max-width:none;font-size:var(--p);color:rgba(236,230,214,.88);text-shadow:0 1px 16px rgba(5,6,7,.9)}
+/* the captions rise where the name stood, large, and carry their own soft dark ground */
+.cap{left:var(--rm);top:auto;bottom:calc(var(--d0) - .32em);max-width:min(19em,calc(100vw - var(--rm) - var(--m)));font-size:clamp(22px,1.9vw,36px);line-height:1.26;color:#ece6d6;text-wrap:balance;text-shadow:0 2px 30px rgba(5,6,7,.92),0 0 64px rgba(5,6,7,.7),0 1px 3px rgba(5,6,7,.6)}
+/* the bottom line, on one baseline: the reading on the left, the hint and the sound button on the right */
+html body button#snd{right:var(--m);bottom:var(--base);width:calc(var(--bh)*3.8);height:var(--bh);padding:0;font-size:var(--lab);border-radius:40px;color:#ece6d6;border-color:rgba(236,230,214,.5);background:rgba(5,6,7,.58);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+html body div.hint#hint{right:calc(var(--m) + var(--bh)*3.8 + clamp(18px,1.6vw,30px));bottom:var(--base);height:var(--bh);display:flex;align-items:center;gap:.5em;font-size:var(--lab);color:rgba(242,179,90,.95);text-shadow:0 1px 14px rgba(5,6,7,.9)}
+html body div.hint#hint > span.verb{font-size:inherit}
+html body div.bar > a.ask:focus-visible,html body button#snd:focus-visible,.lodge .book:focus-visible{outline:2px solid #f2b35a;outline-offset:3px}
+html a.fsi-tag{left:var(--m)!important}
+/* the sections below: the same two edges, the staff's margin and the reading edge beside it */
+:root{--door-lrail:var(--rm);--ix-acc:#f2b35a}
+.chap.table,.chap.lodge{padding-left:var(--rm);padding-right:var(--m)}
+.table .k,.lodge .two,.kt-h .k{font-size:var(--lab);color:rgba(236,230,214,.64)}
+.tt{width:min(1180px,100%);margin:3.4vh 0 4.4vh}
+.tt th{font-size:var(--lab);padding:14px 0}
+.tt td{font-size:clamp(22px,2vw,38px);padding:2.4vh 28px 2.4vh 0}
+.table p{font-size:clamp(18px,1.2vw,23px)}
+.lodge h2{font-size:clamp(40px,6.2vw,124px)}
+.rooms-l{max-width:1320px;gap:0 clamp(32px,3vw,60px);margin-top:4.6vh}
+.rooms-l div{padding-top:20px;font-size:clamp(18px,1.2vw,23px)}
+.rooms-l b{font-size:clamp(28px,2.2vw,42px);margin-bottom:8px}
+.lodge p{font-size:clamp(19px,1.35vw,26px)}
+.lodge .book{display:inline-flex;align-items:center;height:clamp(52px,3.4vw,66px);padding:0 clamp(26px,2vw,40px);font-size:clamp(15px,1.05vw,20px);background:#f2b35a;border-color:#f2b35a;color:#120c05;transition:background .3s}
+.lodge .book:hover{background:#ffc97c;color:#120c05}
+.kt-h h2{font-size:clamp(34px,4.2vw,84px)}
+.kitc > .gh{max-width:46em;padding-top:18px;font-size:clamp(17px,1.2vw,23px)}
+.door-k,.door-s,.door-p{font-size:var(--lab)}
+.door-a{padding-right:max(var(--m),var(--door-rail,0px))}.door-p{right:var(--m)}
+.ix-x{top:calc(var(--m)*.62);right:var(--m);height:var(--bh);padding:0 calc(var(--bh)*.52);font-size:var(--lab)}
+.ix-k{font-size:var(--lab)}.ix-ch button{min-height:48px}
+/* one accent. The firefly green steps back to the scene, where the fireflies are; amber stays on the ask, the hint and the high-water times, which are the schedule */
+.tt td:first-child,.rooms-l b{color:#ece6d6}
+.tt tr:not(:nth-child(3)) td:nth-child(2),.kitc > .gh b{color:#f2b35a}
+}
+@media (min-width:861px){.kitc{padding:10vh var(--m) 10vh var(--rm)}}
+/* between 761 and 1099 wide the first words go under the name instead of beside it */
+@media (min-width:761px) and (max-width:1099px){.name{grid-template-columns:minmax(0,1fr);bottom:calc(var(--d0) - .5em)}html body div.name#name > p{grid-column:1;grid-row:3;margin-top:1em;max-width:34em}}
+/* fix round one. The name is the head of the gauge; the water is one line across the frame and the words ride it */
+:root{--top:calc(var(--m)*.62 + var(--bh));--wc:.1074;--wy:calc(9vh + var(--sh)*var(--wc))}
+.staff #bd-staff{filter:url(#bd-dusk)}
+.staff svg{filter:drop-shadow(5px 3px 14px rgba(5,6,7,.55))}
+.wl{position:fixed;left:0;right:0;bottom:var(--wy);height:0;z-index:2;pointer-events:none}
+.wl::before{content:'';position:absolute;left:0;right:0;bottom:0;height:14px;border-bottom:1px solid rgba(214,205,255,.62);background:linear-gradient(0deg,rgba(74,64,150,.34),rgba(74,64,150,0) 13px);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 22%,rgba(0,0,0,.34) 100%);mask-image:linear-gradient(90deg,#000 0,#000 22%,rgba(0,0,0,.34) 100%)}
+.wl::after{content:'';position:absolute;left:0;right:0;top:0;height:var(--wy);background:linear-gradient(180deg,rgba(42,37,82,.42),rgba(21,19,43,.5));-webkit-mask-image:linear-gradient(90deg,#000 0,#000 26%,transparent 60%);mask-image:linear-gradient(90deg,#000 0,#000 26%,transparent 60%)}
+.kitc > .gh b{color:#cec4ff}
+@media (min-width:761px){
+:root{--h1:clamp(96px,min(12.6vw,(91vh - var(--sh) - var(--top) - 44px)*1.333),248px)}
+.name{left:var(--rm);right:var(--m);top:calc(var(--top) + 26px);bottom:auto;align-items:first baseline}
+.name h1{grid-column:1/-1;grid-row:1;margin-left:calc(var(--m) - var(--rm) - .02em)}
+.name .bn{grid-column:1;grid-row:2;margin:.5em 0 0;color:#ece6d6;font-family:'Gambetta','Tiro Bangla',serif}
+html body div.name#name > p{grid-column:2;grid-row:2}
+.cap{bottom:calc(var(--wy) + 16px)}
+body:has(.staff:hover) .cap{opacity:0}
+body:not(.at-door) .marks button em{color:#f2b35a}
+body:not(.at-door) .marks button::before{content:attr(aria-label);position:absolute;left:calc(100% + clamp(28px,2.6vw,52px));top:50%;translate:0 -50%;white-space:nowrap;font:400 italic clamp(15px,.98vw,18px)/1 'Gambetta',serif;color:rgba(236,230,214,.62);text-shadow:0 1px 12px rgba(5,6,7,.9);transition:opacity .6s,color .3s}
+body:not(.at-door) .marks button.on::before,.marks button:hover::before,.marks button:focus-visible::before{color:#ece6d6}
+body.tide-up:not(.at-door) .marks button::before,body.in-table .marks button::before,body.in-rooms .marks button::before{opacity:0;pointer-events:none}
+body.tide-up:not(.at-door):not(.in-table):not(.in-rooms) .staff:is(:hover,:focus-within) .marks button::before{opacity:1;pointer-events:auto}
+html body div.bar > a.ask{color:#120c05;background:#f2b35a;border-color:#f2b35a;-webkit-backdrop-filter:none;backdrop-filter:none}
+html body div.bar > a.ask:hover{background:#ffc97c;color:#120c05}
+html body button#snd{width:auto;height:44px;padding:0 18px;bottom:calc(var(--base) + (var(--bh) - 44px)/2);font-weight:400;letter-spacing:.14em;color:rgba(236,230,214,.72);border-color:rgba(236,230,214,.26);background:rgba(5,6,7,.4);-webkit-backdrop-filter:none;backdrop-filter:none}
+html body div.hint#hint{right:auto;left:calc(var(--rm) + clamp(300px,26vw,500px));color:rgba(236,230,214,.78)}
+}
+@media (min-width:761px) and (max-width:1099px){.name{grid-template-columns:minmax(0,1fr);bottom:auto}html body div.name#name > p{grid-column:1;grid-row:3;margin-top:1em;max-width:34em}.marks li:nth-child(n+6) button::before{opacity:0}}
+@media (max-width:760px){:root{--wy:calc(12vh + 34vh*var(--wc))}.name h1{font-size:clamp(64px,19.5vw,96px)}.name .bn{color:#ece6d6;font-family:'Gambetta','Tiro Bangla',serif}.hint{color:rgba(236,230,214,.78)}.bar .ask{background:#f2b35a;color:#120c05;border:0;border-radius:40px;padding:9px 14px}}
+/* tuning on the render, p67 */
+@media (min-width:761px){
+/* the letters sit 13px lower in their box than the draft assumed: so the name moves up: cap top 123, baseline 287, clear of the staff head */
+.name{top:calc(var(--top) + 13px)}
+/* the name spans both columns but must not size them, so the three sentences stay beside the gloss; the stem of the B, not its serif, stands on the plate edge */
+.name h1{width:0;white-space:nowrap;margin-left:calc(var(--m) - var(--rm) - .114em)}
+/* the mark the water has reached is read once, in amber, under the line; its label stays down until the hand is on the staff, and then it rides the water */
+body:not(.at-door) .marks button.on::before{opacity:0!important}
+body:not(.at-door):not(.in-table):not(.in-rooms) .staff:has(.marks button:hover,.marks button:focus-visible) .marks button.on:not(:hover):not(:focus-visible)::before{opacity:1!important;position:fixed;left:var(--rm);top:auto;bottom:calc(var(--wy) + 9px);translate:none}
+body:has(.staff:focus-within) .cap{opacity:0}
+/* said once: when the water first moves the gloss and the three sentences go quiet with the labels, so the first mud line is written on clear mud; the name itself is left for the tide to take */
+.name .bn,html body div.name#name > p{transition:opacity .6s ease}
+body.tide-up .name .bn,html body.tide-up div.name#name > p{opacity:0}
+}
+/* phone: the name stops short of the lit window, and the hint rides the waterline instead of being crossed by it */
+@media (max-width:760px){.name h1{font-size:clamp(60px,18vw,96px)}.hint{bottom:calc(var(--wy) + 12px)}}
+/* label ink lifted from .62 to .68 so it holds 4.5 to 1 even with a firefly behind it */
+@media (min-width:761px){body:not(.at-door) .marks button::before{color:rgba(236,230,214,.68)}body:not(.at-door) .marks button:is(:hover,:focus-visible)::before{color:#ece6d6}}
+/* the page's line is centred on the staff's own meniscus */
+.wl::before{translate:0 .5px}
+/* fix round two (p68). Phone is staff-shaped: the staff is the left edge of the screen, the menu is its marks, the reading rides the meniscus */
+.nt{display:none}
+/* the lantern is low and to the right, so the staff's shadow falls up and to the left */
+.staff svg{filter:drop-shadow(-6px -3px 12px rgba(5,6,7,.58))}
+/* a mark the water has covered is read through the water: violet and quiet */
+body:not(.at-door) .marks button.dr:not(:hover):not(:focus-visible)::before{color:rgba(190,183,232,.5)}
+@media (min-width:761px){
+/* the staff grows until its head stands under the B, on any screen */
+:root{--sh0:min(520px,58vh);--h1:clamp(96px,min(12.6vw,(91vh - var(--sh0) - var(--top) - 44px)*1.333),248px);--sh:max(var(--sh0),min(66vh,calc(91vh - var(--top) - 13px - var(--h1)*.731 - 24px)));--lcw:clamp(150px,10.4vw,200px);--tg:clamp(28px,2.6vw,52px)}
+/* the staff's own height follows the same measure the page reads */
+.staff{height:var(--sh)}
+/* a graduation runs from the staff to each name, as on any gauge; the names stay through the tide */
+body:not(.at-door) .marks button::before{left:calc(100% - var(--sw)*.24);top:0;translate:none;height:100%;display:flex;align-items:center;padding-left:calc(var(--tg) + var(--sw)*.24);background:linear-gradient(currentColor,currentColor) 4px 50%/calc(var(--tg) + var(--sw)*.24 - 15px) 1px no-repeat}
+body.tide-up:not(.at-door):not(.in-table):not(.in-rooms) .marks button::before{opacity:1;pointer-events:auto}
+body:not(.at-door):not(.in-table):not(.in-rooms) .staff:has(.marks button:hover,.marks button:focus-visible) .marks button.on:not(:hover):not(:focus-visible)::before{height:auto;padding-left:0;background:none}
+/* the captions ride the water beside the column of names, not through it */
+.cap{left:calc(var(--rm) + var(--lcw));max-width:min(19em,calc(100vw - var(--rm) - var(--lcw) - var(--m)))}
+/* one speaker: the hint is said in the caption's face */
+html body div.hint#hint{font:400 italic clamp(17px,1.14vw,21px)/1 'Gambetta',serif;letter-spacing:0;text-transform:none;gap:.26em}
+}
+@media (max-width:760px){
+:root{--pm:14px;--sb:8.5vh;--sh:min(50vh,calc(91.5vh - 296px));--sw:calc(var(--sh)*.1818);--lx:calc(var(--pm) + var(--sw)*.74 + 26px);--wy:calc(var(--sb) + var(--sh)*var(--wc))}
+/* night mud comes down from the top and up from the foot: the sky the name is read against, and the mud the staff is driven into */
+.nt{display:block;position:fixed;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(5,6,7,.62) 0,rgba(5,6,7,.5) 19vh,rgba(5,6,7,0) 40vh),linear-gradient(0deg,rgba(5,6,7,.92) 0,rgba(5,6,7,.6) 8vh,rgba(5,6,7,0) 19vh)}
+.wl::after{-webkit-mask-image:linear-gradient(90deg,#000 0,#000 40%,rgba(0,0,0,.3) 100%);mask-image:linear-gradient(90deg,#000 0,#000 40%,rgba(0,0,0,.3) 100%)}
+.bar{padding:16px var(--pm) 0}
+html body div.bar > a.ask{display:inline-flex;align-items:center;height:40px;padding:0 16px;letter-spacing:.12em;border-bottom:0}
+.name{left:var(--pm);top:10vh}
+.name h1{margin-left:-.06em}
+html body div.name#name > p{max-width:calc(100vw - var(--pm)*2)}
+.cap{left:var(--pm)}
+/* the staff is the left edge of the phone, from under the name to the foot; its plate edge is the page margin */
+.staff{left:calc(var(--pm) - var(--sw)*.26);bottom:var(--sb);height:var(--sh)}
+.staff .knot{left:calc(75% - 22px);top:calc(2.25% - 22px);width:44px;height:44px}
+.marks button{left:calc(var(--sw)*-.3);top:-22px;width:var(--sw);height:44px}
+.marks button.on::after{left:calc(var(--sw)*.3);top:calc(50% - 1.5px)}
+.marks button:focus-visible,.staff .knot:focus-visible{outline-color:#f2b35a}
+/* the six names stand at their marks, each joined to the staff by its graduation, each a 44px target */
+body:not(.at-door) .marks button::before{content:attr(aria-label);position:absolute;left:calc(100% - 20px);top:0;height:44px;display:flex;align-items:center;padding:0 14px 0 46px;white-space:nowrap;font:400 italic 17px/1 'Gambetta',serif;color:rgba(236,230,214,.88);text-shadow:0 1px 10px rgba(5,6,7,.95);background:linear-gradient(currentColor,currentColor) 3px 50%/33px 1px no-repeat;transition:opacity .5s,color .4s}
+body:not(.at-door) .marks button:is(:hover,:focus-visible)::before{color:#ece6d6}
+body.in-table .marks button::before,body.in-rooms .marks button::before{opacity:0;pointer-events:none}
+/* the mark the water stands at is read once, in amber, just under the meniscus, and it climbs with the water */
+body:not(.at-door) .marks button.on::before{opacity:0!important}
+body:not(.at-door) .marks button em{display:flex;position:fixed;left:var(--lx);top:auto;bottom:calc(var(--wy) - 36px);height:28px;align-items:center;font-size:20px;color:#f2b35a;text-shadow:0 1px 12px rgba(5,6,7,.95)}
+body:not(.at-door) .marks button.on em{opacity:1}
+body:not(.at-door) .marks button:not(.on) em{opacity:0!important}
+/* the rule is said once, on the waterline, in the caption's face; when the water first moves it goes quiet */
+html body div.hint#hint{left:var(--lx);right:auto;bottom:calc(var(--wy) + 10px);max-width:none;white-space:nowrap;text-align:left;font:400 italic 16px/1 'Gambetta',serif;letter-spacing:0;text-transform:none;color:rgba(236,230,214,.9);text-shadow:0 1px 10px rgba(5,6,7,.95)}
+html body div.hint#hint > span.verb{font-size:inherit}
+body.tide-up div.hint#hint{opacity:0!important}
+/* the sound switch is a small thing in the water at the foot, well under the ask */
+html body button#snd{right:var(--pm);bottom:44px;height:30px;padding:0 12px;font-weight:400;letter-spacing:.04em;text-transform:none;color:rgba(236,230,214,.82);border-color:rgba(236,230,214,.3);background:rgba(5,6,7,.4)}
+html body button#snd::after{content:'';position:absolute;inset:-7px -4px}
+.chap.table,.chap.lodge{padding-left:calc(var(--pm) + var(--sw)*.74 + 12px)}
+}
+@media (max-width:860px) and (max-width:760px){.kitc{padding-left:calc(var(--pm) + var(--sw)*.74 + 12px)}}
+</style>
 </head>
 <body>
 <canvas id="gl" aria-label="Dusk from the veranda of a stilt room over a Sundarbans creek. The words are written on the mud below; as you scroll, the tide rises over them. Hold to see the far bank."></canvas>
+<div class="grn" aria-hidden="true"></div>
+<div class="nt" aria-hidden="true" data-hud></div>
+<div class="wl" aria-hidden="true" data-hud></div>
 <div class="bar"><span>Badabon Lodge</span><a href="#book" class="ask">Ask for a date</a></div>
 <div class="name" id="name" data-hud><h1>Badabon</h1><div class="bn">বাদাবন · the forest that floods</div><p>Six rooms on stilts at the edge of the Sundarbans. Twice a day the forest floor becomes a river. We built the lodge to let it.</p></div>
 <div class="cap" id="cap" data-hud></div>
@@ -175,13 +366,29 @@ body.at-door .bar,body.at-door .bar a{color:var(--dfg);border-color:currentColor
 </section>
 <section class="kitc" id="kit"></section>
 <section class="door chap" id="door"></section>
-<svg width="0" height="0" aria-hidden="true" style="position:absolute"><filter id="tideedge" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.9 0.02" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="10"/></filter></svg>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><filter id="tideedge" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.9 0.02" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="10"/></filter><filter id="bd-dusk" color-interpolation-filters="sRGB"><feDiffuseLighting in="SourceAlpha" surfaceScale="0" diffuseConstant="1.45" lighting-color="#ffa857" result="k"><feSpotLight x="78" y="396" z="48" pointsAtX="0" pointsAtY="372" pointsAtZ="0" specularExponent="2"/></feDiffuseLighting><feDiffuseLighting in="SourceAlpha" surfaceScale="0" diffuseConstant="1" lighting-color="#8273e6" result="v"><fePointLight x="-70" y="-140" z="150"/></feDiffuseLighting><feColorMatrix in="SourceGraphic" type="saturate" values="0.2" result="g"/><feComposite in="g" in2="v" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="gv"/><feComposite in="SourceGraphic" in2="k" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="sk"/><feComposite in="gv" in2="sk" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="sum"/><feComposite in="sum" in2="SourceGraphic" operator="in"/></filter></svg>
 <script type="application/json" id="chapters">[{"n":"0 ft","t":"Dry feet","at":0},{"n":"2 ft","t":"First water","at":0.28},{"n":"5 ft","t":"Tigers swim here","at":0.52},{"n":"8 ft","t":"The far bank","at":0.86},{"n":"10 ft","t":"High water","el":"#table"},{"n":"","t":"Six rooms","el":"#rooms"},{"n":"","t":"Next world","el":"#door"}]</script>
 <a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script>if(matchMedia("(pointer:coarse)").matches)document.querySelectorAll(".verb").forEach(e=>e.textContent="Press and hold")</script>
 <script type="module" src="badabon-scene.js"></script>
+<script type="module">/* trial only. The real home is badabon-scene.js line 299: uRev x = sm(.045,.1,sL) in place of sm(1.2,4.2,t), so the first mud line is written by the first scroll, not by the clock */
+try{const B=window.__bd,S=B.lant.parent,mud=S.children.find(o=>o.isMesh&&o.material&&o.material.color&&o.material.color.getHex()===0x3b3329);
+ if(mud){const m=mud.material,ob=m.onBeforeCompile,sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+  m.onBeforeCompile=function(sh,r){ob.call(this,sh,r);const u=sh.uniforms.uRev,v=u.value.clone();sh.uniforms.uRev={get value(){v.copy(u.value);v.x=Math.min(v.x,sm(.045,.1,B.sL));return v}}};
+  m.needsUpdate=true}}catch(e){}
+</script>
 <script type="module" src="badabon-kit.js"></script>
+<script>addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();const t=document.getElementById(a.getAttribute('href').slice(1)||'-');if(t)t.scrollIntoView()})</script><!-- trial only: with the base line above, a # link would leave the page -->
 <script type="module" src="badabon-nav.js"></script>
+<style>/* P70, trial only: the reading follows the water */
+body:not(.at-door):not(.in-table):not(.in-rooms) .staff:not(:has(.marks button:hover,.marks button:focus-visible)) .marks button.wr em{opacity:1!important}
+body:not(.at-door) .staff .marks button.on:not(.wr):not(:hover):not(:focus-visible) em{opacity:0!important}
+</style>
+<script type="module">/* the page's waterline and captions follow the water the staff draws */
+const w=document.querySelector('#staff .wline'),R=document.documentElement,L=document.querySelector('.wl'),B=document.querySelectorAll('#staff .marks button');
+if(w){const set=()=>{const m=/translate\(\s*[-\d.]+[ ,]+([-\d.]+)/.exec(w.getAttribute('transform')||'');if(!m)return;const y=+m[1];R.style.setProperty('--wc',((432-y)/484).toFixed(4));document.body.classList.toggle('tide-up',y<378);const wy=L?L.getBoundingClientRect().bottom:1e9;let rd=null,rt=1e9,lo=null,lt=-1e9;B.forEach(b=>{const r=b.getBoundingClientRect(),c=r.top+r.height/2;b.classList.toggle('dr',c>wy+3);if(!/ ft/.test(b.querySelector('em')?.textContent||''))return;if(c>lt){lt=c;lo=b}if(c>=wy-2&&c<rt){rt=c;rd=b}});rd=rd||lo;B.forEach(b=>b.classList.toggle('wr',b===rd))};/* P70: the amber reading is the highest mark the water has reached, not the scrolled chapter */
+ new MutationObserver(set).observe(w,{attributes:true,attributeFilter:['transform']});set()}
+</script>
 </body>
 </html>
