@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%230d0c0b%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%277%27 fill=%27%23f1ebe0%27/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Borsha · Cha since 1987</title>
 <!-- share:p46 -->
 <meta name="description" content="We open at four. We close when the rain stops. Concept site by FlowStãte Impact, fictional brand.">
-<link rel="canonical" href="https://flowstateimpact.github.io/fifteen-worlds/sites/borsha.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fifteen Worlds">
 <meta property="og:title" content="Borsha · Cha since 1987">
@@ -19,6 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /share:p46 -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/tiro-bangla-400-bn.woff2">
 <link rel="stylesheet" href="../fonts/fonts.css">
 <style>
 :root{--am:#f0a347;--tl:#0c1a1c;--cr:#f3e7cf}
@@ -135,6 +135,93 @@ body.at-door .fogn{bottom:auto;top:14vh}
 @media (max-width:900px){.cal{grid-template-columns:1fr;gap:34px;padding:96px 16px 220px}.cw{order:-1;margin-top:20px}.gr li{height:58px}.gr li b{font-size:20px;left:3px}.gr li small{display:none}.gr li i{font-size:11px;right:3px;top:5px}.gr li em{font-size:14px!important;left:3px;bottom:4px}.hd,.gr{padding:0 6px}.hd li{font-size:12px}.mo b{font-size:44px}.band b{font-size:21px}.gr li u{font-size:11px;left:3px;right:3px;top:10px;white-space:normal;line-height:1.25;rotate:-4deg!important}.gr li i span{display:none}}
 </style>
 <style id="p44">.fogn .ixb{rotate:0deg;box-shadow:0 1px 2px rgba(0,0,0,.22)}.fogn .ixb::before{rotate:0deg}.fogn .ixb:hover{rotate:0deg;translate:0 -2px}</style>
+<style id="uplift">
+/* P71 fix round one, phone first. Motion language: STICK, SLIP, POOL, FOG BACK. Water on glass never moves at one speed.
+   One sheet of glass for the whole page; the street stays behind it. The stall keeper sits low: every word hangs within reach of a thumb.
+   The price he writes with a finger is the mark. One heavy drop hangs from the foot of its last stroke, runs down as the scroll and pools on the sill.
+   Amber is held by the drop, by the price level with the drop, and by the flame. Nothing else. A wipe is less fog, never more paint. */
+:root{--mg:20px;--gut:104px;--lx:300px;--sill:92px;--pt:56vh;--wh:80px}
+@media (min-width:700px){:root{--mg:max(30px,3.6vw);--gut:17vw}}
+#gl{position:fixed;z-index:0}
+body.past #gl{visibility:hidden}
+#pane{position:fixed;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+.notext body *{color:transparent!important}
+
+/* first screen. No shape behind any word: the fog itself is cleared (in the scene's own fog, see tend), and the cleared glass is wet, so a little darker, feathered to nothing */
+.hero .top,html section.hero > div.wipe{text-shadow:0 0 6px rgba(4,12,14,.85),0 1px 2px rgba(4,12,14,.8)}
+#rv .lb{text-shadow:0 1px 3px rgba(4,12,14,.75)}
+.hero .top::before,.hero .wipe::before{content:'';position:absolute;z-index:-1;inset:-30px -60px -28px -46px;pointer-events:none;background:radial-gradient(closest-side,rgba(4,12,14,.4),rgba(4,12,14,.24) 58%,rgba(4,12,14,0))}
+.hero .top{z-index:6;left:var(--mg);right:auto;top:auto;bottom:calc(100vh - var(--pt) + var(--wh) + 26px);flex-direction:column;align-items:flex-start;gap:0}
+.hero .top>span{padding:0}
+.hero .top button#snd{background:none;border:0;border-radius:0;padding:0;min-height:44px;display:flex;align-items:center;gap:10px;-webkit-backdrop-filter:none;backdrop-filter:none}
+.hero .top button#snd::before{content:'';flex:none;width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;box-shadow:inset 0 -2px 0 rgba(243,231,207,.55)}
+.hero .top button#snd:focus-visible,html body .fogn .ixb:focus-visible{outline:2px solid var(--cr);outline-offset:4px;box-shadow:0 0 0 8px rgba(4,12,14,.6)}
+html section.hero > div.wipe{z-index:6;left:var(--mg);right:auto;top:auto;bottom:calc(100vh - var(--pt) + 38px);text-align:left;max-width:min(300px,calc(100vw - 2*var(--mg)));opacity:1;line-height:1.45}
+html div.wipe > b{color:var(--cr);margin-bottom:6px}
+/* desktop: the opening block has real size and stands on the price's own baseline, words left, price right, the lamp above both */
+@media (min-width:700px){
+ .hero .top{bottom:calc(100vh - var(--pb,62vh) + var(--wh) + 24px)}
+ html section.hero > div.wipe{bottom:calc(100vh - var(--pb,62vh) - 4px);max-width:min(36vw,580px);font-size:clamp(20px,1.5vw,30px);line-height:1.38}
+ html div.wipe > b,html div.top > span,html div.top > button#snd,html section.menu > h2{font-size:clamp(14px,.9vw,18px)}
+ html div.wipe > b{margin-bottom:12px}
+ html .row b small{font-size:clamp(15px,1vw,19px)}
+ #rv .nm{font-size:clamp(16px,1vw,19px)}
+}
+/* phone: the lamp above, then the invitation, then the price, and the stall signs its name under the price. The glass at that height shows only the dark of the counter, so the name gets no wipe and no shade: it stands in the fog */
+@media (max-width:699px){.hero .top{top:calc(var(--pbot,72vh) + 8px);bottom:auto}.hero .top::before{display:none}}
+
+/* the way out is a paper note taped inside the glass, in the shade of the awning: it is not the lamp */
+html body .fogn{left:auto;right:8px;top:10px;bottom:auto;z-index:7;pointer-events:none}
+.fogn canvas{opacity:0}.fogn ol{visibility:hidden}.fogn .lab{display:none}
+/* round two: not a note, not a box. A small mark in the shade of the awning, dimmer than the price and the drop */
+html body .fogn .ixb{left:auto;right:0;top:0;bottom:auto;margin:0;width:92px;min-height:44px;box-sizing:border-box;padding:13px 6px 9px;opacity:.6;pointer-events:auto;filter:none;background:none;box-shadow:none;color:var(--cr);rotate:0deg}
+html body .fogn .ixb::before{display:none}
+html body .fogn .ixb .mk path{stroke:var(--cr)}
+html body .fogn .ixb:hover{opacity:1;translate:none}
+@media (min-width:700px){html body .fogn{right:var(--mg)}html body .fogn .ixb{width:112px}}
+
+/* the chapters are what has run down and pooled on the sill, in reach of the thumb. Each pool is a button; its mark is written above it in Bangla; one name at a time in one slot */
+#rv ol{list-style:none}
+#rv button{all:unset;position:fixed;z-index:6;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#rv button:focus-visible{outline:2px solid var(--cr);outline-offset:2px;box-shadow:0 0 0 8px rgba(4,12,14,.6)}
+#rv .lb{pointer-events:none}
+#rv.gone{visibility:hidden}
+#rv .bm,#rv .nm{position:absolute;white-space:nowrap;color:var(--cr);opacity:0;filter:blur(5px);transition:opacity .7s,filter .7s}
+#rv .bm{left:50%;bottom:100%;translate:-50% 0;margin-bottom:2px;font:400 24px/1.1 'Tiro Bangla',serif}
+#rv .nm{position:fixed;left:0;width:calc(var(--lx) - 24px);bottom:calc(var(--sill) + 58px);text-align:right;font:400 15px/1.25 'Supreme',sans-serif}
+#rv.say .bm,#rv button.on .bm,#rv button:hover .bm,#rv button:focus-visible .bm,#rv.say li.cur .nm,#rv button.on .nm,#rv button:hover .nm,#rv button:focus-visible .nm{opacity:1;filter:none}
+#rv:has(button.on,button:hover,button:focus-visible) li.cur button:not(.on):not(:hover):not(:focus-visible) .nm{opacity:0}
+@media (min-width:700px){#rv .nm{font-size:16px}}
+
+/* the menu and the rule are written on the same pane: no ground of their own, the street behind, the glass wet where the words are */
+.menu,.rule{position:relative;z-index:1;background:none}
+/* no scrim and no ground: each block of words stands in a thumb-wipe of the real fog and carries only the shadow wet glass gives it.
+   Along the sill the fog is left to gather; the words come up out of it, so the pools never sit on a line (--cut is set by the pane) */
+.menu h2,.row i,.row b,.row span,.rule h2,.rule p,.rule .addr{text-shadow:0 0 2px rgba(4,12,14,.9),0 0 10px rgba(4,12,14,.72),0 2px 18px rgba(4,12,14,.5)}
+.menu,.rule,html .cal{-webkit-mask-image:linear-gradient(180deg,#000 calc(var(--cut,99999px) - 46px),transparent var(--cut,99999px));mask-image:linear-gradient(180deg,#000 calc(var(--cut,99999px) - 46px),transparent var(--cut,99999px))}
+.menu{padding:max(92px,12vh) var(--gut) max(10vh,200px) var(--mg)}
+.menu h2{color:var(--cr);opacity:1;margin-bottom:3vh}
+/* Lalbagh reads the Bangla first: the tea's name in the display role, the English under it, the price at its side */
+.row{grid-template-columns:1fr auto;grid-template-areas:"bn p" "en p";column-gap:16px;row-gap:2px;align-items:center;padding:16px 0 20px;border-top:0}
+.row:hover{background:none;padding-left:0}
+.row i{display:block;grid-area:bn;font:400 clamp(34px,4.4vw,74px)/1.2 'Tiro Bangla',serif;color:var(--cr);opacity:1}
+.row b{grid-area:en;font:700 clamp(17px,1.45vw,24px)/1.2 'Supreme',sans-serif;letter-spacing:0}
+html .row b small{display:block;margin:4px 0 0;font:400 15px/1.3 'Supreme',sans-serif;opacity:.82;letter-spacing:0}
+.row span{grid-area:p;font-size:clamp(28px,3.2vw,54px);min-width:0;transition:color .6s,scale .6s cubic-bezier(.2,.7,.2,1);transform-origin:100% 55%}
+/* the price level with the drop is seen through it: larger, and lit by the only amber on the glass */
+.row.held span{color:var(--am);scale:1.14}
+.rule{color:var(--cr);padding:max(92px,11vh) var(--gut) max(200px,24vh) var(--mg)}
+/* the wall by the stove keeps its one bulb; the two discs with no lamp behind them are gone */
+html .cal{padding-left:var(--mg);padding-right:var(--gut);background:radial-gradient(60% 70% at 8% -6%,rgba(255,178,92,.34),rgba(240,150,60,.1) 46%,transparent 68%),linear-gradient(180deg,#14292b,#0b1719)}
+.ct dt{color:var(--cr);opacity:.74;font-size:14px;line-height:1.7}
+@media (max-width:699px){
+ .rule h2{font-size:8vw;line-height:.96}
+ .rule p{font-size:17px}
+ .ct p{font-size:17px}.ct dd{font-size:16px}
+ .hd li{font-size:14px}.gr li i,.gr li u{font-size:14px}.band span{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){#rv .bm,#rv .nm,.row span{transition:none;filter:none}}
+</style>
 </head>
 <body>
 <section class="hero" id="hero">
@@ -160,9 +247,192 @@ body.at-door .fogn{bottom:auto;top:14vh}
 <section class="door chap" id="door"></section>
 <script type="application/json" id="chapters">[{"n":"৪টা","t":"The glass","el":"#hero"},{"n":"চা","t":"Tonight, until the rain stops","el":"#menu"},{"n":"বৃষ্টি","t":"We close when the rain stops","el":"#rule"},{"n":"","t":"Next world","el":"#door"}]</script>
 <a class="fsi-tag" href="../index.html">← <b>Fifteen Worlds</b> Concept site by FlowStãte Impact · fictional brand</a>
+<script>addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();const t=document.getElementById(a.getAttribute('href').slice(1)||'-');if(t)t.scrollIntoView()})</script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-<script type="module" src="borsha-scene.js"></script>
+<script type="module" src="lift-trial/borsha-scene-trial.js"></script>
 <script type="module" src="borsha-calendar.js"></script>
 <script type="module" src="borsha-nav.js"></script>
+<script type="module" id="uplift-js">
+// P69 lift, P71 round two: the pane. One tall sheet of glass, and the page is written on it; the street stays where it is behind.
+// There is ONE fog, the scene's own (window.__bs.mx). Every wipe, the price and the drop's track are cut in it and RIDE up with the words.
+// This canvas carries only the water: the one heavy drop that is the scroll, its beads, and the pools on the sill. It paints no fog.
+const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CH=JSON.parse($('#chapters').textContent),gl=$('#gl'),rows=[...document.querySelectorAll('.menu .row')],fogn=$('#fogn');
+const pane=document.createElement('canvas');pane.id='pane';pane.setAttribute('aria-hidden','true');document.body.appendChild(pane);
+const g=pane.getContext('2d'),probe=document.createElement('canvas');probe.width=probe.height=8;const pg=probe.getContext('2d',{willReadFrequently:true}),PRICE='চা ১৫/-';
+// the stops, as real buttons
+const rv=document.createElement('nav');rv.id='rv';rv.setAttribute('aria-label','Chapters');
+rv.innerHTML='<ol>'+CH.map((c,i)=>`<li><button type="button" data-i="${i}" aria-label="${c.t}"><span class="lb"><span class="nm">${c.t}</span>${c.n?`<span class="bm" lang="bn">${c.n}</span>`:''}</span></button></li>`).join('')+'</ol>';
+fogn.before(rv);fogn.setAttribute('aria-label','Index');
+const btns=[...rv.querySelectorAll('button')],lis=[...rv.querySelectorAll('li')];
+const secs=[{el:$('#hero'),gl:1,w:1,k:1},{el:$('#menu'),c:'#0c1a1c',w:1,k:1},{el:$('#rule'),c:'#0c1a1c',w:1,k:1},{el:$('#cal'),c:'#14292b',k:.6},{el:$('#door'),c:'#0c1a1c',k:1}];
+const RS=document.documentElement.style;
+let W=1,H=1,D=1,phone=true,lx=0,y0=0,y1=1,T=1,LD=1,F=170,max=1,tagH=0,stops=[],teas=[],ready=false,frameN=0,pr=null,wipes=[],words=[];
+let ty=0,y=0,v=0,stuck=true,lastMove=0,cur=-1,ot=0,lastType='mouse',first=true,band=84,cutY=1e5;
+let dryV=0,lsy=null,acc=0,wasOff=false,pT=null,PD=2600,pw=0,pd=false,gone=false,lm=null;const tb=[];
+const TAU=7500,hash=i=>{const s=Math.sin(i*127.1+311.7)*43758.5453;return s-Math.floor(s)};
+const M=yy=>(Math.sin(yy*.021+1.3)*5+Math.sin(yy*.053)*2.2)*(phone?.7:1.5),X=yy=>lx+M(yy);   // the lane meanders, as a rivulet does
+const R0=()=>phone?13:16,R=()=>{let e=0;for(const t of teas)if(t.y<y+2)e++;if(cur>=2)e=1;return R0()+e*.5};   // it grows on every tea it passes, and leaves the weight in the next pool
+const box=(els,i)=>{let l=1e9,t=1e9,r=-1e9,b=-1e9;for(const e of els){if(!e)continue;const rg=document.createRange();rg.selectNodeContents(e);const q=rg.getBoundingClientRect();if(!q.width)continue;l=Math.min(l,q.left);t=Math.min(t,q.top);r=Math.max(r,q.right);b=Math.max(b,q.bottom)}return{l,t:t+scrollY,w:r-l,h:b-t,i}};
+
+function measure(){W=innerWidth;H=innerHeight;phone=W<700;D=Math.min(devicePixelRatio||1,phone?2:1.5);
+ if(pane.width!==Math.round(W*D)||pane.height!==Math.round(H*D)){pane.width=Math.round(W*D);pane.height=Math.round(H*D)}
+ const tag=$('.fsi-tag');tagH=tag?Math.min(80,tag.getBoundingClientRect().height):0;y1=H-tagH-(phone?34:50);
+ // the price: the page says where on the glass, writes it, and finds the foot of its last stroke. On a phone it sits on the stall's lit band (counter, cups, kettle, about 61 percent down), so the strokes open onto light, never above 55 percent.
+ const S=window.__bs,txt=S&&S.wr&&S.wr.txt||PRICE,fs=W*(phone?.19:.1);pg.font=`400 ${fs}px 'Tiro Bangla'`;
+ const tm=pg.measureText(txt),dm=pg.measureText('-'),tw=tm.width,asc=tm.actualBoundingBoxAscent||fs*.78;
+ const x0=Math.round(Math.min(phone?.2:.55,Math.max(.03,(W-(phone?64:W*.13)-tw)/W))*W),by=phone?Math.max(Math.round(.55*H+asc)+1,Math.min(Math.round(.612*H+asc),y1-163)):Math.round(.52*H+asc+6);
+ const cut=[0];{let a='';const sg=Intl.Segmenter?[...new Intl.Segmenter('bn',{granularity:'grapheme'}).segment(txt)].map(s=>s.segment):[txt];for(const s of sg){a+=s;if(s.trim())cut.push(pg.measureText(a).width)}if(cut.length<2||cut[cut.length-1]<tw-1)cut.push(tw)}
+ pr={x0,by,tw,fs,txt,cut,top:by-asc,bot:by+(tm.actualBoundingBoxDescent||fs*.1),dx:x0+tw-dm.width+(dm.actualBoundingBoxRight||dm.width)-2,dy:by+(dm.actualBoundingBoxDescent||-fs*.2)};
+ y0=Math.min(y1-60,pr.dy+R0()*1.14-3);T=y1-y0;lx=0;lx=pr.dx-X(y0);F=phone?170:250;
+ const wp=$('.hero .wipe');RS.setProperty('--lx',lx.toFixed(1)+'px');RS.setProperty('--sill',(H-y1).toFixed(1)+'px');RS.setProperty('--gut',Math.round(W-lx+(phone?22:44))+'px');RS.setProperty('--pt',Math.round(pr.top)+'px');RS.setProperty('--wh',(wp?wp.offsetHeight:80)+'px');
+ max=Math.max(1,document.documentElement.scrollHeight-H);
+ for(const s of secs){const b=s.el.getBoundingClientRect();s.top=b.top+scrollY;s.h=b.height}
+ const dc=getComputedStyle(secs[4].el).backgroundColor;if(dc&&!/rgba\(0, 0, 0, 0\)/.test(dc))secs[4].c=dc;
+ const n=CH.length-1,st=phone?62:84;stops=CH.map((c,i)=>{const top=Math.max(0,Math.min(max,$(c.el).getBoundingClientRect().top+scrollY));return{i,p:top/max,y:y1,x:X(y1)-(n-i)*st,top}});
+ let floor=y0+(stops[1]?stops[1].p:0)*T+8;teas=rows.map(r=>{const b=r.getBoundingClientRect(),mid=b.top+scrollY+b.height/2,s=Math.max(0,Math.min(max,(mid-y0)/(1+T/max))),yy=Math.max(floor,y0+s/max*T);floor=yy+5;return{y:yy,x:X(yy),el:r}});
+ btns.forEach((b,i)=>{b.style.left=stops[i].x+'px';b.style.top=stops[i].y+'px'});
+ RS.setProperty('--pb',pr.by+'px');RS.setProperty('--pbot',Math.round(pr.bot+pr.tw*.024)+'px');
+ // a wipe for each thing a thumb would clear: the tea's two names together, its price by itself, each line block of the rule. Fog stays between them.
+ wipes=[];let wi=20;const put=(...e)=>{const q=box(e,wi++);if(q.w>0)wipes.push(q)};
+ put($('.menu h2'));rows.forEach(r=>{put(r.querySelector('i'),r.querySelector('b'));put(r.querySelector('span'))});put($('.rule h2'));put($('.rule p'));put($('.rule .addr'));
+ ready=true;onScroll();if(first){first=false;y=ty}}
+function say(){rv.classList.toggle('say',scrollY<H*.1)}
+function onScroll(){ty=y0+Math.min(1,Math.max(0,scrollY/max))*T;lastMove=performance.now();let c=0;stops.forEach((s,i)=>{if(s.top<=scrollY+H*.35)c=i});document.body.classList.toggle('past',secs[3].top!==undefined&&scrollY>=secs[3].top);
+ if(c!==cur){cur=c;lis.forEach((l,i)=>{l.classList.toggle('cur',i===c);i===c?btns[i].setAttribute('aria-current','true'):btns[i].removeAttribute('aria-current')})}say()}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',measure);new ResizeObserver(measure).observe(document.body);
+document.fonts.ready.then(()=>{measure();if(!phone)dispatchEvent(new Event('resize'))});
+
+// a pool is a button. In the first screen the names are out; lower down a first touch brings them, a second one goes.
+rv.addEventListener('pointerdown',e=>{lastType=e.pointerType},true);
+rv.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;clearTimeout(ot);
+ if(lastType==='touch'&&!b.classList.contains('on')&&e.detail){btns.forEach(x=>x.classList.toggle('on',x===b));ot=setTimeout(()=>b.classList.remove('on'),4500);return}   // a first touch names the pool, a second one goes
+ btns.forEach(x=>x.classList.remove('on'));scrollTo({top:stops[+b.dataset.i].top,behavior:RM?'auto':'smooth'})});
+
+// a finger pushes water ahead of it: beads gather under every stroke the visitor wipes
+const wb=[];let wl=null;
+gl.addEventListener('pointermove',e=>{if(!(e.pointerType==='mouse'||e.buttons))return;if(wl&&Math.hypot(e.clientX-wl[0],e.clientY-wl[1])<11)return;wl=[e.clientX,e.clientY];
+ const rad=Math.min(80,Math.max(30,W*.055))*.72;for(let k=0;k<2;k++)wb.push({x:e.clientX+(Math.random()-.5)*18,y:e.clientY+scrollY+rad+(Math.random()-.3)*7,r:.9+Math.random()*2.1,t:performance.now()});
+ if(wb.length>340)wb.splice(0,wb.length-340)},{passive:true});
+
+// the drop's track is as long as the page: it is cut in the scene's own fog from where the drop last stood ON THE PANE to where it stands now, so it rides up with the words
+function mark(S,now){const py=y+scrollY;if(!lm){lm={x:X(y),py,bp:py};return}
+ if(py>lm.py+.6){const c=S.mx,K=c.canvas.width/W;c.save();c.globalCompositeOperation='source-over';c.globalAlpha=1;c.strokeStyle='rgba(255,255,255,.5)';c.lineCap='round';c.lineWidth=R()*1.15*K;c.beginPath();c.moveTo(lm.x*K,(lm.py-scrollY)*K);c.lineTo(X(y)*K,y*K);c.stroke();c.restore();
+  if(py-lm.bp>7){lm.bp=py;const h1=Math.random();if(h1<.6)tb.push({x:X(y)+(h1<.3?-1:1)*(R()*.9+1+Math.random()*3),y:py-R(),r:.8+Math.random()*1.7,t:now});if(tb.length>300)tb.shift()}}
+ else if(py<lm.py)lm.bp=py;
+ lm.x=X(y);lm.py=py}
+// one pass of a thumb over a block of words: a band for each line or so, a firm pass and a wider faint one, the ends and the edge never the same twice
+function thumb(c,K,q,sy,a0,a1){const nb=Math.max(1,Math.round(q.h/50)),bh=q.h/nb;
+ for(let k=0;k<nb;k++)for(let p=0;p<2;p++){const s=q.i*13+k*5+p,x1=q.l-6-hash(s)*10,x2=q.l+q.w+4+hash(s+1)*14,n=Math.max(2,Math.round((x2-x1)/46)),cy=q.t-sy+bh*(k+.5)+(p?bh*.12:0);
+  c.strokeStyle=`rgba(255,255,255,${p?a1:a0})`;c.lineWidth=(p?bh+16:bh*.92+4)*K;c.beginPath();
+  for(let j=0;j<=n;j++){const x=x1+(x2-x1)*j/n,yy=cy+(hash(s+j*3.1)-.5)*bh*.16-(j/n-.5)*bh*.1;j?c.lineTo(x*K,yy*K):c.moveTo(x*K,yy*K)}c.stroke()}}
+// the water the thumb pushed gathers along the lower edge of the stroke
+function edge(q,sy,a){if(a<=0)return;const n=Math.round(q.w/12);for(let j=0;j<n;j++){const h1=hash(q.i*9+j*1.7);if(h1>.5)continue;bead(q.l+q.w*j/n+hash(q.i+j)*7,q.t-sy+q.h+7+hash(q.i*3+j)*7,.8+h1*4.2,a)}}
+// every quarter second, against the kettle. A wipe is less fog, never more paint: the fog is cleared where the words are, a firm pass and a faint wider one,
+// so the street stands sharp and lit behind them. Nothing is wiped along the sill: the fog gathers there, and the marks of the pools stand in it with no backing.
+function tend(k){const S=window.__bs;if(!ready||!S||!S.mx||!pr||S.off||document.hidden)return;k=k||.36;
+ const c=S.mx,K=c.canvas.width/W,sy=scrollY;c.save();c.globalCompositeOperation='source-over';c.globalAlpha=1;c.lineCap=c.lineJoin='round';
+ words=(phone?[$('.hero .wipe')]:[$('.hero .top'),$('.hero .wipe')]).filter(Boolean).map((e,i)=>{const b=e.getBoundingClientRect();return{l:b.left,t:b.top+sy,w:b.width,h:b.height,i}}).filter(q=>q.w>0);
+ if(pd&&!gone)stamp(c,K,pr.tw,k>.5?.9:.24);   // the price is held: the keeper goes over it when it mists
+ c.beginPath();c.rect(0,0,c.canvas.width,(cutY-8)*K);c.clip();
+ for(const q of words){const t=q.t-sy;if(t<cutY&&t+q.h>0)thumb(c,K,q,sy,k,k>.5?.3:.03)}
+ for(const q of wipes){const t=q.t-sy;if(t<cutY&&t+q.h>0)thumb(c,K,q,sy,k>.5?.4:.03,k>.5?.14:.012)}   // lower down a thumb only thins the fog: a smear that mists back, the street glowing through it, never a hole onto the night
+ c.restore()}
+setInterval(()=>tend(),250);
+
+function step(dt,now){if(RM){y=ty;v=0;return}const gap=ty-y;
+ if(Math.abs(gap)<.4&&Math.abs(v)<4){y=ty;v=0;stuck=true;return}
+ if(stuck){if(Math.abs(gap)<9&&now-lastMove<260)return;stuck=false}   // it sticks until it has the weight, then it slips
+ v+=(gap*70-v*15)*dt;y+=v*dt}
+
+function bead(x,yy,r,a){if(a<=0)return;g.globalAlpha=a;g.fillStyle='rgba(3,10,11,.42)';g.beginPath();g.arc(x-LD*r*.22,yy+r*.32,r,0,7);g.fill();
+ const s=g.createLinearGradient(0,yy-r,0,yy+r);s.addColorStop(0,'rgba(8,18,20,.78)');s.addColorStop(1,'rgba(228,234,230,.72)');g.fillStyle=s;g.beginPath();g.arc(x,yy,r,0,7);g.fill();
+ g.fillStyle='rgba(255,252,244,.92)';g.beginPath();g.arc(x+LD*r*.34,yy-r*.38,Math.max(.5,r*.22),0,7);g.fill();g.globalAlpha=1}
+// what is behind the drop, turned upside down: the street through the scene's own canvas, and each section below in its own colour,
+// so the amber rule shows in the top of the drop before the drop reaches it
+function refract(x,yy,r,h){const m=h*1.15/F;g.fillStyle='#0c1a1c';g.fillRect(-r*1.4,-h*1.4,r*2.8,h*2.8);g.save();g.scale(-m,-m);
+ for(const s of secs){const ya=Math.max(s.a,yy-F),yb=Math.min(s.b,yy+F);if(yb<=ya)continue;
+  if(s.gl){const q=g.createLinearGradient(0,s.a-yy,0,s.b-yy);q.addColorStop(0,'#0a1416');q.addColorStop(.26,'#162628');q.addColorStop(.34,'#8a673c');q.addColorStop(.43,'#5b4a35');q.addColorStop(.52,'#13282a');q.addColorStop(1,'#0c1a1c');g.fillStyle=q}   // the street as it stands behind the fog: dark above, the lit stall front, dark road
+  else g.fillStyle=s.c;
+  g.fillRect(-F,ya-yy,2*F,yb-ya)}
+ g.restore()}
+function lens(x,yy,r,st,hot){const h=r*st;g.save();g.translate(x,yy);
+ g.fillStyle='rgba(2,8,9,.2)';g.beginPath();g.ellipse(-r*.16,-h*.1,r*1.1,h*1.12,0,0,7);g.fill();   // the stove is low on the kettle side, so the shadow falls up and away from it
+ const p=new Path2D();p.moveTo(0,-h*1.14);p.bezierCurveTo(r*.62,-h*.92,r*1.06,-h*.1,r*.98,h*.42);p.bezierCurveTo(r*.86,h*1.08,-r*.86,h*1.08,-r*.98,h*.42);p.bezierCurveTo(-r*1.06,-h*.1,-r*.62,-h*.92,0,-h*1.14);
+ g.save();g.clip(p);refract(x,yy,r,h);
+ const s=g.createLinearGradient(-r,-h,r,h);s.addColorStop(0,'rgba(3,10,11,.4)');s.addColorStop(.55,'rgba(3,10,11,.04)');s.addColorStop(1,'rgba(255,255,255,.07)');g.fillStyle=s;g.fillRect(-r*1.3,-h*1.3,r*2.6,h*2.6);
+ g.lineCap='round';g.lineWidth=r*.34;   // what a drop holds: the stove's fire as a crescent on its low kettle side. Amber in the one heavy drop, plain light in the pools.
+ if(hot<1){g.strokeStyle=`rgba(243,231,207,${.5*(1-hot)})`;g.beginPath();g.ellipse(0,0,r*.64,h*.7,0,.08*Math.PI,.42*Math.PI);g.stroke()}
+ if(hot>0){g.strokeStyle=`rgba(240,163,71,${hot})`;g.beginPath();g.ellipse(0,0,r*.64,h*.7,0,.06*Math.PI,.44*Math.PI);g.stroke();g.lineWidth=r*.13;g.strokeStyle=`rgba(255,228,176,${hot})`;g.beginPath();g.ellipse(0,0,r*.7,h*.76,0,.17*Math.PI,.31*Math.PI);g.stroke()}
+ g.lineWidth=r*.12;g.strokeStyle='rgba(236,240,234,.34)';g.beginPath();g.ellipse(0,0,r*.9,h*.98,0,1.05*Math.PI,1.45*Math.PI);g.stroke();
+ g.fillStyle='rgba(255,253,246,.9)';g.beginPath();g.ellipse(-r*.36,-h*.36,r*.17,h*.24,-.5,0,7);g.fill();g.restore();   // the bulb, small, on its shoulder
+ g.lineWidth=Math.max(.8,r*.08);g.strokeStyle='rgba(2,8,9,.6)';g.stroke(p);g.restore()}
+
+// the price. The keeper writes it with one finger, a letter at a time: the finger sticks, then slips. It is cut in the scene's own fog,
+// so the stall stands sharp and lit inside every stroke; it climbs a little to the right, as a hand does, and its last stroke runs into the drop.
+function written(now){const n=pr.cut.length-1,u=Math.max(0,Math.min(1,(now-pT)/PD))*n,i=Math.min(n-1,Math.floor(u)),fr=u-i,e=fr<.22?0:(fr-.22)/.78;return pr.cut[i]+(pr.cut[i+1]-pr.cut[i])*e*e*(3-2*e)}
+function stamp(c,K,w,a){const sy=scrollY,f=pr.fs*K,x=pr.x0*K,yb=(pr.by-sy)*K,ax=pr.dx*K,ay=(pr.dy-sy)*K,full=w>=pr.tw-1;if(yb<-f||yb>c.canvas.height+f*1.3)return;
+ c.save();c.globalCompositeOperation='source-over';c.translate(ax,ay);c.rotate(-.024);c.translate(-ax,-ay);c.beginPath();c.rect(x-14,yb-f*1.4,w*K+(full?70:9),f*2.1);c.clip();
+ c.globalAlpha=a;c.font=`400 ${f}px 'Tiro Bangla'`;c.fillStyle=c.strokeStyle='#fff';c.lineJoin=c.lineCap='round';c.lineWidth=f*.062;c.shadowColor='#fff';c.shadowBlur=f*.03;c.fillText(pr.txt,x,yb);c.strokeText(pr.txt,x,yb);
+ if(full){c.shadowBlur=0;c.lineWidth=R0()*1.15*K;c.beginPath();c.moveTo(ax-4*K,ay-pr.fs*.03*K);c.lineTo(ax,(y0-sy)*K);c.stroke()}
+ c.restore()}
+// the pane is one tall sheet and the page is written on it. When the page moves, the fog, the oil a finger left and every drop move with it; fresh glass comes up fogged.
+function glass(S,now){const c=S.mx,cw=c.canvas.width,ch=c.canvas.height,K=cw/W,sy=scrollY,off=document.body.classList.contains('past');S.off=off;if(S.wr)S.wr.page=true;
+ if(S.wr&&S.wr.txt&&S.wr.txt!==pr.txt){measure();return}
+ if(lsy===null)lsy=sy;
+ if(off){wasOff=true;return}
+ if(wasOff){wasOff=false;for(const m of[c,S.ox])if(m){m.save();m.globalAlpha=1;m.fillStyle='#000';m.fillRect(0,0,cw,ch);m.restore()}lm=null;gone=true;lsy=sy;acc=0;tend(.96)}
+ const d=sy-lsy;lsy=sy;
+ if(d){acc+=d*K;const n=Math.trunc(acc);acc-=n;S.mv=now;
+  if(n)for(const m of[c,S.ox])if(m){m.save();m.globalCompositeOperation='source-over';m.globalAlpha=1;m.fillStyle='#000';if(Math.abs(n)>=ch)m.fillRect(0,0,cw,ch);else{m.drawImage(m.canvas,0,-n);n>0?m.fillRect(0,ch-n,cw,n):m.fillRect(0,0,cw,-n)}m.restore()}
+  if(S.shift)S.shift(d);if(Math.abs(d)>H*.4)tend(.96)}
+ if(pT===null)pT=now+1500;   // the fog settles, then he writes
+ if(pr.bot-sy<0)gone=true;
+ if(gone){const t=pr.top-sy;if(t>=0&&t<H*.8){gone=false;pd=false;pw=0;pT=now+300;PD=1700}}   // come back to the first screen and he writes it again
+ else if(!pd){pw=RM?pr.tw:written(now);if(pw>0)stamp(c,K,pw,.5);if(pw>=pr.tw-.5){pw=pr.tw;pd=true}}}
+
+let lastT=performance.now();
+function frame(now){requestAnimationFrame(frame);if(document.hidden||!ready)return;const dt=Math.min(.05,(now-lastT)/1000);lastT=now;frameN++;
+ step(dt,now);g.setTransform(D,0,0,D,0,0);g.globalCompositeOperation='source-over';g.clearRect(0,0,W,H);
+ for(const s of secs){s.a=s.top-scrollY;s.b=s.a+s.h}
+ const dry=dryV=Math.max(0,Math.min(1,((y-y0)/T-.86)/.1)),rr=R(),end=y1-y<rr+7,S=window.__bs,live=!!(S&&S.mx&&pr);   // at the foot the rain stops and the flame goes out of the drop
+ // the sill keeps its own band at every scroll: the fog gathers there and the words come up out of it. Taller while the pools are named.
+ const tall=rv.classList.contains('say')||!!rv.querySelector('button.on,button:hover,button:focus-visible');band+=((tall?84:phone?34:42)-band)*Math.min(1,dt*7);cutY=y1-band;
+ for(let i=1;i<4;i++){const s=secs[i];if(s.a<H&&s.b>0){const cv=Math.round(cutY-s.a);if(s.cv!==cv){s.cv=cv;s.el.style.setProperty('--cut',cv+'px')}}}
+ if(live){glass(S,now);if(!S.off)mark(S,now)}
+ const wet=live&&!S.off?1-dry:0;
+ if(wet>0){for(const q of words){const t=q.t-scrollY;if(t<H&&t+q.h>0)edge(q,scrollY,wet)}
+  for(const q of wipes){const t=q.t-scrollY;if(t+q.h>0&&t+q.h<cutY-12)edge(q,scrollY,wet*.85)}
+  if(pw>0&&!gone)edge({l:pr.x0,t:pr.top,w:pw,h:pr.bot-pr.top+3,i:77},scrollY,wet)}
+ for(let i=tb.length-1;i>=0;i--){const b=tb[i],a=1-(now-b.t)/TAU;if(a<=0){tb.splice(i,1);continue}bead(b.x,b.y-scrollY,b.r,Math.min(1,a*1.6)*(1-dry))}   // beads at the edges of the track
+ for(let i=wb.length-1;i>=0;i--){const b=wb[i],a=1-(now-b.t)/9000;if(a<=0){wb.splice(i,1);continue}if(b.r>2.3&&!RM)b.y+=dt*7;bead(b.x,b.y-scrollY,b.r,Math.min(1,a*2))}
+ teas.forEach((t,i)=>{if(t.y>=y+2)bead(t.x+(hash(i*3+5)-.5)*7,t.y,(phone?1.9:2.5)+hash(i+40)*1.7,1-dry)});   // six small beads, one for each tea still to come
+ // the sill: what has run down gathers there. Four pools, one for each chapter; the one you are in holds the most
+ g.strokeStyle=`rgba(226,232,226,${.3*(1-dry)})`;g.lineWidth=1.3;g.beginPath();{const xa=stops[0].x-34,xb=X(y1)+30;for(let x=xa;x<=xb;x+=9){const yy=y1+8+Math.sin(x*.07)*1.3;x===xa?g.moveTo(x,yy):g.lineTo(x,yy)}}g.stroke();
+ rv.classList.toggle('gone',dry>.6);g.globalAlpha=1-dry;
+ stops.forEach((s,i)=>{if(end&&i===stops.length-1)return;lens(s.x,s.y,(phone?10:12)+(i===cur?4:i<cur?2:0),.62,0)});
+ lens(X(y),y,(rr+(end?3:0))*(1+.45*dry),1+Math.min(.5,Math.abs(v)/520)-.3*dry,1-dry);g.globalAlpha=1;
+ const mv=secs[1].a<H&&secs[1].b>0;for(const t of teas){const b=mv?t.el.getBoundingClientRect():null;t.el.classList.toggle('held',!!b&&b.top<=y&&b.bottom>y)}}
+measure();requestAnimationFrame(frame);
+
+// numbers for the trial report (read by the render tool, never shown)
+window.__lift={report(){const q=s=>[...document.querySelectorAll(s)].map(e=>{const rg=document.createRange();rg.selectNodeContents(e);const b=rg.getBoundingClientRect(),c=getComputedStyle(e);const lb=e.closest('.lb');if(lb&&getComputedStyle(lb).opacity<.5)return[0,0,0,0];return[(e.textContent||'').trim().slice(0,14),Math.round(b.left),Math.round(b.top),Math.round(b.width),Math.round(b.height),c.fontSize,c.color,c.opacity]}).filter((o,i,a)=>o[3]&&o[2]<H&&o[2]+o[4]>0);
+ const res=performance.getEntriesByType('resource'),t=n=>{const r=res.find(r=>r.name.includes(n));return r?Math.round(r.responseEnd):null},small=[];
+ document.querySelectorAll('body *').forEach(e=>{if(e.closest('.ix,[hidden],script,style,.fogn ol'))return;if([...e.childNodes].some(n=>n.nodeType===3&&n.nodeValue.trim())){const c=getComputedStyle(e),b=e.getBoundingClientRect();if(parseFloat(c.fontSize)<14&&b.width&&c.visibility!=='hidden')small.push((e.className||e.tagName)+':'+c.fontSize)}});
+ return{W,H,scrollY:Math.round(scrollY),max:Math.round(max),p:+(scrollY/max).toFixed(4),dropY:+y.toFixed(1),ty:+ty.toFixed(1),dropX:+X(y).toFixed(1),y0,y1,bs:!!window.__bs,pageH:Math.round(max+H),ruleH:Math.round(secs[2].h),tiro:document.fonts.check("400 40px 'Tiro Bangla'",'বর্ষা'),tiroEnd:t('tiro-bangla-400-bn'),threeEnd:t('three.module'),
+  stops:btns.map((b,i)=>{const r=b.getBoundingClientRect();return[Math.round(stops[i].x),Math.round(stops[i].y),r.width,r.height]}),teas:teas.map(t=>Math.round(t.y)),small:[...new Set(small)].slice(0,16),held:rows.findIndex(r=>r.classList.contains('held')),say:rv.classList.contains('say'),
+  LD,texts:q('.hero .top>span,#snd,.wipe,#rv .nm,#rv .bm,.menu h2,.row b,.row small,.row i,.row span,.rule h2,.rule p,.addr').filter(o=>+o[7]>.5)}}};
+const SEL='.hero .top>span,#snd,.wipe,#rv .nm,#rv .bm,.menu h2,.row i,.row b,.row span,.rule h2,.rule p,.addr,.fsi-tag';
+Object.assign(window.__lift,{boxes(){const out=[],lim=cutY-12;document.querySelectorAll(SEL).forEach(e=>{const c=getComputedStyle(e);if(+c.opacity<.5||c.visibility==='hidden')return;const rg=document.createRange();rg.selectNodeContents(e);const b=rg.getBoundingClientRect(),bot=e.closest('.menu,.rule,.cal')?Math.min(b.bottom,lim):b.bottom;if(!b.width||bot<=b.top||bot<=0||b.top>=H)return;out.push([(e.textContent||'').trim().slice(0,12),Math.round(b.left),Math.round(b.top),Math.round(b.width),Math.round(bot-b.top),parseFloat(c.fontSize)])});
+ if(pr&&pw>0&&!gone&&pr.bot-scrollY>0)out.push(['PRICE',Math.round(pr.x0),Math.round(pr.top-scrollY),Math.round(pw),Math.round(pr.bot-pr.top+pr.tw*.024),pr.fs]);return out},
+ // the water: the four pools and the drop, so a pool on a line of words is counted
+ water(){if(dryV>=.97)return[];const r=(phone?10:12)+4,o=stops.map((s,i)=>['POOL'+i,Math.round(s.x-r),Math.round(s.y-r*.72),2*r,Math.round(r*1.44),0]),d=R();o.push(['DROP',Math.round(X(y)-d),Math.round(y-d*1.14),Math.round(2*d),Math.round(d*2.2),0]);return o},
+ // every other line of words that can pass the sill: the calendar wall and the door
+ loose(){const out=[],lim=cutY-12;document.querySelectorAll('#cal *,#door *').forEach(e=>{if(![...e.childNodes].some(n=>n.nodeType===3&&n.nodeValue.trim()))return;const c=getComputedStyle(e);if(+c.opacity<.5||c.visibility==='hidden'||c.display==='none')return;const rg=document.createRange();rg.selectNodeContents(e);const b=rg.getBoundingClientRect(),bot=e.closest('.cal')?Math.min(b.bottom,lim):b.bottom;if(!b.width||bot<=b.top||bot<=0||b.top>=H)return;out.push([(e.textContent||'').trim().slice(0,12),Math.round(b.left),Math.round(b.top),Math.round(b.width),Math.round(bot-b.top),0])});return out},
+ overlaps(){const b=this.boxes(),wa=this.water(),lo=this.loose(),o=[],hit=(A,B)=>Math.min(A[1]+A[3],B[1]+B[3])-Math.max(A[1],B[1])>2&&Math.min(A[2]+A[4],B[2]+B[4])-Math.max(A[2],B[2])>2;
+  for(let i=0;i<b.length;i++)for(let j=i+1;j<b.length;j++)if(hit(b[i],b[j]))o.push(b[i][0]+' x '+b[j][0]);
+  for(const w of wa)for(const t of b.concat(lo)){if(w[0]==='DROP'&&t[0]==='PRICE')continue;if(hit(w,t))o.push(w[0]+' x '+t[0])}   // the drop hangs from the price on purpose: that one pair is not a fault
+  return{n:b.length,loose:lo.length,H,tag:Math.round(tagH),cut:Math.round(cutY),written:Math.round(pw),drop:[Math.round(X(y)),Math.round(y),+R().toFixed(1)],price:pr&&{x0:pr.x0,top:Math.round(pr.top),bot:Math.round(pr.bot),topPct:+(pr.top/H).toFixed(3),dashX:Math.round(pr.dx),dashY:Math.round(pr.dy)},sill:Math.round(y1),pools:stops.map(s=>Math.round(s.x)),o,b}}});
+</script>
 </body>
 </html>
