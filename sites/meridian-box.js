@@ -17,7 +17,7 @@ function door(){
  for (const x of [68, 150, 246, 328]){ rods += `<rect x="${x + 2}" y="22" width="6" height="400" rx="3" fill="#000" opacity=".28"/><rect x="${x - 3}" y="20" width="6" height="400" rx="3" fill="#b9b4a8"/><rect x="${x - 3}" y="20" width="2" height="400" fill="#fff" opacity=".35"/><rect x="${x + 1}" y="20" width="2" height="400" fill="#000" opacity=".3"/>
   <rect x="${x - 9}" y="18" width="18" height="12" rx="2" fill="#8f8a7e"/><rect x="${x - 9}" y="410" width="18" height="12" rx="2" fill="#8f8a7e"/>
   <rect x="${x - 7}" y="96" width="14" height="9" rx="2" fill="#6f6a60"/><rect x="${x - 7}" y="330" width="14" height="9" rx="2" fill="#6f6a60"/>
-  <rect x="${x - 4}" y="258" width="${x < 200 ? 46 : -46}" height="7" rx="3" transform="${x < 200 ? '' : `translate(${8} 0)`}" fill="#b9b4a8" ${x > 200 ? `x="${x - 42}" width="46"` : ''}/><rect x="${x < 200 ? x + 30 : x - 44}" y="252" width="14" height="19" rx="2" fill="#6f6a60"/>`; }
+  <rect x="${x < 200 ? x - 4 : x - 42}" y="258" width="46" height="7" rx="3" fill="#b9b4a8"/><rect x="${x < 200 ? x + 30 : x - 44}" y="252" width="14" height="19" rx="2" fill="#6f6a60"/>`; }
  for (const x of [22, 372]) for (let i = 0; i < 4; i++){ const y = 50 + i * 108; hinges += `<rect x="${x}" y="${y}" width="10" height="26" rx="2" fill="#5c241a"/><circle cx="${x + 5}" cy="${y + 13}" r="2" fill="#2c120c"/>`;
   rust += `<path d="M${x + 5} ${y + 26}q${(r() * 6 - 3).toFixed(1)} ${(30 + r() * 50).toFixed(0)} ${(r() * 4 - 2).toFixed(1)} ${(60 + r() * 70).toFixed(0)}" stroke="#4a2010" stroke-width="${(1.5 + r() * 3).toFixed(1)}" opacity=".35" fill="none" filter="url(#bbl)"/>`; }
  return `<svg viewBox="0 0 400 440" role="img" aria-label="The door end of container MRDU 482913 2, a forty foot high-cube, sealed">
